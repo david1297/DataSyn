@@ -1,0 +1,3405 @@
+object Main: TMain
+  Left = 0
+  Top = 0
+  Caption = 'DataSyn'
+  ClientHeight = 551
+  ClientWidth = 866
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 866.000000000000000000
+    Size.Height = 145.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object GroupBox1: TGroupBox
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 321.000000000000000000
+      Size.Height = 129.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Datos Conexi'#243'n'
+      TabOrder = 0
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        Text = 'D:\Saiopen\Datasyn\Origen.FDB'
+        Position.X = 16.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 273.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object SpeedButton1: TSpeedButton
+        Images = ImageList1
+        ImageIndex = 0
+        Position.X = 288.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = SpeedButton1Click
+      end
+      object Edit2: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        Text = 'D:\Saiopen\Datasyn\destino.FDB'
+        Position.X = 16.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 273.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object SpeedButton2: TSpeedButton
+        Images = ImageList1
+        ImageIndex = 0
+        Position.X = 288.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = SpeedButton2Click
+      end
+      object Label1: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 24.000000000000000000
+        Text = 'Base de Datos Origen'
+        TabOrder = 4
+      end
+      object Label2: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 72.000000000000000000
+        Text = 'Base de Datos Destino'
+        TabOrder = 5
+      end
+    end
+    object Button1: TButton
+      Position.X = 536.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 1
+      Text = 'Parametros'
+      OnClick = Button1Click
+    end
+    object DateEdit1: TDateEdit
+      Date = 43340.000000000000000000
+      Position.X = 424.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 3
+    end
+    object DateEdit2: TDateEdit
+      Date = 43340.000000000000000000
+      Position.X = 424.000000000000000000
+      Position.Y = 56.000000000000000000
+      TabOrder = 2
+    end
+    object Label4: TLabel
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Position.X = 339.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Fecha Final:'
+      TabOrder = 5
+    end
+    object Label5: TLabel
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Position.X = 339.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Fecha Inicial:'
+      TabOrder = 4
+    end
+    object Button2: TButton
+      Position.X = 336.000000000000000000
+      Position.Y = 112.000000000000000000
+      TabOrder = 6
+      Text = 'Procesar'
+      OnClick = Button2Click
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 720
+    Top = 24
+  end
+  object Panel2: TPanel
+    Align = Client
+    Size.Width = 866.000000000000000000
+    Size.Height = 406.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Memo1: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      ReadOnly = True
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 409.000000000000000000
+      Size.Height = 361.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 405.000000000000000000
+      Viewport.Height = 357.000000000000000000
+    end
+    object ProgressBar1: TProgressBar
+      Orientation = Horizontal
+      Position.X = 8.000000000000000000
+      Position.Y = 376.000000000000000000
+      Size.Width = 849.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      ParentShowHint = False
+      ShowHint = False
+    end
+  end
+  object ImageList1: TImageList
+    Source = <
+      item
+        MultiResBitmap.LoadSize = 0
+        MultiResBitmap.TransparentColor = 536870912
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00DD49444154384FCD92FD1183200CC563AF7BC026DA4DEC24A593944E52DC04
+              26A17901154BFDB8EB3FFDDD452386E70B917EA5C977F286624E056DE677BB60
+              F327AE5F0AAED1A0B07D440AE19E97124ADD68B87E37D1D9D99D086863387569
+              A540A957CE66206AB9D4FA24921D1085815BB1527308C7B5FCD98620102349CF
+              DED56751936A78B39CD159E44674579D4585E7D0979433275CC293D734B28E03
+              67B1150C5B9D10EB3C46D8F7DE648BEB81BAD13E10079E6DA9569EF7410B0522
+              0042303C368C739BD23D9059A20D793A40F90F8029E9F5319172F33F40F4065B
+              8DA737318A4AAE0000000049454E44AE426082}
+            FileName = 'D:\Compartida\carpeta.bmp'
+          end>
+        Name = 'carpeta'
+      end>
+    Destination = <
+      item
+        Layers = <
+          item
+            Name = 'carpeta'
+          end>
+      end>
+    Left = 656
+    Top = 16
+  end
+  object ConDestino: TFDConnection
+    Params.Strings = (
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'DriverID=FB')
+    Left = 504
+    Top = 88
+  end
+  object ConOrigen: TFDConnection
+    Params.Strings = (
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'Database=D:\Saiopen\Datasyn\Origen.FDB'
+      'Server=10.10.10.226'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 440
+    Top = 88
+  end
+  object QCust: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'select a.ID_N, a.NIT, a.ACCT, a.ACCTP, a.COMPANY, a.ADDR1, a.ADD' +
+        'R2, a.CITY, a.PAIS, a.CONTACT1, a.CARGO1, a.CONTACT2,'
+      
+        'a.CARGO2, a.PHONE1, a.EXT1, a.PHONE2, a.EXT2, a.PHONE3, a.EXT3, ' +
+        'a.FAX, a.EXT4, a.NOTAS, a.MEMO, a.ACTIVIDAD, a.GRUPO,'
+      
+        'a.CATEGORIA, a.ZONA, a.TERMS, a.TERMSP, a.GRAVABLE, a.RETENEDOR,' +
+        ' a.LATE, a.CREDITLMT, a.ONACCOUNT, a.NIVEL, a.FUENTE,'
+      
+        'a.ISSUE1099, a.ONETIME, a.RETIVA, a.IVAIN, a.AUTORET, a.CREDITO,' +
+        ' a.PLAZO, a.CLIENTE, a.PROVEEDOR, a.OTRO, a.EMPLEADO,'
+      
+        'a.VENDEDOR, a.ICAIN, a.RETEICA, a.TIPOEMP, a.COD_VEND, a.IDVEND,' +
+        ' a.PROSPECTO, a.DESCUENTO, a.CV, a.E, a.S,'
+      
+        'a.FECHA_CREACION, a.EMAIL, a.TIPORETEICA, a.DCTADICIONAL, a.DEPA' +
+        'RTAMENTO, a.COMPANY_EXTENDIDO, a.ID_TIPOCARTERA,'
+      
+        'a.COD_NIVEL, a.DIAS_GRACIA, a.USERNAME, a.RETIVA_PROV, a.DCTO_AD' +
+        '1, a.DCTO_AD2, a.MEDICO, a.IPS, a.TIPORETICA_VENTA,'
+      
+        'a.GRAVABLEIP, a.TASA_COM, a.CLITIP, a.EAN_ENTIDAD_COMP, a.NUIT, ' +
+        'a.PORCON, a.IVATEO, a.RTIVA100, a.TASAAIU,'
+      
+        'a.NRO_TARJETA, a.FECVEN, a.COD_EPS, a.CONTEO, a.TASA_DCTO_PRONTO' +
+        'PAGO, a.RETECREEC, a.RETECREEV, a.AUTOCREE,'
+      
+        'a.NIIF_CONTA_AUTO_FAC, a.CREDITLMTPROV, a.TIPRET, a.TIPAUTRET, a' +
+        '.INACTIVO, a.BANKNO, a.CTA_CORRIENTE, a.CODIGO_BANCO,'
+      'a.APLICA_RETEFUENTE, a.CONTRATO, a."Version"'
+      'from CUST a'
+      '')
+    Left = 24
+    Top = 160
+    object QCustID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QCustNIT: TStringField
+      FieldName = 'NIT'
+      Origin = 'NIT'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+    end
+    object QCustACCTP: TFloatField
+      FieldName = 'ACCTP'
+      Origin = 'ACCTP'
+    end
+    object QCustCOMPANY: TStringField
+      FieldName = 'COMPANY'
+      Origin = 'COMPANY'
+      FixedChar = True
+      Size = 35
+    end
+    object QCustADDR1: TStringField
+      FieldName = 'ADDR1'
+      Origin = 'ADDR1'
+      FixedChar = True
+      Size = 35
+    end
+    object QCustADDR2: TStringField
+      FieldName = 'ADDR2'
+      Origin = 'ADDR2'
+      FixedChar = True
+      Size = 35
+    end
+    object QCustCITY: TStringField
+      FieldName = 'CITY'
+      Origin = 'CITY'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustPAIS: TStringField
+      FieldName = 'PAIS'
+      Origin = 'PAIS'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustCONTACT1: TStringField
+      FieldName = 'CONTACT1'
+      Origin = 'CONTACT1'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustCARGO1: TStringField
+      FieldName = 'CARGO1'
+      Origin = 'CARGO1'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustCONTACT2: TStringField
+      FieldName = 'CONTACT2'
+      Origin = 'CONTACT2'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustCARGO2: TStringField
+      FieldName = 'CARGO2'
+      Origin = 'CARGO2'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustPHONE1: TStringField
+      FieldName = 'PHONE1'
+      Origin = 'PHONE1'
+      FixedChar = True
+      Size = 16
+    end
+    object QCustEXT1: TStringField
+      FieldName = 'EXT1'
+      Origin = 'EXT1'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustPHONE2: TStringField
+      FieldName = 'PHONE2'
+      Origin = 'PHONE2'
+      FixedChar = True
+      Size = 16
+    end
+    object QCustEXT2: TStringField
+      FieldName = 'EXT2'
+      Origin = 'EXT2'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustPHONE3: TStringField
+      FieldName = 'PHONE3'
+      Origin = 'PHONE3'
+      FixedChar = True
+      Size = 16
+    end
+    object QCustEXT3: TStringField
+      FieldName = 'EXT3'
+      Origin = 'EXT3'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustFAX: TStringField
+      FieldName = 'FAX'
+      Origin = 'FAX'
+      FixedChar = True
+      Size = 16
+    end
+    object QCustEXT4: TStringField
+      FieldName = 'EXT4'
+      Origin = 'EXT4'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustNOTAS: TStringField
+      FieldName = 'NOTAS'
+      Origin = 'NOTAS'
+      FixedChar = True
+      Size = 50
+    end
+    object QCustMEMO: TMemoField
+      FieldName = 'MEMO'
+      Origin = 'MEMO'
+      BlobType = ftMemo
+    end
+    object QCustACTIVIDAD: TSmallintField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+    end
+    object QCustGRUPO: TSmallintField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+    end
+    object QCustCATEGORIA: TSmallintField
+      FieldName = 'CATEGORIA'
+      Origin = 'CATEGORIA'
+    end
+    object QCustZONA: TSmallintField
+      FieldName = 'ZONA'
+      Origin = 'ZONA'
+    end
+    object QCustTERMS: TStringField
+      FieldName = 'TERMS'
+      Origin = 'TERMS'
+      FixedChar = True
+      Size = 15
+    end
+    object QCustTERMSP: TStringField
+      FieldName = 'TERMSP'
+      Origin = 'TERMSP'
+      FixedChar = True
+      Size = 15
+    end
+    object QCustGRAVABLE: TStringField
+      FieldName = 'GRAVABLE'
+      Origin = 'GRAVABLE'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustRETENEDOR: TStringField
+      FieldName = 'RETENEDOR'
+      Origin = 'RETENEDOR'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustLATE: TStringField
+      FieldName = 'LATE'
+      Origin = 'LATE'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustCREDITLMT: TFloatField
+      FieldName = 'CREDITLMT'
+      Origin = 'CREDITLMT'
+    end
+    object QCustONACCOUNT: TStringField
+      FieldName = 'ONACCOUNT'
+      Origin = 'ONACCOUNT'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustNIVEL: TStringField
+      FieldName = 'NIVEL'
+      Origin = 'NIVEL'
+      FixedChar = True
+      Size = 10
+    end
+    object QCustFUENTE: TSmallintField
+      FieldName = 'FUENTE'
+      Origin = 'FUENTE'
+    end
+    object QCustISSUE1099: TStringField
+      FieldName = 'ISSUE1099'
+      Origin = 'ISSUE1099'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustONETIME: TStringField
+      FieldName = 'ONETIME'
+      Origin = 'ONETIME'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustRETIVA: TStringField
+      FieldName = 'RETIVA'
+      Origin = 'RETIVA'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustIVAIN: TStringField
+      FieldName = 'IVAIN'
+      Origin = 'IVAIN'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustAUTORET: TStringField
+      FieldName = 'AUTORET'
+      Origin = 'AUTORET'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustCREDITO: TStringField
+      FieldName = 'CREDITO'
+      Origin = 'CREDITO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustPLAZO: TStringField
+      FieldName = 'PLAZO'
+      Origin = 'PLAZO'
+      FixedChar = True
+      Size = 10
+    end
+    object QCustCLIENTE: TStringField
+      FieldName = 'CLIENTE'
+      Origin = 'CLIENTE'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustPROVEEDOR: TStringField
+      FieldName = 'PROVEEDOR'
+      Origin = 'PROVEEDOR'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustOTRO: TStringField
+      FieldName = 'OTRO'
+      Origin = 'OTRO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustEMPLEADO: TStringField
+      FieldName = 'EMPLEADO'
+      Origin = 'EMPLEADO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustVENDEDOR: TStringField
+      FieldName = 'VENDEDOR'
+      Origin = 'VENDEDOR'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustICAIN: TStringField
+      FieldName = 'ICAIN'
+      Origin = 'ICAIN'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustRETEICA: TStringField
+      FieldName = 'RETEICA'
+      Origin = 'RETEICA'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustTIPOEMP: TSmallintField
+      FieldName = 'TIPOEMP'
+      Origin = 'TIPOEMP'
+    end
+    object QCustCOD_VEND: TStringField
+      FieldName = 'COD_VEND'
+      Origin = 'COD_VEND'
+      FixedChar = True
+      Size = 3
+    end
+    object QCustIDVEND: TSmallintField
+      FieldName = 'IDVEND'
+      Origin = 'IDVEND'
+    end
+    object QCustPROSPECTO: TStringField
+      FieldName = 'PROSPECTO'
+      Origin = 'PROSPECTO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustDESCUENTO: TFloatField
+      FieldName = 'DESCUENTO'
+      Origin = 'DESCUENTO'
+    end
+    object QCustCV: TSmallintField
+      FieldName = 'CV'
+      Origin = 'CV'
+    end
+    object QCustE: TSmallintField
+      FieldName = 'E'
+      Origin = 'E'
+    end
+    object QCustS: TSmallintField
+      FieldName = 'S'
+      Origin = 'S'
+    end
+    object QCustFECHA_CREACION: TSQLTimeStampField
+      FieldName = 'FECHA_CREACION'
+      Origin = 'FECHA_CREACION'
+    end
+    object QCustEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      FixedChar = True
+      Size = 40
+    end
+    object QCustTIPORETEICA: TStringField
+      FieldName = 'TIPORETEICA'
+      Origin = 'TIPORETEICA'
+      FixedChar = True
+      Size = 3
+    end
+    object QCustDCTADICIONAL: TStringField
+      FieldName = 'DCTADICIONAL'
+      Origin = 'DCTADICIONAL'
+      FixedChar = True
+      Size = 1
+    end
+    object QCustDEPARTAMENTO: TStringField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+      FixedChar = True
+      Size = 40
+    end
+    object QCustCOMPANY_EXTENDIDO: TStringField
+      FieldName = 'COMPANY_EXTENDIDO'
+      Origin = 'COMPANY_EXTENDIDO'
+      FixedChar = True
+      Size = 80
+    end
+    object QCustID_TIPOCARTERA: TStringField
+      FieldName = 'ID_TIPOCARTERA'
+      Origin = 'ID_TIPOCARTERA'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustCOD_NIVEL: TStringField
+      FieldName = 'COD_NIVEL'
+      Origin = 'COD_NIVEL'
+      FixedChar = True
+      Size = 10
+    end
+    object QCustDIAS_GRACIA: TIntegerField
+      FieldName = 'DIAS_GRACIA'
+      Origin = 'DIAS_GRACIA'
+    end
+    object QCustUSERNAME: TStringField
+      FieldName = 'USERNAME'
+      Origin = 'USERNAME'
+      FixedChar = True
+      Size = 10
+    end
+    object QCustRETIVA_PROV: TStringField
+      FieldName = 'RETIVA_PROV'
+      Origin = 'RETIVA_PROV'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustDCTO_AD1: TFloatField
+      FieldName = 'DCTO_AD1'
+      Origin = 'DCTO_AD1'
+    end
+    object QCustDCTO_AD2: TFloatField
+      FieldName = 'DCTO_AD2'
+      Origin = 'DCTO_AD2'
+    end
+    object QCustMEDICO: TStringField
+      FieldName = 'MEDICO'
+      Origin = 'MEDICO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustIPS: TStringField
+      FieldName = 'IPS'
+      Origin = 'IPS'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustTIPORETICA_VENTA: TStringField
+      FieldName = 'TIPORETICA_VENTA'
+      Origin = 'TIPORETICA_VENTA'
+      FixedChar = True
+      Size = 10
+    end
+    object QCustGRAVABLEIP: TStringField
+      FieldName = 'GRAVABLEIP'
+      Origin = 'GRAVABLEIP'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustTASA_COM: TFloatField
+      FieldName = 'TASA_COM'
+      Origin = 'TASA_COM'
+    end
+    object QCustCLITIP: TSmallintField
+      FieldName = 'CLITIP'
+      Origin = 'CLITIP'
+    end
+    object QCustEAN_ENTIDAD_COMP: TStringField
+      FieldName = 'EAN_ENTIDAD_COMP'
+      Origin = 'EAN_ENTIDAD_COMP'
+      FixedChar = True
+      Size = 13
+    end
+    object QCustNUIT: TStringField
+      FieldName = 'NUIT'
+      Origin = 'NUIT'
+      FixedChar = True
+      Size = 30
+    end
+    object QCustPORCON: TFloatField
+      FieldName = 'PORCON'
+      Origin = 'PORCON'
+    end
+    object QCustIVATEO: TStringField
+      FieldName = 'IVATEO'
+      Origin = 'IVATEO'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustRTIVA100: TStringField
+      FieldName = 'RTIVA100'
+      Origin = 'RTIVA100'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustTASAAIU: TFloatField
+      FieldName = 'TASAAIU'
+      Origin = 'TASAAIU'
+    end
+    object QCustNRO_TARJETA: TStringField
+      FieldName = 'NRO_TARJETA'
+      Origin = 'NRO_TARJETA'
+      FixedChar = True
+      Size = 35
+    end
+    object QCustFECVEN: TSQLTimeStampField
+      FieldName = 'FECVEN'
+      Origin = 'FECVEN'
+    end
+    object QCustCOD_EPS: TStringField
+      FieldName = 'COD_EPS'
+      Origin = 'COD_EPS'
+      FixedChar = True
+    end
+    object QCustCONTEO: TIntegerField
+      FieldName = 'CONTEO'
+      Origin = 'CONTEO'
+    end
+    object QCustTASA_DCTO_PRONTOPAGO: TFloatField
+      FieldName = 'TASA_DCTO_PRONTOPAGO'
+      Origin = 'TASA_DCTO_PRONTOPAGO'
+    end
+    object QCustRETECREEC: TStringField
+      FieldName = 'RETECREEC'
+      Origin = 'RETECREEC'
+      Size = 5
+    end
+    object QCustRETECREEV: TStringField
+      FieldName = 'RETECREEV'
+      Origin = 'RETECREEV'
+      Size = 5
+    end
+    object QCustAUTOCREE: TStringField
+      FieldName = 'AUTOCREE'
+      Origin = 'AUTOCREE'
+      FixedChar = True
+      Size = 5
+    end
+    object QCustNIIF_CONTA_AUTO_FAC: TStringField
+      FieldName = 'NIIF_CONTA_AUTO_FAC'
+      Origin = 'NIIF_CONTA_AUTO_FAC'
+      Size = 1
+    end
+    object QCustCREDITLMTPROV: TFloatField
+      FieldName = 'CREDITLMTPROV'
+      Origin = 'CREDITLMTPROV'
+    end
+    object QCustTIPRET: TStringField
+      FieldName = 'TIPRET'
+      Origin = 'TIPRET'
+      FixedChar = True
+      Size = 3
+    end
+    object QCustTIPAUTRET: TStringField
+      FieldName = 'TIPAUTRET'
+      Origin = 'TIPAUTRET'
+      FixedChar = True
+      Size = 3
+    end
+    object QCustINACTIVO: TStringField
+      FieldName = 'INACTIVO'
+      Origin = 'INACTIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object QCustBANKNO: TStringField
+      FieldName = 'BANKNO'
+      Origin = 'BANKNO'
+      FixedChar = True
+      Size = 2
+    end
+    object QCustCTA_CORRIENTE: TStringField
+      FieldName = 'CTA_CORRIENTE'
+      Origin = 'CTA_CORRIENTE'
+      FixedChar = True
+      Size = 25
+    end
+    object QCustCODIGO_BANCO: TSmallintField
+      FieldName = 'CODIGO_BANCO'
+      Origin = 'CODIGO_BANCO'
+    end
+    object QCustAPLICA_RETEFUENTE: TStringField
+      FieldName = 'APLICA_RETEFUENTE'
+      Origin = 'APLICA_RETEFUENTE'
+      FixedChar = True
+      Size = 1
+    end
+    object QCustCONTRATO: TStringField
+      FieldName = 'CONTRATO'
+      Origin = 'CONTRATO'
+      FixedChar = True
+    end
+    object QCustVersion: TIntegerField
+      FieldName = 'Version'
+      Origin = '"Version"'
+    end
+  end
+  object QShipto: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT S.ID_N,S.SUCCLIENTE,S.DESCRIPCION,S.COMPANY,S.ADDR1,S.ADD' +
+        'R2,S.PHONE1,S.PHONE2,'
+      
+        'S.FAX,S.EXT1,S.EXT2,S.CONTEO,S.ZONA,S.ID_VEND,S.PAIS,S.CONTACT1,' +
+        'S.CARGO1,S.EMAIL,S.CIRCUITO,S.COMUNA,S.BARRIO,'
+      
+        'S.IMPCONSUMO,S.DEPARTAMENTO,S.CITY,S.RETIVA_PROV,S.CREDITLMT,EST' +
+        'ADO FROM SHIPTO S WHERE S.ID_N = :ID_N')
+    Left = 24
+    Top = 208
+    ParamData = <
+      item
+        Name = 'ID_N'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QShiptoID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoSUCCLIENTE: TIntegerField
+      FieldName = 'SUCCLIENTE'
+      Origin = 'SUCCLIENTE'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QShiptoDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoCOMPANY: TStringField
+      FieldName = 'COMPANY'
+      Origin = 'COMPANY'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoADDR1: TStringField
+      FieldName = 'ADDR1'
+      Origin = 'ADDR1'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoADDR2: TStringField
+      FieldName = 'ADDR2'
+      Origin = 'ADDR2'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoPHONE1: TStringField
+      FieldName = 'PHONE1'
+      Origin = 'PHONE1'
+      FixedChar = True
+      Size = 16
+    end
+    object QShiptoPHONE2: TStringField
+      FieldName = 'PHONE2'
+      Origin = 'PHONE2'
+      FixedChar = True
+      Size = 16
+    end
+    object QShiptoFAX: TStringField
+      FieldName = 'FAX'
+      Origin = 'FAX'
+      FixedChar = True
+      Size = 16
+    end
+    object QShiptoEXT1: TStringField
+      FieldName = 'EXT1'
+      Origin = 'EXT1'
+      FixedChar = True
+      Size = 5
+    end
+    object QShiptoEXT2: TStringField
+      FieldName = 'EXT2'
+      Origin = 'EXT2'
+      FixedChar = True
+      Size = 5
+    end
+    object QShiptoCONTEO: TIntegerField
+      FieldName = 'CONTEO'
+      Origin = 'CONTEO'
+    end
+    object QShiptoZONA: TSmallintField
+      FieldName = 'ZONA'
+      Origin = 'ZONA'
+    end
+    object QShiptoID_VEND: TSmallintField
+      FieldName = 'ID_VEND'
+      Origin = 'ID_VEND'
+    end
+    object QShiptoPAIS: TStringField
+      FieldName = 'PAIS'
+      Origin = 'PAIS'
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoCONTACT1: TStringField
+      FieldName = 'CONTACT1'
+      Origin = 'CONTACT1'
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoCARGO1: TStringField
+      FieldName = 'CARGO1'
+      Origin = 'CARGO1'
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      FixedChar = True
+      Size = 250
+    end
+    object QShiptoCIRCUITO: TIntegerField
+      FieldName = 'CIRCUITO'
+      Origin = 'CIRCUITO'
+    end
+    object QShiptoCOMUNA: TIntegerField
+      FieldName = 'COMUNA'
+      Origin = 'COMUNA'
+    end
+    object QShiptoBARRIO: TIntegerField
+      FieldName = 'BARRIO'
+      Origin = 'BARRIO'
+    end
+    object QShiptoIMPCONSUMO: TStringField
+      FieldName = 'IMPCONSUMO'
+      Origin = 'IMPCONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object QShiptoDEPARTAMENTO: TStringField
+      FieldName = 'DEPARTAMENTO'
+      Origin = 'DEPARTAMENTO'
+      FixedChar = True
+      Size = 40
+    end
+    object QShiptoCITY: TStringField
+      FieldName = 'CITY'
+      Origin = 'CITY'
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoRETIVA_PROV: TStringField
+      FieldName = 'RETIVA_PROV'
+      Origin = 'RETIVA_PROV'
+      FixedChar = True
+      Size = 5
+    end
+    object QShiptoCREDITLMT: TFloatField
+      FieldName = 'CREDITLMT'
+      Origin = 'CREDITLMT'
+    end
+    object QShiptoESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      FixedChar = True
+      Size = 8
+    end
+  end
+  object QTributaria: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT T.ID_N,T.COMPANY,T.TDOC,T.CV,T.TIPO_CONTRIBUYENTE,T.PRIME' +
+        'R_NOMBRE,T.SEGUNDO_NOMBRE,T.PRIMER_APELLIDO,'
+      
+        'T.SEGUNDO_APELLIDO,T.ESTAB_COMERCIAL,T.PRETRANS FROM TRIBUTARIA ' +
+        'T WHERE T.ID_N = :ID_N')
+    Left = 24
+    Top = 256
+    ParamData = <
+      item
+        Name = 'ID_N'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QTributariaID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QTributariaCOMPANY: TStringField
+      FieldName = 'COMPANY'
+      Origin = 'COMPANY'
+      FixedChar = True
+      Size = 35
+    end
+    object QTributariaTDOC: TSmallintField
+      FieldName = 'TDOC'
+      Origin = 'TDOC'
+      Required = True
+    end
+    object QTributariaCV: TSmallintField
+      FieldName = 'CV'
+      Origin = 'CV'
+    end
+    object QTributariaTIPO_CONTRIBUYENTE: TSmallintField
+      FieldName = 'TIPO_CONTRIBUYENTE'
+      Origin = 'TIPO_CONTRIBUYENTE'
+    end
+    object QTributariaPRIMER_NOMBRE: TStringField
+      FieldName = 'PRIMER_NOMBRE'
+      Origin = 'PRIMER_NOMBRE'
+      FixedChar = True
+      Size = 60
+    end
+    object QTributariaSEGUNDO_NOMBRE: TStringField
+      FieldName = 'SEGUNDO_NOMBRE'
+      Origin = 'SEGUNDO_NOMBRE'
+      FixedChar = True
+      Size = 30
+    end
+    object QTributariaPRIMER_APELLIDO: TStringField
+      FieldName = 'PRIMER_APELLIDO'
+      Origin = 'PRIMER_APELLIDO'
+      FixedChar = True
+    end
+    object QTributariaSEGUNDO_APELLIDO: TStringField
+      FieldName = 'SEGUNDO_APELLIDO'
+      Origin = 'SEGUNDO_APELLIDO'
+      FixedChar = True
+    end
+    object QTributariaESTAB_COMERCIAL: TStringField
+      FieldName = 'ESTAB_COMERCIAL'
+      Origin = 'ESTAB_COMERCIAL'
+      FixedChar = True
+      Size = 80
+    end
+    object QTributariaPRETRANS: TStringField
+      FieldName = 'PRETRANS'
+      Origin = 'PRETRANS'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object QAcct: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT'
+      
+        'ACCT,E,S,DESCRIPCION,TIPO,CLASS,CCOST,BEGDR,BEGCR,OLDDR,OLDCR,CU' +
+        'RDR,CURCR,'
+      
+        'BDGTCAT,AJUSTE,CORRECCION,COD_SUBCUENTA,MONETARIO,NVEL,BASERTNCI' +
+        'ON,PORCENRETENCION,'
+      
+        'CDGOTTL,CDGOGRPO,CDGOCNTA,CDGOSBCNTA,CDGOAUX,TPOAPLCCION,CNCLCIO' +
+        'N,DPRTMNTOCSTO,'
+      
+        'JBNO,VNCMNTO,CTAS,POSESTFINAN,VALORIPATRIMONIO,MONETARIO_APL,UNI' +
+        'VEL,IDENEG,'
+      
+        'SBCTAANA,MAYOR_VALOR,PLANTILLA_RETENCION,FEFECTIVO,PRIORIDAD,MAT' +
+        'ERIALIDAD,MODELO,'
+      
+        'NORMA,COD_FORMATO,COD_CONCEPTO,ACTIVIDADES,APLI_IMPUESTO  FROM A' +
+        'CCT')
+    Left = 88
+    Top = 161
+    object QAcctACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QAcctE: TSmallintField
+      FieldName = 'E'
+      Origin = 'E'
+    end
+    object QAcctS: TSmallintField
+      FieldName = 'S'
+      Origin = 'S'
+    end
+    object QAcctDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 30
+    end
+    object QAcctTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      FixedChar = True
+      Size = 3
+    end
+    object QAcctCLASS: TStringField
+      FieldName = 'CLASS'
+      Origin = 'CLASS'
+      FixedChar = True
+      Size = 1
+    end
+    object QAcctCCOST: TSmallintField
+      FieldName = 'CCOST'
+      Origin = 'CCOST'
+    end
+    object QAcctBEGDR: TFloatField
+      FieldName = 'BEGDR'
+      Origin = 'BEGDR'
+    end
+    object QAcctBEGCR: TFloatField
+      FieldName = 'BEGCR'
+      Origin = 'BEGCR'
+    end
+    object QAcctOLDDR: TFloatField
+      FieldName = 'OLDDR'
+      Origin = 'OLDDR'
+    end
+    object QAcctOLDCR: TFloatField
+      FieldName = 'OLDCR'
+      Origin = 'OLDCR'
+    end
+    object QAcctCURDR: TFloatField
+      FieldName = 'CURDR'
+      Origin = 'CURDR'
+    end
+    object QAcctCURCR: TFloatField
+      FieldName = 'CURCR'
+      Origin = 'CURCR'
+    end
+    object QAcctBDGTCAT: TStringField
+      FieldName = 'BDGTCAT'
+      Origin = 'BDGTCAT'
+      FixedChar = True
+      Size = 2
+    end
+    object QAcctAJUSTE: TFloatField
+      FieldName = 'AJUSTE'
+      Origin = 'AJUSTE'
+    end
+    object QAcctCORRECCION: TFloatField
+      FieldName = 'CORRECCION'
+      Origin = 'CORRECCION'
+    end
+    object QAcctCOD_SUBCUENTA: TStringField
+      FieldName = 'COD_SUBCUENTA'
+      Origin = 'COD_SUBCUENTA'
+      FixedChar = True
+      Size = 6
+    end
+    object QAcctMONETARIO: TStringField
+      FieldName = 'MONETARIO'
+      Origin = 'MONETARIO'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctNVEL: TSmallintField
+      FieldName = 'NVEL'
+      Origin = 'NVEL'
+    end
+    object QAcctBASERTNCION: TStringField
+      FieldName = 'BASERTNCION'
+      Origin = 'BASERTNCION'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctPORCENRETENCION: TFloatField
+      FieldName = 'PORCENRETENCION'
+      Origin = 'PORCENRETENCION'
+    end
+    object QAcctCDGOTTL: TIntegerField
+      FieldName = 'CDGOTTL'
+      Origin = 'CDGOTTL'
+    end
+    object QAcctCDGOGRPO: TIntegerField
+      FieldName = 'CDGOGRPO'
+      Origin = 'CDGOGRPO'
+    end
+    object QAcctCDGOCNTA: TIntegerField
+      FieldName = 'CDGOCNTA'
+      Origin = 'CDGOCNTA'
+    end
+    object QAcctCDGOSBCNTA: TIntegerField
+      FieldName = 'CDGOSBCNTA'
+      Origin = 'CDGOSBCNTA'
+    end
+    object QAcctCDGOAUX: TFloatField
+      FieldName = 'CDGOAUX'
+      Origin = 'CDGOAUX'
+    end
+    object QAcctTPOAPLCCION: TStringField
+      FieldName = 'TPOAPLCCION'
+      Origin = 'TPOAPLCCION'
+      FixedChar = True
+      Size = 2
+    end
+    object QAcctCNCLCION: TStringField
+      FieldName = 'CNCLCION'
+      Origin = 'CNCLCION'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctDPRTMNTOCSTO: TStringField
+      FieldName = 'DPRTMNTOCSTO'
+      Origin = 'DPRTMNTOCSTO'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctJBNO: TStringField
+      FieldName = 'JBNO'
+      Origin = 'JBNO'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctVNCMNTO: TStringField
+      FieldName = 'VNCMNTO'
+      Origin = 'VNCMNTO'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctCTAS: TStringField
+      FieldName = 'CTAS'
+      Origin = 'CTAS'
+      FixedChar = True
+      Size = 5
+    end
+    object QAcctPOSESTFINAN: TFloatField
+      FieldName = 'POSESTFINAN'
+      Origin = 'POSESTFINAN'
+    end
+    object QAcctVALORIPATRIMONIO: TFloatField
+      FieldName = 'VALORIPATRIMONIO'
+      Origin = 'VALORIPATRIMONIO'
+    end
+    object QAcctMONETARIO_APL: TStringField
+      FieldName = 'MONETARIO_APL'
+      Origin = 'MONETARIO_APL'
+      FixedChar = True
+      Size = 15
+    end
+    object QAcctUNIVEL: TIntegerField
+      FieldName = 'UNIVEL'
+      Origin = 'UNIVEL'
+    end
+    object QAcctIDENEG: TFloatField
+      FieldName = 'IDENEG'
+      Origin = 'IDENEG'
+    end
+    object QAcctSBCTAANA: TFloatField
+      FieldName = 'SBCTAANA'
+      Origin = 'SBCTAANA'
+    end
+    object QAcctMAYOR_VALOR: TStringField
+      FieldName = 'MAYOR_VALOR'
+      Origin = 'MAYOR_VALOR'
+      Size = 5
+    end
+    object QAcctPLANTILLA_RETENCION: TStringField
+      FieldName = 'PLANTILLA_RETENCION'
+      Origin = 'PLANTILLA_RETENCION'
+      FixedChar = True
+      Size = 2
+    end
+    object QAcctFEFECTIVO: TIntegerField
+      FieldName = 'FEFECTIVO'
+      Origin = 'FEFECTIVO'
+      Required = True
+    end
+    object QAcctPRIORIDAD: TIntegerField
+      FieldName = 'PRIORIDAD'
+      Origin = 'PRIORIDAD'
+    end
+    object QAcctMATERIALIDAD: TFloatField
+      FieldName = 'MATERIALIDAD'
+      Origin = 'MATERIALIDAD'
+    end
+    object QAcctMODELO: TSmallintField
+      FieldName = 'MODELO'
+      Origin = 'MODELO'
+    end
+    object QAcctNORMA: TIntegerField
+      FieldName = 'NORMA'
+      Origin = 'NORMA'
+    end
+    object QAcctCOD_FORMATO: TStringField
+      FieldName = 'COD_FORMATO'
+      Origin = 'COD_FORMATO'
+      FixedChar = True
+      Size = 4
+    end
+    object QAcctCOD_CONCEPTO: TStringField
+      FieldName = 'COD_CONCEPTO'
+      Origin = 'COD_CONCEPTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QAcctACTIVIDADES: TStringField
+      FieldName = 'ACTIVIDADES'
+      Origin = 'ACTIVIDADES'
+      FixedChar = True
+    end
+    object QAcctAPLI_IMPUESTO: TStringField
+      FieldName = 'APLI_IMPUESTO'
+      Origin = 'APLI_IMPUESTO'
+      Size = 80
+    end
+  end
+  object QNiifAcct: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT'
+      
+        'ACCT,E,S,DESCRIPCION,TIPO,CLASS,CCOST,BEGDR,BEGCR,OLDDR,OLDCR,CU' +
+        'RDR,CURCR,'
+      
+        'BDGTCAT,AJUSTE,CORRECCION,COD_SUBCUENTA,MONETARIO,NVEL,BASERTNCI' +
+        'ON,PORCENRETENCION,'
+      
+        'CDGOTTL,CDGOGRPO,CDGOCNTA,CDGOSBCNTA,CDGOAUX,TPOAPLCCION,CNCLCIO' +
+        'N,DPRTMNTOCSTO,'
+      
+        'JBNO,VNCMNTO,CTAS,POSESTFINAN,VALORIPATRIMONIO,MONETARIO_APL,UNI' +
+        'VEL,IDENEG,'
+      
+        'SBCTAANA,MAYOR_VALOR,PLANTILLA_RETENCION,FEFECTIVO,PRIORIDAD,MAT' +
+        'ERIALIDAD,MODELO,'
+      
+        'NORMA,ACTIVIDADES,COD_FORMATO,COD_CONCEPTO,APLI_IMPUESTO,PRIORID' +
+        'AD_ORDENA,ORDENAMIENTO,EQUIVALENCIA  FROM NIIF_ACCT')
+    Left = 88
+    Top = 209
+    object QNiifAcctACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QNiifAcctE: TSmallintField
+      FieldName = 'E'
+      Origin = 'E'
+    end
+    object QNiifAcctS: TSmallintField
+      FieldName = 'S'
+      Origin = 'S'
+    end
+    object QNiifAcctDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 30
+    end
+    object QNiifAcctTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiifAcctCLASS: TStringField
+      FieldName = 'CLASS'
+      Origin = 'CLASS'
+      FixedChar = True
+      Size = 1
+    end
+    object QNiifAcctCCOST: TSmallintField
+      FieldName = 'CCOST'
+      Origin = 'CCOST'
+    end
+    object QNiifAcctBEGDR: TFloatField
+      FieldName = 'BEGDR'
+      Origin = 'BEGDR'
+    end
+    object QNiifAcctBEGCR: TFloatField
+      FieldName = 'BEGCR'
+      Origin = 'BEGCR'
+    end
+    object QNiifAcctOLDDR: TFloatField
+      FieldName = 'OLDDR'
+      Origin = 'OLDDR'
+    end
+    object QNiifAcctOLDCR: TFloatField
+      FieldName = 'OLDCR'
+      Origin = 'OLDCR'
+    end
+    object QNiifAcctCURDR: TFloatField
+      FieldName = 'CURDR'
+      Origin = 'CURDR'
+    end
+    object QNiifAcctCURCR: TFloatField
+      FieldName = 'CURCR'
+      Origin = 'CURCR'
+    end
+    object QNiifAcctBDGTCAT: TStringField
+      FieldName = 'BDGTCAT'
+      Origin = 'BDGTCAT'
+      FixedChar = True
+      Size = 2
+    end
+    object QNiifAcctAJUSTE: TFloatField
+      FieldName = 'AJUSTE'
+      Origin = 'AJUSTE'
+    end
+    object QNiifAcctCORRECCION: TFloatField
+      FieldName = 'CORRECCION'
+      Origin = 'CORRECCION'
+    end
+    object QNiifAcctCOD_SUBCUENTA: TStringField
+      FieldName = 'COD_SUBCUENTA'
+      Origin = 'COD_SUBCUENTA'
+      FixedChar = True
+      Size = 6
+    end
+    object QNiifAcctMONETARIO: TStringField
+      FieldName = 'MONETARIO'
+      Origin = 'MONETARIO'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctNVEL: TSmallintField
+      FieldName = 'NVEL'
+      Origin = 'NVEL'
+    end
+    object QNiifAcctBASERTNCION: TStringField
+      FieldName = 'BASERTNCION'
+      Origin = 'BASERTNCION'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctPORCENRETENCION: TFloatField
+      FieldName = 'PORCENRETENCION'
+      Origin = 'PORCENRETENCION'
+    end
+    object QNiifAcctCDGOTTL: TIntegerField
+      FieldName = 'CDGOTTL'
+      Origin = 'CDGOTTL'
+    end
+    object QNiifAcctCDGOGRPO: TIntegerField
+      FieldName = 'CDGOGRPO'
+      Origin = 'CDGOGRPO'
+    end
+    object QNiifAcctCDGOCNTA: TIntegerField
+      FieldName = 'CDGOCNTA'
+      Origin = 'CDGOCNTA'
+    end
+    object QNiifAcctCDGOSBCNTA: TIntegerField
+      FieldName = 'CDGOSBCNTA'
+      Origin = 'CDGOSBCNTA'
+    end
+    object QNiifAcctCDGOAUX: TFloatField
+      FieldName = 'CDGOAUX'
+      Origin = 'CDGOAUX'
+    end
+    object QNiifAcctTPOAPLCCION: TStringField
+      FieldName = 'TPOAPLCCION'
+      Origin = 'TPOAPLCCION'
+      FixedChar = True
+      Size = 2
+    end
+    object QNiifAcctCNCLCION: TStringField
+      FieldName = 'CNCLCION'
+      Origin = 'CNCLCION'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctDPRTMNTOCSTO: TStringField
+      FieldName = 'DPRTMNTOCSTO'
+      Origin = 'DPRTMNTOCSTO'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctJBNO: TStringField
+      FieldName = 'JBNO'
+      Origin = 'JBNO'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctVNCMNTO: TStringField
+      FieldName = 'VNCMNTO'
+      Origin = 'VNCMNTO'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctCTAS: TStringField
+      FieldName = 'CTAS'
+      Origin = 'CTAS'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiifAcctPOSESTFINAN: TFloatField
+      FieldName = 'POSESTFINAN'
+      Origin = 'POSESTFINAN'
+    end
+    object QNiifAcctVALORIPATRIMONIO: TFloatField
+      FieldName = 'VALORIPATRIMONIO'
+      Origin = 'VALORIPATRIMONIO'
+    end
+    object QNiifAcctMONETARIO_APL: TStringField
+      FieldName = 'MONETARIO_APL'
+      Origin = 'MONETARIO_APL'
+      FixedChar = True
+      Size = 15
+    end
+    object QNiifAcctUNIVEL: TIntegerField
+      FieldName = 'UNIVEL'
+      Origin = 'UNIVEL'
+    end
+    object QNiifAcctIDENEG: TFloatField
+      FieldName = 'IDENEG'
+      Origin = 'IDENEG'
+    end
+    object QNiifAcctSBCTAANA: TFloatField
+      FieldName = 'SBCTAANA'
+      Origin = 'SBCTAANA'
+    end
+    object QNiifAcctMAYOR_VALOR: TStringField
+      FieldName = 'MAYOR_VALOR'
+      Origin = 'MAYOR_VALOR'
+      Size = 5
+    end
+    object QNiifAcctPLANTILLA_RETENCION: TStringField
+      FieldName = 'PLANTILLA_RETENCION'
+      Origin = 'PLANTILLA_RETENCION'
+      FixedChar = True
+      Size = 4
+    end
+    object QNiifAcctFEFECTIVO: TIntegerField
+      FieldName = 'FEFECTIVO'
+      Origin = 'FEFECTIVO'
+      Required = True
+    end
+    object QNiifAcctPRIORIDAD: TIntegerField
+      FieldName = 'PRIORIDAD'
+      Origin = 'PRIORIDAD'
+    end
+    object QNiifAcctMATERIALIDAD: TFloatField
+      FieldName = 'MATERIALIDAD'
+      Origin = 'MATERIALIDAD'
+    end
+    object QNiifAcctMODELO: TSmallintField
+      FieldName = 'MODELO'
+      Origin = 'MODELO'
+    end
+    object QNiifAcctNORMA: TIntegerField
+      FieldName = 'NORMA'
+      Origin = 'NORMA'
+    end
+    object QNiifAcctCOD_FORMATO: TStringField
+      FieldName = 'COD_FORMATO'
+      Origin = 'COD_FORMATO'
+      FixedChar = True
+      Size = 4
+    end
+    object QNiifAcctCOD_CONCEPTO: TStringField
+      FieldName = 'COD_CONCEPTO'
+      Origin = 'COD_CONCEPTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QNiifAcctACTIVIDADES: TStringField
+      FieldName = 'ACTIVIDADES'
+      Origin = 'ACTIVIDADES'
+      FixedChar = True
+    end
+    object QNiifAcctAPLI_IMPUESTO: TStringField
+      FieldName = 'APLI_IMPUESTO'
+      Origin = 'APLI_IMPUESTO'
+      Size = 80
+    end
+    object QNiifAcctPRIORIDAD_ORDENA: TIntegerField
+      FieldName = 'PRIORIDAD_ORDENA'
+      Origin = 'PRIORIDAD_ORDENA'
+    end
+    object QNiifAcctORDENAMIENTO: TIntegerField
+      FieldName = 'ORDENAMIENTO'
+      Origin = 'ORDENAMIENTO'
+      Required = True
+    end
+    object QNiifAcctEQUIVALENCIA: TFloatField
+      FieldName = 'EQUIVALENCIA'
+      Origin = 'EQUIVALENCIA'
+    end
+  end
+  object QItem: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT  ITEM,  REVACCT,  INVACCT,  COSACCT,  ITEMMSTR,  DESCRIPC' +
+        'ION,  CLASS,  GRUPO,  REF,  IMPOVENTA,'
+      
+        ' CCOSTO,  CCOSTOV,  DEPTO,  UOFMSALES,  UOFMORDERS,  FACTOR,  ON' +
+        'ORDER,  PHYSICAL,  VENDOR,  COST,  COSTU,'
+      
+        ' COSTP,  PRICE,  PRICE1,  PRICE2,  INQTY,  INDATE,  OUTQTY,  OUT' +
+        'DATE,  ADJQTY,  ADJDATE,  MTD_ISSUE,'
+      
+        ' MTD_RCPTS,  MTD_ADJ,  YTD_ISSUE,  YTD_RCPTS,  YTD_ADJ,  INVENTO' +
+        'RY,  MINIMO,  MAXIMO,  KITLEVEL,  NOTAS,'
+      
+        ' COMMENTS,  TIPO,  ESTADO,  QTYSINCOST,  PESO,  ENPROOR,  BARRA,' +
+        '  MARCA,  MODELO,  PRICE3,  PRICE4,  PRICE5,'
+      
+        ' MARGEN,  DIAS_GARANTIA_PROVEEDOR,  DIAS_GARANTIA_CLIENTE,  DESC' +
+        '_MAXP,  PORC_COMI,  SERIALES,  UBICACION,'
+      
+        ' DOBLE_UNIDAD,  TIPO_FACTOR,  PESO_PROMEDIO,  DESVIACION,  USAR_' +
+        'DESVIACION,  PESO_CAJA,  UNIDADES_CAJA,'
+      
+        ' DIMENSION,  PROCEDENCIA,  VALORFOB,  IMPSTOCONSUMO,  CODNIVEL, ' +
+        ' NIVEL,  NPRICE1,  NPRICE2,  NPRICE3,'
+      
+        ' NPRICE4,  NPRICE5,  REFN,  PROMOCION,  FECHAPROMC,  PRECIOIVA, ' +
+        ' OPCIONABC,  COD_BARRAS,  SUCCLIENTE,  TALLA,'
+      
+        ' COLOR,  DEVACCT,  IVA,  REFFABRICA,  IMPCONSUMO2,  DCTADICIONAL' +
+        ',  MARCADO,  ACUMDISPONIBLE,  ACUMCOSTO,'
+      
+        ' FECHAUA,  DCTFIJO,  COM_COST,  ACCT_PRODUCCION,  ES_CONTROLADO,' +
+        '  VLR_MAX_CONTROLADO,  FOBFECHA,  FOBFUENTE,'
+      
+        ' FOBDCT,  FOBGASTO,  FOBLOCAL,  IMPORTADO,  PRICEPROV,  DCTPROV,' +
+        '  FACTOR_CONVER_VENTAS,  FECHA_CREACION,'
+      
+        ' REFERENCIA_ANTERIOR,  PANIER,  GROUPE,  CRENEAU,  FAMILIA,  DES' +
+        'IGNACION,  DESCRIPCION_PRE,  DESCRIPCION_PRF,'
+      
+        ' DESCRIPCION_TECNICA,  APLICACION,  USO_POR_VEHICULO,  POSICION_' +
+        'ARANCELARIA,  DESPIECE1,  DESPIECE2,  DESPIECE3,'
+      
+        ' DESPIECE4,  AGOTAR_PR,  UNIDAD_EMBALAJE,  PESO_UNIDAD_EMBALAJE,' +
+        '  VOL_POR_UNIDAD_EMBALAJE,  QARTIFICIAL,'
+      
+        ' QSUGERIDO,  PERMANENCIA_QA,  PERMANENCIA_QS,  TIEMPOTRANSITO,  ' +
+        'ORIGEN,  MARCAORIGEN,  GENERO,'
+      
+        ' PESO_PROMEDIO_UNI,  NUM_UNIDADES_POR_CAJA,  MAN_LOTE,  FACTURAB' +
+        'LE,  CONTROLA_DCT,  COD_POSARANCEL,'
+      
+        ' DCTTALLER,  DESC1,  COD_APLICAC,  REF_INTERC,  ESTADOFAB,  REF_' +
+        'SUSTITUTAS,  MANEJA_TALLA_COLOR,'
+      
+        ' MANEJA_GRP_IMPRESORA,  IMPRESORA,  PRECIOIVA_MAX,  PRECIOIVA_MI' +
+        'N,  CANTIDAD_COLORES,  MANEJA_COMBINATORIA,'
+      
+        ' FECHA_LOTE,  FECHA_LIMITE_LOTE,  INVCMACCT,  FACTOR_CONVERT_VEN' +
+        'TAS,  PRECIO_UNIDAD,  FLETES,  TRAMITES_USD,'
+      
+        ' MARGEN_U,  DIAS_ITEM,  KILOMETRAJE,  SALDOU,  SALDOPESOS,  COST' +
+        'P_REF,  ROTCOD,  CRICOD,  FECHAPROMD,'
+      
+        ' PRECIOPROM,  PRECIONORM,  PORCPROM,  INVACCTE,  COSACCTE,  REVA' +
+        'CCTE,  DEVACCTE,  TIPO_SERVICIO,  CUM,'
+      
+        ' TIEDES,  TIETIP,  DIASPROD,  RTFITEM,  RTFTIP,  RTFBASEMIN,  AP' +
+        'LRTICA,  ULTCOSTEA,  ACTIVO,  FACPRECIO1,'
+      
+        ' FACPRECIO2,  MANPESO,  PORC_COMI_REC,  IMPTOAMOR,  MANEJOAIU,  ' +
+        'MANTALLA,  NROPUNTOS,  NROPTOSDCTO,  SELPUNTOS,'
+      
+        ' PTOSXCADA,  PP_OBLIGATORIO,  PP_HORAFIJA,  IMPCONSUMO3,  VIDA_U' +
+        'TIL,  NIIF_VLRNTR,  ITEM_SERVICIO,'
+      
+        ' COSTO_INICIAL,  NIIF_PRECIO_VENTA_ESTIMADO,  NIIF_OPCION_COSTO_' +
+        'VENTA,  NIIF_PORCENTAJE,  ALTO,  ANCHO,  LARGO,'
+      
+        ' BONOACCT,  COSBONOACCT,  REVBONOACCT,  DEVBONOACCT,  DESACCT,  ' +
+        'EDESACCT,  DESBONOACCT,  ACCTMANDANTE,'
+      
+        ' PORCENTAJE_MAND,  COD_CURVA,  CUENTA_INV_CONSIG,  CUENTA_COSTO_' +
+        'CONSIG,  CUENTA_INGRESO_TRASLADO,'
+      ' FORMA_FARMACEUTICA,  CONCENTRACION_MEDICAMENTO'
+      'FROM ITEM')
+    Left = 168
+    Top = 161
+    object QItemITEM: TStringField
+      FieldName = 'ITEM'
+      Origin = 'ITEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QItemREVACCT: TFloatField
+      FieldName = 'REVACCT'
+      Origin = 'REVACCT'
+    end
+    object QItemINVACCT: TFloatField
+      FieldName = 'INVACCT'
+      Origin = 'INVACCT'
+    end
+    object QItemCOSACCT: TFloatField
+      FieldName = 'COSACCT'
+      Origin = 'COSACCT'
+    end
+    object QItemITEMMSTR: TStringField
+      FieldName = 'ITEMMSTR'
+      Origin = 'ITEMMSTR'
+      FixedChar = True
+      Size = 10
+    end
+    object QItemDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 80
+    end
+    object QItemCLASS: TStringField
+      FieldName = 'CLASS'
+      Origin = 'CLASS'
+      FixedChar = True
+      Size = 10
+    end
+    object QItemGRUPO: TStringField
+      FieldName = 'GRUPO'
+      Origin = 'GRUPO'
+      FixedChar = True
+      Size = 10
+    end
+    object QItemREF: TStringField
+      FieldName = 'REF'
+      Origin = 'REF'
+      FixedChar = True
+      Size = 13
+    end
+    object QItemIMPOVENTA: TStringField
+      FieldName = 'IMPOVENTA'
+      Origin = 'IMPOVENTA'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemCCOSTO: TSmallintField
+      FieldName = 'CCOSTO'
+      Origin = 'CCOSTO'
+    end
+    object QItemCCOSTOV: TStringField
+      FieldName = 'CCOSTOV'
+      Origin = 'CCOSTOV'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemDEPTO: TSmallintField
+      FieldName = 'DEPTO'
+      Origin = 'DEPTO'
+    end
+    object QItemUOFMSALES: TStringField
+      FieldName = 'UOFMSALES'
+      Origin = 'UOFMSALES'
+      FixedChar = True
+    end
+    object QItemUOFMORDERS: TStringField
+      FieldName = 'UOFMORDERS'
+      Origin = 'UOFMORDERS'
+      FixedChar = True
+    end
+    object QItemFACTOR: TFloatField
+      FieldName = 'FACTOR'
+      Origin = 'FACTOR'
+    end
+    object QItemONORDER: TFloatField
+      FieldName = 'ONORDER'
+      Origin = 'ONORDER'
+    end
+    object QItemPHYSICAL: TFloatField
+      FieldName = 'PHYSICAL'
+      Origin = 'PHYSICAL'
+    end
+    object QItemVENDOR: TStringField
+      FieldName = 'VENDOR'
+      Origin = 'VENDOR'
+      FixedChar = True
+      Size = 30
+    end
+    object QItemCOST: TFloatField
+      FieldName = 'COST'
+      Origin = 'COST'
+    end
+    object QItemCOSTU: TFloatField
+      FieldName = 'COSTU'
+      Origin = 'COSTU'
+    end
+    object QItemCOSTP: TFloatField
+      FieldName = 'COSTP'
+      Origin = 'COSTP'
+    end
+    object QItemPRICE: TFloatField
+      FieldName = 'PRICE'
+      Origin = 'PRICE'
+    end
+    object QItemPRICE1: TFloatField
+      FieldName = 'PRICE1'
+      Origin = 'PRICE1'
+    end
+    object QItemPRICE2: TFloatField
+      FieldName = 'PRICE2'
+      Origin = 'PRICE2'
+    end
+    object QItemINQTY: TFloatField
+      FieldName = 'INQTY'
+      Origin = 'INQTY'
+    end
+    object QItemINDATE: TSQLTimeStampField
+      FieldName = 'INDATE'
+      Origin = 'INDATE'
+    end
+    object QItemOUTQTY: TFloatField
+      FieldName = 'OUTQTY'
+      Origin = 'OUTQTY'
+    end
+    object QItemOUTDATE: TSQLTimeStampField
+      FieldName = 'OUTDATE'
+      Origin = 'OUTDATE'
+    end
+    object QItemADJQTY: TFloatField
+      FieldName = 'ADJQTY'
+      Origin = 'ADJQTY'
+    end
+    object QItemADJDATE: TSQLTimeStampField
+      FieldName = 'ADJDATE'
+      Origin = 'ADJDATE'
+    end
+    object QItemMTD_ISSUE: TFloatField
+      FieldName = 'MTD_ISSUE'
+      Origin = 'MTD_ISSUE'
+    end
+    object QItemMTD_RCPTS: TFloatField
+      FieldName = 'MTD_RCPTS'
+      Origin = 'MTD_RCPTS'
+    end
+    object QItemMTD_ADJ: TFloatField
+      FieldName = 'MTD_ADJ'
+      Origin = 'MTD_ADJ'
+    end
+    object QItemYTD_ISSUE: TFloatField
+      FieldName = 'YTD_ISSUE'
+      Origin = 'YTD_ISSUE'
+    end
+    object QItemYTD_RCPTS: TFloatField
+      FieldName = 'YTD_RCPTS'
+      Origin = 'YTD_RCPTS'
+    end
+    object QItemYTD_ADJ: TFloatField
+      FieldName = 'YTD_ADJ'
+      Origin = 'YTD_ADJ'
+    end
+    object QItemINVENTORY: TStringField
+      FieldName = 'INVENTORY'
+      Origin = 'INVENTORY'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemMINIMO: TFloatField
+      FieldName = 'MINIMO'
+      Origin = 'MINIMO'
+    end
+    object QItemMAXIMO: TFloatField
+      FieldName = 'MAXIMO'
+      Origin = 'MAXIMO'
+    end
+    object QItemKITLEVEL: TStringField
+      FieldName = 'KITLEVEL'
+      Origin = 'KITLEVEL'
+      FixedChar = True
+      Size = 2
+    end
+    object QItemNOTAS: TStringField
+      FieldName = 'NOTAS'
+      Origin = 'NOTAS'
+      FixedChar = True
+      Size = 50
+    end
+    object QItemCOMMENTS: TMemoField
+      FieldName = 'COMMENTS'
+      Origin = 'COMMENTS'
+      BlobType = ftMemo
+    end
+    object QItemTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemQTYSINCOST: TFloatField
+      FieldName = 'QTYSINCOST'
+      Origin = 'QTYSINCOST'
+    end
+    object QItemPESO: TFloatField
+      FieldName = 'PESO'
+      Origin = 'PESO'
+    end
+    object QItemENPROOR: TFloatField
+      FieldName = 'ENPROOR'
+      Origin = 'ENPROOR'
+    end
+    object QItemBARRA: TBlobField
+      FieldName = 'BARRA'
+      Origin = 'BARRA'
+    end
+    object QItemMARCA: TStringField
+      FieldName = 'MARCA'
+      Origin = 'MARCA'
+      FixedChar = True
+    end
+    object QItemMODELO: TStringField
+      FieldName = 'MODELO'
+      Origin = 'MODELO'
+      FixedChar = True
+    end
+    object QItemPRICE3: TFloatField
+      FieldName = 'PRICE3'
+      Origin = 'PRICE3'
+    end
+    object QItemPRICE4: TFloatField
+      FieldName = 'PRICE4'
+      Origin = 'PRICE4'
+    end
+    object QItemPRICE5: TFloatField
+      FieldName = 'PRICE5'
+      Origin = 'PRICE5'
+    end
+    object QItemMARGEN: TFloatField
+      FieldName = 'MARGEN'
+      Origin = 'MARGEN'
+    end
+    object QItemDIAS_GARANTIA_PROVEEDOR: TIntegerField
+      FieldName = 'DIAS_GARANTIA_PROVEEDOR'
+      Origin = 'DIAS_GARANTIA_PROVEEDOR'
+    end
+    object QItemDIAS_GARANTIA_CLIENTE: TIntegerField
+      FieldName = 'DIAS_GARANTIA_CLIENTE'
+      Origin = 'DIAS_GARANTIA_CLIENTE'
+    end
+    object QItemDESC_MAXP: TFloatField
+      FieldName = 'DESC_MAXP'
+      Origin = 'DESC_MAXP'
+    end
+    object QItemPORC_COMI: TFloatField
+      FieldName = 'PORC_COMI'
+      Origin = 'PORC_COMI'
+    end
+    object QItemSERIALES: TStringField
+      FieldName = 'SERIALES'
+      Origin = 'SERIALES'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemUBICACION: TSmallintField
+      FieldName = 'UBICACION'
+      Origin = 'UBICACION'
+    end
+    object QItemDOBLE_UNIDAD: TStringField
+      FieldName = 'DOBLE_UNIDAD'
+      Origin = 'DOBLE_UNIDAD'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemTIPO_FACTOR: TStringField
+      FieldName = 'TIPO_FACTOR'
+      Origin = 'TIPO_FACTOR'
+      FixedChar = True
+      Size = 10
+    end
+    object QItemPESO_PROMEDIO: TFloatField
+      FieldName = 'PESO_PROMEDIO'
+      Origin = 'PESO_PROMEDIO'
+    end
+    object QItemDESVIACION: TFloatField
+      FieldName = 'DESVIACION'
+      Origin = 'DESVIACION'
+    end
+    object QItemUSAR_DESVIACION: TStringField
+      FieldName = 'USAR_DESVIACION'
+      Origin = 'USAR_DESVIACION'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemPESO_CAJA: TFloatField
+      FieldName = 'PESO_CAJA'
+      Origin = 'PESO_CAJA'
+    end
+    object QItemUNIDADES_CAJA: TFloatField
+      FieldName = 'UNIDADES_CAJA'
+      Origin = 'UNIDADES_CAJA'
+    end
+    object QItemDIMENSION: TStringField
+      FieldName = 'DIMENSION'
+      Origin = 'DIMENSION'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemPROCEDENCIA: TStringField
+      FieldName = 'PROCEDENCIA'
+      Origin = 'PROCEDENCIA'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemVALORFOB: TFloatField
+      FieldName = 'VALORFOB'
+      Origin = 'VALORFOB'
+    end
+    object QItemIMPSTOCONSUMO: TFloatField
+      FieldName = 'IMPSTOCONSUMO'
+      Origin = 'IMPSTOCONSUMO'
+    end
+    object QItemCODNIVEL: TStringField
+      FieldName = 'CODNIVEL'
+      Origin = 'CODNIVEL'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemNIVEL: TSmallintField
+      FieldName = 'NIVEL'
+      Origin = 'NIVEL'
+    end
+    object QItemNPRICE1: TSmallintField
+      FieldName = 'NPRICE1'
+      Origin = 'NPRICE1'
+    end
+    object QItemNPRICE2: TSmallintField
+      FieldName = 'NPRICE2'
+      Origin = 'NPRICE2'
+    end
+    object QItemNPRICE3: TSmallintField
+      FieldName = 'NPRICE3'
+      Origin = 'NPRICE3'
+    end
+    object QItemNPRICE4: TSmallintField
+      FieldName = 'NPRICE4'
+      Origin = 'NPRICE4'
+    end
+    object QItemNPRICE5: TSmallintField
+      FieldName = 'NPRICE5'
+      Origin = 'NPRICE5'
+    end
+    object QItemREFN: TIntegerField
+      FieldName = 'REFN'
+      Origin = 'REFN'
+    end
+    object QItemPROMOCION: TStringField
+      FieldName = 'PROMOCION'
+      Origin = 'PROMOCION'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemFECHAPROMC: TSQLTimeStampField
+      FieldName = 'FECHAPROMC'
+      Origin = 'FECHAPROMC'
+    end
+    object QItemPRECIOIVA: TFloatField
+      FieldName = 'PRECIOIVA'
+      Origin = 'PRECIOIVA'
+    end
+    object QItemOPCIONABC: TStringField
+      FieldName = 'OPCIONABC'
+      Origin = 'OPCIONABC'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemCOD_BARRAS: TStringField
+      FieldName = 'COD_BARRAS'
+      Origin = 'COD_BARRAS'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemSUCCLIENTE: TIntegerField
+      FieldName = 'SUCCLIENTE'
+      Origin = 'SUCCLIENTE'
+    end
+    object QItemTALLA: TStringField
+      FieldName = 'TALLA'
+      Origin = 'TALLA'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemCOLOR: TStringField
+      FieldName = 'COLOR'
+      Origin = 'COLOR'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemDEVACCT: TFloatField
+      FieldName = 'DEVACCT'
+      Origin = 'DEVACCT'
+    end
+    object QItemIVA: TSmallintField
+      FieldName = 'IVA'
+      Origin = 'IVA'
+    end
+    object QItemREFFABRICA: TStringField
+      FieldName = 'REFFABRICA'
+      Origin = 'REFFABRICA'
+      FixedChar = True
+    end
+    object QItemIMPCONSUMO2: TFloatField
+      FieldName = 'IMPCONSUMO2'
+      Origin = 'IMPCONSUMO2'
+    end
+    object QItemDCTADICIONAL: TFloatField
+      FieldName = 'DCTADICIONAL'
+      Origin = 'DCTADICIONAL'
+    end
+    object QItemMARCADO: TStringField
+      FieldName = 'MARCADO'
+      Origin = 'MARCADO'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemACUMDISPONIBLE: TFloatField
+      FieldName = 'ACUMDISPONIBLE'
+      Origin = 'ACUMDISPONIBLE'
+    end
+    object QItemACUMCOSTO: TFloatField
+      FieldName = 'ACUMCOSTO'
+      Origin = 'ACUMCOSTO'
+    end
+    object QItemFECHAUA: TSQLTimeStampField
+      FieldName = 'FECHAUA'
+      Origin = 'FECHAUA'
+    end
+    object QItemDCTFIJO: TFloatField
+      FieldName = 'DCTFIJO'
+      Origin = 'DCTFIJO'
+    end
+    object QItemCOM_COST: TFloatField
+      FieldName = 'COM_COST'
+      Origin = 'COM_COST'
+    end
+    object QItemACCT_PRODUCCION: TFloatField
+      FieldName = 'ACCT_PRODUCCION'
+      Origin = 'ACCT_PRODUCCION'
+    end
+    object QItemES_CONTROLADO: TStringField
+      FieldName = 'ES_CONTROLADO'
+      Origin = 'ES_CONTROLADO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object QItemVLR_MAX_CONTROLADO: TFloatField
+      FieldName = 'VLR_MAX_CONTROLADO'
+      Origin = 'VLR_MAX_CONTROLADO'
+    end
+    object QItemFOBFECHA: TSQLTimeStampField
+      FieldName = 'FOBFECHA'
+      Origin = 'FOBFECHA'
+    end
+    object QItemFOBFUENTE: TStringField
+      FieldName = 'FOBFUENTE'
+      Origin = 'FOBFUENTE'
+      Size = 100
+    end
+    object QItemFOBDCT: TFloatField
+      FieldName = 'FOBDCT'
+      Origin = 'FOBDCT'
+    end
+    object QItemFOBGASTO: TFloatField
+      FieldName = 'FOBGASTO'
+      Origin = 'FOBGASTO'
+    end
+    object QItemFOBLOCAL: TFloatField
+      FieldName = 'FOBLOCAL'
+      Origin = 'FOBLOCAL'
+    end
+    object QItemPRICEPROV: TFloatField
+      FieldName = 'PRICEPROV'
+      Origin = 'PRICEPROV'
+    end
+    object QItemDCTPROV: TFloatField
+      FieldName = 'DCTPROV'
+      Origin = 'DCTPROV'
+    end
+    object QItemFACTOR_CONVER_VENTAS: TFloatField
+      FieldName = 'FACTOR_CONVER_VENTAS'
+      Origin = 'FACTOR_CONVER_VENTAS'
+    end
+    object QItemFECHA_CREACION: TSQLTimeStampField
+      FieldName = 'FECHA_CREACION'
+      Origin = 'FECHA_CREACION'
+    end
+    object QItemREFERENCIA_ANTERIOR: TStringField
+      FieldName = 'REFERENCIA_ANTERIOR'
+      Origin = 'REFERENCIA_ANTERIOR'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemPANIER: TStringField
+      FieldName = 'PANIER'
+      Origin = 'PANIER'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemGROUPE: TStringField
+      FieldName = 'GROUPE'
+      Origin = 'GROUPE'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemCRENEAU: TStringField
+      FieldName = 'CRENEAU'
+      Origin = 'CRENEAU'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemFAMILIA: TStringField
+      FieldName = 'FAMILIA'
+      Origin = 'FAMILIA'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemDESIGNACION: TStringField
+      FieldName = 'DESIGNACION'
+      Origin = 'DESIGNACION'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemDESCRIPCION_PRE: TMemoField
+      FieldName = 'DESCRIPCION_PRE'
+      Origin = 'DESCRIPCION_PRE'
+      BlobType = ftMemo
+    end
+    object QItemDESCRIPCION_PRF: TStringField
+      FieldName = 'DESCRIPCION_PRF'
+      Origin = 'DESCRIPCION_PRF'
+      FixedChar = True
+      Size = 80
+    end
+    object QItemDESCRIPCION_TECNICA: TMemoField
+      FieldName = 'DESCRIPCION_TECNICA'
+      Origin = 'DESCRIPCION_TECNICA'
+      BlobType = ftMemo
+    end
+    object QItemAPLICACION: TMemoField
+      FieldName = 'APLICACION'
+      Origin = 'APLICACION'
+      BlobType = ftMemo
+    end
+    object QItemUSO_POR_VEHICULO: TIntegerField
+      FieldName = 'USO_POR_VEHICULO'
+      Origin = 'USO_POR_VEHICULO'
+    end
+    object QItemPOSICION_ARANCELARIA: TStringField
+      FieldName = 'POSICION_ARANCELARIA'
+      Origin = 'POSICION_ARANCELARIA'
+      FixedChar = True
+      Size = 30
+    end
+    object QItemDESPIECE1: TStringField
+      FieldName = 'DESPIECE1'
+      Origin = 'DESPIECE1'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemDESPIECE2: TStringField
+      FieldName = 'DESPIECE2'
+      Origin = 'DESPIECE2'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemDESPIECE3: TStringField
+      FieldName = 'DESPIECE3'
+      Origin = 'DESPIECE3'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemDESPIECE4: TStringField
+      FieldName = 'DESPIECE4'
+      Origin = 'DESPIECE4'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemAGOTAR_PR: TStringField
+      FieldName = 'AGOTAR_PR'
+      Origin = 'AGOTAR_PR'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemUNIDAD_EMBALAJE: TStringField
+      FieldName = 'UNIDAD_EMBALAJE'
+      Origin = 'UNIDAD_EMBALAJE'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemPESO_UNIDAD_EMBALAJE: TFloatField
+      FieldName = 'PESO_UNIDAD_EMBALAJE'
+      Origin = 'PESO_UNIDAD_EMBALAJE'
+    end
+    object QItemVOL_POR_UNIDAD_EMBALAJE: TFloatField
+      FieldName = 'VOL_POR_UNIDAD_EMBALAJE'
+      Origin = 'VOL_POR_UNIDAD_EMBALAJE'
+    end
+    object QItemQARTIFICIAL: TFloatField
+      FieldName = 'QARTIFICIAL'
+      Origin = 'QARTIFICIAL'
+    end
+    object QItemQSUGERIDO: TFloatField
+      FieldName = 'QSUGERIDO'
+      Origin = 'QSUGERIDO'
+    end
+    object QItemPERMANENCIA_QA: TFloatField
+      FieldName = 'PERMANENCIA_QA'
+      Origin = 'PERMANENCIA_QA'
+    end
+    object QItemPERMANENCIA_QS: TFloatField
+      FieldName = 'PERMANENCIA_QS'
+      Origin = 'PERMANENCIA_QS'
+    end
+    object QItemTIEMPOTRANSITO: TFloatField
+      FieldName = 'TIEMPOTRANSITO'
+      Origin = 'TIEMPOTRANSITO'
+    end
+    object QItemORIGEN: TStringField
+      FieldName = 'ORIGEN'
+      Origin = 'ORIGEN'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemMARCAORIGEN: TStringField
+      FieldName = 'MARCAORIGEN'
+      Origin = 'MARCAORIGEN'
+      FixedChar = True
+      Size = 40
+    end
+    object QItemGENERO: TStringField
+      FieldName = 'GENERO'
+      Origin = 'GENERO'
+      FixedChar = True
+      Size = 8
+    end
+    object QItemPESO_PROMEDIO_UNI: TFloatField
+      FieldName = 'PESO_PROMEDIO_UNI'
+      Origin = 'PESO_PROMEDIO_UNI'
+    end
+    object QItemNUM_UNIDADES_POR_CAJA: TFloatField
+      FieldName = 'NUM_UNIDADES_POR_CAJA'
+      Origin = 'NUM_UNIDADES_POR_CAJA'
+    end
+    object QItemMAN_LOTE: TStringField
+      FieldName = 'MAN_LOTE'
+      Origin = 'MAN_LOTE'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemFACTURABLE: TStringField
+      FieldName = 'FACTURABLE'
+      Origin = 'FACTURABLE'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemCONTROLA_DCT: TStringField
+      FieldName = 'CONTROLA_DCT'
+      Origin = 'CONTROLA_DCT'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemCOD_POSARANCEL: TStringField
+      FieldName = 'COD_POSARANCEL'
+      Origin = 'COD_POSARANCEL'
+      FixedChar = True
+      Size = 16
+    end
+    object QItemDCTTALLER: TFloatField
+      FieldName = 'DCTTALLER'
+      Origin = 'DCTTALLER'
+    end
+    object QItemDESC1: TStringField
+      FieldName = 'DESC1'
+      Origin = 'DESC1'
+      FixedChar = True
+      Size = 80
+    end
+    object QItemCOD_APLICAC: TStringField
+      FieldName = 'COD_APLICAC'
+      Origin = 'COD_APLICAC'
+      FixedChar = True
+      Size = 4
+    end
+    object QItemREF_INTERC: TStringField
+      FieldName = 'REF_INTERC'
+      Origin = 'REF_INTERC'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemESTADOFAB: TStringField
+      FieldName = 'ESTADOFAB'
+      Origin = 'ESTADOFAB'
+      FixedChar = True
+      Size = 2
+    end
+    object QItemREF_SUSTITUTAS: TMemoField
+      FieldName = 'REF_SUSTITUTAS'
+      Origin = 'REF_SUSTITUTAS'
+      BlobType = ftMemo
+    end
+    object QItemMANEJA_TALLA_COLOR: TStringField
+      FieldName = 'MANEJA_TALLA_COLOR'
+      Origin = 'MANEJA_TALLA_COLOR'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemMANEJA_GRP_IMPRESORA: TStringField
+      FieldName = 'MANEJA_GRP_IMPRESORA'
+      Origin = 'MANEJA_GRP_IMPRESORA'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemIMPRESORA: TStringField
+      FieldName = 'IMPRESORA'
+      Origin = 'IMPRESORA'
+      FixedChar = True
+      Size = 50
+    end
+    object QItemPRECIOIVA_MAX: TFloatField
+      FieldName = 'PRECIOIVA_MAX'
+      Origin = 'PRECIOIVA_MAX'
+    end
+    object QItemPRECIOIVA_MIN: TFloatField
+      FieldName = 'PRECIOIVA_MIN'
+      Origin = 'PRECIOIVA_MIN'
+    end
+    object QItemCANTIDAD_COLORES: TIntegerField
+      FieldName = 'CANTIDAD_COLORES'
+      Origin = 'CANTIDAD_COLORES'
+    end
+    object QItemMANEJA_COMBINATORIA: TStringField
+      FieldName = 'MANEJA_COMBINATORIA'
+      Origin = 'MANEJA_COMBINATORIA'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemFECHA_LOTE: TSQLTimeStampField
+      FieldName = 'FECHA_LOTE'
+      Origin = 'FECHA_LOTE'
+    end
+    object QItemFECHA_LIMITE_LOTE: TSQLTimeStampField
+      FieldName = 'FECHA_LIMITE_LOTE'
+      Origin = 'FECHA_LIMITE_LOTE'
+    end
+    object QItemINVCMACCT: TFloatField
+      FieldName = 'INVCMACCT'
+      Origin = 'INVCMACCT'
+    end
+    object QItemFACTOR_CONVERT_VENTAS: TFloatField
+      FieldName = 'FACTOR_CONVERT_VENTAS'
+      Origin = 'FACTOR_CONVERT_VENTAS'
+    end
+    object QItemPRECIO_UNIDAD: TStringField
+      FieldName = 'PRECIO_UNIDAD'
+      Origin = 'PRECIO_UNIDAD'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemFLETES: TFloatField
+      FieldName = 'FLETES'
+      Origin = 'FLETES'
+    end
+    object QItemTRAMITES_USD: TFloatField
+      FieldName = 'TRAMITES_USD'
+      Origin = 'TRAMITES_USD'
+    end
+    object QItemMARGEN_U: TFloatField
+      FieldName = 'MARGEN_U'
+      Origin = 'MARGEN_U'
+    end
+    object QItemDIAS_ITEM: TIntegerField
+      FieldName = 'DIAS_ITEM'
+      Origin = 'DIAS_ITEM'
+    end
+    object QItemKILOMETRAJE: TStringField
+      FieldName = 'KILOMETRAJE'
+      Origin = 'KILOMETRAJE'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemSALDOU: TFloatField
+      FieldName = 'SALDOU'
+      Origin = 'SALDOU'
+    end
+    object QItemSALDOPESOS: TFloatField
+      FieldName = 'SALDOPESOS'
+      Origin = 'SALDOPESOS'
+    end
+    object QItemCOSTP_REF: TFloatField
+      FieldName = 'COSTP_REF'
+      Origin = 'COSTP_REF'
+    end
+    object QItemROTCOD: TStringField
+      FieldName = 'ROTCOD'
+      Origin = 'ROTCOD'
+      FixedChar = True
+      Size = 2
+    end
+    object QItemCRICOD: TStringField
+      FieldName = 'CRICOD'
+      Origin = 'CRICOD'
+      FixedChar = True
+      Size = 2
+    end
+    object QItemFECHAPROMD: TSQLTimeStampField
+      FieldName = 'FECHAPROMD'
+      Origin = 'FECHAPROMD'
+    end
+    object QItemPRECIOPROM: TFloatField
+      FieldName = 'PRECIOPROM'
+      Origin = 'PRECIOPROM'
+    end
+    object QItemPRECIONORM: TFloatField
+      FieldName = 'PRECIONORM'
+      Origin = 'PRECIONORM'
+    end
+    object QItemPORCPROM: TFloatField
+      FieldName = 'PORCPROM'
+      Origin = 'PORCPROM'
+    end
+    object QItemINVACCTE: TFloatField
+      FieldName = 'INVACCTE'
+      Origin = 'INVACCTE'
+    end
+    object QItemCOSACCTE: TFloatField
+      FieldName = 'COSACCTE'
+      Origin = 'COSACCTE'
+    end
+    object QItemREVACCTE: TFloatField
+      FieldName = 'REVACCTE'
+      Origin = 'REVACCTE'
+    end
+    object QItemDEVACCTE: TFloatField
+      FieldName = 'DEVACCTE'
+      Origin = 'DEVACCTE'
+    end
+    object QItemTIPO_SERVICIO: TStringField
+      FieldName = 'TIPO_SERVICIO'
+      Origin = 'TIPO_SERVICIO'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemCUM: TStringField
+      FieldName = 'CUM'
+      Origin = 'CUM'
+      FixedChar = True
+      Size = 18
+    end
+    object QItemTIEDES: TStringField
+      FieldName = 'TIEDES'
+      Origin = 'TIEDES'
+      FixedChar = True
+      Size = 8
+    end
+    object QItemTIETIP: TStringField
+      FieldName = 'TIETIP'
+      Origin = 'TIETIP'
+      FixedChar = True
+      Size = 2
+    end
+    object QItemDIASPROD: TIntegerField
+      FieldName = 'DIASPROD'
+      Origin = 'DIASPROD'
+    end
+    object QItemRTFITEM: TFloatField
+      FieldName = 'RTFITEM'
+      Origin = 'RTFITEM'
+    end
+    object QItemRTFTIP: TStringField
+      FieldName = 'RTFTIP'
+      Origin = 'RTFTIP'
+      FixedChar = True
+      Size = 3
+    end
+    object QItemRTFBASEMIN: TFloatField
+      FieldName = 'RTFBASEMIN'
+      Origin = 'RTFBASEMIN'
+    end
+    object QItemAPLRTICA: TStringField
+      FieldName = 'APLRTICA'
+      Origin = 'APLRTICA'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemULTCOSTEA: TFloatField
+      FieldName = 'ULTCOSTEA'
+      Origin = 'ULTCOSTEA'
+    end
+    object QItemACTIVO: TStringField
+      FieldName = 'ACTIVO'
+      Origin = 'ACTIVO'
+      FixedChar = True
+      Size = 5
+    end
+    object QItemFACPRECIO1: TFloatField
+      FieldName = 'FACPRECIO1'
+      Origin = 'FACPRECIO1'
+    end
+    object QItemFACPRECIO2: TFloatField
+      FieldName = 'FACPRECIO2'
+      Origin = 'FACPRECIO2'
+    end
+    object QItemMANPESO: TStringField
+      FieldName = 'MANPESO'
+      Origin = 'MANPESO'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemPORC_COMI_REC: TFloatField
+      FieldName = 'PORC_COMI_REC'
+      Origin = 'PORC_COMI_REC'
+    end
+    object QItemIMPTOAMOR: TStringField
+      FieldName = 'IMPTOAMOR'
+      Origin = 'IMPTOAMOR'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemMANEJOAIU: TStringField
+      FieldName = 'MANEJOAIU'
+      Origin = 'MANEJOAIU'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemMANTALLA: TStringField
+      FieldName = 'MANTALLA'
+      Origin = 'MANTALLA'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemNROPUNTOS: TFloatField
+      FieldName = 'NROPUNTOS'
+      Origin = 'NROPUNTOS'
+    end
+    object QItemNROPTOSDCTO: TFloatField
+      FieldName = 'NROPTOSDCTO'
+      Origin = 'NROPTOSDCTO'
+    end
+    object QItemSELPUNTOS: TStringField
+      FieldName = 'SELPUNTOS'
+      Origin = 'SELPUNTOS'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemPTOSXCADA: TFloatField
+      FieldName = 'PTOSXCADA'
+      Origin = 'PTOSXCADA'
+    end
+    object QItemPP_OBLIGATORIO: TStringField
+      FieldName = 'PP_OBLIGATORIO'
+      Origin = 'PP_OBLIGATORIO'
+      FixedChar = True
+      Size = 1
+    end
+    object QItemPP_HORAFIJA: TStringField
+      FieldName = 'PP_HORAFIJA'
+      Origin = 'PP_HORAFIJA'
+      FixedChar = True
+      Size = 8
+    end
+    object QItemIMPCONSUMO3: TFloatField
+      FieldName = 'IMPCONSUMO3'
+      Origin = 'IMPCONSUMO3'
+    end
+    object QItemVIDA_UTIL: TIntegerField
+      FieldName = 'VIDA_UTIL'
+      Origin = 'VIDA_UTIL'
+    end
+    object QItemNIIF_VLRNTR: TFloatField
+      FieldName = 'NIIF_VLRNTR'
+      Origin = 'NIIF_VLRNTR'
+    end
+    object QItemITEM_SERVICIO: TStringField
+      FieldName = 'ITEM_SERVICIO'
+      Origin = 'ITEM_SERVICIO'
+      FixedChar = True
+      Size = 30
+    end
+    object QItemCOSTO_INICIAL: TSingleField
+      FieldName = 'COSTO_INICIAL'
+      Origin = 'COSTO_INICIAL'
+    end
+    object QItemNIIF_PRECIO_VENTA_ESTIMADO: TFloatField
+      FieldName = 'NIIF_PRECIO_VENTA_ESTIMADO'
+      Origin = 'NIIF_PRECIO_VENTA_ESTIMADO'
+    end
+    object QItemNIIF_OPCION_COSTO_VENTA: TIntegerField
+      FieldName = 'NIIF_OPCION_COSTO_VENTA'
+      Origin = 'NIIF_OPCION_COSTO_VENTA'
+    end
+    object QItemNIIF_PORCENTAJE: TFloatField
+      FieldName = 'NIIF_PORCENTAJE'
+      Origin = 'NIIF_PORCENTAJE'
+    end
+    object QItemALTO: TFloatField
+      FieldName = 'ALTO'
+      Origin = 'ALTO'
+    end
+    object QItemANCHO: TFloatField
+      FieldName = 'ANCHO'
+      Origin = 'ANCHO'
+    end
+    object QItemLARGO: TFloatField
+      FieldName = 'LARGO'
+      Origin = 'LARGO'
+    end
+    object QItemBONOACCT: TFloatField
+      FieldName = 'BONOACCT'
+      Origin = 'BONOACCT'
+    end
+    object QItemCOSBONOACCT: TFloatField
+      FieldName = 'COSBONOACCT'
+      Origin = 'COSBONOACCT'
+    end
+    object QItemREVBONOACCT: TFloatField
+      FieldName = 'REVBONOACCT'
+      Origin = 'REVBONOACCT'
+    end
+    object QItemDEVBONOACCT: TFloatField
+      FieldName = 'DEVBONOACCT'
+      Origin = 'DEVBONOACCT'
+    end
+    object QItemDESACCT: TFloatField
+      FieldName = 'DESACCT'
+      Origin = 'DESACCT'
+    end
+    object QItemEDESACCT: TFloatField
+      FieldName = 'EDESACCT'
+      Origin = 'EDESACCT'
+    end
+    object QItemDESBONOACCT: TFloatField
+      FieldName = 'DESBONOACCT'
+      Origin = 'DESBONOACCT'
+    end
+    object QItemACCTMANDANTE: TFloatField
+      FieldName = 'ACCTMANDANTE'
+      Origin = 'ACCTMANDANTE'
+    end
+    object QItemPORCENTAJE_MAND: TFloatField
+      FieldName = 'PORCENTAJE_MAND'
+      Origin = 'PORCENTAJE_MAND'
+    end
+    object QItemCOD_CURVA: TStringField
+      FieldName = 'COD_CURVA'
+      Origin = 'COD_CURVA'
+      FixedChar = True
+      Size = 15
+    end
+    object QItemCUENTA_INV_CONSIG: TFloatField
+      FieldName = 'CUENTA_INV_CONSIG'
+      Origin = 'CUENTA_INV_CONSIG'
+    end
+    object QItemCUENTA_COSTO_CONSIG: TFloatField
+      FieldName = 'CUENTA_COSTO_CONSIG'
+      Origin = 'CUENTA_COSTO_CONSIG'
+    end
+    object QItemCUENTA_INGRESO_TRASLADO: TFloatField
+      FieldName = 'CUENTA_INGRESO_TRASLADO'
+      Origin = 'CUENTA_INGRESO_TRASLADO'
+    end
+    object QItemFORMA_FARMACEUTICA: TStringField
+      FieldName = 'FORMA_FARMACEUTICA'
+      Origin = 'FORMA_FARMACEUTICA'
+    end
+    object QItemCONCENTRACION_MEDICAMENTO: TStringField
+      FieldName = 'CONCENTRACION_MEDICAMENTO'
+      Origin = 'CONCENTRACION_MEDICAMENTO'
+    end
+    object QItemIMPORTADO: TStringField
+      FieldName = 'IMPORTADO'
+      Size = 10
+    end
+  end
+  object QItemUnidad: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT ITEM,FACTOR_C,COD_UNIDAD,PRICE,PRICE1,PRICE2,PRICE3,PRICE' +
+        '4,PRICE5 FROM ITEM_UNIDAD')
+    Left = 168
+    Top = 209
+    object QItemUnidadITEM: TStringField
+      FieldName = 'ITEM'
+      Origin = 'ITEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QItemUnidadFACTOR_C: TFloatField
+      FieldName = 'FACTOR_C'
+      Origin = 'FACTOR_C'
+      Required = True
+    end
+    object QItemUnidadCOD_UNIDAD: TStringField
+      FieldName = 'COD_UNIDAD'
+      Origin = 'COD_UNIDAD'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 8
+    end
+    object QItemUnidadPRICE: TFloatField
+      FieldName = 'PRICE'
+      Origin = 'PRICE'
+    end
+    object QItemUnidadPRICE1: TFloatField
+      FieldName = 'PRICE1'
+      Origin = 'PRICE1'
+    end
+    object QItemUnidadPRICE2: TFloatField
+      FieldName = 'PRICE2'
+      Origin = 'PRICE2'
+    end
+    object QItemUnidadPRICE3: TFloatField
+      FieldName = 'PRICE3'
+      Origin = 'PRICE3'
+    end
+    object QItemUnidadPRICE4: TFloatField
+      FieldName = 'PRICE4'
+      Origin = 'PRICE4'
+    end
+    object QItemUnidadPRICE5: TFloatField
+      FieldName = 'PRICE5'
+      Origin = 'PRICE5'
+    end
+  end
+  object Qlinea: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT CODLINEA,DESCLINEA FROM LINEA')
+    Left = 168
+    Top = 265
+    object QlineaCODLINEA: TStringField
+      FieldName = 'CODLINEA'
+      Origin = 'CODLINEA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QlineaDESCLINEA: TStringField
+      FieldName = 'DESCLINEA'
+      Origin = 'DESCLINEA'
+      FixedChar = True
+      Size = 40
+    end
+  end
+  object QGrupo: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT CODGRUPO,CODLINEA,DESCGRUPO,TIEDES FROM GRUPO')
+    Left = 168
+    Top = 321
+    object QGrupoCODGRUPO: TStringField
+      FieldName = 'CODGRUPO'
+      Origin = 'CODGRUPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QGrupoCODLINEA: TStringField
+      FieldName = 'CODLINEA'
+      Origin = 'CODLINEA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QGrupoDESCGRUPO: TStringField
+      FieldName = 'DESCGRUPO'
+      Origin = 'DESCGRUPO'
+      FixedChar = True
+      Size = 40
+    end
+    object QGrupoTIEDES: TStringField
+      FieldName = 'TIEDES'
+      Origin = 'TIEDES'
+      FixedChar = True
+      Size = 8
+    end
+  end
+  object QSubGrupo: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT CODSUBGRUPO,CODGRUPO,CODLINEA,DESCSUBGRUPO,TIEDES,PRINTER' +
+        ' FROM SUBGRUPO')
+    Left = 168
+    Top = 369
+    object QSubGrupoCODSUBGRUPO: TStringField
+      FieldName = 'CODSUBGRUPO'
+      Origin = 'CODSUBGRUPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QSubGrupoCODGRUPO: TStringField
+      FieldName = 'CODGRUPO'
+      Origin = 'CODGRUPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QSubGrupoCODLINEA: TStringField
+      FieldName = 'CODLINEA'
+      Origin = 'CODLINEA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QSubGrupoDESCSUBGRUPO: TStringField
+      FieldName = 'DESCSUBGRUPO'
+      Origin = 'DESCSUBGRUPO'
+      FixedChar = True
+      Size = 40
+    end
+    object QSubGrupoTIEDES: TStringField
+      FieldName = 'TIEDES'
+      Origin = 'TIEDES'
+      FixedChar = True
+      Size = 8
+    end
+    object QSubGrupoPRINTER: TStringField
+      FieldName = 'PRINTER'
+      Origin = 'PRINTER'
+      FixedChar = True
+      Size = 155
+    end
+  end
+  object QLista: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT TIPO,CODIGO,DESCRIPCION,OBSERVACION,POCEN,VALOR,ACCT,MINI' +
+        'MO,MAXIMO,DPCCEST,DIASZON,PRORRATA,UNDREF FROM LISTA')
+    Left = 168
+    Top = 465
+    object QListaTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object QListaCODIGO: TSmallintField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QListaDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 40
+    end
+    object QListaOBSERVACION: TStringField
+      FieldName = 'OBSERVACION'
+      Origin = 'OBSERVACION'
+      FixedChar = True
+      Size = 40
+    end
+    object QListaPOCEN: TFloatField
+      FieldName = 'POCEN'
+      Origin = 'POCEN'
+    end
+    object QListaVALOR: TFloatField
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+    end
+    object QListaACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+    end
+    object QListaMINIMO: TFloatField
+      FieldName = 'MINIMO'
+      Origin = 'MINIMO'
+    end
+    object QListaMAXIMO: TFloatField
+      FieldName = 'MAXIMO'
+      Origin = 'MAXIMO'
+    end
+    object QListaDPCCEST: TStringField
+      FieldName = 'DPCCEST'
+      Origin = 'DPCCEST'
+      FixedChar = True
+    end
+    object QListaDIASZON: TIntegerField
+      FieldName = 'DIASZON'
+      Origin = 'DIASZON'
+    end
+    object QListaPRORRATA: TStringField
+      FieldName = 'PRORRATA'
+      Origin = 'PRORRATA'
+      FixedChar = True
+      Size = 1
+    end
+    object QListaUNDREF: TFloatField
+      FieldName = 'UNDREF'
+      Origin = 'UNDREF'
+    end
+  end
+  object QUnidad: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT COD_UNIDAD,DESCRIPCION FROM UNIDAD')
+    Left = 168
+    Top = 417
+    object QUnidadCOD_UNIDAD: TStringField
+      FieldName = 'COD_UNIDAD'
+      Origin = 'COD_UNIDAD'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 8
+    end
+    object QUnidadDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      Required = True
+      FixedChar = True
+      Size = 80
+    end
+  end
+  object QNombres: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT USERNAME,CLAVE,ACLEVEL,LEVEL1,LEVEL2,LEVEL3,LEVEL4,LEVEL5' +
+        ',LEVEL6,LEVEL7,LEVEL8,'
+      
+        'LEVEL9,LEVE10,LEVEL11,TIPO_USUARIO,NOMBRE_COMPLETO,ENCRIPTADO,DP' +
+        'TO,'
+      
+        'LOCORIGEN,LOCDESTINO,ACTIVO,OPCION1,OPCION2,OPCION3,OPCION4,OPCI' +
+        'ON5,OPCION6,'
+      
+        'OPCION7,OPCION8,FILSUC,COD_PERFIL,EMAIL,TELEFONO,FECHANAC,SEXO,U' +
+        'SUARIOFACTURA,IDVEND'
+      'FROM NOMBRES')
+    Left = 264
+    Top = 161
+    object QNombresUSERNAME: TStringField
+      FieldName = 'USERNAME'
+      Origin = 'USERNAME'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QNombresCLAVE: TStringField
+      FieldName = 'CLAVE'
+      Origin = 'CLAVE'
+      FixedChar = True
+      Size = 15
+    end
+    object QNombresACLEVEL: TStringField
+      FieldName = 'ACLEVEL'
+      Origin = 'ACLEVEL'
+      FixedChar = True
+      Size = 1
+    end
+    object QNombresLEVEL1: TStringField
+      FieldName = 'LEVEL1'
+      Origin = 'LEVEL1'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL2: TStringField
+      FieldName = 'LEVEL2'
+      Origin = 'LEVEL2'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL3: TStringField
+      FieldName = 'LEVEL3'
+      Origin = 'LEVEL3'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL4: TStringField
+      FieldName = 'LEVEL4'
+      Origin = 'LEVEL4'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL5: TStringField
+      FieldName = 'LEVEL5'
+      Origin = 'LEVEL5'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL6: TStringField
+      FieldName = 'LEVEL6'
+      Origin = 'LEVEL6'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL7: TStringField
+      FieldName = 'LEVEL7'
+      Origin = 'LEVEL7'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL8: TStringField
+      FieldName = 'LEVEL8'
+      Origin = 'LEVEL8'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL9: TStringField
+      FieldName = 'LEVEL9'
+      Origin = 'LEVEL9'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVE10: TStringField
+      FieldName = 'LEVE10'
+      Origin = 'LEVE10'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresLEVEL11: TStringField
+      FieldName = 'LEVEL11'
+      Origin = 'LEVEL11'
+      FixedChar = True
+      Size = 5
+    end
+    object QNombresTIPO_USUARIO: TStringField
+      FieldName = 'TIPO_USUARIO'
+      Origin = 'TIPO_USUARIO'
+      Required = True
+      FixedChar = True
+      Size = 15
+    end
+    object QNombresNOMBRE_COMPLETO: TStringField
+      FieldName = 'NOMBRE_COMPLETO'
+      Origin = 'NOMBRE_COMPLETO'
+      FixedChar = True
+      Size = 50
+    end
+    object QNombresENCRIPTADO: TStringField
+      FieldName = 'ENCRIPTADO'
+      Origin = 'ENCRIPTADO'
+      FixedChar = True
+      Size = 1
+    end
+    object QNombresDPTO: TIntegerField
+      FieldName = 'DPTO'
+      Origin = 'DPTO'
+    end
+    object QNombresLOCORIGEN: TStringField
+      FieldName = 'LOCORIGEN'
+      Origin = 'LOCORIGEN'
+      FixedChar = True
+      Size = 3
+    end
+    object QNombresLOCDESTINO: TStringField
+      FieldName = 'LOCDESTINO'
+      Origin = 'LOCDESTINO'
+      FixedChar = True
+      Size = 3
+    end
+    object QNombresACTIVO: TStringField
+      FieldName = 'ACTIVO'
+      Origin = 'ACTIVO'
+      FixedChar = True
+      Size = 1
+    end
+    object QNombresOPCION1: TSmallintField
+      FieldName = 'OPCION1'
+      Origin = 'OPCION1'
+    end
+    object QNombresOPCION2: TSmallintField
+      FieldName = 'OPCION2'
+      Origin = 'OPCION2'
+    end
+    object QNombresOPCION3: TSmallintField
+      FieldName = 'OPCION3'
+      Origin = 'OPCION3'
+    end
+    object QNombresOPCION4: TSmallintField
+      FieldName = 'OPCION4'
+      Origin = 'OPCION4'
+    end
+    object QNombresOPCION5: TSmallintField
+      FieldName = 'OPCION5'
+      Origin = 'OPCION5'
+    end
+    object QNombresOPCION6: TSmallintField
+      FieldName = 'OPCION6'
+      Origin = 'OPCION6'
+    end
+    object QNombresOPCION7: TSmallintField
+      FieldName = 'OPCION7'
+      Origin = 'OPCION7'
+    end
+    object QNombresOPCION8: TSmallintField
+      FieldName = 'OPCION8'
+      Origin = 'OPCION8'
+    end
+    object QNombresFILSUC: TStringField
+      FieldName = 'FILSUC'
+      Origin = 'FILSUC'
+      FixedChar = True
+      Size = 1
+    end
+    object QNombresCOD_PERFIL: TStringField
+      FieldName = 'COD_PERFIL'
+      Origin = 'COD_PERFIL'
+      FixedChar = True
+      Size = 15
+    end
+    object QNombresEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Size = 2048
+    end
+    object QNombresTELEFONO: TStringField
+      FieldName = 'TELEFONO'
+      Origin = 'TELEFONO'
+      FixedChar = True
+      Size = 30
+    end
+    object QNombresFECHANAC: TSQLTimeStampField
+      FieldName = 'FECHANAC'
+      Origin = 'FECHANAC'
+    end
+    object QNombresSEXO: TStringField
+      FieldName = 'SEXO'
+      Origin = 'SEXO'
+      FixedChar = True
+      Size = 1
+    end
+    object QNombresUSUARIOFACTURA: TStringField
+      FieldName = 'USUARIOFACTURA'
+      Origin = 'USUARIOFACTURA'
+      Size = 10
+    end
+    object QNombresIDVEND: TIntegerField
+      FieldName = 'IDVEND'
+      Origin = 'IDVEND'
+    end
+  end
+  object QSeg_Actividades: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      
+        'SELECT MODULO,ACTIVIDAD,TODOS,ADICIONAR,BORRAR,EDITAR,IMPRIMIR,A' +
+        'NULAR,CONTABILIZAR,'
+      'CONSULTAR,EJECUTAR,DESCRIPCION_ACT,ORDEN_ACT,REIMPRIMIR'
+      'FROM SEG_ACTIVIDADES')
+    Left = 264
+    Top = 217
+    object QSeg_ActividadesMODULO: TStringField
+      FieldName = 'MODULO'
+      Origin = 'MODULO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 15
+    end
+    object QSeg_ActividadesACTIVIDAD: TStringField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QSeg_ActividadesTODOS: TStringField
+      FieldName = 'TODOS'
+      Origin = 'TODOS'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesADICIONAR: TStringField
+      FieldName = 'ADICIONAR'
+      Origin = 'ADICIONAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesBORRAR: TStringField
+      FieldName = 'BORRAR'
+      Origin = 'BORRAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesEDITAR: TStringField
+      FieldName = 'EDITAR'
+      Origin = 'EDITAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesIMPRIMIR: TStringField
+      FieldName = 'IMPRIMIR'
+      Origin = 'IMPRIMIR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesANULAR: TStringField
+      FieldName = 'ANULAR'
+      Origin = 'ANULAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesCONTABILIZAR: TStringField
+      FieldName = 'CONTABILIZAR'
+      Origin = 'CONTABILIZAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesCONSULTAR: TStringField
+      FieldName = 'CONSULTAR'
+      Origin = 'CONSULTAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesEJECUTAR: TStringField
+      FieldName = 'EJECUTAR'
+      Origin = 'EJECUTAR'
+      FixedChar = True
+      Size = 1
+    end
+    object QSeg_ActividadesDESCRIPCION_ACT: TStringField
+      FieldName = 'DESCRIPCION_ACT'
+      Origin = 'DESCRIPCION_ACT'
+      Required = True
+      FixedChar = True
+      Size = 80
+    end
+    object QSeg_ActividadesORDEN_ACT: TIntegerField
+      FieldName = 'ORDEN_ACT'
+      Origin = 'ORDEN_ACT'
+    end
+    object QSeg_ActividadesREIMPRIMIR: TStringField
+      FieldName = 'REIMPRIMIR'
+      Origin = 'REIMPRIMIR'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object QSeg_Permisos_Act: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT MODULO,ACTIVIDAD,USUARIO,OP,CONFIRMAR'
+      'FROM SEG_PERMISOS_ACT')
+    Left = 264
+    Top = 273
+    object QSeg_Permisos_ActMODULO: TStringField
+      FieldName = 'MODULO'
+      Origin = 'MODULO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 15
+    end
+    object QSeg_Permisos_ActACTIVIDAD: TStringField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QSeg_Permisos_ActUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Origin = 'USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QSeg_Permisos_ActOP: TStringField
+      FieldName = 'OP'
+      Origin = 'OP'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 5
+    end
+    object QSeg_Permisos_ActCONFIRMAR: TStringField
+      FieldName = 'CONFIRMAR'
+      Origin = 'CONFIRMAR'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+  end
+end

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/08/28 14:07:00.000.590,=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/28 15:10:06.000.021,=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/28 15:14:52.000.337,=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/08/28 15:15:11.000.120,=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/08/28 15:20:18.000.252,C:\Proyectos\DataSyn\Principal.fmx=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2018/08/28 15:20:18.000.252,C:\Proyectos\DataSyn\Principal.pas=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/28 15:20:43.000.368,C:\Proyectos\DataSyn\Parametros.pas=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/08/28 15:20:43.000.368,C:\Proyectos\DataSyn\Parametros.fmx=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
+    <Transaction>2018/08/28 15:20:55.000.163,C:\Proyectos\DataSyn\DataSyn.dproj=C:\Users\Asesor Tecnico 5\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2018/08/28 15:22:00.000.315,=C:\Proyectos\DataSyn\Unit1.pas</Transaction>
+    <Transaction>2018/08/28 15:22:21.000.721,=C:\Proyectos\DataSyn\Unit2.pas</Transaction>
+    <Transaction>2018/08/28 15:23:36.000.606,C:\Proyectos\DataSyn\Parametros.pas=C:\Proyectos\DataSyn\Unit2.pas</Transaction>
+    <Transaction>2018/08/28 15:23:36.000.606,C:\Proyectos\DataSyn\Parametros.fmx=C:\Proyectos\DataSyn\Unit2.fmx</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<P132 iOSSimulator="iPhone5"/>
+		<NoProfile Android="NEXUS"/>
+	</ActiveMobileDevice>
+</BorlandProject>

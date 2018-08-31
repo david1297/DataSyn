@@ -619,6 +619,397 @@ type
     QSeg_Permisos_ActUSUARIO: TStringField;
     QSeg_Permisos_ActOP: TStringField;
     QSeg_Permisos_ActCONFIRMAR: TStringField;
+    QFactipdoc: TFDQuery;
+    QFactipdocID_EMPRESA: TSmallintField;
+    QFactipdocID_SUCURSAL: TSmallintField;
+    QFactipdocID_USUARIO: TStringField;
+    QFactipdocCLIENTEPRED: TStringField;
+    QFactipdocCLAVE: TStringField;
+    QFactipdocPRXNUM: TIntegerField;
+    QFactipdocNUMDESDE: TIntegerField;
+    QFactipdocNUMHASTA: TIntegerField;
+    QFactipdocCONCPRIMERO: TIntegerField;
+    QFactipdocNUMAUTOR: TIntegerField;
+    QFactipdocFECHAAUTOR: TSQLTimeStampField;
+    QFactipdocLICENCIASW: TStringField;
+    QFactipdocNUMAUTORSW: TIntegerField;
+    QFactipdocID_PROVSW: TStringField;
+    QFactipdocSAF: TStringField;
+    QFactipdocQTYPRED: TFloatField;
+    QFactipdocBODEGA: TStringField;
+    QFactipdocMODIPRECIOS: TStringField;
+    QFactipdocDESCUENTOS: TStringField;
+    QFactipdocSUBCOSTO: TStringField;
+    QFactipdocPREFIJO: TStringField;
+    QFactipdocCOPIAS: TSmallintField;
+    QFactipdocFORMATO: TStringField;
+    QFactipdocLASER: TStringField;
+    QFactipdocCALCULA: TStringField;
+    QFactipdocSOBRECUPO: TStringField;
+    QFactipdocINVNEGATIVO: TStringField;
+    QFactipdocDIASMORA: TSmallintField;
+    QFactipdocPRECIOIVA: TStringField;
+    QFactipdocIMPRIME: TStringField;
+    QFactipdocADDITEMS_PEDIDO: TStringField;
+    QFactipdocITEMS_MAXIMO: TIntegerField;
+    QFactipdocFACTURA_ITEM: TStringField;
+    QFactipdocLISTA_PRECIOS: TStringField;
+    QFactipdocPIDECAMBIO: TStringField;
+    QFactipdocDECIMALES: TStringField;
+    QFactipdocCOD_CAJON: TStringField;
+    QFactipdocFORMATO1: TStringField;
+    QFactipdocTIPODEV: TStringField;
+    QFactipdocFORMATO_DEV: TStringField;
+    QFactipdocMOD_FORPAGO: TStringField;
+    QFactipdocEDITA: TStringField;
+    QFactipdocANULA: TStringField;
+    QFactipdocCREA_CLIENTES: TStringField;
+    QFactipdocCREA_DEVOLUCION: TStringField;
+    QFactipdocDEV_EFECTIVO: TStringField;
+    QFactipdocDEV_VENDIDOS: TStringField;
+    QFactipdocANULA_DEV: TStringField;
+    QFactipdocSOBREPEDIDO: TStringField;
+    QFactipdocRESERVA: TStringField;
+    QFactipdocDESC_ADICIONAL: TStringField;
+    QFactipdocPROYECTO: TStringField;
+    QFactipdocMANDANTE: TStringField;
+    QFactipdocE_DEV: TSmallintField;
+    QFactipdocS_DEV: TSmallintField;
+    QFactipdocIMPRESIONDIRECTA: TStringField;
+    QFactipdocPATHIMPRESIONDIRECTA: TStringField;
+    QFactipdocDEVOLCERO: TStringField;
+    QFactipdocPRXNUMPP: TIntegerField;
+    QFactipdocIMPRIME_ABRE_CAJON: TStringField;
+    QFactipdocPUERTO: TStringField;
+    QFactipdocBODEGA_PROMOCION: TStringField;
+    QFactipdocRANGO_PRECIO: TStringField;
+    QFactipdocAUTORIZAR_DESPACHO: TStringField;
+    QFactipdocCERRARPARCIALPEDIDO: TStringField;
+    QFactipdocMODIF_FECHA: TStringField;
+    QFactipdocFORMATO_DEV_CONT: TStringField;
+    QFactipdocCERRARPARCIALPEDIDOO: TStringField;
+    QFactipdocDCTVALOR: TStringField;
+    QFactipdocDCTO_AD1: TStringField;
+    QFactipdocREMPARCIAL: TStringField;
+    QFactipdocFACDOL: TStringField;
+    QFactipdocMODQTY: TStringField;
+    QFactipdocFACPLUS: TStringField;
+    QFactipdocPRINTFACTQR: TStringField;
+    QFactipdocSUGQTYDEV: TStringField;
+    QFactipdocFACTTIPO: TStringField;
+    QFactipdocPRINT: TStringField;
+    QFactipdocUSUNOM: TStringField;
+    QFactipdocFECAPE: TStringField;
+    QFactipdocVALBASE: TFloatField;
+    QFactipdocAPLRET: TStringField;
+    QFactipdocAPLOIM: TStringField;
+    QFactipdocABRE_CAJON: TStringField;
+    QFactipdocPORCENICA: TFloatField;
+    QFactipdocPMINTIMBRE: TFloatField;
+    QFactipdocPMAXTIMBRE: TFloatField;
+    QFactipdocVALIDAFDC: TStringField;
+    QFactipdocDPTO: TIntegerField;
+    QFactipdocCCOST: TIntegerField;
+    QFactipdocCLASEG: TStringField;
+    QFactipdocFACMOS: TStringField;
+    QFactipdocFACPED: TStringField;
+    QFactipdocCONFAC: TStringField;
+    QFactipdocADMCLI: TStringField;
+    QFactipdocCIEFAC: TStringField;
+    QFactipdocADMCAJ: TStringField;
+    QFactipdocREPFAC: TStringField;
+    QFactipdocMANBASE: TStringField;
+    QFactipdocMANBAS: TStringField;
+    QFactipdocREDONDEAIVA: TStringField;
+    QFactipdocUSUNIT: TStringField;
+    QFactipdocCTRLBARRA: TStringField;
+    QFactipdocCTRLPESO: TStringField;
+    QFactipdocMANDECFACT: TStringField;
+    QFactipdocETIQ1: TStringField;
+    QFactipdocETIQ2: TStringField;
+    QFactipdocETIQ3: TStringField;
+    QFactipdocCONFCAJON: TStringField;
+    QFactipdocBORRA_DETALLE: TStringField;
+    QFactipdocPERMISOPRECIO: TStringField;
+    QFactipdocDCTOVALOR: TStringField;
+    QFactipdocBODPRED: TStringField;
+    QFactipdocPRECIO_CERO: TStringField;
+    QFactipdocNUEVA_FACT: TStringField;
+    QFactipdocINVNEGATIVOPOS: TStringField;
+    QFactipdocMANDANTEVTA: TStringField;
+    QFactipdocSINEXISTENCIA: TStringField;
+    QFactipdocDCTGLOBAL: TStringField;
+    QFactipdocANUFAC: TStringField;
+    QFactipdocCREABOTONESCOTIZ: TStringField;
+    QFactipdocMODIFICADESCRI: TStringField;
+    QFactipdocCONTROLFACVEN: TStringField;
+    QFactipdocFACTELECAUTO: TStringField;
+    QFactipdocFECHAVENFAC: TSQLTimeStampField;
+    QFactipdocFECHAINIFAC: TSQLTimeStampField;
+    QFor_Pago: TFDQuery;
+    QFor_PagoCONCEPTO: TIntegerField;
+    QFor_PagoNUM_CUOTA: TIntegerField;
+    QFor_PagoACCT: TFloatField;
+    QFor_PagoDESCRIPCION: TStringField;
+    QFor_PagoDIAS: TIntegerField;
+    QFor_PagoPORCENT: TFloatField;
+    QFor_PagoCONTA: TStringField;
+    QFor_PagoTIPO: TStringField;
+    QFor_PagoCLASE: TStringField;
+    QFor_PagoAGRUPA: TStringField;
+    QFor_PagoAUTORIZADO: TStringField;
+    QFor_PagoPIDEENTIDAD: TStringField;
+    QFor_PagoPIDEDOC: TStringField;
+    QFor_PagoRECARGO_PRECIO: TFloatField;
+    QFor_PagoDIAS_FINANCIACION: TIntegerField;
+    QFor_PagoINTERES_FINANCIACION: TFloatField;
+    QFor_PagoAPLICARPP: TStringField;
+    QFor_PagoPOR_VALOR: TStringField;
+    QFor_PagoPAGA_COMISION: TStringField;
+    QBancos: TFDQuery;
+    QBancosBANKNO: TStringField;
+    QBancosCSHACCT: TFloatField;
+    QBancosLASERCKS: TStringField;
+    QBancosBANKNAME: TStringField;
+    QBancosBANKBRANCH: TStringField;
+    QBancosBANKADDR: TStringField;
+    QBancosBANKCODE: TStringField;
+    QBancosBANKENCD: TStringField;
+    QBancosCHECKNO: TFloatField;
+    QBancosINUSE: TStringField;
+    QBancosBANKADDR1: TStringField;
+    QBancosCONTACTO1: TStringField;
+    QBancosCARGO1: TStringField;
+    QBancosCONTACTO2: TStringField;
+    QBancosCARGO2: TStringField;
+    QBancosTELE1: TStringField;
+    QBancosEXT1: TStringField;
+    QBancosTELE2: TStringField;
+    QBancosEXT2: TStringField;
+    QBancosFAX: TStringField;
+    QBancosEXT3: TStringField;
+    QBancosCODIGO_INSTALACION: TStringField;
+    QBancosCODIGO_EMPRESA: TStringField;
+    QBancosCUENTA_ORIGEN: TStringField;
+    QBancosOFICINA_ORIGEN: TStringField;
+    QBancosCODBANCO: TStringField;
+    QBancosCODIGO_REGIONAL: TStringField;
+    QEquivalencia: TFDQuery;
+    QEquivalenciaCODIGO: TIntegerField;
+    QEquivalenciaACCT_NIIF: TFloatField;
+    QEquivalenciaACCT: TFloatField;
+    QEquivalenciaNAT: TStringField;
+    Label3: TLabel;
+    Label6: TLabel;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    CheckDocxSuc: TCheckBox;
+    Panel3: TPanel;
+    GroupBox2: TGroupBox;
+    CheckTodos: TCheckBox;
+    CheckFacDev: TCheckBox;
+    CheckCotizaciones: TCheckBox;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    CheckBox3: TCheckBox;
+    CheckBox4: TCheckBox;
+    CheckBox5: TCheckBox;
+    CheckBox6: TCheckBox;
+    CheckBox7: TCheckBox;
+    CheckBox8: TCheckBox;
+    CheckBox9: TCheckBox;
+    CheckBox10: TCheckBox;
+    CheckBox12: TCheckBox;
+    QOe: TFDQuery;
+    QOedet: TFDQuery;
+    QPagos: TFDQuery;
+    QGl: TFDQuery;
+    QItemact: TFDQuery;
+    QOeID_EMPRESA: TSmallintField;
+    QOeID_SUCURSAL: TSmallintField;
+    QOeNUMBER: TIntegerField;
+    QOeTIPO: TStringField;
+    QOeID_USUARIO: TStringField;
+    QOeID_N: TStringField;
+    QOeENTITY: TStringField;
+    QOeSALESMAN: TSmallintField;
+    QOeFECHA: TSQLTimeStampField;
+    QOeDUEDATE: TSQLTimeStampField;
+    QOeSUBTOTAL: TFloatField;
+    QOeCOST: TFloatField;
+    QOeSALESTAX: TFloatField;
+    QOeFEDTAX: TFloatField;
+    QOeDISC1: TFloatField;
+    QOeDISC2: TFloatField;
+    QOeDISC3: TFloatField;
+    QOeSHIPTO1: TStringField;
+    QOeSHIPTO2: TStringField;
+    QOeSHIPTO4: TStringField;
+    QOeSHIPTO6: TStringField;
+    QOeONACCOUNT: TStringField;
+    QOePRINTED: TStringField;
+    QOePOSTED: TStringField;
+    QOeCLOSED: TStringField;
+    QOePONUMBER: TStringField;
+    QOeTERMS: TStringField;
+    QOeDES_GLO: TFloatField;
+    QOePOR_DES: TFloatField;
+    QOeDESTOTAL: TFloatField;
+    QOeTOTAL: TFloatField;
+    QOeCODSUC: TIntegerField;
+    QOeIMPCONSUMO: TFloatField;
+    QOeRFAPLICADA: TStringField;
+    QOeSHIPTO: TIntegerField;
+    QOeTIPO_PEDIDO: TStringField;
+    QOeDEV_FACTURA: TIntegerField;
+    QOeDEV_TIPOFAC: TStringField;
+    QOeDIFERENCIA: TFloatField;
+    QOeCODACTIVIDAD: TStringField;
+    QOeSERIALES: TStringField;
+    QOeOCNUMERO: TStringField;
+    QOeLETRAS: TStringField;
+    QOeEXPORTADA: TStringField;
+    QOeD: TSmallintField;
+    QOeNROREMISION: TStringField;
+    QOeCODTRANSPORTADOR: TStringField;
+    QOeCONDUCTOR: TStringField;
+    QOeNITCONDUCTOR: TStringField;
+    QOePESO: TFloatField;
+    QOeBULTOS: TFloatField;
+    QOeDESPACHADOPOR: TStringField;
+    QOeCODPROYECTO: TStringField;
+    QOeDESCRIPCION_RECETA: TStringField;
+    QOeSI: TStringField;
+    QOeREVISADO: TStringField;
+    QOeFP: TStringField;
+    QOeCE: TStringField;
+    QOeCC: TStringField;
+    QOeVLR_MERCANCIA: TFloatField;
+    QOeOTRO: TStringField;
+    QOeUNIDADES: TFloatField;
+    QOeID_TIPOCARTERA: TStringField;
+    QOeDEDUCIBLE_CLENTE: TFloatField;
+    QOeID_NDEDUCIBLE: TStringField;
+    QOePESO_NETO: TFloatField;
+    QOeOTROSCARGOS: TFloatField;
+    QOeDEDUCIBLE_CLIENTE: TFloatField;
+    QOeCAJA: TStringField;
+    QOeSERIALDISCO: TStringField;
+    QOePAGOSPORVALOR: TStringField;
+    QOeDESCRIP_ORDENPAC: TStringField;
+    QOeNRO_ORDENPAC: TStringField;
+    QOeCOD_PLACA: TStringField;
+    QOeCOMMENTS: TStringField;
+    QOeTOTALDEUDA: TFloatField;
+    QOeAFECTA_RETENCION: TStringField;
+    QOeTOTALDOL: TFloatField;
+    QOeVALDEV: TFloatField;
+    QOePORCENIVA: TMemoField;
+    QOeFORPAGVAL: TMemoField;
+    QOeTIMBRE: TFloatField;
+    QOeCENICA: TFloatField;
+    QOeCONTRACT: TFloatField;
+    QOeFORMAS_PAGO: TStringField;
+    QOeVALIVABIEN: TFloatField;
+    QOeVALIVASER: TFloatField;
+    QOeIMPAMOR: TFloatField;
+    QOeOBSDESPACHO: TStringField;
+    QOeCOMENTA2: TMemoField;
+    QOeTOTALCRUCEANTICIPO: TFloatField;
+    QOeSALDOANTICIPOS: TFloatField;
+    QOeCONNIIF: TStringField;
+    QOeCONTAB_NIIF: TStringField;
+    QOeCOD_MONEDA: TStringField;
+    QOeHORCRE: TStringField;
+    QOeCUFE: TStringField;
+    QOeENVIADO_DEV: TStringField;
+    QOedetCONTEO: TIntegerField;
+    QOedetID_EMPRESA: TSmallintField;
+    QOedetID_SUCURSAL: TSmallintField;
+    QOedetNUMBER: TIntegerField;
+    QOedetTIPO: TStringField;
+    QOedetID_USUARIO: TStringField;
+    QOedetITEM: TStringField;
+    QOedetLOCATION: TStringField;
+    QOedetIVA: TSmallintField;
+    QOedetQTYSHIP: TFloatField;
+    QOedetQTYORDER: TFloatField;
+    QOedetPRICE: TFloatField;
+    QOedetPRICE1: TFloatField;
+    QOedetEXTEND: TFloatField;
+    QOedetTAXES: TFloatField;
+    QOedetCOST: TFloatField;
+    QOedetDIAS_GARANTIA: TIntegerField;
+    QOedetDCT: TFloatField;
+    QOedetTOTALDCT: TFloatField;
+    QOedetVLR_IVA: TFloatField;
+    QOedetPORC_IVA: TFloatField;
+    QOedetCAJAS: TFloatField;
+    QOedetPESO_BRUTO: TFloatField;
+    QOedetTIPO_FACTOR: TStringField;
+    QOedetDOBLE_UNIDAD: TStringField;
+    QOedetUSAR_DESVIACION: TStringField;
+    QOedetDESVIACIONP: TFloatField;
+    QOedetPESO_PROMEDIOI: TFloatField;
+    QOedetFALLO: TStringField;
+    QOedetPESO_NETO: TFloatField;
+    QOedetDESINICIO: TFloatField;
+    QOedetDESFINAL: TFloatField;
+    QOedetCAJAS_SUGERIDAS: TFloatField;
+    QOedetPESO_NETOI: TFloatField;
+    QOedetIMPCONSUMO: TFloatField;
+    QOedetPRECIOIVA: TFloatField;
+    QOedetTIPO_PEDIDO: TStringField;
+    QOedetNUMERO_PEDIDO: TIntegerField;
+    QOedetSERIALES: TStringField;
+    QOedetNOTES: TStringField;
+    QOedetDCTADICIONAL: TFloatField;
+    QOedetMANDANTE: TStringField;
+    QOedetPROYECTO: TStringField;
+    QOedetDCTFIJO: TFloatField;
+    QOedetCOD_UNIDAD_VENTA: TStringField;
+    QOedetFACTOR: TFloatField;
+    QOedetKITNO: TStringField;
+    QOedetKITDESCRIPCION: TStringField;
+    QOedetCOLOR: TStringField;
+    QOedetDCTPORVALOR: TFloatField;
+    QOedetDCTO_AD1: TFloatField;
+    QOedetDCTO_AD2: TFloatField;
+    QOedetCOSTO_AJUSTE: TFloatField;
+    QOedetVLR_DCTFIJO: TFloatField;
+    QOedetVLR_DCT: TFloatField;
+    QOedetVLR_DCTOAD1: TFloatField;
+    QOedetVLR_DCTOAD2: TFloatField;
+    QOedetVLR_DCTOADICIONAL: TFloatField;
+    QOedetOCNUMERO: TStringField;
+    QOedetCOD_CENTRO: TIntegerField;
+    QOedetDESCRIP_CENTRO: TStringField;
+    QOedetDIAS_ITEM: TIntegerField;
+    QOedetKILOMETRAJES: TIntegerField;
+    QOedetPORC_COMI: TFloatField;
+    QOedetNOTES1: TStringField;
+    QOedetIDN_LOC: TStringField;
+    QOedetMARVAL: TFloatField;
+    QOedetMARPOR: TFloatField;
+    QOedetTOTALDOL: TFloatField;
+    QOedetPRECIODOL: TFloatField;
+    QOedetACTIVIDAD: TStringField;
+    QOedetDPTO: TSmallintField;
+    QOedetCCOST: TSmallintField;
+    QOedetRTFTIP: TStringField;
+    QOedetRTFITEM: TFloatField;
+    QOedetRTFBASEMIN: TFloatField;
+    QOedetRTFVAL: TFloatField;
+    QOedetNUMITEM: TIntegerField;
+    QOedetUTIL1: TFloatField;
+    QOedetUTIL2: TFloatField;
+    QOedetNUMUSU: TStringField;
+    QOedetIMPAMOR: TFloatField;
+    QOedetITEM2: TStringField;
+    QOedetPOSICION: TIntegerField;
+    QOedetIDN_PAC: TStringField;
+    QOedetCOD_TALLA: TStringField;
+    QOedetCOD_COLOR: TStringField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -645,6 +1036,12 @@ type
     procedure ActualizarNombres;
     procedure ActualizarSegActividades;
     procedure ActualizarSegPermisosAct;
+    procedure ActualizarFactipdoc;
+    procedure ActualizarForPago;
+    procedure ActualizarBancos;
+
+    procedure PasarFacturas;
+    procedure EliminarFacturas(Tipo: String; Number: Integer);
   end;
 
 var
@@ -653,6 +1050,82 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TMain.ActualizarBancos;
+var
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Numero := 0;
+  QBancos.Close;
+  QBancos.Open;
+  QBancos.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QBancos.RecordCount;
+  QBancos.First;
+
+  while not QBancos.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' update or insert INTO BANCOS (BANKNO,CSHACCT,LASERCKS,BANKNAME,' +
+        ' BANKBRANCH,BANKADDR,BANKCODE,BANKENCD,CHECKNO,INUSE,BANKADDR1,CONTACTO1,CARGO1,'
+        + ' CONTACTO2,CARGO2,TELE1,EXT1,TELE2,EXT2,FAX,EXT3,CODIGO_INSTALACION,CODIGO_EMPRESA,'
+        + ' CUENTA_ORIGEN,OFICINA_ORIGEN,CODBANCO, CODIGO_REGIONAL)' +
+        ' VALUES(' + ' :BANKNO,:CSHACCT,:LASERCKS,:BANKNAME,' +
+        ' :BANKBRANCH,:BANKADDR,:BANKCODE,:BANKENCD,:CHECKNO,:INUSE,:BANKADDR1,:CONTACTO1,:CARGO1,'
+        + ' :CONTACTO2,:CARGO2,:TELE1,:EXT1,:TELE2,:EXT2,:FAX,:EXT3,:CODIGO_INSTALACION,:CODIGO_EMPRESA,'
+        + ' :CUENTA_ORIGEN,:OFICINA_ORIGEN,:CODBANCO,:CODIGO_REGIONAL)');
+      vQ.Close;
+      vQ.ParamByName('BANKNO').AsString := QBancosBANKNO.AsString;
+      vQ.ParamByName('CSHACCT').AsFloat := QBancosCSHACCT.AsFloat;
+      vQ.ParamByName('LASERCKS').AsString := QBancosLASERCKS.AsString;
+      vQ.ParamByName('BANKNAME').AsString := QBancosBANKNAME.AsString;
+      vQ.ParamByName('BANKBRANCH').AsString := QBancosBANKBRANCH.AsString;
+      vQ.ParamByName('BANKADDR').AsString := QBancosBANKADDR.AsString;
+      vQ.ParamByName('BANKCODE').AsString := QBancosBANKCODE.AsString;
+      vQ.ParamByName('BANKENCD').AsString := QBancosBANKENCD.AsString;
+      vQ.ParamByName('CHECKNO').AsFloat := QBancosCHECKNO.AsFloat;
+      vQ.ParamByName('INUSE').AsString := QBancosINUSE.AsString;
+      vQ.ParamByName('BANKADDR1').AsString := QBancosBANKADDR1.AsString;
+      vQ.ParamByName('CONTACTO1').AsString := QBancosCONTACTO1.AsString;
+      vQ.ParamByName('CARGO1').AsString := QBancosCARGO1.AsString;
+      vQ.ParamByName('CONTACTO2').AsString := QBancosCONTACTO2.AsString;
+      vQ.ParamByName('CARGO2').AsString := QBancosCARGO2.AsString;
+      vQ.ParamByName('TELE1').AsString := QBancosTELE1.AsString;
+      vQ.ParamByName('EXT1').AsString := QBancosEXT1.AsString;
+      vQ.ParamByName('TELE2').AsString := QBancosTELE2.AsString;
+      vQ.ParamByName('EXT2').AsString := QBancosEXT2.AsString;
+      vQ.ParamByName('FAX').AsString := QBancosFAX.AsString;
+      vQ.ParamByName('EXT3').AsString := QBancosEXT3.AsString;
+      vQ.ParamByName('CODIGO_INSTALACION').AsString :=
+        QBancosCODIGO_INSTALACION.AsString;
+      vQ.ParamByName('CODIGO_EMPRESA').AsString :=
+        QBancosCODIGO_EMPRESA.AsString;
+      vQ.ParamByName('CUENTA_ORIGEN').AsString := QBancosCUENTA_ORIGEN.AsString;
+      vQ.ParamByName('OFICINA_ORIGEN').AsString :=
+        QBancosOFICINA_ORIGEN.AsString;
+      vQ.ParamByName('CODBANCO').AsString := QBancosCODBANCO.AsString;
+      vQ.ParamByName('CODIGO_REGIONAL').AsString :=
+        QBancosCODIGO_REGIONAL.AsString;
+
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QBancos.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Los Bancos:');
+  Memo1.Lines.Add('  -Tabla Bancos');
+  Memo1.Lines.Add('  -Cantidad de Bancos: ' + Numero.ToString);
+end;
 
 procedure TMain.ActualizarCuentas;
 var
@@ -865,6 +1338,343 @@ begin
   Memo1.Lines.Add('->Se Actualiza PUC NIIF:');
   Memo1.Lines.Add('  -Tabla Niif_Acct');
   Memo1.Lines.Add('  -Cantidad de Cuentas: ' + Numero.ToString);
+  // EQUIVALENCIA
+
+  Numero := 0;
+  QEquivalencia.Close;
+  QEquivalencia.Open;
+  QEquivalencia.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QEquivalencia.RecordCount;
+  QEquivalencia.First;
+
+  while not QEquivalencia.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' update or insert INTO NIIF_EQUIVALENCIA (CODIGO,ACCT_NIIF,ACCT,NAT)VALUES('
+        + ' :CODIGO,:ACCT_NIIF,:ACCT,:NAT)');
+      vQ.Close;
+      vQ.ParamByName('CODIGO').AsInteger := QEquivalenciaCODIGO.AsInteger;
+      vQ.ParamByName('ACCT_NIIF').AsFloat := QEquivalenciaACCT_NIIF.AsFloat;
+      vQ.ParamByName('ACCT').AsFloat := QEquivalenciaACCT.AsFloat;
+      vQ.ParamByName('NAT').AsString := QEquivalenciaNAT.AsString;
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QEquivalencia.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualiza Equivalencia de Cuentas:');
+  Memo1.Lines.Add('  -Tabla Niif_Equivalencia');
+  Memo1.Lines.Add('  -Cantidad de Equivalencias: ' + Numero.ToString);
+end;
+
+procedure TMain.ActualizarFactipdoc;
+var
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Numero := 0;
+  QFactipdoc.Close;
+  QFactipdoc.Open;
+  QFactipdoc.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QFactipdoc.RecordCount;
+  QFactipdoc.First;
+
+  while not QFactipdoc.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' update or insert INTO FATIPDOC (ID_EMPRESA,ID_SUCURSAL,ID_USUARIO' +
+        ' ,CLIENTEPRED,CLAVE,PRXNUM,NUMDESDE,NUMHASTA,CONCPRIMERO,NUMAUTOR' +
+        ' ,FECHAAUTOR,LICENCIASW,NUMAUTORSW,ID_PROVSW,SAF,QTYPRED,BODEGA' +
+        ' ,MODIPRECIOS,DESCUENTOS,SUBCOSTO,PREFIJO,COPIAS,FORMATO,LASER' +
+        ' ,CALCULA,SOBRECUPO,INVNEGATIVO,DIASMORA,PRECIOIVA,IMPRIME' +
+        ' ,ADDITEMS_PEDIDO,ITEMS_MAXIMO,FACTURA_ITEM,LISTA_PRECIOS,PIDECAMBIO' +
+        ' ,DECIMALES,COD_CAJON,FORMATO1,TIPODEV,FORMATO_DEV,MOD_FORPAGO,EDITA' +
+        ' ,ANULA,CREA_CLIENTES,CREA_DEVOLUCION,DEV_EFECTIVO,DEV_VENDIDOS' +
+        ' ,ANULA_DEV,SOBREPEDIDO,RESERVA,DESC_ADICIONAL,PROYECTO,MANDANTE' +
+        ' ,E_DEV,S_DEV,IMPRESIONDIRECTA,PATHIMPRESIONDIRECTA,DEVOLCERO' +
+        ' ,PRXNUMPP,IMPRIME_ABRE_CAJON,PUERTO,BODEGA_PROMOCION,RANGO_PRECIO' +
+        ' ,AUTORIZAR_DESPACHO,CERRARPARCIALPEDIDO,MODIF_FECHA' +
+        ' ,FORMATO_DEV_CONT,CERRARPARCIALPEDIDOO,DCTVALOR,DCTO_AD1,REMPARCIAL' +
+        ' ,FACDOL,MODQTY,FACPLUS,PRINTFACTQR,SUGQTYDEV,FACTTIPO,PRINT,USUNOM' +
+        ' ,FECAPE,VALBASE,APLRET,APLOIM,ABRE_CAJON,PORCENICA,PMINTIMBRE' +
+        ' ,PMAXTIMBRE,VALIDAFDC,DPTO,CCOST,CLASEG,FACMOS,FACPED,CONFAC,ADMCLI' +
+        ' ,CIEFAC,ADMCAJ ,REPFAC,MANBASE,MANBAS,REDONDEAIVA,USUNIT,CTRLBARRA' +
+        ' ,CTRLPESO,MANDECFACT,ETIQ1,ETIQ2,ETIQ3,CONFCAJON,BORRA_DETALLE' +
+        ' ,PERMISOPRECIO,DCTOVALOR,BODPRED,PRECIO_CERO,NUEVA_FACT' +
+        ' ,INVNEGATIVOPOS,MANDANTEVTA,SINEXISTENCIA,DCTGLOBAL,ANUFAC' +
+        ' ,CREABOTONESCOTIZ,MODIFICADESCRI,CONTROLFACVEN,FACTELECAUTO,FECHAINIFAC,FECHAVENFAC'
+        + ' )VALUES(' + ' :ID_EMPRESA,:ID_SUCURSAL,:ID_USUARIO' +
+        ' ,:CLIENTEPRED,:CLAVE,:PRXNUM,:NUMDESDE,:NUMHASTA,:CONCPRIMERO,:NUMAUTOR'
+        + ' ,:FECHAAUTOR,:LICENCIASW,:NUMAUTORSW,:ID_PROVSW,:SAF,:QTYPRED,:BODEGA'
+        + ' ,:MODIPRECIOS,:DESCUENTOS,:SUBCOSTO,:PREFIJO,:COPIAS,:FORMATO,:LASER'
+        + ' ,:CALCULA,:SOBRECUPO,:INVNEGATIVO,:DIASMORA,:PRECIOIVA,:IMPRIME' +
+        ' ,:ADDITEMS_PEDIDO,:ITEMS_MAXIMO,:FACTURA_ITEM,:LISTA_PRECIOS,:PIDECAMBIO'
+        + ' ,:DECIMALES,:COD_CAJON,:FORMATO1,:TIPODEV,:FORMATO_DEV,:MOD_FORPAGO,:EDITA'
+        + ' ,:ANULA,:CREA_CLIENTES,:CREA_DEVOLUCION,:DEV_EFECTIVO,:DEV_VENDIDOS'
+        + ' ,:ANULA_DEV,:SOBREPEDIDO,:RESERVA,:DESC_ADICIONAL,:PROYECTO,:MANDANTE'
+        + ' ,:E_DEV,:S_DEV,:IMPRESIONDIRECTA,:PATHIMPRESIONDIRECTA,:DEVOLCERO' +
+        ' ,:PRXNUMPP,:IMPRIME_ABRE_CAJON,:PUERTO,:BODEGA_PROMOCION,:RANGO_PRECIO'
+        + ' ,:AUTORIZAR_DESPACHO,:CERRARPARCIALPEDIDO,:MODIF_FECHA' +
+        ' ,:FORMATO_DEV_CONT,:CERRARPARCIALPEDIDOO,:DCTVALOR,:DCTO_AD1,:REMPARCIAL'
+        + ' ,:FACDOL,:MODQTY,:FACPLUS,:PRINTFACTQR,:SUGQTYDEV,:FACTTIPO,:PRINT,:USUNOM'
+        + ' ,:FECAPE,:VALBASE,:APLRET,:APLOIM,:ABRE_CAJON,:PORCENICA,:PMINTIMBRE'
+        + ' ,:PMAXTIMBRE,:VALIDAFDC,:DPTO,:CCOST,:CLASEG,:FACMOS,:FACPED,:CONFAC,:ADMCLI'
+        + ' ,:CIEFAC,:ADMCAJ ,:REPFAC,:MANBASE,:MANBAS,:REDONDEAIVA,:USUNIT,:CTRLBARRA'
+        + ' ,:CTRLPESO,:MANDECFACT,:ETIQ1,:ETIQ2,:ETIQ3,:CONFCAJON,:BORRA_DETALLE'
+        + ' ,:PERMISOPRECIO,:DCTOVALOR,:BODPRED,:PRECIO_CERO,:NUEVA_FACT' +
+        ' ,:INVNEGATIVOPOS,:MANDANTEVTA,:SINEXISTENCIA,:DCTGLOBAL,:ANUFAC' +
+        ' ,:CREABOTONESCOTIZ,:MODIFICADESCRI,:CONTROLFACVEN,:FACTELECAUTO,:FECHAINIFAC,:FECHAVENFAC)');
+      vQ.Close;
+      vQ.ParamByName('ID_EMPRESA').AsInteger := QFactipdocID_EMPRESA.AsInteger;
+      vQ.ParamByName('ID_SUCURSAL').AsInteger :=
+        QFactipdocID_SUCURSAL.AsInteger;
+      vQ.ParamByName('ID_USUARIO').AsString := QFactipdocID_USUARIO.AsString;
+      vQ.ParamByName('CLIENTEPRED').AsString := QFactipdocCLIENTEPRED.AsString;
+      vQ.ParamByName('CLAVE').AsString := QFactipdocCLAVE.AsString;
+      vQ.ParamByName('PRXNUM').AsInteger := QFactipdocPRXNUM.AsInteger;
+      vQ.ParamByName('NUMDESDE').AsInteger := QFactipdocNUMDESDE.AsInteger;
+      vQ.ParamByName('NUMHASTA').AsInteger := QFactipdocNUMHASTA.AsInteger;
+      vQ.ParamByName('CONCPRIMERO').AsInteger :=
+        QFactipdocCONCPRIMERO.AsInteger;
+      vQ.ParamByName('NUMAUTOR').AsInteger := QFactipdocNUMAUTOR.AsInteger;
+      vQ.ParamByName('FECHAAUTOR').AsDateTime :=
+        QFactipdocFECHAAUTOR.AsDateTime;
+      vQ.ParamByName('LICENCIASW').AsString := QFactipdocLICENCIASW.AsString;
+      vQ.ParamByName('NUMAUTORSW').AsInteger := QFactipdocNUMAUTORSW.AsInteger;
+      vQ.ParamByName('ID_PROVSW').AsString := QFactipdocID_PROVSW.AsString;
+      vQ.ParamByName('SAF').AsString := QFactipdocSAF.AsString;
+      vQ.ParamByName('QTYPRED').AsFloat := QFactipdocQTYPRED.AsFloat;
+      vQ.ParamByName('BODEGA').AsString := QFactipdocBODEGA.AsString;
+      vQ.ParamByName('MODIPRECIOS').AsString := QFactipdocMODIPRECIOS.AsString;
+      vQ.ParamByName('DESCUENTOS').AsString := QFactipdocDESCUENTOS.AsString;
+      vQ.ParamByName('SUBCOSTO').AsString := QFactipdocSUBCOSTO.AsString;
+      vQ.ParamByName('PREFIJO').AsString := QFactipdocPREFIJO.AsString;
+      vQ.ParamByName('COPIAS').AsInteger := QFactipdocCOPIAS.AsInteger;
+      vQ.ParamByName('FORMATO').AsString := QFactipdocFORMATO.AsString;
+      vQ.ParamByName('LASER').AsString := QFactipdocLASER.AsString;
+      vQ.ParamByName('CALCULA').AsString := QFactipdocCALCULA.AsString;
+      vQ.ParamByName('SOBRECUPO').AsString := QFactipdocSOBRECUPO.AsString;
+      vQ.ParamByName('INVNEGATIVO').AsString := QFactipdocINVNEGATIVO.AsString;
+      vQ.ParamByName('DIASMORA').AsInteger := QFactipdocDIASMORA.AsInteger;
+      vQ.ParamByName('PRECIOIVA').AsString := QFactipdocPRECIOIVA.AsString;
+      vQ.ParamByName('IMPRIME').AsString := QFactipdocIMPRIME.AsString;
+      vQ.ParamByName('ADDITEMS_PEDIDO').AsString :=
+        QFactipdocADDITEMS_PEDIDO.AsString;
+      vQ.ParamByName('ITEMS_MAXIMO').AsInteger :=
+        QFactipdocITEMS_MAXIMO.AsInteger;
+      vQ.ParamByName('FACTURA_ITEM').AsString :=
+        QFactipdocFACTURA_ITEM.AsString;
+      vQ.ParamByName('LISTA_PRECIOS').AsString :=
+        QFactipdocLISTA_PRECIOS.AsString;
+      vQ.ParamByName('PIDECAMBIO').AsString := QFactipdocPIDECAMBIO.AsString;
+      vQ.ParamByName('DECIMALES').AsString := QFactipdocDECIMALES.AsString;
+      vQ.ParamByName('COD_CAJON').AsString := QFactipdocCOD_CAJON.AsString;
+      vQ.ParamByName('FORMATO1').AsString := QFactipdocFORMATO1.AsString;
+      vQ.ParamByName('TIPODEV').AsString := QFactipdocTIPODEV.AsString;
+      vQ.ParamByName('FORMATO_DEV').AsString := QFactipdocFORMATO_DEV.AsString;
+      vQ.ParamByName('MOD_FORPAGO').AsString := QFactipdocMOD_FORPAGO.AsString;
+      vQ.ParamByName('EDITA').AsString := QFactipdocEDITA.AsString;
+      vQ.ParamByName('ANULA').AsString := QFactipdocANULA.AsString;
+      vQ.ParamByName('CREA_CLIENTES').AsString :=
+        QFactipdocCREA_CLIENTES.AsString;
+      vQ.ParamByName('CREA_DEVOLUCION').AsString :=
+        QFactipdocCREA_DEVOLUCION.AsString;
+      vQ.ParamByName('DEV_EFECTIVO').AsString :=
+        QFactipdocDEV_EFECTIVO.AsString;
+      vQ.ParamByName('DEV_VENDIDOS').AsString :=
+        QFactipdocDEV_VENDIDOS.AsString;
+      vQ.ParamByName('ANULA_DEV').AsString := QFactipdocANULA_DEV.AsString;
+      vQ.ParamByName('SOBREPEDIDO').AsString := QFactipdocSOBREPEDIDO.AsString;
+      vQ.ParamByName('RESERVA').AsString := QFactipdocRESERVA.AsString;
+      vQ.ParamByName('DESC_ADICIONAL').AsString :=
+        QFactipdocDESC_ADICIONAL.AsString;
+      vQ.ParamByName('PROYECTO').AsString := QFactipdocPROYECTO.AsString;
+      vQ.ParamByName('MANDANTE').AsString := QFactipdocMANDANTE.AsString;
+      vQ.ParamByName('E_DEV').AsString := QFactipdocE_DEV.AsString;
+      vQ.ParamByName('S_DEV').AsString := QFactipdocS_DEV.AsString;
+      vQ.ParamByName('IMPRESIONDIRECTA').AsString :=
+        QFactipdocIMPRESIONDIRECTA.AsString;
+      vQ.ParamByName('PATHIMPRESIONDIRECTA').AsString :=
+        QFactipdocPATHIMPRESIONDIRECTA.AsString;
+      vQ.ParamByName('DEVOLCERO').AsString := QFactipdocDEVOLCERO.AsString;
+      vQ.ParamByName('PRXNUMPP').AsString := QFactipdocPRXNUMPP.AsString;
+      vQ.ParamByName('IMPRIME_ABRE_CAJON').AsString :=
+        QFactipdocIMPRIME_ABRE_CAJON.AsString;
+      vQ.ParamByName('PUERTO').AsString := QFactipdocPUERTO.AsString;
+      vQ.ParamByName('BODEGA_PROMOCION').AsString :=
+        QFactipdocBODEGA_PROMOCION.AsString;
+      vQ.ParamByName('RANGO_PRECIO').AsString :=
+        QFactipdocRANGO_PRECIO.AsString;
+      vQ.ParamByName('AUTORIZAR_DESPACHO').AsString :=
+        QFactipdocAUTORIZAR_DESPACHO.AsString;
+      vQ.ParamByName('CERRARPARCIALPEDIDO').AsString :=
+        QFactipdocCERRARPARCIALPEDIDO.AsString;
+      vQ.ParamByName('MODIF_FECHA').AsString := QFactipdocMODIF_FECHA.AsString;
+      vQ.ParamByName('FORMATO_DEV_CONT').AsString :=
+        QFactipdocFORMATO_DEV_CONT.AsString;
+      vQ.ParamByName('CERRARPARCIALPEDIDOO').AsString :=
+        QFactipdocCERRARPARCIALPEDIDOO.AsString;
+      vQ.ParamByName('DCTVALOR').AsString := QFactipdocDCTVALOR.AsString;
+      vQ.ParamByName('DCTO_AD1').AsString := QFactipdocDCTO_AD1.AsString;
+      vQ.ParamByName('REMPARCIAL').AsString := QFactipdocREMPARCIAL.AsString;
+      vQ.ParamByName('FACDOL').AsString := QFactipdocFACDOL.AsString;
+      vQ.ParamByName('MODQTY').AsString := QFactipdocMODQTY.AsString;
+      vQ.ParamByName('FACPLUS').AsString := QFactipdocFACPLUS.AsString;
+      vQ.ParamByName('PRINTFACTQR').AsString := QFactipdocPRINTFACTQR.AsString;
+      vQ.ParamByName('SUGQTYDEV').AsString := QFactipdocSUGQTYDEV.AsString;
+      vQ.ParamByName('FACTTIPO').AsString := QFactipdocFACTTIPO.AsString;
+      vQ.ParamByName('PRINT').AsString := QFactipdocPRINT.AsString;
+      vQ.ParamByName('USUNOM').AsString := QFactipdocUSUNOM.AsString;
+      vQ.ParamByName('FECAPE').AsString := QFactipdocFECAPE.AsString;
+      vQ.ParamByName('VALBASE').AsFloat := QFactipdocVALBASE.AsFloat;
+      vQ.ParamByName('APLRET').AsString := QFactipdocAPLRET.AsString;
+      vQ.ParamByName('APLOIM').AsString := QFactipdocAPLOIM.AsString;
+      vQ.ParamByName('ABRE_CAJON').AsString := QFactipdocABRE_CAJON.AsString;
+      vQ.ParamByName('PORCENICA').AsFloat := QFactipdocPORCENICA.AsFloat;
+      vQ.ParamByName('PMINTIMBRE').AsFloat := QFactipdocPMINTIMBRE.AsFloat;
+      vQ.ParamByName('PMAXTIMBRE').AsFloat := QFactipdocPMAXTIMBRE.AsFloat;
+      vQ.ParamByName('VALIDAFDC').AsString := QFactipdocVALIDAFDC.AsString;
+      vQ.ParamByName('DPTO').AsInteger := QFactipdocDPTO.AsInteger;
+      vQ.ParamByName('CCOST').AsInteger := QFactipdocCCOST.AsInteger;
+      vQ.ParamByName('CLASEG').AsString := QFactipdocCLASEG.AsString;
+      vQ.ParamByName('FACMOS').AsString := QFactipdocFACMOS.AsString;
+      vQ.ParamByName('FACPED').AsString := QFactipdocFACPED.AsString;
+      vQ.ParamByName('CONFAC').AsString := QFactipdocCONFAC.AsString;
+      vQ.ParamByName('ADMCLI').AsString := QFactipdocADMCLI.AsString;
+      vQ.ParamByName('CIEFAC').AsString := QFactipdocCIEFAC.AsString;
+      vQ.ParamByName('ADMCAJ').AsString := QFactipdocADMCAJ.AsString;
+      vQ.ParamByName('REPFAC').AsString := QFactipdocREPFAC.AsString;
+      vQ.ParamByName('MANBASE').AsString := QFactipdocMANBASE.AsString;
+      vQ.ParamByName('MANBAS').AsString := QFactipdocMANBAS.AsString;
+      vQ.ParamByName('REDONDEAIVA').AsString := QFactipdocREDONDEAIVA.AsString;
+      vQ.ParamByName('USUNIT').AsString := QFactipdocUSUNIT.AsString;
+      vQ.ParamByName('CTRLBARRA').AsString := QFactipdocCTRLBARRA.AsString;
+      vQ.ParamByName('CTRLPESO').AsString := QFactipdocCTRLPESO.AsString;
+      vQ.ParamByName('MANDECFACT').AsString := QFactipdocMANDECFACT.AsString;
+      vQ.ParamByName('ETIQ1').AsString := QFactipdocETIQ1.AsString;
+      vQ.ParamByName('ETIQ2').AsString := QFactipdocETIQ2.AsString;
+      vQ.ParamByName('ETIQ3').AsString := QFactipdocETIQ3.AsString;
+      vQ.ParamByName('CONFCAJON').AsString := QFactipdocCONFCAJON.AsString;
+      vQ.ParamByName('BORRA_DETALLE').AsString :=
+        QFactipdocBORRA_DETALLE.AsString;
+      vQ.ParamByName('PERMISOPRECIO').AsString :=
+        QFactipdocPERMISOPRECIO.AsString;
+      vQ.ParamByName('DCTOVALOR').AsString := QFactipdocDCTOVALOR.AsString;
+      vQ.ParamByName('BODPRED').AsString := QFactipdocBODPRED.AsString;
+      vQ.ParamByName('PRECIO_CERO').AsString := QFactipdocPRECIO_CERO.AsString;
+      vQ.ParamByName('NUEVA_FACT').AsString := QFactipdocNUEVA_FACT.AsString;
+      vQ.ParamByName('INVNEGATIVOPOS').AsString :=
+        QFactipdocINVNEGATIVOPOS.AsString;
+      vQ.ParamByName('MANDANTEVTA').AsString := QFactipdocMANDANTEVTA.AsString;
+      vQ.ParamByName('SINEXISTENCIA').AsString :=
+        QFactipdocSINEXISTENCIA.AsString;
+      vQ.ParamByName('DCTGLOBAL').AsString := QFactipdocDCTGLOBAL.AsString;
+      vQ.ParamByName('ANUFAC').AsString := QFactipdocANUFAC.AsString;
+      vQ.ParamByName('CREABOTONESCOTIZ').AsString :=
+        QFactipdocCREABOTONESCOTIZ.AsString;
+      vQ.ParamByName('MODIFICADESCRI').AsString :=
+        QFactipdocMODIFICADESCRI.AsString;
+      vQ.ParamByName('CONTROLFACVEN').AsString :=
+        QFactipdocCONTROLFACVEN.AsString;
+      vQ.ParamByName('FACTELECAUTO').AsString :=
+        QFactipdocFACTELECAUTO.AsString;
+      vQ.ParamByName('FECHAINIFAC').AsDateTime :=
+        QFactipdocFECHAINIFAC.AsDateTime;
+      vQ.ParamByName('FECHAVENFAC').AsDateTime :=
+        QFactipdocFECHAVENFAC.AsDateTime;
+
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QFactipdoc.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Usuarios de Facturacion:');
+  Memo1.Lines.Add('  -Tabla Factipdoc');
+  Memo1.Lines.Add('  -Cantidad de Usuarios: ' + Numero.ToString);
+end;
+
+procedure TMain.ActualizarForPago;
+var
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Numero := 0;
+  QFor_Pago.Close;
+  QFor_Pago.Open;
+  QFor_Pago.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QFor_Pago.RecordCount;
+  QFor_Pago.First;
+
+  while not QFor_Pago.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add(' update or insert INTO FOR_PAGO (CONCEPTO,NUM_CUOTA,ACCT,' +
+        ' DESCRIPCION,DIAS,PORCENT,CONTA,TIPO,CLASE,AGRUPA,AUTORIZADO,' +
+        ' PIDEENTIDAD,PIDEDOC,RECARGO_PRECIO,DIAS_FINANCIACION,INTERES_FINANCIACION,'
+        + ' APLICARPP,POR_VALOR,PAGA_COMISION)VALUES(' +
+        ' :CONCEPTO,:NUM_CUOTA,:ACCT,' +
+        ' :DESCRIPCION,:DIAS,:PORCENT,:CONTA,:TIPO,:CLASE,:AGRUPA,:AUTORIZADO,'
+        + ' :PIDEENTIDAD,:PIDEDOC,:RECARGO_PRECIO,:DIAS_FINANCIACION,:INTERES_FINANCIACION,'
+        + ' :APLICARPP,:POR_VALOR,:PAGA_COMISION)');
+      vQ.Close;
+      vQ.ParamByName('CONCEPTO').AsInteger := QFor_PagoCONCEPTO.AsInteger;
+      vQ.ParamByName('NUM_CUOTA').AsInteger := QFor_PagoNUM_CUOTA.AsInteger;
+      vQ.ParamByName('ACCT').AsFloat := QFor_PagoACCT.AsFloat;
+      vQ.ParamByName('DESCRIPCION').AsString := QFor_PagoDESCRIPCION.AsString;
+      vQ.ParamByName('DIAS').AsInteger := QFor_PagoDIAS.AsInteger;
+      vQ.ParamByName('PORCENT').AsFloat := QFor_PagoPORCENT.AsFloat;
+      vQ.ParamByName('CONTA').AsString := QFor_PagoCONTA.AsString;
+      vQ.ParamByName('TIPO').AsString := QFor_PagoTIPO.AsString;
+      vQ.ParamByName('CLASE').AsString := QFor_PagoCLASE.AsString;
+      vQ.ParamByName('AGRUPA').AsString := QFor_PagoAGRUPA.AsString;
+      vQ.ParamByName('AUTORIZADO').AsString := QFor_PagoAUTORIZADO.AsString;
+      vQ.ParamByName('PIDEENTIDAD').AsString := QFor_PagoPIDEENTIDAD.AsString;
+      vQ.ParamByName('PIDEDOC').AsString := QFor_PagoPIDEDOC.AsString;
+      vQ.ParamByName('RECARGO_PRECIO').AsFloat :=
+        QFor_PagoRECARGO_PRECIO.AsFloat;
+      vQ.ParamByName('DIAS_FINANCIACION').AsInteger :=
+        QFor_PagoDIAS_FINANCIACION.AsInteger;
+      vQ.ParamByName('INTERES_FINANCIACION').AsFloat :=
+        QFor_PagoINTERES_FINANCIACION.AsFloat;
+      vQ.ParamByName('APLICARPP').AsString := QFor_PagoAPLICARPP.AsString;
+      vQ.ParamByName('POR_VALOR').AsString := QFor_PagoPOR_VALOR.AsString;
+      vQ.ParamByName('PAGA_COMISION').AsString :=
+        QFor_PagoPAGA_COMISION.AsString;
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QFor_Pago.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Formas de Pago:');
+  Memo1.Lines.Add('  -Tabla For_Pago');
+  Memo1.Lines.Add('  -Cantidad de Formas de Pago: ' + Numero.ToString);
 end;
 
 procedure TMain.ActualizarGrupos;
@@ -877,7 +1687,7 @@ begin
   QGrupo.Open;
   QGrupo.Last;
   ProgressBar1.Value := 0;
-  ProgressBar1.Max := Qlinea.RecordCount;
+  ProgressBar1.Max := QGrupo.RecordCount;
   QGrupo.First;
 
   while not QGrupo.Eof do
@@ -1377,7 +2187,7 @@ begin
   QLista.Open;
   QLista.Last;
   ProgressBar1.Value := 0;
-  ProgressBar1.Max := Qlinea.RecordCount;
+  ProgressBar1.Max := QLista.RecordCount;
   QLista.First;
 
   while not QLista.Eof do
@@ -1624,7 +2434,7 @@ begin
   QSubGrupo.Open;
   QSubGrupo.Last;
   ProgressBar1.Value := 0;
-  ProgressBar1.Max := Qlinea.RecordCount;
+  ProgressBar1.Max := QSubGrupo.RecordCount;
   QSubGrupo.First;
 
   while not QSubGrupo.Eof do
@@ -2002,12 +2812,89 @@ begin
     ActualizarNombres;
     ActualizarSegActividades;
     ActualizarSegPermisosAct;
-
+    ActualizarFactipdoc;
   End;
+  if FormasPago = True then
+  Begin
+    ActualizarForPago;
+    ActualizarBancos;
+  End;
+
+  if CheckTodos.IsChecked = True then
+  begin
+    ShowMessage('Todos Los Documentos');
+  end
+  else
+  begin
+    if CheckFacDev.IsChecked = True then
+    begin
+      ShowMessage('Facturas y Devoluciones');
+      PasarFacturas;
+    end;
+    if CheckCotizaciones.IsChecked = True then
+    begin
+      ShowMessage('Cotizaciones');
+    end;
+  end;
 
   ShowMessage('Proceso Terminado');
 
 end;
+
+procedure TMain.EliminarFacturas(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add('DELETE FROM PAGOS WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM OEDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM OE WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM NIIF_GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
 
 procedure TMain.FormCreate(Sender: TObject);
 begin
@@ -2016,8 +2903,9 @@ begin
   Items := False;
   Usuarios := False;
   FormasPago := False;
-  DateEdit1.Date := Date;
+  DateEdit1.Date := Date - 30;
   DateEdit2.Date := Date;
+  CheckTodos.IsChecked := True;
 end;
 
 procedure TMain.SpeedButton1Click(Sender: TObject);
@@ -2030,6 +2918,317 @@ procedure TMain.SpeedButton2Click(Sender: TObject);
 begin
   if OpenDialog1.Execute then
     Edit2.Text := OpenDialog1.FileName;
+end;
+
+procedure TMain.PasarFacturas;
+var
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Numero := 0;
+  QOe.Close;
+  QOe.ParamByName('FI').AsDate := DateEdit1.Date;
+  QOe.ParamByName('FF').AsDate := DateEdit2.Date;
+
+  QOe.Open;
+
+  QOe.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QOe.RecordCount;
+  QOe.First;
+
+  while not QOe.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarFacturas(QOeTIPO.AsString, QOeNUMBER.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO OE (ID_EMPRESA,ID_SUCURSAL,NUMBER,TIPO,ID_USUARIO,' +
+        ' ID_N,ENTITY,SALESMAN,FECHA,DUEDATE,SUBTOTAL,COST,SALESTAX,FEDTAX,' +
+        ' DISC1,DISC2,DISC3,SHIPTO1,SHIPTO2,SHIPTO4,ONACCOUNT,PRINTED,POSTED,' +
+        ' CLOSED,PONUMBER,TERMS,DES_GLO,POR_DES,DESTOTAL,TOTAL,CODSUC,IMPCONSUMO,'
+        + ' RFAPLICADA,SHIPTO,TIPO_PEDIDO,DEV_FACTURA,DEV_TIPOFAC,DIFERENCIA,' +
+        ' CODACTIVIDAD,SERIALES,OCNUMERO,LETRAS,EXPORTADA,D,NROREMISION,' +
+        ' CODTRANSPORTADOR,CONDUCTOR,NITCONDUCTOR,PESO,BULTOS,DESPACHADOPOR,' +
+        ' CODPROYECTO,DESCRIPCION_RECETA,SI,REVISADO,FP,CE,CC,VLR_MERCANCIA,OTRO,'
+        + ' UNIDADES,ID_TIPOCARTERA,DEDUCIBLE_CLENTE,ID_NDEDUCIBLE,PESO_NETO,OTROSCARGOS,'
+        + ' DEDUCIBLE_CLIENTE,CAJA,SERIALDISCO,PAGOSPORVALOR,DESCRIP_ORDENPAC,NRO_ORDENPAC,'
+        + ' COD_PLACA,COMMENTS,TOTALDEUDA,AFECTA_RETENCION,TOTALDOL,VALDEV,PORCENIVA,'
+        + ' FORPAGVAL,TIMBRE,CENICA,CONTRACT,FORMAS_PAGO,VALIVABIEN,VALIVASER,IMPAMOR,'
+        + ' OBSDESPACHO,COMENTA2,TOTALCRUCEANTICIPO,SALDOANTICIPOS,SHIPTO6,CONNIIF,'
+        + ' CONTAB_NIIF, COD_MONEDA,HORCRE,CUFE,ENVIADO_DEV)VALUES(:ID_EMPRESA,:ID_SUCURSAL,:NUMBER,:TIPO,:ID_USUARIO,'
+        + ' :ID_N,:ENTITY,:SALESMAN,:FECHA,:DUEDATE,:SUBTOTAL,:COST,:SALESTAX,:FEDTAX,'
+        + ' :DISC1,:DISC2,:DISC3,:SHIPTO1,:SHIPTO2,:SHIPTO4,:ONACCOUNT,:PRINTED,:POSTED,'
+        + ' :CLOSED,:PONUMBER,:TERMS,:DES_GLO,:POR_DES,:DESTOTAL,:TOTAL,:CODSUC,:IMPCONSUMO,'
+        + ' :RFAPLICADA,:SHIPTO,:TIPO_PEDIDO,:DEV_FACTURA,:DEV_TIPOFAC,:DIFERENCIA,'
+        + ' :CODACTIVIDAD,:SERIALES,:OCNUMERO,:LETRAS,:EXPORTADA,:D,:NROREMISION,'
+        + ' :CODTRANSPORTADOR,:CONDUCTOR,:NITCONDUCTOR,:PESO,:BULTOS,:DESPACHADOPOR,'
+        + ' :CODPROYECTO,:DESCRIPCION_RECETA,:SI,:REVISADO,:FP,:CE,:CC,:VLR_MERCANCIA,:OTRO,'
+        + ' :UNIDADES,:ID_TIPOCARTERA,:DEDUCIBLE_CLENTE,:ID_NDEDUCIBLE,:PESO_NETO,:OTROSCARGOS,'
+        + ' :DEDUCIBLE_CLIENTE,:CAJA,:SERIALDISCO,:PAGOSPORVALOR,:DESCRIP_ORDENPAC,:NRO_ORDENPAC,'
+        + ' :COD_PLACA,:COMMENTS,:TOTALDEUDA,:AFECTA_RETENCION,:TOTALDOL,:VALDEV,:PORCENIVA,'
+        + ' :FORPAGVAL,:TIMBRE,:CENICA,:CONTRACT,:FORMAS_PAGO,:VALIVABIEN,:VALIVASER,:IMPAMOR,'
+        + ' :OBSDESPACHO,:COMENTA2,:TOTALCRUCEANTICIPO,:SALDOANTICIPOS,:SHIPTO6,:CONNIIF,'
+        + ' :CONTAB_NIIF,:COD_MONEDA,:HORCRE,:CUFE,:ENVIADO_DEV)');
+      vQ.Close;
+
+      vQ.ParamByName('ID_EMPRESA').AsInteger := QOeID_EMPRESA.AsInteger;
+      vQ.ParamByName('ID_SUCURSAL').AsInteger := QOeID_SUCURSAL.AsInteger;
+      vQ.ParamByName('NUMBER').AsInteger := QOeNUMBER.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QOeTIPO.AsString;
+      vQ.ParamByName('ID_USUARIO').AsString := QOeID_USUARIO.AsString;
+      vQ.ParamByName('ID_N').AsString := QOeID_N.AsString;
+      vQ.ParamByName('ENTITY').AsString := QOeENTITY.AsString;
+      vQ.ParamByName('SALESMAN').AsInteger := QOeSALESMAN.AsInteger;
+      vQ.ParamByName('FECHA').AsDateTime := QOeFECHA.AsDateTime;
+      vQ.ParamByName('DUEDATE').AsDateTime := QOeDUEDATE.AsDateTime;
+      vQ.ParamByName('SUBTOTAL').AsFloat := QOeSUBTOTAL.AsFloat;
+      vQ.ParamByName('COST').AsFloat := QOeCOST.AsFloat;
+      vQ.ParamByName('SALESTAX').AsFloat := QOeSALESTAX.AsFloat;
+      vQ.ParamByName('FEDTAX').AsFloat := QOeFEDTAX.AsFloat;
+      vQ.ParamByName('DISC1').AsFloat := QOeDISC1.AsFloat;
+      vQ.ParamByName('DISC2').AsFloat := QOeDISC2.AsFloat;
+      vQ.ParamByName('DISC3').AsFloat := QOeDISC3.AsFloat;
+      vQ.ParamByName('DES_GLO').AsFloat := QOeDES_GLO.AsFloat;
+      vQ.ParamByName('POR_DES').AsFloat := QOePOR_DES.AsFloat;
+      vQ.ParamByName('DESTOTAL').AsFloat := QOeDESTOTAL.AsFloat;
+      vQ.ParamByName('TOTAL').AsFloat := QOeTOTAL.AsFloat;
+      vQ.ParamByName('CODSUC').AsInteger := QOeCODSUC.AsInteger;
+      vQ.ParamByName('IMPCONSUMO').AsFloat := QOeIMPCONSUMO.AsFloat;
+      vQ.ParamByName('DIFERENCIA').AsFloat := QOeDIFERENCIA.AsFloat;
+      vQ.ParamByName('D').AsInteger := QOeD.AsInteger;
+      vQ.ParamByName('PESO').AsFloat := QOePESO.AsFloat;
+      vQ.ParamByName('BULTOS').AsFloat := QOeBULTOS.AsFloat;
+      vQ.ParamByName('VLR_MERCANCIA').AsFloat := QOeVLR_MERCANCIA.AsFloat;
+      vQ.ParamByName('UNIDADES').AsFloat := QOeUNIDADES.AsFloat;
+      vQ.ParamByName('DEDUCIBLE_CLENTE').AsFloat := QOeDEDUCIBLE_CLENTE.AsFloat;
+      vQ.ParamByName('PESO_NETO').AsFloat := QOePESO_NETO.AsFloat;
+      vQ.ParamByName('OTROSCARGOS').AsFloat := QOeOTROSCARGOS.AsFloat;
+      vQ.ParamByName('SHIPTO1').AsString := QOeSHIPTO1.AsString;
+      vQ.ParamByName('SHIPTO2').AsString := QOeSHIPTO2.AsString;
+      vQ.ParamByName('SHIPTO4').AsString := QOeSHIPTO4.AsString;
+      vQ.ParamByName('ONACCOUNT').AsString := QOeONACCOUNT.AsString;
+      vQ.ParamByName('PRINTED').AsString := QOePRINTED.AsString;
+      vQ.ParamByName('POSTED').AsString := QOePOSTED.AsString;
+      vQ.ParamByName('CLOSED').AsString := QOeCLOSED.AsString;
+      vQ.ParamByName('PONUMBER').AsString := QOePONUMBER.AsString;
+      vQ.ParamByName('TERMS').AsString := QOeTERMS.AsString;
+      vQ.ParamByName('RFAPLICADA').AsString := QOeRFAPLICADA.AsString;
+      vQ.ParamByName('SHIPTO').AsInteger := QOeSHIPTO.AsInteger;
+      vQ.ParamByName('TIPO_PEDIDO').AsString := QOeTIPO_PEDIDO.AsString;
+      vQ.ParamByName('DEV_FACTURA').AsInteger := QOeDEV_FACTURA.AsInteger;
+      vQ.ParamByName('DEV_TIPOFAC').AsString := QOeDEV_TIPOFAC.AsString;
+      vQ.ParamByName('CODACTIVIDAD').AsString := QOeCODACTIVIDAD.AsString;
+      vQ.ParamByName('SERIALES').AsString := QOeSERIALES.AsString;
+      vQ.ParamByName('OCNUMERO').AsString := QOeOCNUMERO.AsString;
+      vQ.ParamByName('LETRAS').AsString := QOeLETRAS.AsString;
+      vQ.ParamByName('EXPORTADA').AsString := QOeEXPORTADA.AsString;
+      vQ.ParamByName('NROREMISION').AsString := QOeNROREMISION.AsString;
+      vQ.ParamByName('CODTRANSPORTADOR').AsString :=
+        QOeCODTRANSPORTADOR.AsString;
+      vQ.ParamByName('CONDUCTOR').AsString := QOeCONDUCTOR.AsString;
+      vQ.ParamByName('NITCONDUCTOR').AsString := QOeNITCONDUCTOR.AsString;
+      vQ.ParamByName('DESPACHADOPOR').AsString := QOeDESPACHADOPOR.AsString;
+      vQ.ParamByName('CODPROYECTO').AsString := QOeCODPROYECTO.AsString;
+      vQ.ParamByName('DESCRIPCION_RECETA').AsString :=
+        QOeDESCRIPCION_RECETA.AsString;
+      vQ.ParamByName('SI').AsString := QOeSI.AsString;
+      vQ.ParamByName('REVISADO').AsString := QOeREVISADO.AsString;
+      vQ.ParamByName('FP').AsString := QOeFP.AsString;
+      vQ.ParamByName('CE').AsString := QOeCE.AsString;
+      vQ.ParamByName('CC').AsString := QOeCC.AsString;
+      vQ.ParamByName('OTRO').AsString := QOeOTRO.AsString;
+      vQ.ParamByName('ID_TIPOCARTERA').AsString := QOeID_TIPOCARTERA.AsString;
+      vQ.ParamByName('ID_NDEDUCIBLE').AsString := QOeID_NDEDUCIBLE.AsString;
+      vQ.ParamByName('DEDUCIBLE_CLIENTE').AsFloat :=
+        QOeDEDUCIBLE_CLIENTE.AsFloat;
+      vQ.ParamByName('CAJA').AsString := QOeCAJA.AsString;
+      vQ.ParamByName('SERIALDISCO').AsString := QOeSERIALDISCO.AsString;
+      vQ.ParamByName('PAGOSPORVALOR').AsString := QOePAGOSPORVALOR.AsString;
+      vQ.ParamByName('DESCRIP_ORDENPAC').AsString :=
+        QOeDESCRIP_ORDENPAC.AsString;
+      vQ.ParamByName('NRO_ORDENPAC').AsString := QOeNRO_ORDENPAC.AsString;
+      vQ.ParamByName('COD_PLACA').AsString := QOeCOD_PLACA.AsString;
+      vQ.ParamByName('COMMENTS').AsString := QOeCOMMENTS.AsString;
+      vQ.ParamByName('TOTALDEUDA').AsFloat := QOeTOTALDEUDA.AsFloat;
+      vQ.ParamByName('AFECTA_RETENCION').AsString :=
+        QOeAFECTA_RETENCION.AsString;
+      vQ.ParamByName('TOTALDOL').AsFloat := QOeTOTALDOL.AsFloat;
+      vQ.ParamByName('VALDEV').AsFloat := QOeVALDEV.AsFloat;
+      vQ.ParamByName('PORCENIVA').AsString := QOePORCENIVA.AsString;
+      vQ.ParamByName('FORPAGVAL').AsString := QOeFORPAGVAL.AsString;
+      vQ.ParamByName('TIMBRE').AsFloat := QOeTIMBRE.AsFloat;
+      vQ.ParamByName('CENICA').AsFloat := QOeCENICA.AsFloat;
+      vQ.ParamByName('CONTRACT').AsFloat := QOeCONTRACT.AsFloat;
+      vQ.ParamByName('FORMAS_PAGO').AsString := QOeFORMAS_PAGO.AsString;
+      vQ.ParamByName('VALIVABIEN').AsFloat := QOeVALIVABIEN.AsFloat;
+      vQ.ParamByName('VALIVASER').AsFloat := QOeVALIVASER.AsFloat;
+      vQ.ParamByName('IMPAMOR').AsFloat := QOeIMPAMOR.AsFloat;
+      vQ.ParamByName('OBSDESPACHO').AsString := QOeOBSDESPACHO.AsString;
+      vQ.ParamByName('COMENTA2').AsString := QOeCOMENTA2.AsString;
+      vQ.ParamByName('TOTALCRUCEANTICIPO').AsFloat :=
+        QOeTOTALCRUCEANTICIPO.AsFloat;
+      vQ.ParamByName('SALDOANTICIPOS').AsFloat := QOeSALDOANTICIPOS.AsFloat;
+      vQ.ParamByName('SHIPTO6').AsString := QOeSHIPTO6.AsString;
+      vQ.ParamByName('CONNIIF').AsString := QOeCONNIIF.AsString;
+      vQ.ParamByName('CONTAB_NIIF').AsString := QOeCONTAB_NIIF.AsString;
+      vQ.ParamByName('COD_MONEDA').AsString := QOeCOD_MONEDA.AsString;
+      vQ.ParamByName('HORCRE').AsString := QOeHORCRE.AsString;
+      vQ.ParamByName('CUFE').AsString := QOeCUFE.AsString;
+      vQ.ParamByName('ENVIADO_DEV').AsString := QOeENVIADO_DEV.AsString;
+      vQ.ExecSQL;
+
+      QOedet.Close;
+      QOedet.ParamByName('TIPO').AsString := QOeTIPO.AsString;
+      QOedet.ParamByName('NUMBER').AsInteger := QOeNUMBER.AsInteger;
+
+      QOedet.Open;
+      QOedet.First;
+
+      while not QOedet.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO OEDET(CONTEO,ID_EMPRESA,ID_SUCURSAL,NUMBER,TIPO,' +
+          ' ID_USUARIO,ITEM,LOCATION,IVA,QTYSHIP,QTYORDER,PRICE,PRICE1,EXTEND,'
+          + ' TAXES,COST,DIAS_GARANTIA,DCT,TOTALDCT,VLR_IVA,PORC_IVA,CAJAS,PESO_BRUTO,'
+          + ' TIPO_FACTOR,DOBLE_UNIDAD,USAR_DESVIACION,DESVIACIONP,PESO_PROMEDIOI,FALLO,'
+          + ' PESO_NETO,DESINICIO,DESFINAL,CAJAS_SUGERIDAS,PESO_NETOI,IMPCONSUMO,PRECIOIVA,'
+          + ' TIPO_PEDIDO,NUMERO_PEDIDO,SERIALES,NOTES,DCTADICIONAL,MANDANTE,PROYECTO,'
+          + ' DCTFIJO,COD_UNIDAD_VENTA,FACTOR,KITNO,KITDESCRIPCION,COLOR,DCTPORVALOR,'
+          + ' DCTO_AD1,DCTO_AD2,COSTO_AJUSTE,VLR_DCTFIJO,VLR_DCT,VLR_DCTOAD1,VLR_DCTOAD2,'
+          + ' VLR_DCTOADICIONAL,OCNUMERO,COD_CENTRO,DESCRIP_CENTRO,DIAS_ITEM,KILOMETRAJES,'
+          + ' PORC_COMI,NOTES1,IDN_LOC,MARVAL,MARPOR,TOTALDOL,PRECIODOL,ACTIVIDAD,'
+          + ' DPTO,CCOST,RTFTIP,RTFITEM,RTFBASEMIN,RTFVAL,NUMITEM,UTIL1,UTIL2,NUMUSU,'
+          + ' IMPAMOR,ITEM2,POSICION,IDN_PAC,COD_TALLA,COD_COLOR)VALUES(' +
+          ' :CONTEO,:ID_EMPRESA,:ID_SUCURSAL,:NUMBER,:TIPO'
+          +' ,:ID_USUARIO,:ITEM,:LOCATION,:IVA,:QTYSHIP,:QTYORDER,:PRICE,:PRICE1,:EXTEND'
+          + ' ,:TAXES,:COST,:DIAS_GARANTIA,:DCT,:TOTALDCT,:VLR_IVA,:PORC_IVA,:CAJAS,:PESO_BRUTO'
+          + ' ,:TIPO_FACTOR,:DOBLE_UNIDAD,:USAR_DESVIACION,:DESVIACIONP,:PESO_PROMEDIOI,:FALLO'
+          + ' ,:PESO_NETO,:DESINICIO,:DESFINAL,:CAJAS_SUGERIDAS,:PESO_NETOI,:IMPCONSUMO,:PRECIOIVA'
+          + ' ,:TIPO_PEDIDO,:NUMERO_PEDIDO,:SERIALES,:NOTES,:DCTADICIONAL,:MANDANTE,:PROYECTO'
+          + ' ,:DCTFIJO,:COD_UNIDAD_VENTA,:FACTOR,:KITNO,:KITDESCRIPCION,:COLOR,:DCTPORVALOR'
+          + ' ,:DCTO_AD1,:DCTO_AD2,:COSTO_AJUSTE,:VLR_DCTFIJO,:VLR_DCT,:VLR_DCTOAD1,:VLR_DCTOAD2'
+          + ' ,:VLR_DCTOADICIONAL,:OCNUMERO,:COD_CENTRO,:DESCRIP_CENTRO,:DIAS_ITEM,:KILOMETRAJES'
+          + ' ,:PORC_COMI,:NOTES1,:IDN_LOC,:MARVAL,:MARPOR,:TOTALDOL,:PRECIODOL,:ACTIVIDAD'
+          + ' ,:DPTO,:CCOST,:RTFTIP,:RTFITEM,:RTFBASEMIN,:RTFVAL,:NUMITEM,:UTIL1,:UTIL2,:NUMUSU'
+          + ' ,:IMPAMOR,:ITEM2,:POSICION,:IDN_PAC,:COD_TALLA,:COD_COLOR)');
+
+        vQ.ParamByName('CONTEO').AsInteger := QOedetCONTEO.AsInteger;
+        vQ.ParamByName('ID_EMPRESA').AsInteger := QOedetID_EMPRESA.AsInteger;
+        vQ.ParamByName('ID_SUCURSAL').AsInteger := QOedetID_SUCURSAL.AsInteger;
+        vQ.ParamByName('NUMBER').AsString := QOedetNUMBER.AsString;
+        vQ.ParamByName('TIPO').AsString := QOedetTIPO.AsString;
+        vQ.ParamByName('ID_USUARIO').AsString := QOedetID_USUARIO.AsString;
+        vQ.ParamByName('ITEM').AsString := QOedetITEM.AsString;
+        vQ.ParamByName('LOCATION').AsString := QOedetLOCATION.AsString;
+        vQ.ParamByName('IVA').AsInteger := QOedetIVA.AsInteger;
+        vQ.ParamByName('QTYSHIP').AsFloat := QOedetQTYSHIP.AsFloat;
+        vQ.ParamByName('QTYORDER').AsFloat := QOedetQTYORDER.AsFloat;
+        vQ.ParamByName('PRICE').AsFloat := QOedetPRICE.AsFloat;
+        vQ.ParamByName('PRICE1').AsFloat := QOedetPRICE1.AsFloat;
+        vQ.ParamByName('EXTEND').AsFloat := QOedetEXTEND.AsFloat;
+        vQ.ParamByName('TAXES').AsFloat := QOedetTAXES.AsFloat;
+        vQ.ParamByName('COST').AsFloat := QOedetCOST.AsFloat;
+        vQ.ParamByName('DIAS_GARANTIA').AsInteger :=
+          QOedetDIAS_GARANTIA.AsInteger;
+        vQ.ParamByName('DCT').AsFloat := QOedetDCT.AsFloat;
+        vQ.ParamByName('TOTALDCT').AsFloat := QOedetTOTALDCT.AsFloat;
+        vQ.ParamByName('VLR_IVA').AsFloat := QOedetVLR_IVA.AsFloat;
+        vQ.ParamByName('PORC_IVA').AsFloat := QOedetPORC_IVA.AsFloat;
+        vQ.ParamByName('CAJAS').AsFloat := QOedetCAJAS.AsFloat;
+        vQ.ParamByName('PESO_BRUTO').AsFloat := QOedetPESO_BRUTO.AsFloat;
+        vQ.ParamByName('DESVIACIONP').AsFloat := QOedetDESVIACIONP.AsFloat;
+        vQ.ParamByName('PESO_PROMEDIOI').AsFloat :=
+          QOedetPESO_PROMEDIOI.AsFloat;
+        vQ.ParamByName('PESO_NETO').AsFloat := QOedetPESO_NETO.AsFloat;
+        vQ.ParamByName('DESINICIO').AsFloat := QOedetDESINICIO.AsFloat;
+        vQ.ParamByName('DESFINAL').AsFloat := QOedetDESFINAL.AsFloat;
+        vQ.ParamByName('CAJAS_SUGERIDAS').AsFloat :=
+          QOedetCAJAS_SUGERIDAS.AsFloat;
+        vQ.ParamByName('PESO_NETOI').AsFloat := QOedetPESO_NETOI.AsFloat;
+        vQ.ParamByName('IMPCONSUMO').AsFloat := QOedetIMPCONSUMO.AsFloat;
+        vQ.ParamByName('PRECIOIVA').AsFloat := QOedetPRECIOIVA.AsFloat;
+        vQ.ParamByName('NUMERO_PEDIDO').AsInteger :=
+          QOedetNUMERO_PEDIDO.AsInteger;
+        vQ.ParamByName('DCTADICIONAL').AsFloat := QOedetDCTADICIONAL.AsFloat;
+        vQ.ParamByName('DCTFIJO').AsFloat := QOedetDCTFIJO.AsFloat;
+        vQ.ParamByName('FACTOR').AsFloat := QOedetFACTOR.AsFloat;
+        vQ.ParamByName('DCTPORVALOR').AsFloat := QOedetDCTPORVALOR.AsFloat;
+        vQ.ParamByName('DCTO_AD1').AsFloat := QOedetDCTO_AD1.AsFloat;
+        vQ.ParamByName('DCTO_AD2').AsFloat := QOedetDCTO_AD2.AsFloat;
+        vQ.ParamByName('COSTO_AJUSTE').AsFloat := QOedetCOSTO_AJUSTE.AsFloat;
+        vQ.ParamByName('VLR_DCTFIJO').AsFloat := QOedetVLR_DCTFIJO.AsFloat;
+        vQ.ParamByName('VLR_DCT').AsFloat := QOedetVLR_DCT.AsFloat;
+        vQ.ParamByName('VLR_DCTOAD1').AsFloat := QOedetVLR_DCTOAD1.AsFloat;
+        vQ.ParamByName('VLR_DCTOAD2').AsFloat := QOedetVLR_DCTOAD2.AsFloat;
+        vQ.ParamByName('VLR_DCTOADICIONAL').AsFloat :=
+          QOedetVLR_DCTOADICIONAL.AsFloat;
+        vQ.ParamByName('COD_CENTRO').AsInteger := QOedetCOD_CENTRO.AsInteger;
+        vQ.ParamByName('DIAS_ITEM').AsInteger := QOedetDIAS_ITEM.AsInteger;
+        vQ.ParamByName('KILOMETRAJES').AsInteger :=
+          QOedetKILOMETRAJES.AsInteger;
+        vQ.ParamByName('PORC_COMI').AsFloat := QOedetPORC_COMI.AsFloat;
+        vQ.ParamByName('MARVAL').AsFloat := QOedetMARVAL.AsFloat;
+        vQ.ParamByName('MARPOR').AsFloat := QOedetMARPOR.AsFloat;
+        vQ.ParamByName('TOTALDOL').AsFloat := QOedetTOTALDOL.AsFloat;
+        vQ.ParamByName('PRECIODOL').AsFloat := QOedetPRECIODOL.AsFloat;
+        vQ.ParamByName('TIPO_FACTOR').AsString := QOedetTIPO_FACTOR.AsString;
+        vQ.ParamByName('DOBLE_UNIDAD').AsString := QOedetDOBLE_UNIDAD.AsString;
+        vQ.ParamByName('USAR_DESVIACION').AsString :=
+          QOedetUSAR_DESVIACION.AsString;
+        vQ.ParamByName('FALLO').AsString := QOedetFALLO.AsString;
+        vQ.ParamByName('TIPO_PEDIDO').AsString := QOedetTIPO_PEDIDO.AsString;
+        vQ.ParamByName('SERIALES').AsString := QOedetSERIALES.AsString;
+        vQ.ParamByName('NOTES').AsString := QOedetNOTES.AsString;
+        vQ.ParamByName('MANDANTE').AsString := QOedetMANDANTE.AsString;
+        vQ.ParamByName('PROYECTO').AsString := QOedetPROYECTO.AsString;
+        vQ.ParamByName('COD_UNIDAD_VENTA').AsString :=
+          QOedetCOD_UNIDAD_VENTA.AsString;
+        vQ.ParamByName('KITNO').AsString := QOedetKITNO.AsString;
+        vQ.ParamByName('KITDESCRIPCION').AsString :=
+          QOedetKITDESCRIPCION.AsString;
+        vQ.ParamByName('COLOR').AsString := QOedetCOLOR.AsString;
+        vQ.ParamByName('OCNUMERO').AsString := QOedetOCNUMERO.AsString;
+        vQ.ParamByName('DESCRIP_CENTRO').AsString :=
+          QOedetDESCRIP_CENTRO.AsString;
+        vQ.ParamByName('NOTES1').AsString := QOedetNOTES1.AsString;
+        vQ.ParamByName('IDN_LOC').AsString := QOedetIDN_LOC.AsString;
+        vQ.ParamByName('ACTIVIDAD').AsString := QOedetACTIVIDAD.AsString;
+        vQ.ParamByName('DPTO').AsInteger := QOedetDPTO.AsInteger;
+        vQ.ParamByName('CCOST').AsInteger := QOedetCCOST.AsInteger;
+        vQ.ParamByName('RTFTIP').AsString := QOedetRTFTIP.AsString;
+        vQ.ParamByName('NUMUSU').AsString := QOedetNUMUSU.AsString;
+        vQ.ParamByName('ITEM2').AsString := QOedetITEM2.AsString;
+        vQ.ParamByName('IDN_PAC').AsString := QOedetIDN_PAC.AsString;
+        vQ.ParamByName('COD_TALLA').AsString := QOedetCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QOedetCOD_COLOR.AsString;
+        vQ.ParamByName('RTFITEM').AsFloat := QOedetRTFITEM.AsFloat;
+        vQ.ParamByName('RTFBASEMIN').AsFloat := QOedetRTFBASEMIN.AsFloat;
+        vQ.ParamByName('RTFVAL').AsFloat := QOedetRTFVAL.AsFloat;
+        vQ.ParamByName('NUMITEM').AsInteger := QOedetNUMITEM.AsInteger;
+        vQ.ParamByName('UTIL1').AsFloat := QOedetUTIL1.AsFloat;
+        vQ.ParamByName('UTIL2').AsFloat := QOedetUTIL2.AsFloat;
+        vQ.ParamByName('IMPAMOR').AsFloat := QOedetIMPAMOR.AsFloat;
+        vQ.ParamByName('POSICION').AsInteger := QOedetPOSICION.AsInteger;
+        vQ.Close;
+        vQ.ExecSQL;
+
+        QOedet.Next;
+      END;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QOe.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Facturas:');
+  Memo1.Lines.Add('  -Tabla Oe');
+  Memo1.Lines.Add('  -Cantidad de Facturas: ' + Numero.ToString);
 end;
 
 end.

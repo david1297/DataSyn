@@ -17,6 +17,7 @@ type
     Seleccionar: TCheckColumn;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure StringGrid1HeaderClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -54,6 +55,22 @@ begin
   StringGrid1.Cells[1, 3] := BoolToStr(Main.Usuarios, True);
   StringGrid1.Cells[0, 4] := 'Formas De Pago';
   StringGrid1.Cells[1, 4] := BoolToStr(Main.FormasPago, True);
+end;
+
+procedure TForm2.StringGrid1HeaderClick(Column: TColumn);
+var
+  I: integer;
+begin
+  if Column.Header = 'Seleccionar' then
+  begin
+    for I := 0 to 4 do
+    begin
+      if StringGrid1.Cells[1, I] = 'True' then
+        StringGrid1.Cells[1, I] := 'False'
+      else
+        StringGrid1.Cells[1, I] := 'True';
+    end;
+  end;
 
 end;
 

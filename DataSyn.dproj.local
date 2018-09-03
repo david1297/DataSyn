@@ -17,6 +17,6 @@
   </Transactions>
 	<ActiveMobileDevice>
 		<P132 iOSSimulator="iPhone5"/>
-		<NoProfile Android="NEXUS"/>
-	</ActiveMobileDevice>
+		<NoProfile Android="NEXUS6"/>
+	</ActiveMobileDevice>  <BT_BuildType>Debug</BT_BuildType>
 </BorlandProject>

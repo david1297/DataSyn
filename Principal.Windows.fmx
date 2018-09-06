@@ -1,12 +1,12 @@
 inherited Main_Windows: TMain_Windows
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 725
   DesignerMasterStyle = 0
   inherited Panel1: TPanel
-    Size.Width = 640.000000000000000000
+    Size.Width = 725.000000000000000000
   end
   inherited Panel2: TPanel
-    Size.Width = 640.000000000000000000
+    Size.Width = 725.000000000000000000
     Size.Height = 305.000000000000000000
     inherited Memo1: TMemo
       Size.Height = 295.000000000000000000
@@ -14,22 +14,15 @@ inherited Main_Windows: TMain_Windows
       Viewport.Height = 295.000000000000000000
     end
     inherited GroupBox2: TGroupBox
-      Size.Width = 216.000000000000000000
+      Size.Width = 301.000000000000000000
       Size.Height = 295.000000000000000000
     end
   end
   inherited Panel3: TPanel
     Position.Y = 450.000000000000000000
-    Size.Width = 640.000000000000000000
+    Size.Width = 725.000000000000000000
     inherited ProgressBar1: TProgressBar
-      Size.Width = 630.000000000000000000
+      Size.Width = 715.000000000000000000
     end
-  end
-  inherited ConOrigen: TFDConnection
-    Params.Strings = (
-      'User_Name=SYSDBA'
-      'Password=masterkey'
-      'Protocol=TCPIP'
-      'DriverID=FB')
   end
 end

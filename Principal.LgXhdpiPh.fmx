@@ -2,41 +2,13 @@ inherited Main_LgXhdpiPh: TMain_LgXhdpiPh
   ClientHeight = 695
   ClientWidth = 450
   DesignerMasterStyle = 0
-  inherited OpenDialog1: TOpenDialog [0]
-  end
-  inherited Panel2: TPanel [1]
-    Size.Width = 450.000000000000000000
-    Size.Height = 376.000000000000000000
-    inherited Memo1: TMemo
-      Align = Bottom
-      Position.Y = 192.000000000000000000
-      Size.Width = 440.000000000000000000
-      Size.Height = 179.000000000000000000
-      Viewport.Width = 440.000000000000000000
-      Viewport.Height = 179.000000000000000000
-    end
-    inherited GroupBox2: TGroupBox
-      Align = Top
-      Position.X = 10.000000000000000000
-      Size.Width = 435.000000000000000000
-      Size.Height = 180.000000000000000000
-    end
-  end
-  inherited Panel3: TPanel [2]
-    Position.Y = 665.000000000000000000
-    Size.Width = 450.000000000000000000
-    inherited ProgressBar1: TProgressBar
-      Size.Width = 450.000000000000000000
-      Size.Height = 10.000000000000000000
-    end
-  end
-  inherited Panel1: TPanel [3]
+  inherited Panel1: TPanel
     Size.Width = 450.000000000000000000
     Size.Height = 289.000000000000000000
     inherited GroupBox1: TGroupBox
       Size.Width = 297.000000000000000000
       inherited Edit1: TEdit
-        Text = '\\10.10.10.226\D:\Saiopen\Datasyn\Origen.FDB'
+        Text = 'SMB:\\10.10.10.226\D:\Saiopen\Datasyn\Origen.FDB'
         Size.Width = 241.000000000000000000
         Size.Height = 32.000000000000000000
       end
@@ -47,7 +19,7 @@ inherited Main_LgXhdpiPh: TMain_LgXhdpiPh
         Size.Height = 48.000000000000000000
       end
       inherited Edit2: TEdit
-        Text = '\\10.10.10.226\D:\Saiopen\Datasyn\Destino.FDB'
+        Text = 'SMB:\\10.10.10.226\D:\Saiopen\Datasyn\Destino.FDB'
         Size.Width = 241.000000000000000000
         Size.Height = 32.000000000000000000
       end
@@ -123,16 +95,30 @@ inherited Main_LgXhdpiPh: TMain_LgXhdpiPh
       Size.PlatformDefault = False
     end
   end
-  inherited Label3: TLabel [4]
-    Position.X = 8.000000000000000000
-    Position.Y = 224.000000000000000000
-    Size.Width = 81.000000000000000000
-    Size.Height = 33.000000000000000000
+  inherited Panel2: TPanel
+    Size.Width = 450.000000000000000000
+    Size.Height = 376.000000000000000000
+    inherited Memo1: TMemo
+      Align = Bottom
+      Position.Y = 192.000000000000000000
+      Size.Width = 440.000000000000000000
+      Size.Height = 179.000000000000000000
+      Viewport.Width = 440.000000000000000000
+      Viewport.Height = 179.000000000000000000
+    end
+    inherited GroupBox2: TGroupBox
+      Align = Top
+      Position.X = 10.000000000000000000
+      Size.Width = 435.000000000000000000
+      Size.Height = 180.000000000000000000
+    end
   end
-  inherited Label6: TLabel [5]
-    Position.X = 8.000000000000000000
-    Position.Y = 256.000000000000000000
-    Size.Width = 81.000000000000000000
-    Size.Height = 33.000000000000000000
+  inherited Panel3: TPanel
+    Position.Y = 665.000000000000000000
+    Size.Width = 450.000000000000000000
+    inherited ProgressBar1: TProgressBar
+      Size.Width = 440.000000000000000000
+      Size.Height = 10.000000000000000000
+    end
   end
 end

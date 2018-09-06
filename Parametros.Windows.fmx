@@ -1,6 +1,6 @@
 inherited Form2_Windows: TForm2_Windows
-  ClientHeight = 480
-  ClientWidth = 640
+  ClientHeight = 328
+  ClientWidth = 209
   DesignerMasterStyle = 3
   inherited StringGrid1: TStringGrid
     Viewport.Width = 177.000000000000000000

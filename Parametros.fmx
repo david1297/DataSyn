@@ -9,7 +9,7 @@ object Form2: TForm2
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  DesignerMasterStyle = 3
+  DesignerMasterStyle = 0
   object Button1: TButton
     Position.X = 16.000000000000000000
     Position.Y = 8.000000000000000000
@@ -28,8 +28,8 @@ object Form2: TForm2
     TabOrder = 1
     RowCount = 5
     OnHeaderClick = StringGrid1HeaderClick
-    Viewport.Width = 177.000000000000000000
-    Viewport.Height = 241.000000000000000000
+    Viewport.Width = 173.000000000000000000
+    Viewport.Height = 248.000000000000000000
     object Parametro: TStringColumn
       Header = 'Parametros'
       ReadOnly = True

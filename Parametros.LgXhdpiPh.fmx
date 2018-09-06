@@ -4,6 +4,7 @@ inherited Form2_LgXhdpiPh: TForm2_LgXhdpiPh
   DesignerMasterStyle = 3
   inherited Button1: TButton
     Size.Width = 105.000000000000000000
+    Size.Height = 44.000000000000000000
     Size.PlatformDefault = False
   end
   inherited StringGrid1: TStringGrid

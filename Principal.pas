@@ -34,7 +34,6 @@ type
     Label4: TLabel;
     Label5: TLabel;
     ConDestino: TFDConnection;
-    ConOrigen: TFDConnection;
     Button2: TButton;
     QCust: TFDQuery;
     QCustID_N: TStringField;
@@ -1472,6 +1471,406 @@ type
     QIpocdCOD_COLOR: TStringField;
     QIpocdFACTOR: TFloatField;
     QIpocdCODBARRASCURVA: TStringField;
+    QIp: TFDQuery;
+    QIpdet: TFDQuery;
+    QOc_Ip: TFDQuery;
+    QIpTIPO: TStringField;
+    QIpNUMBER: TIntegerField;
+    QIpID_N: TStringField;
+    QIpACCT: TFloatField;
+    QIpPONUMBER: TStringField;
+    QIpFECHA: TSQLTimeStampField;
+    QIpCOST: TFloatField;
+    QIpPOSTED: TStringField;
+    QIpCOMMENTS: TMemoField;
+    QIpCLOSED: TStringField;
+    QIpCLOSEPO: TStringField;
+    QIpPRINTED: TStringField;
+    QIpENTPAR: TStringField;
+    QIpRECTOT: TStringField;
+    QIpANUL: TStringField;
+    QIpENTORDEN: TStringField;
+    QIpCONTABIL: TStringField;
+    QIpENTFACT: TStringField;
+    QIpENTCDEV: TStringField;
+    QIpDEVUELTO: TStringField;
+    QIpPORDESC: TFloatField;
+    QIpVALORDCT: TFloatField;
+    QIpVALORFLETE: TFloatField;
+    QIpEMPRESA: TStringField;
+    QIpTOTALOTROS: TFloatField;
+    QIpTOTALRETEN: TFloatField;
+    QIpTOTALITEMS: TFloatField;
+    QIpVALORIVA: TFloatField;
+    QIpVALORICA: TFloatField;
+    QIpVALORRTIVA: TFloatField;
+    QIpVALORRTICA: TFloatField;
+    QIpTOTALSDCT: TFloatField;
+    QIpTOTALCDCT: TFloatField;
+    QIpDUEDATE: TSQLTimeStampField;
+    QIpE: TSmallintField;
+    QIpS: TSmallintField;
+    QIpSUCCLIENTE: TIntegerField;
+    QIpDOCASC: TStringField;
+    QIpENTMC: TStringField;
+    QIpREVISADO: TStringField;
+    QIpFECHA_ENTREGA: TSQLTimeStampField;
+    QIpFECHA_REQUISICION: TSQLTimeStampField;
+    QIpID_USUARIO: TStringField;
+    QIpOCNUMERO: TStringField;
+    QIpIMPORTACION: TStringField;
+    QIpE_CRUCE: TIntegerField;
+    QIpS_CRUCE: TIntegerField;
+    QIpTIPO_CRUCE: TStringField;
+    QIpNUMBER_CRUCE: TIntegerField;
+    QIpEA_AUTO_LEGALIZADA: TStringField;
+    QIpVALIVABIEN: TFloatField;
+    QIpVALIVASER: TFloatField;
+    QIpDOC_EXTERNO: TStringField;
+    QIpCCOSTO: TIntegerField;
+    QIpDEPTO: TIntegerField;
+    QIpPROYECTO: TStringField;
+    QIpACTIVIDAD: TStringField;
+    QIpRETECREE: TFloatField;
+    QIpCODCREE: TStringField;
+    QIpTIPO_IMP: TStringField;
+    QIpNRO_IMP: TIntegerField;
+    QIpESTADO: TStringField;
+    QIpTOTAL_BONO: TSingleField;
+    QOc_IpNUMBERIP: TIntegerField;
+    QOc_IpTYPEIP: TStringField;
+    QOc_IpE: TSmallintField;
+    QOc_IpS: TSmallintField;
+    QOc_IpTYPEOC: TStringField;
+    QOc_IpNUMBEROC: TIntegerField;
+    QIpdetTIPO: TStringField;
+    QIpdetNUMBER: TIntegerField;
+    QIpdetCONTEO: TIntegerField;
+    QIpdetITEM: TStringField;
+    QIpdetLOCATION: TStringField;
+    QIpdetCOST: TFloatField;
+    QIpdetQTY: TFloatField;
+    QIpdetQTYREC: TFloatField;
+    QIpdetQTYPEND: TFloatField;
+    QIpdetEXTEND: TFloatField;
+    QIpdetPESO: TFloatField;
+    QIpdetCOSTCDESC: TFloatField;
+    QIpdetCOSTCFLETE: TFloatField;
+    QIpdetREFOC: TStringField;
+    QIpdetREFREC: TStringField;
+    QIpdetCLOSEDOC: TStringField;
+    QIpdetQTYDEV: TFloatField;
+    QIpdetCC: TFloatField;
+    QIpdetPB: TFloatField;
+    QIpdetQTYB: TFloatField;
+    QIpdetQTYBDEV: TFloatField;
+    QIpdetPORCDCT: TFloatField;
+    QIpdetVALORDCT: TFloatField;
+    QIpdetE: TSmallintField;
+    QIpdetDESTINO: TSmallintField;
+    QIpdetS: TSmallintField;
+    QIpdetLOTE: TStringField;
+    QIpdetCOSTMC: TFloatField;
+    QIpdetNODOCR: TIntegerField;
+    QIpdetTPDOCR: TStringField;
+    QIpdetEDOCR: TIntegerField;
+    QIpdetSDOCR: TIntegerField;
+    QIpdetFECHA_VENCIMIENTO: TSQLTimeStampField;
+    QIpdetCOLOR: TStringField;
+    QIpdetIVA: TFloatField;
+    QIpdetCOSTO_AJUSTE: TFloatField;
+    QIpdetNUMERO_AUTO: TIntegerField;
+    QIpdetCADENA_ADICIONAL: TStringField;
+    QIpdetE_AUTO: TSmallintField;
+    QIpdetS_AUTO: TSmallintField;
+    QIpdetTIPO_AUTO: TStringField;
+    QIpdetCODOCR: TIntegerField;
+    QIpdetCONTEO_AUTO: TIntegerField;
+    QIpdetDEPTO: TSmallintField;
+    QIpdetCCOSTO: TSmallintField;
+    QIpdetACTIVIDAD: TStringField;
+    QIpdetPROY: TStringField;
+    QIpdetCOD_TALLA: TStringField;
+    QIpdetCOD_COLOR: TStringField;
+    QIpdetFACTOR: TFloatField;
+    QIpdetPRECIO_UNITARIO_IVA: TFloatField;
+    QIpdetVALIVA: TFloatField;
+    QIpdetVALOR_IVA: TFloatField;
+    QIpdetCUBX: TFloatField;
+    QIpdetCUBY: TFloatField;
+    QIpdetCUBZ: TFloatField;
+    QIpdetCUBFACTOR: TFloatField;
+    QIpdetCAJA_SET: TFloatField;
+    QIpdetMANIFIESTOID: TStringField;
+    QIpdetCOSTOEXT: TFloatField;
+    QIpdetTOTAL_BONO: TFloatField;
+    QIpdetBONO: TStringField;
+    QIpdetCODBARRASCURVA: TStringField;
+    QIpdetVALOR_IVA_MAYOR: TFloatField;
+    QIpdetVALOR_BASE_MAYOR: TFloatField;
+    QIpdetDEVUELTO: TStringField;
+    CheckAjustes: TCheckBox;
+    QIpAdjuste: TFDQuery;
+    QIpAdjusteE: TSmallintField;
+    QIpAdjusteS: TSmallintField;
+    QIpAdjusteTIPO: TStringField;
+    QIpAdjusteBATCH: TIntegerField;
+    QIpAdjusteID_USUARIO: TStringField;
+    QIpAdjusteID_N: TStringField;
+    QIpAdjusteSUCCLIENTE: TIntegerField;
+    QIpAdjusteFECHA: TSQLTimeStampField;
+    QIpAdjusteDESCRIPCION: TStringField;
+    QIpAdjusteCONCEPTO: TStringField;
+    QIpAdjusteTOTALS: TFloatField;
+    QIpAdjusteTOTALE: TFloatField;
+    QIpAdjustePOSTED: TStringField;
+    QIpAdjusteDOC_EXTERNO: TIntegerField;
+    QIpAdjusteESTADO: TStringField;
+    QIpAdjusteNUMERO_CRUCE_EA: TIntegerField;
+    QIpAdjusteTIPO_CRUCE_EA: TStringField;
+    QIpAdjusteS_CRUCE: TIntegerField;
+    QIpAdjustd: TFDQuery;
+    QIpAdjustdE: TSmallintField;
+    QIpAdjustdS: TSmallintField;
+    QIpAdjustdBATCH: TIntegerField;
+    QIpAdjustdTIPO: TStringField;
+    QIpAdjustdCONTEO: TIntegerField;
+    QIpAdjustdID_USUARIO: TStringField;
+    QIpAdjustdACCT: TFloatField;
+    QIpAdjustdITEM: TStringField;
+    QIpAdjustdLOCATION: TStringField;
+    QIpAdjustdTRANSCODE: TStringField;
+    QIpAdjustdPROY: TStringField;
+    QIpAdjustdACTIVIDAD: TStringField;
+    QIpAdjustdCCOSTO: TSmallintField;
+    QIpAdjustdDEPTO: TSmallintField;
+    QIpAdjustdLOTE: TStringField;
+    QIpAdjustdSUBTOTAL: TFloatField;
+    QIpAdjustdCOLOR: TStringField;
+    QIpAdjustdDESTINO: TSmallintField;
+    QIpAdjustdCOSTO_AJUSTE: TFloatField;
+    QIpAdjustdCOST: TFloatField;
+    QIpAdjustdQTYB: TFloatField;
+    QIpAdjustdQTY: TFloatField;
+    QIpAdjustdFECHA_VENCIMIENTO: TSQLTimeStampField;
+    QIpAdjustdCOD_TALLA: TStringField;
+    QIpAdjustdCOD_COLOR: TStringField;
+    QIpAdjustdCODBARRASCURVA: TStringField;
+    QTraslado: TFDQuery;
+    QTrasladoNUMERO: TIntegerField;
+    QTrasladoTIPO: TStringField;
+    QTrasladoE: TSmallintField;
+    QTrasladoS: TSmallintField;
+    QTrasladoID_N: TStringField;
+    QTrasladoSUCCLIENTE: TIntegerField;
+    QTrasladoID_USUARIO: TStringField;
+    QTrasladoLOCORI: TStringField;
+    QTrasladoLOCDEST: TStringField;
+    QTrasladoRESPREALI: TStringField;
+    QTrasladoFECHAREALI: TSQLTimeStampField;
+    QTrasladoFECHAACT: TSQLTimeStampField;
+    QTrasladoDESCRIPCION: TStringField;
+    QTrasladoACTUALIZADO: TStringField;
+    QTrasladoIMPRESO: TStringField;
+    QTrasladoANULADO: TStringField;
+    QTrasladoCONCEPTO: TStringField;
+    QTrasladoDOC_EXTERNO: TIntegerField;
+    QTrasladoUSUARIO_AUTORIZA: TStringField;
+    QTrasdet: TFDQuery;
+    QTrasdetNUMERO: TIntegerField;
+    QTrasdetTIPO: TStringField;
+    QTrasdetE: TSmallintField;
+    QTrasdetS: TSmallintField;
+    QTrasdetCONTEO: TIntegerField;
+    QTrasdetITEM: TStringField;
+    QTrasdetCANTIDAD: TFloatField;
+    QTrasdetCANTIDADB: TFloatField;
+    QTrasdetCC: TFloatField;
+    QTrasdetPB: TFloatField;
+    QTrasdetCOST: TFloatField;
+    QTrasdetVALOR_RECIBIDO: TFloatField;
+    QTrasdetVALOR_ENVIADO: TFloatField;
+    QTrasdetCOLOR: TStringField;
+    QTrasdetCOSTO_AJUSTE: TFloatField;
+    QTrasdetNOTES: TStringField;
+    QTrasdetLOTE: TStringField;
+    QTrasdetFECHA_VENCIMIENTO: TSQLTimeStampField;
+    QTrasdetCOD_TALLA: TStringField;
+    QTrasdetCOD_COLOR: TStringField;
+    QTrasdetCODBARRASCURVA: TStringField;
+    CheckTraslados: TCheckBox;
+    CheckEnsambles: TCheckBox;
+    QEnsamblee: TFDQuery;
+    QEnsambleeE: TSmallintField;
+    QEnsambleeS: TSmallintField;
+    QEnsambleeTIPO: TStringField;
+    QEnsambleeBATCH: TIntegerField;
+    QEnsambleeID_USUARIO: TStringField;
+    QEnsambleeID_N: TStringField;
+    QEnsambleeSUCCLIENTE: TIntegerField;
+    QEnsambleeFECHA: TSQLTimeStampField;
+    QEnsambleeDESCRIPCION: TStringField;
+    QEnsambleeCONCEPTO: TStringField;
+    QEnsambleeCOLOR: TStringField;
+    QEnsambleeLOTE: TStringField;
+    QEnsambleeDOC_FISICO: TStringField;
+    QEnsambleeCOMENTARIO: TStringField;
+    QEnsambleeTOTAL: TFloatField;
+    QEnsambleePOSTED: TStringField;
+    QEnsambleeNUMBER_IP: TIntegerField;
+    QEnsambleeTIPO_IP: TStringField;
+    QEnsambleeFECHA_VENCIMIENTO: TSQLTimeStampField;
+    QEnsambleeESTADO: TStringField;
+    QEnsambleeNUMERO: TIntegerField;
+    QEnsambled: TFDQuery;
+    QEnsambledE: TSmallintField;
+    QEnsambledS: TSmallintField;
+    QEnsambledTIPO: TStringField;
+    QEnsambledBATCH: TIntegerField;
+    QEnsambledCONTEO: TIntegerField;
+    QEnsambledID_USUARIO: TStringField;
+    QEnsambledACCT: TFloatField;
+    QEnsambledITEM: TStringField;
+    QEnsambledLOCATION: TStringField;
+    QEnsambledTRANSCODE: TStringField;
+    QEnsambledLOTE: TStringField;
+    QEnsambledCOLOR: TStringField;
+    QEnsambledCOSTO_AJUSTE: TFloatField;
+    QEnsambledCUENTA_AJUSTE: TFloatField;
+    QEnsambledQTY: TFloatField;
+    QEnsambledCOST: TFloatField;
+    QEnsambledQTYB: TFloatField;
+    QEnsambledIDN_LOC: TStringField;
+    QEnsambledPROY: TStringField;
+    QEnsambledACTIVIDAD: TStringField;
+    QEnsambledCCOSTO: TSmallintField;
+    QEnsambledDEPTO: TSmallintField;
+    QEnsambledCOD_TALLA: TStringField;
+    QEnsambledCOD_COLOR: TStringField;
+    QEnsambledCODBARRASCURVA: TStringField;
+    QEnsambledCANTIDAD_RECETA: TFloatField;
+    QEnsambledDIGITADO_M: TStringField;
+    CheckCarteraProv: TCheckBox;
+    QCarproen: TFDQuery;
+    QCarproenE: TSmallintField;
+    QCarproenS: TSmallintField;
+    QCarproenTIPO: TStringField;
+    QCarproenBATCH: TIntegerField;
+    QCarproenID_N: TStringField;
+    QCarproenFECHA: TSQLTimeStampField;
+    QCarproenTOTAL: TFloatField;
+    QCarproenUSERNAME: TStringField;
+    QCarproenFECHA_HORA: TStringField;
+    QCarproenOBSERV: TStringField;
+    QCarproenBANCO: TStringField;
+    QCarproenCHEQUE: TStringField;
+    QCarproenDUEDATE: TSQLTimeStampField;
+    QCarproenLETRAS: TStringField;
+    QCarproenIDVEND: TSmallintField;
+    QCarproenSHIPTO: TIntegerField;
+    QCarproenEXPORTADA: TStringField;
+    QCarproenENTREGADO: TStringField;
+    QCarproenREVISADO: TStringField;
+    QCarproenREVISOR: TStringField;
+    QCarproenFECHA_REVISION: TSQLTimeStampField;
+    QCarproenIMPRESO: TStringField;
+    QCarproenDOC_FISICO: TStringField;
+    QCarproenCHEQUE_POSTF: TStringField;
+    QCarproenFECHA_CHEQUE: TSQLTimeStampField;
+    QCarproenPROYECTO: TStringField;
+    QCarproenSALDO_DEUDA: TFloatField;
+    QCarproenSALDO_DEUDA_ABONO: TFloatField;
+    QCarproenPONUMBER: TStringField;
+    QCarproenINTERES_IMPLICITO: TStringField;
+    QCarproenDETALLE: TStringField;
+    QCarproenFECHA_CONTAB_CONSIG: TStringField;
+    QCarproenDETERIORO_ESFA: TStringField;
+    QCarproenCONCEPTO_NOTAFE: TStringField;
+    QCarproenENVIADO: TStringField;
+    QCarprode: TFDQuery;
+    QCarprodeCONTEO: TIntegerField;
+    QCarprodeTIPO: TStringField;
+    QCarprodeBATCH: TIntegerField;
+    QCarprodeID_N: TStringField;
+    QCarprodeACCT: TFloatField;
+    QCarprodeE: TSmallintField;
+    QCarprodeS: TSmallintField;
+    QCarprodeCRUCE: TStringField;
+    QCarprodeINVC: TStringField;
+    QCarprodeFECHA: TSQLTimeStampField;
+    QCarprodeDUEDATE: TSQLTimeStampField;
+    QCarprodeDPTO: TSmallintField;
+    QCarprodeCCOST: TSmallintField;
+    QCarprodeACTIVIDAD: TStringField;
+    QCarprodeDESCRIPCION: TStringField;
+    QCarprodeDIAS: TFloatField;
+    QCarprodeDESTINO: TSmallintField;
+    QCarprodeTIPO_REF: TStringField;
+    QCarprodeREFERENCIA: TIntegerField;
+    QCarprodeTIPO_IMP: TStringField;
+    QCarprodeNRO_IMP: TIntegerField;
+    QCarprodeCONCEPTO_IMP: TIntegerField;
+    QCarprodeBANCO: TSmallintField;
+    QCarprodeCHEQUE: TStringField;
+    QCarprodePROYECTO: TStringField;
+    QCarprodeCONCEPTO_PAGO: TSmallintField;
+    QCarprodeID_TIPOCARTERA: TStringField;
+    QCarprodeINVC_ENTERO: TIntegerField;
+    QCarprodeCHEQUE_POSTF: TStringField;
+    QCarprodeFECHA_CHEQUE: TSQLTimeStampField;
+    QCarprodeSALDO: TFloatField;
+    QCarprodeCREDIT: TFloatField;
+    QCarprodeTASA_CAMBIO: TFloatField;
+    QCarprodeCREDITO_US: TFloatField;
+    QCarprodeDEBITO_US: TFloatField;
+    QCarprodeBASE: TFloatField;
+    QCarprodeDEBIT: TFloatField;
+    QCarprodeCUOTA: TSmallintField;
+    QCarprodeFECHA_CONSIG: TSQLTimeStampField;
+    QCarprodeFECHA_FACTURA: TSQLTimeStampField;
+    QCarprodeMAYOR_VALOR: TFloatField;
+    QCarprodeVALOR_IMPUESTO: TSingleField;
+    QCarprodeIMPORT: TStringField;
+    QCarprodeCOD_FLUJOEFE: TIntegerField;
+    QCarprodeIDVEND: TSmallintField;
+    QCarprodePORC_TASA: TFloatField;
+    QCarprodeTIEMPO_MESES: TFloatField;
+    QCarprodePAGO_DISP: TStringField;
+    ConOrigen: TFDConnection;
+    QVendedor: TFDQuery;
+    QVendedorIDVEND: TSmallintField;
+    QVendedorNOMBRE: TStringField;
+    QVendedorTELEFONO: TStringField;
+    QVendedorCUOTAMINMENSUAL: TFloatField;
+    QVendedorBASICOMENSUAL: TFloatField;
+    QVendedorZONAVENDEDOR: TSmallintField;
+    QVendedorCOMVENTA: TFloatField;
+    QVendedorCOMRECA0_30: TFloatField;
+    QVendedorCOMRECA31_60: TFloatField;
+    QVendedorCOMRECA61_90: TFloatField;
+    QVendedorCOMRECAMASDE90: TFloatField;
+    QVendedorE: TSmallintField;
+    QVendedorS: TSmallintField;
+    QVendedorID_N: TStringField;
+    QVendedorBASE_RTICA: TFloatField;
+    QVendedorACTIVO: TStringField;
+    QVendedorCOMRECA_TARIFA: TFloatField;
+    QGlen: TFDQuery;
+    QGlenE: TSmallintField;
+    QGlenS: TSmallintField;
+    QGlenTIPO: TStringField;
+    QGlenBATCH: TIntegerField;
+    QGlenFECHA: TSQLTimeStampField;
+    QGlenUSERNAME: TStringField;
+    QGlenREVISADO: TStringField;
+    QGlenREVISOR: TStringField;
+    QGlenFECHA_REVISION: TSQLTimeStampField;
+    QGlenEXPORTADA: TStringField;
+    QGlenESTADO: TStringField;
+    QGlenDESCRIPCION: TStringField;
+    QGlenID_N: TStringField;
+    QGldet: TFDQuery;
+    CheckComprobantes: TCheckBox;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -1484,6 +1883,12 @@ type
     procedure CheckRemisionesChange(Sender: TObject);
     procedure CheckEntrDevChange(Sender: TObject);
     procedure CheckOrdenComChange(Sender: TObject);
+    procedure CheckAjustesChange(Sender: TObject);
+    procedure CheckTrasladosChange(Sender: TObject);
+    procedure CheckEnsamblesChange(Sender: TObject);
+    procedure CheckCarteraProvChange(Sender: TObject);
+    procedure CheckComprobantesChange(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -1507,6 +1912,7 @@ type
     procedure ActualizarSegActividades;
     procedure ActualizarSegPermisosAct;
     procedure ActualizarFactipdoc;
+    procedure ActualizarVendedores;
     procedure ActualizarForPago;
     procedure ActualizarBancos;
 
@@ -1515,13 +1921,26 @@ type
     procedure PasarRemisiones;
     procedure PasarOrdenesdeCompras;
     procedure PasarEntradas;
+    procedure PasarAjustes;
+    procedure PasarTraslados;
+    procedure PasarEnsambles;
+    procedure PasarCarteraProv;
+
     procedure EliminarFacturas(Tipo: String; Number: Integer);
     procedure EliminarRemisiones(Tipo: String; Number: Integer);
     procedure EliminarCotizaciones(Tipo: String; Number: Integer);
     procedure EliminarOrdenDeCompra(Tipo: String; Number: Integer);
+    procedure EliminarEntradas(Tipo: String; Number: Integer);
+    procedure EliminarAjustes(Tipo: String; Number: Integer);
+    procedure EliminarTraslados(Tipo: String; Number: Integer);
+    procedure EliminarEnsables(Tipo: String; Number: Integer);
+    procedure EliminarCarteraProv(Tipo: String; Number: Integer);
+
     procedure PasarItemact(Tipo: String; Number: Integer);
     procedure PasarGl(Tipo: String; Number: Integer);
     procedure PasarCarpro(Tipo: String; Number: Integer);
+
+    function TraerTipos(Tipo: String): String;
   end;
 
 var
@@ -3302,6 +3721,69 @@ begin
   Memo1.Lines.Add('  -Cantidad de Medidas: ' + IntToStr(Numero));
 end;
 
+procedure TMain.ActualizarVendedores;
+var
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Numero := 0;
+  QVendedor.Close;
+  QVendedor.Open;
+  QVendedor.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QVendedor.RecordCount;
+  QVendedor.First;
+
+  while not QVendedor.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' update or insert INTO VENDEDOR (IDVEND,NOMBRE,TELEFONO,CUOTAMINMENSUAL,'
+        + ' BASICOMENSUAL,ZONAVENDEDOR,COMVENTA,COMRECA0_30,COMRECA31_60,COMRECA61_90,'
+        + ' COMRECAMASDE90,E,S,ID_N,BASE_RTICA,ACTIVO,COMRECA_TARIFA)' +
+        ' VALUES(:IDVEND,:NOMBRE,:TELEFONO,:CUOTAMINMENSUAL,' +
+        ' :BASICOMENSUAL,:ZONAVENDEDOR,:COMVENTA,:COMRECA0_30,:COMRECA31_60,:COMRECA61_90,'
+        + ' :COMRECAMASDE90,:E,:S,:ID_N,:BASE_RTICA,:ACTIVO,:COMRECA_TARIFA)');
+      vQ.Close;
+      vQ.ParamByName('IDVEND').AsInteger := QVendedorIDVEND.AsInteger;
+      vQ.ParamByName('NOMBRE').AsString := QVendedorNOMBRE.AsString;
+      vQ.ParamByName('TELEFONO').AsString := QVendedorTELEFONO.AsString;
+      vQ.ParamByName('CUOTAMINMENSUAL').AsFloat :=
+        QVendedorCUOTAMINMENSUAL.AsFloat;
+      vQ.ParamByName('BASICOMENSUAL').AsFloat := QVendedorBASICOMENSUAL.AsFloat;
+      vQ.ParamByName('ZONAVENDEDOR').AsInteger :=
+        QVendedorZONAVENDEDOR.AsInteger;
+      vQ.ParamByName('COMVENTA').AsFloat := QVendedorCOMVENTA.AsFloat;
+      vQ.ParamByName('COMRECA0_30').AsFloat := QVendedorCOMRECA0_30.AsFloat;
+      vQ.ParamByName('COMRECA31_60').AsFloat := QVendedorCOMRECA31_60.AsFloat;
+      vQ.ParamByName('COMRECA61_90').AsFloat := QVendedorCOMRECA61_90.AsFloat;
+      vQ.ParamByName('COMRECAMASDE90').AsFloat :=
+        QVendedorCOMRECAMASDE90.AsFloat;
+      vQ.ParamByName('E').AsInteger := QVendedorE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QVendedorS.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QVendedorID_N.AsString;
+      vQ.ParamByName('BASE_RTICA').AsFloat := QVendedorBASE_RTICA.AsFloat;
+      vQ.ParamByName('ACTIVO').AsString := QVendedorACTIVO.AsString;
+      vQ.ParamByName('COMRECA_TARIFA').AsFloat :=
+        QVendedorCOMRECA_TARIFA.AsFloat;
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QVendedor.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Los Vendedores:');
+  Memo1.Lines.Add('  -Tabla Vendedor');
+  Memo1.Lines.Add('  -Cantidad de Vendedores: ' + IntToStr(Numero));
+end;
+
 procedure TMain.Button1Click(Sender: TObject);
 begin
   Application.CreateForm(TForm2, Form2);
@@ -3353,6 +3835,7 @@ begin
     ActualizarSegActividades;
     ActualizarSegPermisosAct;
     ActualizarFactipdoc;
+    ActualizarVendedores;
   End;
   if FormasPago = True then
   Begin
@@ -3367,6 +3850,10 @@ begin
     PasarRemisiones;
     PasarOrdenesdeCompras;
     PasarEntradas;
+    PasarAjustes;
+    PasarTraslados;
+    PasarEnsambles;
+    PasarCarteraProv;
   end
   else
   begin
@@ -3390,9 +3877,49 @@ begin
     begin
       PasarEntradas;
     end;
+    if CheckAjustes.IsChecked = True then
+    begin
+      PasarAjustes;
+    end;
+    if CheckTraslados.IsChecked = True then
+    begin
+      PasarTraslados;
+    end;
+    if CheckEnsambles.IsChecked = True then
+    begin
+      PasarEnsambles;
+    end;
+    if CheckCarteraProv.IsChecked = True then
+    begin
+      PasarCarteraProv;
+    end;
   end;
   ShowMessage('Carga Completa !!');
 
+end;
+
+procedure TMain.CheckAjustesChange(Sender: TObject);
+begin
+  if CheckAjustes.IsChecked = True then
+  begin
+    CheckTodos.IsChecked := False;
+  end;
+end;
+
+procedure TMain.CheckCarteraProvChange(Sender: TObject);
+begin
+  if CheckCarteraProv.IsChecked = True then
+  begin
+    CheckTodos.IsChecked := False;
+  end;
+end;
+
+procedure TMain.CheckComprobantesChange(Sender: TObject);
+begin
+  if CheckComprobantes.IsChecked = True then
+  begin
+    CheckTodos.IsChecked := False;
+  end;
 end;
 
 procedure TMain.CheckCotizacionesChange(Sender: TObject);
@@ -3416,6 +3943,14 @@ begin
     Edit4.Enabled := True;
   end;
 
+end;
+
+procedure TMain.CheckEnsamblesChange(Sender: TObject);
+begin
+  if CheckEnsambles.IsChecked = True then
+  begin
+    CheckTodos.IsChecked := False;
+  end;
 end;
 
 procedure TMain.CheckEntrDevChange(Sender: TObject);
@@ -3459,9 +3994,105 @@ begin
     CheckRemisiones.IsChecked := False;
     CheckOrdenCom.IsChecked := False;
     CheckEntrDev.IsChecked := False;
+    CheckAjustes.IsChecked := False;
+    CheckTraslados.IsChecked := False;
+    CheckEnsambles.IsChecked := False;
+    CheckCarteraProv.IsChecked := False;
+    CheckComprobantes.IsChecked := False;
   end;
 
 end;
+
+procedure TMain.CheckTrasladosChange(Sender: TObject);
+begin
+  if CheckTraslados.IsChecked = True then
+  begin
+    CheckTodos.IsChecked := False;
+  end;
+end;
+
+procedure TMain.EliminarAjustes(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add('DELETE FROM IPADJUSTD WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM IPADJUSTE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarCarteraProv(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM CARPRODE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM CARPROEN WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
 
 procedure TMain.EliminarCotizaciones(Tipo: String; Number: Integer);
 var
@@ -3552,7 +4183,7 @@ begin
   vQ := TFDQuery.Create(nil);
   try
     vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM OC_IP WHERE TYPE= :TIPO AND NUMBEROC=:NUMBER');
+    vQ.SQL.Add('DELETE FROM OC_IP WHERE TYPEOC= :TIPO AND NUMBEROC=:NUMBER');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
@@ -3571,6 +4202,97 @@ begin
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
     vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarEnsables(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ENSAMBLED WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ENSAMBLEE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarEntradas(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add('DELETE FROM OC_IP WHERE TYPEIP= :TIPO AND NUMBERIP=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM IPDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM IP WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
   finally
     vQ.DisposeOf;
   end;
@@ -3610,6 +4332,39 @@ begin
 
 End;
 
+procedure TMain.EliminarTraslados(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add('DELETE FROM TRASDET WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM TRASLADO WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
 procedure TMain.FormCreate(Sender: TObject);
 begin
   Cuentas := False;
@@ -3632,6 +4387,171 @@ procedure TMain.SpeedButton2Click(Sender: TObject);
 begin
   if OpenDialog1.Execute then
     Edit2.Text := OpenDialog1.FileName;
+end;
+
+function TMain.TraerTipos(Tipo: String): String;
+var
+  Resultado: String;
+  Consulta: TFDQuery;
+begin
+  Consulta := TFDQuery.Create(nil);
+  try
+    Consulta.Connection := Main.ConDestino;
+    Consulta.SQL.Add('SELECT CLASE from TIPDOC WHERE TIPO IN(' + Tipo + ')');
+    Consulta.Open;
+    Consulta.First;
+    Resultado := '';
+    while not Consulta.Eof do
+    begin
+      if Resultado = '' then
+      begin
+        Resultado := Resultado + '''' + Consulta.FieldByName('CLASE')
+          .AsString + '''';
+      end
+      else
+        Resultado := Resultado + ',' + '''' + Consulta.FieldByName('CLASE')
+          .AsString + '''';
+      Consulta.Next;
+    end;
+
+  finally
+    Consulta.DisposeOf;
+    Result := Resultado;
+  end;
+end;
+
+procedure TMain.PasarAjustes;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Tipos := TraerTipos('''AI''');
+  Numero := 0;
+  QIpAdjuste.Close;
+  QIpAdjuste.ParamByName('FI').AsDate := DateEdit1.Date;
+  QIpAdjuste.ParamByName('FF').AsDate := DateEdit2.Date;
+  QIpAdjuste.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QIpAdjuste.SQL.Add(' AND S= :SUC');
+    QIpAdjuste.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QIpAdjuste.Open;
+
+  QIpAdjuste.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QIpAdjuste.RecordCount;
+  QIpAdjuste.First;
+
+  while not QIpAdjuste.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarAjustes(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO IPADJUSTE (E,S,TIPO,BATCH,ID_USUARIO,ID_N,SUCCLIENTE,FECHA,'
+        + ' DESCRIPCION,CONCEPTO,TOTALS,TOTALE,POSTED,DOC_EXTERNO,ESTADO,' +
+        ' NUMERO_CRUCE_EA,TIPO_CRUCE_EA,S_CRUCE)VALUES(' +
+        ':E,:S,:TIPO,:BATCH,:ID_USUARIO,:ID_N,:SUCCLIENTE,:FECHA,' +
+        ' :DESCRIPCION,:CONCEPTO,:TOTALS,:TOTALE,:POSTED,:DOC_EXTERNO,:ESTADO,'
+        + ' :NUMERO_CRUCE_EA,:TIPO_CRUCE_EA,:S_CRUCE)');
+      vQ.Close;
+
+      vQ.ParamByName('E').AsInteger := QIpAdjusteE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QIpAdjusteS.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QIpAdjusteTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QIpAdjusteBATCH.AsInteger;
+      vQ.ParamByName('ID_USUARIO').AsString := QIpAdjusteID_USUARIO.AsString;
+      vQ.ParamByName('ID_N').AsString := QIpAdjusteID_N.AsString;
+      vQ.ParamByName('SUCCLIENTE').AsInteger := QIpAdjusteSUCCLIENTE.AsInteger;
+      vQ.ParamByName('FECHA').AsDateTime := QIpAdjusteFECHA.AsDateTime;
+      vQ.ParamByName('DESCRIPCION').AsString := QIpAdjusteDESCRIPCION.AsString;
+      vQ.ParamByName('CONCEPTO').AsString := QIpAdjusteCONCEPTO.AsString;
+      vQ.ParamByName('TOTALS').AsFloat := QIpAdjusteTOTALS.AsFloat;
+      vQ.ParamByName('TOTALE').AsFloat := QIpAdjusteTOTALE.AsFloat;
+      vQ.ParamByName('POSTED').AsString := QIpAdjustePOSTED.AsString;
+      vQ.ParamByName('DOC_EXTERNO').AsInteger :=
+        QIpAdjusteDOC_EXTERNO.AsInteger;
+      vQ.ParamByName('ESTADO').AsString := QIpAdjusteESTADO.AsString;
+      vQ.ParamByName('NUMERO_CRUCE_EA').AsInteger :=
+        QIpAdjusteNUMERO_CRUCE_EA.AsInteger;
+      vQ.ParamByName('TIPO_CRUCE_EA').AsString :=
+        QIpAdjusteTIPO_CRUCE_EA.AsString;
+      vQ.ParamByName('S_CRUCE').AsInteger := QIpAdjusteS_CRUCE.AsInteger;
+
+      vQ.ExecSQL;
+
+      QIpAdjustd.Close;
+      QIpAdjustd.ParamByName('TIPO').AsString := QIpAdjusteTIPO.AsString;
+      QIpAdjustd.ParamByName('NUMBER').AsInteger := QIpAdjusteBATCH.AsInteger;
+
+      QIpAdjustd.Open;
+      QIpAdjustd.First;
+
+      while not QIpAdjustd.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO IPADJUSTD(E,S,BATCH,TIPO,CONTEO,ID_USUARIO,ACCT,ITEM,LOCATION,'
+          + ' TRANSCODE,PROY,ACTIVIDAD,CCOSTO,DEPTO,LOTE,SUBTOTAL,COLOR,DESTINO,COSTO_AJUSTE,'
+          + ' COST,QTYB,QTY,FECHA_VENCIMIENTO,COD_TALLA,COD_COLOR,CODBARRASCURVA)'
+          + ' VALUES(:E,:S,:BATCH,:TIPO,:CONTEO,:ID_USUARIO,:ACCT,:ITEM,:LOCATION,'
+          + ' :TRANSCODE,:PROY,:ACTIVIDAD,:CCOSTO,:DEPTO,:LOTE,:SUBTOTAL,:COLOR,:DESTINO,:COSTO_AJUSTE,'
+          + ' :COST,:QTYB,:QTY,:FECHA_VENCIMIENTO,:COD_TALLA,:COD_COLOR,:CODBARRASCURVA)');
+
+        vQ.ParamByName('E').AsInteger := QIpAdjustdE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QIpAdjustdS.AsInteger;
+        vQ.ParamByName('BATCH').AsInteger := QIpAdjustdBATCH.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QIpAdjustdTIPO.AsString;
+        vQ.ParamByName('CONTEO').AsInteger := QIpAdjustdCONTEO.AsInteger;
+        vQ.ParamByName('ID_USUARIO').AsString := QIpAdjustdID_USUARIO.AsString;
+        vQ.ParamByName('ACCT').AsFloat := QIpAdjustdACCT.AsFloat;
+        vQ.ParamByName('ITEM').AsString := QIpAdjustdITEM.AsString;
+        vQ.ParamByName('LOCATION').AsString := QIpAdjustdLOCATION.AsString;
+        vQ.ParamByName('TRANSCODE').AsString := QIpAdjustdTRANSCODE.AsString;
+        vQ.ParamByName('PROY').AsString := QIpAdjustdPROY.AsString;
+        vQ.ParamByName('ACTIVIDAD').AsString := QIpAdjustdACTIVIDAD.AsString;
+        vQ.ParamByName('CCOSTO').AsInteger := QIpAdjustdCCOSTO.AsInteger;
+        vQ.ParamByName('DEPTO').AsInteger := QIpAdjustdDEPTO.AsInteger;
+        vQ.ParamByName('LOTE').AsString := QIpAdjustdLOTE.AsString;
+        vQ.ParamByName('SUBTOTAL').AsFloat := QIpAdjustdSUBTOTAL.AsFloat;
+        vQ.ParamByName('COLOR').AsString := QIpAdjustdCOLOR.AsString;
+        vQ.ParamByName('DESTINO').AsInteger := QIpAdjustdDESTINO.AsInteger;
+        vQ.ParamByName('COSTO_AJUSTE').AsFloat :=
+          QIpAdjustdCOSTO_AJUSTE.AsFloat;
+        vQ.ParamByName('COST').AsFloat := QIpAdjustdCOST.AsFloat;
+        vQ.ParamByName('QTYB').AsFloat := QIpAdjustdQTYB.AsFloat;
+        vQ.ParamByName('QTY').AsFloat := QIpAdjustdQTY.AsFloat;
+        vQ.ParamByName('FECHA_VENCIMIENTO').AsDateTime :=
+          QIpAdjustdFECHA_VENCIMIENTO.AsDateTime;
+        vQ.ParamByName('COD_TALLA').AsString := QIpAdjustdCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QIpAdjustdCOD_COLOR.AsString;
+        vQ.ParamByName('CODBARRASCURVA').AsString :=
+          QIpAdjustdCODBARRASCURVA.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QIpAdjustd.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+    PasarItemact(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
+    PasarGl(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QIpAdjuste.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Ajustes de Inventario:');
+  Memo1.Lines.Add('  -Tabla IpAdjuste');
+  Memo1.Lines.Add('  -Tabla IpAdjustd');
+  Memo1.Lines.Add('  -Tabla Itemact');
+  Memo1.Lines.Add('  -Cantidad de Ajustes de Inventario: ' + IntToStr(Numero));
 end;
 
 procedure TMain.PasarCarpro(Tipo: String; Number: Integer);
@@ -3737,16 +4657,221 @@ begin
   End;
 end;
 
-procedure TMain.PasarCotizaciones;
+procedure TMain.PasarCarteraProv;
 var
+  Tipos: string;
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  Tipos := TraerTipos('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ''');
+  Numero := 0;
+  QCarproen.Close;
+  QCarproen.ParamByName('FI').AsDate := DateEdit1.Date;
+  QCarproen.ParamByName('FF').AsDate := DateEdit2.Date;
+  QCarproen.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QCarproen.SQL.Add(' AND S= :SUC');
+    QCarproen.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
 
+  QCarproen.Open;
+
+  QCarproen.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QCarproen.RecordCount;
+  QCarproen.First;
+
+  while not QCarproen.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarCarteraProv(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO CARPROEN (E,S,TIPO,BATCH,ID_N,FECHA,TOTAL,USERNAME,' +
+        ' FECHA_HORA,OBSERV,BANCO,CHEQUE,DUEDATE,LETRAS,IDVEND,SHIPTO,' +
+        ' EXPORTADA,ENTREGADO,REVISADO,REVISOR,FECHA_REVISION,IMPRESO,' +
+        ' DOC_FISICO,CHEQUE_POSTF,FECHA_CHEQUE,PROYECTO,SALDO_DEUDA,SALDO_DEUDA_ABONO,'
+        + ' PONUMBER,INTERES_IMPLICITO,DETALLE,FECHA_CONTAB_CONSIG,DETERIORO_ESFA,'
+        + ' CONCEPTO_NOTAFE,ENVIADO )' +
+        ' VALUES(:E,:S,:TIPO,:BATCH,:ID_N,:FECHA,:TOTAL,:USERNAME,' +
+        ' :FECHA_HORA,:OBSERV,:BANCO,:CHEQUE,:DUEDATE,:LETRAS,:IDVEND,:SHIPTO,'
+        + ' :EXPORTADA,:ENTREGADO,:REVISADO,:REVISOR,:FECHA_REVISION,:IMPRESO,'
+        + ' :DOC_FISICO,:CHEQUE_POSTF,:FECHA_CHEQUE,:PROYECTO,:SALDO_DEUDA,:SALDO_DEUDA_ABONO,'
+        + ' :PONUMBER,:INTERES_IMPLICITO,:DETALLE,:FECHA_CONTAB_CONSIG,:DETERIORO_ESFA,'
+        + ' :CONCEPTO_NOTAFE,:ENVIADO)');
+      vQ.Close;
+
+      vQ.ParamByName('E').AsInteger := QCarproenE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QCarproenS.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QCarproenTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QCarproenBATCH.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QCarproenID_N.AsString;
+      vQ.ParamByName('FECHA').AsDateTime := QCarproenFECHA.AsDateTime;
+      vQ.ParamByName('TOTAL').AsFloat := QCarproenTOTAL.AsFloat;
+      vQ.ParamByName('USERNAME').AsString := QCarproenUSERNAME.AsString;
+      vQ.ParamByName('FECHA_HORA').AsString := QCarproenFECHA_HORA.AsString;
+      vQ.ParamByName('OBSERV').AsString := QCarproenOBSERV.AsString;
+      vQ.ParamByName('BANCO').AsString := QCarproenBANCO.AsString;
+      vQ.ParamByName('CHEQUE').AsString := QCarproenCHEQUE.AsString;
+      vQ.ParamByName('DUEDATE').AsDateTime := QCarproenDUEDATE.AsDateTime;
+      vQ.ParamByName('LETRAS').AsString := QCarproenLETRAS.AsString;
+      vQ.ParamByName('IDVEND').AsInteger := QCarproenIDVEND.AsInteger;
+      vQ.ParamByName('SHIPTO').AsInteger := QCarproenSHIPTO.AsInteger;
+      vQ.ParamByName('EXPORTADA').AsString := QCarproenEXPORTADA.AsString;
+      vQ.ParamByName('ENTREGADO').AsString := QCarproenENTREGADO.AsString;
+      vQ.ParamByName('REVISADO').AsString := QCarproenREVISADO.AsString;
+      vQ.ParamByName('REVISOR').AsString := QCarproenREVISOR.AsString;
+      vQ.ParamByName('FECHA_REVISION').AsDateTime :=
+        QCarproenFECHA_REVISION.AsDateTime;
+      vQ.ParamByName('IMPRESO').AsString := QCarproenIMPRESO.AsString;
+      vQ.ParamByName('DOC_FISICO').AsString := QCarproenDOC_FISICO.AsString;
+      vQ.ParamByName('CHEQUE_POSTF').AsString := QCarproenCHEQUE_POSTF.AsString;
+      vQ.ParamByName('FECHA_CHEQUE').AsDateTime :=
+        QCarproenFECHA_CHEQUE.AsDateTime;
+      vQ.ParamByName('PROYECTO').AsString := QCarproenPROYECTO.AsString;
+      vQ.ParamByName('SALDO_DEUDA').AsFloat := QCarproenSALDO_DEUDA.AsFloat;
+      vQ.ParamByName('SALDO_DEUDA_ABONO').AsFloat :=
+        QCarproenSALDO_DEUDA_ABONO.AsFloat;
+      vQ.ParamByName('PONUMBER').AsString := QCarproenPONUMBER.AsString;
+      vQ.ParamByName('INTERES_IMPLICITO').AsString :=
+        QCarproenINTERES_IMPLICITO.AsString;
+      vQ.ParamByName('DETALLE').AsString := QCarproenDETALLE.AsString;
+      vQ.ParamByName('FECHA_CONTAB_CONSIG').AsString :=
+        QCarproenFECHA_CONTAB_CONSIG.AsString;
+      vQ.ParamByName('DETERIORO_ESFA').AsString :=
+        QCarproenDETERIORO_ESFA.AsString;
+      vQ.ParamByName('CONCEPTO_NOTAFE').AsString :=
+        QCarproenCONCEPTO_NOTAFE.AsString;
+      vQ.ParamByName('ENVIADO').AsString := QCarproenENVIADO.AsString;
+
+      vQ.ExecSQL;
+
+      QCarprode.Close;
+      QCarprode.ParamByName('TIPO').AsString := QCarproenTIPO.AsString;
+      QCarprode.ParamByName('NUMBER').AsInteger := QCarproenBATCH.AsInteger;
+
+      QCarprode.Open;
+      QCarprode.First;
+
+      while not QCarprode.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO CARPRODE(CONTEO,TIPO,BATCH,ID_N,ACCT,E,S,CRUCE,' +
+          ' INVC,FECHA,DUEDATE,DPTO,CCOST,ACTIVIDAD,DESCRIPCION,DIAS,' +
+          ' DESTINO,TIPO_REF,REFERENCIA,TIPO_IMP,NRO_IMP,CONCEPTO_IMP,' +
+          ' BANCO,CHEQUE,PROYECTO,CONCEPTO_PAGO,ID_TIPOCARTERA,INVC_ENTERO,' +
+          ' CHEQUE_POSTF,FECHA_CHEQUE,SALDO,CREDIT,TASA_CAMBIO,CREDITO_US,' +
+          ' DEBITO_US,BASE,DEBIT,CUOTA,FECHA_CONSIG,FECHA_FACTURA,MAYOR_VALOR,'
+          + ' VALOR_IMPUESTO,IMPORT,COD_FLUJOEFE,IDVEND,PORC_TASA,TIEMPO_MESES,'
+          + ' PAGO_DISP) VALUES(:CONTEO,:TIPO,:BATCH,:ID_N,:ACCT,:E,:S,:CRUCE,'
+          + ' :INVC,:FECHA,:DUEDATE,:DPTO,:CCOST,:ACTIVIDAD,:DESCRIPCION,:DIAS,'
+          + ' :DESTINO,:TIPO_REF,:REFERENCIA,:TIPO_IMP,:NRO_IMP,:CONCEPTO_IMP,'
+          + ' :BANCO,:CHEQUE,:PROYECTO,:CONCEPTO_PAGO,:ID_TIPOCARTERA,:INVC_ENTERO,'
+          + ' :CHEQUE_POSTF,:FECHA_CHEQUE,:SALDO,:CREDIT,:TASA_CAMBIO,:CREDITO_US,'
+          + ' :DEBITO_US,:BASE,:DEBIT,:CUOTA,:FECHA_CONSIG,:FECHA_FACTURA,:MAYOR_VALOR,'
+          + ' :VALOR_IMPUESTO,:IMPORT,:COD_FLUJOEFE,:IDVEND,:PORC_TASA,:TIEMPO_MESES,'
+          + ' :PAGO_DISP)');
+
+        vQ.ParamByName('CONTEO').AsInteger := QCarprodeCONTEO.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QCarprodeTIPO.AsString;
+        vQ.ParamByName('BATCH').AsInteger := QCarprodeBATCH.AsInteger;
+        vQ.ParamByName('ID_N').AsString := QCarprodeID_N.AsString;
+        vQ.ParamByName('ACCT').AsFloat := QCarprodeACCT.AsFloat;
+        vQ.ParamByName('E').AsInteger := QCarprodeE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QCarprodeS.AsInteger;
+        vQ.ParamByName('CRUCE').AsString := QCarprodeCRUCE.AsString;
+        vQ.ParamByName('INVC').AsString := QCarprodeINVC.AsString;
+        vQ.ParamByName('FECHA').AsDateTime := QCarprodeFECHA.AsDateTime;
+        vQ.ParamByName('DUEDATE').AsDateTime := QCarprodeDUEDATE.AsDateTime;
+        vQ.ParamByName('DPTO').AsInteger := QCarprodeDPTO.AsInteger;
+        vQ.ParamByName('CCOST').AsInteger := QCarprodeCCOST.AsInteger;
+        vQ.ParamByName('ACTIVIDAD').AsString := QCarprodeACTIVIDAD.AsString;
+        vQ.ParamByName('DESCRIPCION').AsString := QCarprodeDESCRIPCION.AsString;
+        vQ.ParamByName('DIAS').AsFloat := QCarprodeDIAS.AsFloat;
+        vQ.ParamByName('DESTINO').AsInteger := QCarprodeDESTINO.AsInteger;
+        vQ.ParamByName('TIPO_REF').AsString := QCarprodeTIPO_REF.AsString;
+        vQ.ParamByName('REFERENCIA').AsInteger := QCarprodeREFERENCIA.AsInteger;
+        vQ.ParamByName('TIPO_IMP').AsString := QCarprodeTIPO_IMP.AsString;
+        vQ.ParamByName('NRO_IMP').AsInteger := QCarprodeNRO_IMP.AsInteger;
+        vQ.ParamByName('CONCEPTO_IMP').AsInteger :=
+          QCarprodeCONCEPTO_IMP.AsInteger;
+        vQ.ParamByName('BANCO').AsInteger := QCarprodeBANCO.AsInteger;
+        vQ.ParamByName('CHEQUE').AsString := QCarprodeCHEQUE.AsString;
+        vQ.ParamByName('PROYECTO').AsString := QCarprodePROYECTO.AsString;
+        vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=
+          QCarprodeCONCEPTO_PAGO.AsInteger;
+        vQ.ParamByName('ID_TIPOCARTERA').AsString :=
+          QCarprodeID_TIPOCARTERA.AsString;
+        vQ.ParamByName('INVC_ENTERO').AsInteger :=
+          QCarprodeINVC_ENTERO.AsInteger;
+        vQ.ParamByName('CHEQUE_POSTF').AsString :=
+          QCarprodeCHEQUE_POSTF.AsString;
+        vQ.ParamByName('FECHA_CHEQUE').AsDateTime :=
+          QCarprodeFECHA_CHEQUE.AsDateTime;
+        vQ.ParamByName('SALDO').AsFloat := QCarprodeSALDO.AsFloat;
+        vQ.ParamByName('CREDIT').AsFloat := QCarprodeCREDIT.AsFloat;
+        vQ.ParamByName('TASA_CAMBIO').AsFloat := QCarprodeTASA_CAMBIO.AsFloat;
+        vQ.ParamByName('CREDITO_US').AsFloat := QCarprodeCREDITO_US.AsFloat;
+        vQ.ParamByName('DEBITO_US').AsFloat := QCarprodeDEBITO_US.AsFloat;
+        vQ.ParamByName('BASE').AsFloat := QCarprodeBASE.AsFloat;
+        vQ.ParamByName('DEBIT').AsFloat := QCarprodeDEBIT.AsFloat;
+        vQ.ParamByName('CUOTA').AsFloat := QCarprodeCUOTA.AsFloat;
+        vQ.ParamByName('FECHA_CONSIG').AsDateTime :=
+          QCarprodeFECHA_CONSIG.AsDateTime;
+        vQ.ParamByName('FECHA_FACTURA').AsDateTime :=
+          QCarprodeFECHA_FACTURA.AsDateTime;
+        vQ.ParamByName('MAYOR_VALOR').AsFloat := QCarprodeMAYOR_VALOR.AsFloat;
+        vQ.ParamByName('VALOR_IMPUESTO').AsSingle :=
+          QCarprodeVALOR_IMPUESTO.AsSingle;
+        vQ.ParamByName('IMPORT').AsString := QCarprodeIMPORT.AsString;
+        vQ.ParamByName('COD_FLUJOEFE').AsInteger :=
+          QCarprodeCOD_FLUJOEFE.AsInteger;
+        vQ.ParamByName('IDVEND').AsInteger := QCarprodeIDVEND.AsInteger;
+        vQ.ParamByName('PORC_TASA').AsFloat := QCarprodePORC_TASA.AsFloat;
+        vQ.ParamByName('TIEMPO_MESES').AsFloat := QCarprodeTIEMPO_MESES.AsFloat;
+        vQ.ParamByName('PAGO_DISP').AsString := QCarprodePAGO_DISP.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QCarprode.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+
+    PasarGl(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
+    PasarCarpro(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
+
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QCarproen.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Recibos de Caja, Notas Debito, Notas Crediro,');
+  Memo1.Lines.Add(' Comprobantes de Egreso, Facturas por Pagar, Ajustes:');
+  Memo1.Lines.Add('  -Tabla Carpro');
+  Memo1.Lines.Add('  -Tabla Carproen');
+  Memo1.Lines.Add('  -Tabla Carprode');
+  Memo1.Lines.Add('  -Tabla Gl');
+  Memo1.Lines.Add('  -Cantidad de Documentos: ' + IntToStr(Numero));
+end;
+
+procedure TMain.PasarCotizaciones;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Tipos := TraerTipos('''CT''');
   Numero := 0;
   QCotizaci.Close;
   QCotizaci.ParamByName('FI').AsDate := DateEdit1.Date;
   QCotizaci.ParamByName('FF').AsDate := DateEdit2.Date;
+  QCotizaci.SQL.Add(' AND TIPO IN(' + Tipos + ')');
   if CheckDocxSuc.IsChecked = True then
   begin
     QCotizaci.SQL.Add(' AND ID_SUCURSAL= :SUC');
@@ -3979,21 +5104,423 @@ begin
   Memo1.Lines.Add('  -Cantidad de Cotizaciones: ' + IntToStr(Numero));
 end;
 
-procedure TMain.PasarEntradas;
+procedure TMain.PasarEnsambles;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
 begin
-  ShowMessage('entradas');
+  Tipos := TraerTipos('''EN''');
+  Numero := 0;
+  QEnsamblee.Close;
+  QEnsamblee.ParamByName('FI').AsDate := DateEdit1.Date;
+  QEnsamblee.ParamByName('FF').AsDate := DateEdit2.Date;
+  QEnsamblee.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QEnsamblee.SQL.Add(' AND S= :SUC');
+    QEnsamblee.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QEnsamblee.Open;
+
+  QEnsamblee.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QEnsamblee.RecordCount;
+  QEnsamblee.First;
+
+  while not QEnsamblee.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarEnsables(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO ENSAMBLEE (E,S,TIPO,BATCH,ID_USUARIO,ID_N,SUCCLIENTE,FECHA,'
+        + ' DESCRIPCION,CONCEPTO,COLOR,LOTE,DOC_FISICO,COMENTARIO,TOTAL,POSTED,'
+        + ' NUMBER_IP,TIPO_IP,FECHA_VENCIMIENTO,ESTADO,NUMERO)VALUES(:E,:S,:TIPO,:BATCH,'
+        + ' :ID_USUARIO,:ID_N,:SUCCLIENTE,:FECHA,:DESCRIPCION,:CONCEPTO,:COLOR,:LOTE,'
+        + ' :DOC_FISICO,:COMENTARIO,:TOTAL,:POSTED,:NUMBER_IP,:TIPO_IP,:FECHA_VENCIMIENTO,'
+        + ' :ESTADO,:NUMERO)');
+      vQ.Close;
+
+      vQ.ParamByName('E').AsInteger := QEnsambleeE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QEnsambleeS.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QEnsambleeTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QEnsambleeBATCH.AsInteger;
+      vQ.ParamByName('ID_USUARIO').AsString := QEnsambleeID_USUARIO.AsString;
+      vQ.ParamByName('ID_N').AsString := QEnsambleeID_N.AsString;
+      vQ.ParamByName('SUCCLIENTE').AsInteger := QEnsambleeSUCCLIENTE.AsInteger;
+      vQ.ParamByName('FECHA').AsDateTime := QEnsambleeFECHA.AsDateTime;
+      vQ.ParamByName('DESCRIPCION').AsString := QEnsambleeDESCRIPCION.AsString;
+      vQ.ParamByName('CONCEPTO').AsString := QEnsambleeCONCEPTO.AsString;
+      vQ.ParamByName('COLOR').AsString := QEnsambleeCOLOR.AsString;
+      vQ.ParamByName('LOTE').AsString := QEnsambleeLOTE.AsString;
+      vQ.ParamByName('DOC_FISICO').AsString := QEnsambleeDOC_FISICO.AsString;
+      vQ.ParamByName('COMENTARIO').AsString := QEnsambleeCOMENTARIO.AsString;
+      vQ.ParamByName('TOTAL').AsFloat := QEnsambleeTOTAL.AsFloat;
+      vQ.ParamByName('POSTED').AsString := QEnsambleePOSTED.AsString;
+      vQ.ParamByName('NUMBER_IP').AsInteger := QEnsambleeNUMBER_IP.AsInteger;
+      vQ.ParamByName('TIPO_IP').AsString := QEnsambleeTIPO_IP.AsString;
+      vQ.ParamByName('FECHA_VENCIMIENTO').AsDateTime :=
+        QEnsambleeFECHA_VENCIMIENTO.AsDateTime;
+      vQ.ParamByName('ESTADO').AsString := QEnsambleeESTADO.AsString;
+      vQ.ParamByName('NUMERO').AsInteger := QEnsambleeNUMERO.AsInteger;
+      vQ.ExecSQL;
+
+      QEnsambled.Close;
+      QEnsambled.ParamByName('TIPO').AsString := QEnsambleeTIPO.AsString;
+      QEnsambled.ParamByName('NUMBER').AsInteger := QEnsambleeBATCH.AsInteger;
+
+      QEnsambled.Open;
+      QEnsambled.First;
+
+      while not QEnsambled.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO ENSAMBLED(E,S,TIPO,BATCH,CONTEO,ID_USUARIO,ACCT,ITEM,LOCATION,'
+          + ' TRANSCODE,LOTE,COLOR,COSTO_AJUSTE,CUENTA_AJUSTE,QTY,COST,QTYB,IDN_LOC,PROY,'
+          + ' ACTIVIDAD,CCOSTO,DEPTO,COD_TALLA,COD_COLOR,CODBARRASCURVA,CANTIDAD_RECETA,'
+          + ' DIGITADO_M)VALUES(' +
+          ' :E,:S,:TIPO,:BATCH,:CONTEO,:ID_USUARIO,:ACCT,:ITEM,:LOCATION,' +
+          ' :TRANSCODE,:LOTE,:COLOR,:COSTO_AJUSTE,:CUENTA_AJUSTE,:QTY,:COST,:QTYB,:IDN_LOC,:PROY,'
+          + ' :ACTIVIDAD,:CCOSTO,:DEPTO,:COD_TALLA,:COD_COLOR,:CODBARRASCURVA,:CANTIDAD_RECETA,'
+          + ' :DIGITADO_M)');
+
+        vQ.ParamByName('E').AsInteger := QEnsambledE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QEnsambledS.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QEnsambledTIPO.AsString;
+        vQ.ParamByName('BATCH').AsInteger := QEnsambledBATCH.AsInteger;
+        vQ.ParamByName('CONTEO').AsInteger := QEnsambledCONTEO.AsInteger;
+        vQ.ParamByName('ID_USUARIO').AsString := QEnsambledID_USUARIO.AsString;
+        vQ.ParamByName('ACCT').AsFloat := QEnsambledACCT.AsFloat;
+        vQ.ParamByName('ITEM').AsString := QEnsambledITEM.AsString;
+        vQ.ParamByName('LOCATION').AsString := QEnsambledLOCATION.AsString;
+        vQ.ParamByName('TRANSCODE').AsString := QEnsambledTRANSCODE.AsString;
+        vQ.ParamByName('LOTE').AsString := QEnsambledLOTE.AsString;
+        vQ.ParamByName('COLOR').AsString := QEnsambledCOLOR.AsString;
+        vQ.ParamByName('COSTO_AJUSTE').AsFloat :=
+          QEnsambledCOSTO_AJUSTE.AsFloat;
+        vQ.ParamByName('CUENTA_AJUSTE').AsFloat :=
+          QEnsambledCUENTA_AJUSTE.AsFloat;
+        vQ.ParamByName('QTY').AsFloat := QEnsambledQTY.AsFloat;
+        vQ.ParamByName('COST').AsFloat := QEnsambledCOST.AsFloat;
+        vQ.ParamByName('QTYB').AsFloat := QEnsambledQTYB.AsFloat;
+        vQ.ParamByName('IDN_LOC').AsString := QEnsambledIDN_LOC.AsString;
+        vQ.ParamByName('PROY').AsString := QEnsambledPROY.AsString;
+        vQ.ParamByName('ACTIVIDAD').AsString := QEnsambledACTIVIDAD.AsString;
+        vQ.ParamByName('CCOSTO').AsInteger := QEnsambledCCOSTO.AsInteger;
+        vQ.ParamByName('DEPTO').AsInteger := QEnsambledDEPTO.AsInteger;
+        vQ.ParamByName('COD_TALLA').AsString := QEnsambledCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QEnsambledCOD_COLOR.AsString;
+        vQ.ParamByName('CODBARRASCURVA').AsString :=
+          QEnsambledCODBARRASCURVA.AsString;
+        vQ.ParamByName('CANTIDAD_RECETA').AsFloat :=
+          QEnsambledCANTIDAD_RECETA.AsFloat;
+        vQ.ParamByName('DIGITADO_M').AsString := QEnsambledDIGITADO_M.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QEnsambled.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+    PasarItemact(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
+    PasarGl(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QEnsamblee.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Ensambles:');
+  Memo1.Lines.Add('  -Tabla Ensamblee');
+  Memo1.Lines.Add('  -Tabla Ensambled');
+  Memo1.Lines.Add('  -Tabla Gl');
+  Memo1.Lines.Add('  -Tabla ItemAct');
+  Memo1.Lines.Add('  -Cantidad de Ensambles: ' + IntToStr(Numero));
+end;
+
+procedure TMain.PasarEntradas;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Tipos := TraerTipos('''EA'',''DP''');
+  Numero := 0;
+  QIp.Close;
+  QIp.ParamByName('FI').AsDate := DateEdit1.Date;
+  QIp.ParamByName('FF').AsDate := DateEdit2.Date;
+  QIp.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QIp.SQL.Add(' AND S= :SUC');
+    QIp.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QIp.Open;
+
+  QIp.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QIp.RecordCount;
+  QIp.First;
+
+  while not QIp.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarEntradas(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO IP (TIPO,NUMBER,ID_N,ACCT,PONUMBER,FECHA,COST,POSTED,COMMENTS,'
+        + ' CLOSED,CLOSEPO,PRINTED,ENTPAR,RECTOT,ANUL,ENTORDEN,CONTABIL,ENTFACT,ENTCDEV,'
+        + ' DEVUELTO,PORDESC,VALORDCT,VALORFLETE,EMPRESA,TOTALOTROS,TOTALRETEN,TOTALITEMS,'
+        + ' VALORIVA,VALORICA,VALORRTIVA,VALORRTICA,TOTALSDCT,TOTALCDCT,DUEDATE,E,S,SUCCLIENTE,'
+        + ' DOCASC,ENTMC,REVISADO,FECHA_ENTREGA,FECHA_REQUISICION,ID_USUARIO,OCNUMERO,IMPORTACION,'
+        + ' E_CRUCE,S_CRUCE,TIPO_CRUCE,NUMBER_CRUCE,EA_AUTO_LEGALIZADA,VALIVABIEN,VALIVASER,DOC_EXTERNO,'
+        + ' CCOSTO,DEPTO,PROYECTO,ACTIVIDAD,RETECREE,CODCREE,TIPO_IMP,NRO_IMP,ESTADO,TOTAL_BONO)'
+        + ' VALUES(:TIPO,:NUMBER,:ID_N,:ACCT,:PONUMBER,:FECHA,:COST,:POSTED,:COMMENTS,'
+        + ' :CLOSED,:CLOSEPO,:PRINTED,:ENTPAR,:RECTOT,:ANUL,:ENTORDEN,:CONTABIL,:ENTFACT,:ENTCDEV,'
+        + ' :DEVUELTO,:PORDESC,:VALORDCT,:VALORFLETE,:EMPRESA,:TOTALOTROS,:TOTALRETEN,:TOTALITEMS,'
+        + ' :VALORIVA,:VALORICA,:VALORRTIVA,:VALORRTICA,:TOTALSDCT,:TOTALCDCT,:DUEDATE,:E,:S,:SUCCLIENTE,'
+        + ' :DOCASC,:ENTMC,:REVISADO,:FECHA_ENTREGA,:FECHA_REQUISICION,:ID_USUARIO,:OCNUMERO,:IMPORTACION,'
+        + ' :E_CRUCE,:S_CRUCE,:TIPO_CRUCE,:NUMBER_CRUCE,:EA_AUTO_LEGALIZADA,:VALIVABIEN,:VALIVASER,:DOC_EXTERNO,'
+        + ' :CCOSTO,:DEPTO,:PROYECTO,:ACTIVIDAD,:RETECREE,:CODCREE,:TIPO_IMP,:NRO_IMP,:ESTADO,:TOTAL_BONO)');
+      vQ.Close;
+
+      vQ.ParamByName('TIPO').AsString := QIpTIPO.AsString;
+      vQ.ParamByName('NUMBER').AsInteger := QIpNUMBER.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QIpID_N.AsString;
+      vQ.ParamByName('ACCT').AsFloat := QIpACCT.AsFloat;
+      vQ.ParamByName('PONUMBER').AsString := QIpPONUMBER.AsString;
+      vQ.ParamByName('FECHA').AsDateTime := QIpFECHA.AsDateTime;
+      vQ.ParamByName('COST').AsFloat := QIpCOST.AsFloat;
+      vQ.ParamByName('POSTED').AsString := QIpPOSTED.AsString;
+      vQ.ParamByName('COMMENTS').AsString := QIpCOMMENTS.AsString;
+      vQ.ParamByName('CLOSED').AsString := QIpCLOSED.AsString;
+      vQ.ParamByName('CLOSEPO').AsString := QIpCLOSEPO.AsString;
+      vQ.ParamByName('PRINTED').AsString := QIpPRINTED.AsString;
+      vQ.ParamByName('ENTPAR').AsString := QIpENTPAR.AsString;
+      vQ.ParamByName('RECTOT').AsString := QIpRECTOT.AsString;
+      vQ.ParamByName('ANUL').AsString := QIpANUL.AsString;
+      vQ.ParamByName('ENTORDEN').AsString := QIpENTORDEN.AsString;
+      vQ.ParamByName('CONTABIL').AsString := QIpCONTABIL.AsString;
+      vQ.ParamByName('ENTFACT').AsString := QIpENTFACT.AsString;
+      vQ.ParamByName('ENTCDEV').AsString := QIpENTCDEV.AsString;
+      vQ.ParamByName('DEVUELTO').AsString := QIpDEVUELTO.AsString;
+      vQ.ParamByName('PORDESC').AsFloat := QIpPORDESC.AsFloat;
+      vQ.ParamByName('VALORDCT').AsFloat := QIpVALORDCT.AsFloat;
+      vQ.ParamByName('VALORFLETE').AsFloat := QIpVALORFLETE.AsFloat;
+      vQ.ParamByName('EMPRESA').AsString := QIpEMPRESA.AsString;
+      vQ.ParamByName('TOTALOTROS').AsFloat := QIpTOTALOTROS.AsFloat;
+      vQ.ParamByName('TOTALRETEN').AsFloat := QIpTOTALRETEN.AsFloat;
+      vQ.ParamByName('TOTALITEMS').AsFloat := QIpTOTALITEMS.AsFloat;
+      vQ.ParamByName('VALORIVA').AsFloat := QIpVALORIVA.AsFloat;
+      vQ.ParamByName('VALORICA').AsFloat := QIpVALORICA.AsFloat;
+      vQ.ParamByName('VALORRTIVA').AsFloat := QIpVALORRTIVA.AsFloat;
+      vQ.ParamByName('VALORRTICA').AsFloat := QIpVALORRTICA.AsFloat;
+      vQ.ParamByName('TOTALSDCT').AsFloat := QIpTOTALSDCT.AsFloat;
+      vQ.ParamByName('TOTALCDCT').AsFloat := QIpTOTALCDCT.AsFloat;
+      vQ.ParamByName('DUEDATE').AsDateTime := QIpDUEDATE.AsDateTime;
+      vQ.ParamByName('DOCASC').AsString := QIpDOCASC.AsString;
+      vQ.ParamByName('ENTMC').AsString := QIpENTMC.AsString;
+      vQ.ParamByName('REVISADO').AsString := QIpREVISADO.AsString;
+      vQ.ParamByName('FECHA_ENTREGA').AsDateTime := QIpFECHA_ENTREGA.AsDateTime;
+      vQ.ParamByName('FECHA_REQUISICION').AsDateTime :=
+        QIpFECHA_REQUISICION.AsDateTime;
+      vQ.ParamByName('ID_USUARIO').AsString := QIpID_USUARIO.AsString;
+      vQ.ParamByName('OCNUMERO').AsString := QIpOCNUMERO.AsString;
+      vQ.ParamByName('IMPORTACION').AsString := QIpIMPORTACION.AsString;
+      vQ.ParamByName('E_CRUCE').AsInteger := QIpE_CRUCE.AsInteger;
+      vQ.ParamByName('S_CRUCE').AsInteger := QIpS_CRUCE.AsInteger;
+      vQ.ParamByName('TIPO_CRUCE').AsString := QIpTIPO_CRUCE.AsString;
+      vQ.ParamByName('NUMBER_CRUCE').AsInteger := QIpNUMBER_CRUCE.AsInteger;
+      vQ.ParamByName('EA_AUTO_LEGALIZADA').AsString :=
+        QIpEA_AUTO_LEGALIZADA.AsString;
+      vQ.ParamByName('VALIVABIEN').AsFloat := QIpVALIVABIEN.AsFloat;
+      vQ.ParamByName('VALIVASER').AsFloat := QIpVALIVASER.AsFloat;
+      vQ.ParamByName('DOC_EXTERNO').AsString := QIpDOC_EXTERNO.AsString;
+      vQ.ParamByName('CCOSTO').AsInteger := QIpCCOSTO.AsInteger;
+      vQ.ParamByName('DEPTO').AsInteger := QIpDEPTO.AsInteger;
+      vQ.ParamByName('PROYECTO').AsString := QIpPROYECTO.AsString;
+      vQ.ParamByName('ACTIVIDAD').AsString := QIpACTIVIDAD.AsString;
+      vQ.ParamByName('E').AsInteger := QIpE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QIpS.AsInteger;
+      vQ.ParamByName('SUCCLIENTE').AsInteger := QIpSUCCLIENTE.AsInteger;
+      vQ.ParamByName('RETECREE').AsFloat := QIpRETECREE.AsFloat;
+      vQ.ParamByName('CODCREE').AsString := QIpCODCREE.AsString;
+      vQ.ParamByName('TIPO_IMP').AsString := QIpTIPO_IMP.AsString;
+      vQ.ParamByName('NRO_IMP').AsInteger := QIpNRO_IMP.AsInteger;
+      vQ.ParamByName('ESTADO').AsString := QIpESTADO.AsString;
+      vQ.ParamByName('TOTAL_BONO').AsString := QIpTOTAL_BONO.AsString;
+      vQ.ExecSQL;
+
+      QIpdet.Close;
+      QIpdet.ParamByName('TIPO').AsString := QIpTIPO.AsString;
+      QIpdet.ParamByName('NUMBER').AsInteger := QIpNUMBER.AsInteger;
+
+      QIpdet.Open;
+      QIpdet.First;
+
+      while not QIpdet.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO IPDET(TIPO,NUMBER,CONTEO,ITEM,LOCATION,COST,QTY,QTYREC,'
+          + ' QTYPEND,EXTEND,PESO,COSTCDESC,COSTCFLETE,REFOC,REFREC,CLOSEDOC,QTYDEV,'
+          + ' CC,PB,QTYB,QTYBDEV,PORCDCT,VALORDCT,E,DESTINO,S,LOTE,COSTMC,NODOCR,'
+          + ' TPDOCR,EDOCR,SDOCR,FECHA_VENCIMIENTO,COLOR,IVA,COSTO_AJUSTE,NUMERO_AUTO,'
+          + ' CADENA_ADICIONAL,E_AUTO,S_AUTO,TIPO_AUTO,CODOCR,CONTEO_AUTO,DEPTO,CCOSTO,'
+          + ' ACTIVIDAD,PROY,COD_TALLA,COD_COLOR,FACTOR,PRECIO_UNITARIO_IVA,VALIVA,'
+          + ' VALOR_IVA,CUBX,CUBY,CUBZ,CUBFACTOR,CAJA_SET,MANIFIESTOID,COSTOEXT,TOTAL_BONO,'
+          + ' BONO,CODBARRASCURVA,VALOR_IVA_MAYOR,VALOR_BASE_MAYOR,DEVUELTO)' +
+          ' VALUES(:TIPO,:NUMBER,:CONTEO,:ITEM,:LOCATION,:COST,:QTY,:QTYREC,' +
+          ' :QTYPEND,:EXTEND,:PESO,:COSTCDESC,:COSTCFLETE,:REFOC,:REFREC,:CLOSEDOC,:QTYDEV,'
+          + ' :CC,:PB,:QTYB,:QTYBDEV,:PORCDCT,:VALORDCT,:E,:DESTINO,:S,:LOTE,:COSTMC,:NODOCR,'
+          + ' :TPDOCR,:EDOCR,:SDOCR,:FECHA_VENCIMIENTO,:COLOR,:IVA,:COSTO_AJUSTE,:NUMERO_AUTO,'
+          + ' :CADENA_ADICIONAL,:E_AUTO,:S_AUTO,:TIPO_AUTO,:CODOCR,:CONTEO_AUTO,:DEPTO,:CCOSTO,'
+          + ' :ACTIVIDAD,:PROY,:COD_TALLA,:COD_COLOR,:FACTOR,:PRECIO_UNITARIO_IVA,:VALIVA,'
+          + ' :VALOR_IVA,:CUBX,:CUBY,:CUBZ,:CUBFACTOR,:CAJA_SET,:MANIFIESTOID,:COSTOEXT,:TOTAL_BONO,'
+          + ' :BONO,:CODBARRASCURVA,:VALOR_IVA_MAYOR,:VALOR_BASE_MAYOR,:DEVUELTO)');
+
+        vQ.ParamByName('TIPO').AsString := QIpdetTIPO.AsString;
+        vQ.ParamByName('NUMBER').AsInteger := QIpdetNUMBER.AsInteger;
+        vQ.ParamByName('CONTEO').AsInteger := QIpdetCONTEO.AsInteger;
+        vQ.ParamByName('ITEM').AsString := QIpdetITEM.AsString;
+        vQ.ParamByName('LOCATION').AsString := QIpdetLOCATION.AsString;
+        vQ.ParamByName('COST').AsFloat := QIpdetCOST.AsFloat;
+        vQ.ParamByName('QTY').AsFloat := QIpdetQTY.AsFloat;
+        vQ.ParamByName('QTYREC').AsFloat := QIpdetQTYREC.AsFloat;
+        vQ.ParamByName('QTYPEND').AsFloat := QIpdetQTYPEND.AsFloat;
+        vQ.ParamByName('EXTEND').AsFloat := QIpdetEXTEND.AsFloat;
+        vQ.ParamByName('PESO').AsFloat := QIpdetPESO.AsFloat;
+        vQ.ParamByName('COSTCDESC').AsFloat := QIpdetCOSTCDESC.AsFloat;
+        vQ.ParamByName('COSTCFLETE').AsFloat := QIpdetCOSTCFLETE.AsFloat;
+        vQ.ParamByName('REFOC').AsString := QIpdetREFOC.AsString;
+        vQ.ParamByName('REFREC').AsString := QIpdetREFREC.AsString;
+        vQ.ParamByName('CLOSEDOC').AsString := QIpdetCLOSEDOC.AsString;
+        vQ.ParamByName('QTYDEV').AsFloat := QIpdetQTYDEV.AsFloat;
+        vQ.ParamByName('CC').AsFloat := QIpdetCC.AsFloat;
+        vQ.ParamByName('PB').AsFloat := QIpdetPB.AsFloat;
+        vQ.ParamByName('QTYB').AsFloat := QIpdetQTYB.AsFloat;
+        vQ.ParamByName('QTYBDEV').AsFloat := QIpdetQTYBDEV.AsFloat;
+        vQ.ParamByName('PORCDCT').AsFloat := QIpdetPORCDCT.AsFloat;
+        vQ.ParamByName('VALORDCT').AsFloat := QIpdetVALORDCT.AsFloat;
+        vQ.ParamByName('E').AsInteger := QIpdetE.AsInteger;
+        vQ.ParamByName('DESTINO').AsInteger := QIpdetDESTINO.AsInteger;
+        vQ.ParamByName('S').AsInteger := QIpdetS.AsInteger;
+        vQ.ParamByName('LOTE').AsString := QIpdetLOTE.AsString;
+        vQ.ParamByName('COSTMC').AsFloat := QIpdetCOSTMC.AsFloat;
+        vQ.ParamByName('NODOCR').AsInteger := QIpdetNODOCR.AsInteger;
+        vQ.ParamByName('TPDOCR').AsString := QIpdetTPDOCR.AsString;
+        vQ.ParamByName('EDOCR').AsInteger := QIpdetEDOCR.AsInteger;
+        vQ.ParamByName('SDOCR').AsInteger := QIpdetSDOCR.AsInteger;
+        vQ.ParamByName('FECHA_VENCIMIENTO').AsDateTime :=
+          QIpdetFECHA_VENCIMIENTO.AsDateTime;
+        vQ.ParamByName('COLOR').AsString := QIpdetCOLOR.AsString;
+        vQ.ParamByName('IVA').AsFloat := QIpdetIVA.AsFloat;
+        vQ.ParamByName('COSTO_AJUSTE').AsFloat := QIpdetCOSTO_AJUSTE.AsFloat;
+        vQ.ParamByName('NUMERO_AUTO').AsInteger := QIpdetNUMERO_AUTO.AsInteger;
+        vQ.ParamByName('CADENA_ADICIONAL').AsString :=
+          QIpdetCADENA_ADICIONAL.AsString;
+        vQ.ParamByName('E_AUTO').AsInteger := QIpdetE_AUTO.AsInteger;
+        vQ.ParamByName('S_AUTO').AsInteger := QIpdetS_AUTO.AsInteger;
+        vQ.ParamByName('TIPO_AUTO').AsString := QIpdetTIPO_AUTO.AsString;
+        vQ.ParamByName('CODOCR').AsInteger := QIpdetCODOCR.AsInteger;
+        vQ.ParamByName('CONTEO_AUTO').AsInteger := QIpdetCONTEO_AUTO.AsInteger;
+        vQ.ParamByName('DEPTO').AsInteger := QIpdetDEPTO.AsInteger;
+        vQ.ParamByName('CCOSTO').AsInteger := QIpdetCCOSTO.AsInteger;
+        vQ.ParamByName('ACTIVIDAD').AsString := QIpdetACTIVIDAD.AsString;
+        vQ.ParamByName('PROY').AsString := QIpdetPROY.AsString;
+        vQ.ParamByName('COD_TALLA').AsString := QIpdetCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QIpdetCOD_COLOR.AsString;
+        vQ.ParamByName('FACTOR').AsFloat := QIpdetFACTOR.AsFloat;
+        vQ.ParamByName('PRECIO_UNITARIO_IVA').AsFloat :=
+          QIpdetPRECIO_UNITARIO_IVA.AsFloat;
+        vQ.ParamByName('VALIVA').AsFloat := QIpdetVALIVA.AsFloat;
+        vQ.ParamByName('VALOR_IVA').AsFloat := QIpdetVALOR_IVA.AsFloat;
+        vQ.ParamByName('CUBX').AsFloat := QIpdetCUBX.AsFloat;
+        vQ.ParamByName('CUBY').AsFloat := QIpdetCUBY.AsFloat;
+        vQ.ParamByName('CUBZ').AsFloat := QIpdetCUBZ.AsFloat;
+        vQ.ParamByName('CUBFACTOR').AsFloat := QIpdetCUBFACTOR.AsFloat;
+        vQ.ParamByName('CAJA_SET').AsFloat := QIpdetCAJA_SET.AsFloat;
+        vQ.ParamByName('MANIFIESTOID').AsString := QIpdetMANIFIESTOID.AsString;
+        vQ.ParamByName('COSTOEXT').AsFloat := QIpdetCOSTOEXT.AsFloat;
+        vQ.ParamByName('TOTAL_BONO').AsFloat := QIpdetTOTAL_BONO.AsFloat;
+        vQ.ParamByName('BONO').AsString := QIpdetBONO.AsString;
+        vQ.ParamByName('CODBARRASCURVA').AsString :=
+          QIpdetCODBARRASCURVA.AsString;
+        vQ.ParamByName('VALOR_IVA_MAYOR').AsFloat :=
+          QIpdetVALOR_IVA_MAYOR.AsFloat;
+        vQ.ParamByName('VALOR_BASE_MAYOR').AsFloat :=
+          QIpdetVALOR_BASE_MAYOR.AsFloat;
+        vQ.ParamByName('DEVUELTO').AsString := QIpdetDEVUELTO.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QIpdet.Next;
+      END;
+
+      QOc_Ip.Close;
+      QOc_Ip.ParamByName('TIPO').AsString := QIpTIPO.AsString;
+      QOc_Ip.ParamByName('NUMBER').AsInteger := QIpNUMBER.AsInteger;
+
+      QOc_Ip.Open;
+      QOc_Ip.First;
+
+      while not QOc_Ip.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add(' INSERT INTO OC_IP(NUMBERIP,TYPEIP,E,S,TYPEOC,NUMBEROC)' +
+          ' VALUES(:NUMBERIP,:TYPEIP,:E,:S,:TYPEOC,:NUMBEROC)');
+
+        vQ.ParamByName('TYPEIP').AsString := QOc_IpTYPEIP.AsString;
+        vQ.ParamByName('TYPEOC').AsString := QOc_IpTYPEOC.AsString;
+        vQ.ParamByName('NUMBERIP').AsInteger := QOc_IpNUMBERIP.AsInteger;
+        vQ.ParamByName('E').AsInteger := QOc_IpE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QOc_IpS.AsInteger;
+        vQ.ParamByName('NUMBEROC').AsInteger := QOc_IpNUMBEROC.AsInteger;
+
+        vQ.Close;
+        vQ.ExecSQL;
+        QOc_Ip.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+    PasarItemact(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+    PasarGl(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+    PasarCarpro(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QIp.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Entradas y Devoluciones:');
+  Memo1.Lines.Add('  -Tabla Ip');
+  Memo1.Lines.Add('  -Tabla Ipdet');
+  Memo1.Lines.Add('  -Tabla Oc_Ip');
+  Memo1.Lines.Add('  -Cantidad de Entradas y Devoluciones: ' +
+    IntToStr(Numero));
 end;
 
 procedure TMain.PasarFacturas;
 var
+  Tipos: string;
   Numero: Integer;
   vQ: TFDQuery;
 begin
-
+  Tipos := TraerTipos('''FA'',''DV''');
   Numero := 0;
   QOe.Close;
   QOe.ParamByName('FI').AsDate := DateEdit1.Date;
   QOe.ParamByName('FF').AsDate := DateEdit2.Date;
+  QOe.SQL.Add(' AND TIPO IN(' + Tipos + ')');
   if CheckDocxSuc.IsChecked = True then
   begin
     QOe.SQL.Add(' AND ID_SUCURSAL= :SUC');
@@ -4512,20 +6039,186 @@ begin
 end;
 
 procedure TMain.PasarOrdenesdeCompras;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
 begin
-  ShowMessage('orden de compra');
+  Tipos := TraerTipos('''OC''');
+  Numero := 0;
+  QIpoce.Close;
+  QIpoce.ParamByName('FI').AsDate := DateEdit1.Date;
+  QIpoce.ParamByName('FF').AsDate := DateEdit2.Date;
+  QIpoce.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QIpoce.SQL.Add(' AND S= :SUC');
+    QIpoce.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QIpoce.Open;
+
+  QIpoce.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QIpoce.RecordCount;
+  QIpoce.First;
+
+  while not QIpoce.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarOrdenDeCompra(QIpoceTIPO.AsString, QIpoceNUMBER.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO IPOCE (E,S,TIPO,NUMBER,ID_N,SUCCLIENTE,ACCT,FECHA,ESTADO,'
+        + ' DUEDATE,ORIGEN,IMP_GENERADA,COMENTARIO,TOTAL,FECHA_PAGO,TOTALDCT,TOTALRETEN,'
+        + ' VALORRTIVA,TOTALIVA,SUBTOTAL,TIPOEMP,CODMONEDA,TASACAMBIO,ID_N_SOLICITANTE,'
+        + ' VALORRTICA,ID_USUARIO,FECHA_REQUISICION,RETECREE,CODCREE,TIPO_IMP,NRO_IMP)'
+        + ' VALUES(:E,:S,:TIPO,:NUMBER,:ID_N,:SUCCLIENTE,:ACCT,:FECHA,:ESTADO,'
+        + ' :DUEDATE,:ORIGEN,:IMP_GENERADA,:COMENTARIO,:TOTAL,:FECHA_PAGO,:TOTALDCT,:TOTALRETEN,'
+        + ' :VALORRTIVA,:TOTALIVA,:SUBTOTAL,:TIPOEMP,:CODMONEDA,:TASACAMBIO,:ID_N_SOLICITANTE,'
+        + ' :VALORRTICA,:ID_USUARIO,:FECHA_REQUISICION,:RETECREE,:CODCREE,:TIPO_IMP,:NRO_IMP)');
+      vQ.Close;
+
+      vQ.ParamByName('E').AsInteger := QIpoceE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QIpoceS.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QIpoceTIPO.AsString;
+      vQ.ParamByName('NUMBER').AsInteger := QIpoceNUMBER.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QIpoceID_N.AsString;
+      vQ.ParamByName('SUCCLIENTE').AsInteger := QIpoceSUCCLIENTE.AsInteger;
+      vQ.ParamByName('ACCT').AsFloat := QIpoceACCT.AsFloat;
+      vQ.ParamByName('FECHA').AsDateTime := QIpoceFECHA.AsDateTime;
+      vQ.ParamByName('ESTADO').AsString := QIpoceESTADO.AsString;
+      vQ.ParamByName('DUEDATE').AsDateTime := QIpoceDUEDATE.AsDateTime;
+      vQ.ParamByName('ORIGEN').AsString := QIpoceORIGEN.AsString;
+      vQ.ParamByName('IMP_GENERADA').AsString := QIpoceIMP_GENERADA.AsString;
+      vQ.ParamByName('COMENTARIO').AsString := QIpoceCOMENTARIO.AsString;
+      vQ.ParamByName('TOTAL').AsFloat := QIpoceTOTAL.AsFloat;
+      vQ.ParamByName('FECHA_PAGO').AsDateTime := QIpoceFECHA_PAGO.AsDateTime;
+      vQ.ParamByName('TOTALDCT').AsFloat := QIpoceTOTALDCT.AsFloat;
+      vQ.ParamByName('TOTALRETEN').AsFloat := QIpoceTOTALRETEN.AsFloat;
+      vQ.ParamByName('VALORRTIVA').AsFloat := QIpoceVALORRTIVA.AsFloat;
+      vQ.ParamByName('TOTALIVA').AsFloat := QIpoceTOTALIVA.AsFloat;
+      vQ.ParamByName('SUBTOTAL').AsFloat := QIpoceSUBTOTAL.AsFloat;
+      vQ.ParamByName('TIPOEMP').AsInteger := QIpoceTIPOEMP.AsInteger;
+      vQ.ParamByName('CODMONEDA').AsString := QIpoceCODMONEDA.AsString;
+      vQ.ParamByName('TASACAMBIO').AsFloat := QIpoceTASACAMBIO.AsFloat;
+      vQ.ParamByName('ID_N_SOLICITANTE').AsString :=
+        QIpoceID_N_SOLICITANTE.AsString;
+      vQ.ParamByName('VALORRTICA').AsFloat := QIpoceVALORRTICA.AsFloat;
+      vQ.ParamByName('ID_USUARIO').AsString := QIpoceID_USUARIO.AsString;
+      vQ.ParamByName('FECHA_REQUISICION').AsDateTime :=
+        QIpoceFECHA_REQUISICION.AsDateTime;
+      vQ.ParamByName('RETECREE').AsFloat := QIpoceRETECREE.AsFloat;
+      vQ.ParamByName('CODCREE').AsString := QIpoceCODCREE.AsString;
+      vQ.ParamByName('TIPO_IMP').AsString := QIpoceTIPO_IMP.AsString;
+      vQ.ParamByName('NRO_IMP').AsInteger := QIpoceNRO_IMP.AsInteger;
+
+      vQ.ExecSQL;
+
+      QIpocd.Close;
+      QIpocd.ParamByName('TIPO').AsString := QIpoceTIPO.AsString;
+      QIpocd.ParamByName('NUMBER').AsInteger := QIpoceNUMBER.AsInteger;
+
+      QIpocd.Open;
+      QIpocd.First;
+
+      while not QIpocd.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO IPOCD(E,S,TIPO,NUMBER,CONTEO,ITEM,LOCATION,QTY,RECIBIDO,'
+          + ' CC,PB,QTYB,COST,PORC_IVA,FALTANTE,PRICEPROV,DCTPROV,COSTOEXT,TIPO_IMPORT,'
+          + ' NUMERO_IMPORT,CONTEO_IMPORT,E_IMPORT,S_IMPORT,CADENA_ADICIONAL,NUM_SUBORDEN,'
+          + ' ESTADO,TIPO_SUBORDEN,DEPTO,CCOSTO,ACTIVIDAD,PROY,TIPO_PEDIDO,NUMERO_PEDIDO,'
+          + ' CONTEO_PEDIDO,E_PEDIDO,S_PEDIDO,COD_TALLA,COD_COLOR,FACTOR,CODBARRASCURVA)'
+          + ' VALUES(:E,:S,:TIPO,:NUMBER,:CONTEO,:ITEM,:LOCATION,:QTY,:RECIBIDO,'
+          + ' :CC,:PB,:QTYB,:COST,:PORC_IVA,:FALTANTE,:PRICEPROV,:DCTPROV,:COSTOEXT,:TIPO_IMPORT,'
+          + ' :NUMERO_IMPORT,:CONTEO_IMPORT,:E_IMPORT,:S_IMPORT,:CADENA_ADICIONAL,:NUM_SUBORDEN,'
+          + ' :ESTADO,:TIPO_SUBORDEN,:DEPTO,:CCOSTO,:ACTIVIDAD,:PROY,:TIPO_PEDIDO,:NUMERO_PEDIDO,'
+          + ' :CONTEO_PEDIDO,:E_PEDIDO,:S_PEDIDO,:COD_TALLA,:COD_COLOR,:FACTOR,:CODBARRASCURVA)');
+
+        vQ.ParamByName('E').AsInteger := QIpocdE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QIpocdS.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QIpocdTIPO.AsString;
+        vQ.ParamByName('NUMBER').AsInteger := QIpocdNUMBER.AsInteger;
+        vQ.ParamByName('CONTEO').AsInteger := QIpocdCONTEO.AsInteger;
+        vQ.ParamByName('ITEM').AsString := QIpocdITEM.AsString;
+        vQ.ParamByName('LOCATION').AsString := QIpocdLOCATION.AsString;
+        vQ.ParamByName('QTY').AsFloat := QIpocdQTY.AsFloat;
+        vQ.ParamByName('RECIBIDO').AsFloat := QIpocdRECIBIDO.AsFloat;
+        vQ.ParamByName('CC').AsFloat := QIpocdCC.AsFloat;
+        vQ.ParamByName('PB').AsFloat := QIpocdPB.AsFloat;
+        vQ.ParamByName('QTYB').AsFloat := QIpocdQTYB.AsFloat;
+        vQ.ParamByName('COST').AsFloat := QIpocdCOST.AsFloat;
+        vQ.ParamByName('PORC_IVA').AsFloat := QIpocdPORC_IVA.AsFloat;
+        vQ.ParamByName('FALTANTE').AsFloat := QIpocdFALTANTE.AsFloat;
+        vQ.ParamByName('PRICEPROV').AsFloat := QIpocdPRICEPROV.AsFloat;
+        vQ.ParamByName('DCTPROV').AsFloat := QIpocdDCTPROV.AsFloat;
+        vQ.ParamByName('COSTOEXT').AsFloat := QIpocdCOSTOEXT.AsFloat;
+        vQ.ParamByName('TIPO_IMPORT').AsString := QIpocdTIPO_IMPORT.AsString;
+        vQ.ParamByName('NUMERO_IMPORT').AsInteger :=
+          QIpocdNUMERO_IMPORT.AsInteger;
+        vQ.ParamByName('CONTEO_IMPORT').AsInteger :=
+          QIpocdCONTEO_IMPORT.AsInteger;
+        vQ.ParamByName('E_IMPORT').AsInteger := QIpocdE_IMPORT.AsInteger;
+        vQ.ParamByName('S_IMPORT').AsInteger := QIpocdS_IMPORT.AsInteger;
+        vQ.ParamByName('CADENA_ADICIONAL').AsString :=
+          QIpocdCADENA_ADICIONAL.AsString;
+        vQ.ParamByName('NUM_SUBORDEN').AsInteger :=
+          QIpocdNUM_SUBORDEN.AsInteger;
+        vQ.ParamByName('ESTADO').AsInteger := QIpocdESTADO.AsInteger;
+        vQ.ParamByName('TIPO_SUBORDEN').AsString :=
+          QIpocdTIPO_SUBORDEN.AsString;
+        vQ.ParamByName('DEPTO').AsInteger := QIpocdDEPTO.AsInteger;
+        vQ.ParamByName('CCOSTO').AsInteger := QIpocdCCOSTO.AsInteger;
+        vQ.ParamByName('ACTIVIDAD').AsString := QIpocdACTIVIDAD.AsString;
+        vQ.ParamByName('PROY').AsString := QIpocdPROY.AsString;
+        vQ.ParamByName('TIPO_PEDIDO').AsString := QIpocdTIPO_PEDIDO.AsString;
+        vQ.ParamByName('NUMERO_PEDIDO').AsInteger :=
+          QIpocdNUMERO_PEDIDO.AsInteger;
+        vQ.ParamByName('CONTEO_PEDIDO').AsInteger :=
+          QIpocdCONTEO_PEDIDO.AsInteger;
+        vQ.ParamByName('E_PEDIDO').AsInteger := QIpocdE_PEDIDO.AsInteger;
+        vQ.ParamByName('S_PEDIDO').AsInteger := QIpocdS_PEDIDO.AsInteger;
+        vQ.ParamByName('COD_TALLA').AsString := QIpocdCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QIpocdCOD_COLOR.AsString;
+        vQ.ParamByName('FACTOR').AsFloat := QIpocdFACTOR.AsFloat;
+        vQ.ParamByName('CODBARRASCURVA').AsString :=
+          QIpocdCODBARRASCURVA.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QIpocd.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QIpoce.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Ordenes de Compra:');
+  Memo1.Lines.Add('  -Tabla Ipoce');
+  Memo1.Lines.Add('  -Tabla Ipocd');
+  Memo1.Lines.Add('  -Cantidad de Ordenes de Compra: ' + IntToStr(Numero));
 end;
 
 procedure TMain.PasarRemisiones;
 var
+  Tipos: string;
   Numero: Integer;
   vQ: TFDQuery;
 begin
-
+  Tipos := TraerTipos('''RM''');
   Numero := 0;
   QRemisione.Close;
   QRemisione.ParamByName('FI').AsDate := DateEdit1.Date;
   QRemisione.ParamByName('FF').AsDate := DateEdit2.Date;
+  QRemisione.SQL.Add(' AND TIPO IN(' + Tipos + ')');
   if CheckDocxSuc.IsChecked = True then
   begin
     QRemisione.SQL.Add(' AND ID_SUCURSAL= :SUC');
@@ -4755,6 +6448,134 @@ begin
   Memo1.Lines.Add('  -Tabla Remisiond');
   Memo1.Lines.Add('  -Tabla Itemact');
   Memo1.Lines.Add('  -Cantidad de Remisiones: ' + IntToStr(Numero));
+end;
+
+procedure TMain.PasarTraslados;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Tipos := TraerTipos('''TB''');
+  Numero := 0;
+  QTraslado.Close;
+  QTraslado.ParamByName('FI').AsDate := DateEdit1.Date;
+  QTraslado.ParamByName('FF').AsDate := DateEdit2.Date;
+  QTraslado.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QTraslado.SQL.Add(' AND S= :SUC');
+    QTraslado.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QTraslado.Open;
+
+  QTraslado.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QTraslado.RecordCount;
+  QTraslado.First;
+
+  while not QTraslado.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarTraslados(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO TRASLADO (NUMERO,TIPO,E,S,ID_N,SUCCLIENTE,ID_USUARIO,LOCORI,'
+        + ' LOCDEST,RESPREALI,FECHAREALI,FECHAACT,DESCRIPCION,ACTUALIZADO,IMPRESO,'
+        + ' ANULADO,CONCEPTO,DOC_EXTERNO,USUARIO_AUTORIZA)VALUES(:NUMERO,:TIPO,:E,:S,'
+        + ' :ID_N,:SUCCLIENTE,:ID_USUARIO,:LOCORI,' +
+        ' :LOCDEST,:RESPREALI,:FECHAREALI,:FECHAACT,:DESCRIPCION,:ACTUALIZADO,:IMPRESO,'
+        + ' :ANULADO,:CONCEPTO,:DOC_EXTERNO,:USUARIO_AUTORIZA)');
+      vQ.Close;
+
+      vQ.ParamByName('NUMERO').AsInteger := QTrasladoNUMERO.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QTrasladoTIPO.AsString;
+      vQ.ParamByName('E').AsInteger := QTrasladoE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QTrasladoS.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QTrasladoID_N.AsString;
+      vQ.ParamByName('SUCCLIENTE').AsInteger := QTrasladoSUCCLIENTE.AsInteger;
+      vQ.ParamByName('ID_USUARIO').AsString := QTrasladoID_USUARIO.AsString;
+      vQ.ParamByName('LOCORI').AsString := QTrasladoLOCORI.AsString;
+      vQ.ParamByName('LOCDEST').AsString := QTrasladoLOCDEST.AsString;
+      vQ.ParamByName('RESPREALI').AsString := QTrasladoRESPREALI.AsString;
+      vQ.ParamByName('FECHAREALI').AsDateTime := QTrasladoFECHAREALI.AsDateTime;
+      vQ.ParamByName('FECHAACT').AsDateTime := QTrasladoFECHAACT.AsDateTime;
+      vQ.ParamByName('DESCRIPCION').AsString := QTrasladoDESCRIPCION.AsString;
+      vQ.ParamByName('ACTUALIZADO').AsString := QTrasladoACTUALIZADO.AsString;
+      vQ.ParamByName('IMPRESO').AsString := QTrasladoIMPRESO.AsString;
+      vQ.ParamByName('ANULADO').AsString := QTrasladoANULADO.AsString;
+      vQ.ParamByName('CONCEPTO').AsString := QTrasladoCONCEPTO.AsString;
+      vQ.ParamByName('DOC_EXTERNO').AsInteger := QTrasladoDOC_EXTERNO.AsInteger;
+      vQ.ParamByName('USUARIO_AUTORIZA').AsString :=
+        QTrasladoUSUARIO_AUTORIZA.AsString;
+
+      vQ.ExecSQL;
+
+      QTrasdet.Close;
+      QTrasdet.ParamByName('TIPO').AsString := QTrasladoTIPO.AsString;
+      QTrasdet.ParamByName('NUMBER').AsInteger := QTrasladoNUMERO.AsInteger;
+
+      QTrasdet.Open;
+      QTrasdet.First;
+
+      while not QTrasdet.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO TRASDET( NUMERO,TIPO,E,S,CONTEO,ITEM,CANTIDAD,CANTIDADB,'
+          + ' CC,PB,COST,VALOR_RECIBIDO,VALOR_ENVIADO,COLOR,COSTO_AJUSTE,NOTES,LOTE,'
+          + ' FECHA_VENCIMIENTO,COD_TALLA,COD_COLOR,CODBARRASCURVA)' +
+          ' VALUES(:NUMERO,:TIPO,:E,:S,:CONTEO,:ITEM,:CANTIDAD,:CANTIDADB,' +
+          ' :CC,:PB,:COST,:VALOR_RECIBIDO,:VALOR_ENVIADO,:COLOR,:COSTO_AJUSTE,:NOTES,:LOTE,'
+          + ' :FECHA_VENCIMIENTO,:COD_TALLA,:COD_COLOR,:CODBARRASCURVA)');
+
+        vQ.ParamByName('NUMERO').AsInteger := QTrasdetNUMERO.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QTrasdetTIPO.AsString;
+        vQ.ParamByName('E').AsInteger := QTrasdetE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QTrasdetS.AsInteger;
+        vQ.ParamByName('CONTEO').AsInteger := QTrasdetCONTEO.AsInteger;
+        vQ.ParamByName('ITEM').AsString := QTrasdetITEM.AsString;
+        vQ.ParamByName('CANTIDAD').AsFloat := QTrasdetCANTIDAD.AsFloat;
+        vQ.ParamByName('CANTIDADB').AsFloat := QTrasdetCANTIDADB.AsFloat;
+        vQ.ParamByName('CC').AsFloat := QTrasdetCC.AsFloat;
+        vQ.ParamByName('PB').AsFloat := QTrasdetPB.AsFloat;
+        vQ.ParamByName('COST').AsFloat := QTrasdetCOST.AsFloat;
+        vQ.ParamByName('VALOR_RECIBIDO').AsFloat :=
+          QTrasdetVALOR_RECIBIDO.AsFloat;
+        vQ.ParamByName('VALOR_ENVIADO').AsFloat :=
+          QTrasdetVALOR_ENVIADO.AsFloat;
+        vQ.ParamByName('COLOR').AsString := QTrasdetCOLOR.AsString;
+        vQ.ParamByName('COSTO_AJUSTE').AsFloat := QTrasdetCOSTO_AJUSTE.AsFloat;
+        vQ.ParamByName('NOTES').AsString := QTrasdetNOTES.AsString;
+        vQ.ParamByName('LOTE').AsString := QTrasdetLOTE.AsString;
+        vQ.ParamByName('FECHA_VENCIMIENTO').AsDateTime :=
+          QTrasdetFECHA_VENCIMIENTO.AsDateTime;
+        vQ.ParamByName('COD_TALLA').AsString := QTrasdetCOD_TALLA.AsString;
+        vQ.ParamByName('COD_COLOR').AsString := QTrasdetCOD_COLOR.AsString;
+        vQ.ParamByName('CODBARRASCURVA').AsString :=
+          QTrasdetCODBARRASCURVA.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QTrasdet.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+    PasarItemact(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger);
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QTraslado.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualizan Traslados de Bodega:');
+  Memo1.Lines.Add('  -Tabla Traslado');
+  Memo1.Lines.Add('  -Tabla Trasdet');
+  Memo1.Lines.Add('  -Tabla Itemact');
+  Memo1.Lines.Add('  -Cantidad de Traslados de Bodega: ' + IntToStr(Numero));
 end;
 
 end.

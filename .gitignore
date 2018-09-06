@@ -257,3 +257,6 @@ Android/Debug/libDataSyn.so
 Android/Debug/Principal.o
 Win32/Debug/Parametros.dcu
 Win32/Debug/Principal.dcu
+*.dcu
+Win32/Debug/Parametros.dcu
+Win32/Debug/Principal.dcu

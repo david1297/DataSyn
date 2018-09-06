@@ -1871,6 +1871,29 @@ type
     QGlenID_N: TStringField;
     QGldet: TFDQuery;
     CheckComprobantes: TCheckBox;
+    QGldetCONTEO: TIntegerField;
+    QGldetID_N: TStringField;
+    QGldetACCT: TFloatField;
+    QGldetE: TSmallintField;
+    QGldetS: TSmallintField;
+    QGldetTIPO: TStringField;
+    QGldetBATCH: TIntegerField;
+    QGldetCUOTA: TSmallintField;
+    QGldetINVC: TStringField;
+    QGldetDEPTO: TSmallintField;
+    QGldetCCOST: TSmallintField;
+    QGldetACTIVIDAD: TStringField;
+    QGldetDEBIT: TFloatField;
+    QGldetCREDIT: TFloatField;
+    QGldetPERIOD: TStringField;
+    QGldetBASE: TFloatField;
+    QGldetDESCRIPCION: TStringField;
+    QGldetCLOSING: TStringField;
+    QGldetCONCIL: TStringField;
+    QGldetCRUCE: TStringField;
+    QGldetDESTINO: TSmallintField;
+    QGldetDUEDATE: TSQLTimeStampField;
+    QGldetPROYECTO: TStringField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -1925,6 +1948,7 @@ type
     procedure PasarTraslados;
     procedure PasarEnsambles;
     procedure PasarCarteraProv;
+    procedure PasarComprobantes;
 
     procedure EliminarFacturas(Tipo: String; Number: Integer);
     procedure EliminarRemisiones(Tipo: String; Number: Integer);
@@ -1935,6 +1959,7 @@ type
     procedure EliminarTraslados(Tipo: String; Number: Integer);
     procedure EliminarEnsables(Tipo: String; Number: Integer);
     procedure EliminarCarteraProv(Tipo: String; Number: Integer);
+    procedure EliminarComprobantes(Tipo: String; Number: Integer);
 
     procedure PasarItemact(Tipo: String; Number: Integer);
     procedure PasarGl(Tipo: String; Number: Integer);
@@ -3854,6 +3879,7 @@ begin
     PasarTraslados;
     PasarEnsambles;
     PasarCarteraProv;
+    PasarComprobantes;
   end
   else
   begin
@@ -3892,6 +3918,10 @@ begin
     if CheckCarteraProv.IsChecked = True then
     begin
       PasarCarteraProv;
+    end;
+    if CheckComprobantes.IsChecked = True then
+    begin
+      PasarComprobantes;
     end;
   end;
   ShowMessage('Carga Completa !!');
@@ -4083,6 +4113,42 @@ begin
 
     vQ.SQL.Clear;
     vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarComprobantes(Tipo: String; Number: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GLDET WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GLEN WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
@@ -4851,11 +4917,130 @@ begin
     QCarproen.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Recibos de Caja, Notas Debito, Notas Crediro,');
+  Memo1.Lines.Add
+    ('->Se Actualizan Recibos de Caja, Notas Debito, Notas Crediro,');
   Memo1.Lines.Add(' Comprobantes de Egreso, Facturas por Pagar, Ajustes:');
   Memo1.Lines.Add('  -Tabla Carpro');
   Memo1.Lines.Add('  -Tabla Carproen');
   Memo1.Lines.Add('  -Tabla Carprode');
+  Memo1.Lines.Add('  -Tabla Gl');
+  Memo1.Lines.Add('  -Cantidad de Documentos: ' + IntToStr(Numero));
+end;
+
+procedure TMain.PasarComprobantes;
+var
+  Tipos: string;
+  Numero: Integer;
+  vQ: TFDQuery;
+begin
+  Tipos := TraerTipos('''CC'',''00'',''01'',''XX'',''XN'',''XT''');
+  Numero := 0;
+  QGlen.Close;
+  QGlen.ParamByName('FI').AsDate := DateEdit1.Date;
+  QGlen.ParamByName('FF').AsDate := DateEdit2.Date;
+  QGlen.SQL.Add(' AND TIPO IN(' + Tipos + ')');
+  if CheckDocxSuc.IsChecked = True then
+  begin
+    QGlen.SQL.Add(' AND S= :SUC');
+    QGlen.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
+  end;
+
+  QGlen.Open;
+  QGlen.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QGlen.RecordCount;
+  QGlen.First;
+
+  while not QGlen.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      EliminarComprobantes(QGlenTIPO.AsString, QGlenBATCH.AsInteger);
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO GLEN (E,S,TIPO,BATCH,FECHA,USERNAME,REVISADO,REVISOR,' +
+        ' FECHA_REVISION,EXPORTADA,ESTADO,DESCRIPCION,ID_N)' +
+        ' VALUES(:E,:S,:TIPO,:BATCH,:FECHA,:USERNAME,:REVISADO,:REVISOR,' +
+        ' :FECHA_REVISION,:EXPORTADA,:ESTADO,:DESCRIPCION,null)');
+      vQ.Close;
+
+      vQ.ParamByName('E').AsInteger := QGlenE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QGlenS.AsInteger;
+      vQ.ParamByName('TIPO').AsString := QGlenTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QGlenBATCH.AsInteger;
+      vQ.ParamByName('FECHA').AsDateTime := QGlenFECHA.AsDateTime;
+      vQ.ParamByName('USERNAME').AsString := QGlenUSERNAME.AsString;
+      vQ.ParamByName('REVISADO').AsString := QGlenREVISADO.AsString;
+      vQ.ParamByName('REVISOR').AsString := QGlenREVISOR.AsString;
+      vQ.ParamByName('FECHA_REVISION').AsDateTime :=
+        QGlenFECHA_REVISION.AsDateTime;
+      vQ.ParamByName('EXPORTADA').AsString := QGlenEXPORTADA.AsString;
+      vQ.ParamByName('ESTADO').AsString := QGlenESTADO.AsString;
+      vQ.ParamByName('DESCRIPCION').AsString := QGlenDESCRIPCION.AsString;
+
+      vQ.ExecSQL;
+
+      QGldet.Close;
+      QGldet.ParamByName('TIPO').AsString := QGlenTIPO.AsString;
+      QGldet.ParamByName('NUMBER').AsInteger := QGlenBATCH.AsInteger;
+
+      QGldet.Open;
+      QGldet.First;
+
+      while not QGldet.Eof do
+      Begin
+        vQ.SQL.Clear;
+        vQ.SQL.Add
+          (' INSERT INTO GLDET(CONTEO,ID_N,ACCT,E,S,TIPO,BATCH,CUOTA,INVC,DEPTO,'
+          + ' CCOST,ACTIVIDAD,DEBIT,CREDIT,PERIOD,BASE,DESCRIPCION,CLOSING,CONCIL,'
+          + ' CRUCE,DESTINO,DUEDATE,PROYECTO) VALUES(:CONTEO,:ID_N,:ACCT,:E,:S,:TIPO,:BATCH,'
+          + ' :CUOTA,:INVC,:DEPTO,' +
+          ' :CCOST,:ACTIVIDAD,:DEBIT,:CREDIT,:PERIOD,:BASE,:DESCRIPCION,:CLOSING,:CONCIL,'
+          + ' :CRUCE,:DESTINO,:DUEDATE,:PROYECTO)');
+
+        vQ.ParamByName('CONTEO').AsInteger := QGldetCONTEO.AsInteger;
+        vQ.ParamByName('ID_N').AsString := QGldetID_N.AsString;
+        vQ.ParamByName('ACCT').AsFloat := QGldetACCT.AsFloat;
+        vQ.ParamByName('E').AsInteger := QGldetE.AsInteger;
+        vQ.ParamByName('S').AsInteger := QGldetS.AsInteger;
+        vQ.ParamByName('TIPO').AsString := QGldetTIPO.AsString;
+        vQ.ParamByName('BATCH').AsInteger := QGldetBATCH.AsInteger;
+        vQ.ParamByName('CUOTA').AsInteger := QGldetCUOTA.AsInteger;
+        vQ.ParamByName('INVC').AsString := QGldetINVC.AsString;
+        vQ.ParamByName('DEPTO').AsInteger := QGldetDEPTO.AsInteger;
+        vQ.ParamByName('CCOST').AsInteger := QGldetCCOST.AsInteger;
+        vQ.ParamByName('ACTIVIDAD').AsString := QGldetACTIVIDAD.AsString;
+        vQ.ParamByName('DEBIT').AsFloat := QGldetDEBIT.AsFloat;
+        vQ.ParamByName('CREDIT').AsFloat := QGldetCREDIT.AsFloat;
+        vQ.ParamByName('PERIOD').AsString := QGldetPERIOD.AsString;
+        vQ.ParamByName('BASE').AsFloat := QGldetBASE.AsFloat;
+        vQ.ParamByName('DESCRIPCION').AsString := QGldetDESCRIPCION.AsString;
+        vQ.ParamByName('CLOSING').AsString := QGldetCLOSING.AsString;
+        vQ.ParamByName('CONCIL').AsString := QGldetCONCIL.AsString;
+        vQ.ParamByName('CRUCE').AsString := QGldetCRUCE.AsString;
+        vQ.ParamByName('DESTINO').AsInteger := QGldetDESTINO.AsInteger;
+        vQ.ParamByName('DUEDATE').AsDateTime := QGldetDUEDATE.AsDateTime;
+        vQ.ParamByName('PROYECTO').AsString := QGldetPROYECTO.AsString;
+        vQ.Close;
+        vQ.ExecSQL;
+        QGldet.Next;
+      END;
+
+    finally
+      vQ.DisposeOf;
+    end;
+
+    PasarGl(QGlenTIPO.AsString, QGlenBATCH.AsInteger);
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QGlen.Next;
+  End;
+
+  Memo1.Lines.Add
+    ('->Se Actualizan Comprobantes Contables y Cierres Contables');
+  Memo1.Lines.Add('  -Tabla Glen');
+  Memo1.Lines.Add('  -Tabla Gldet');
   Memo1.Lines.Add('  -Tabla Gl');
   Memo1.Lines.Add('  -Cantidad de Documentos: ' + IntToStr(Numero));
 end;

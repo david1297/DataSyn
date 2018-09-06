@@ -1,5 +1,5 @@
 inherited Main_Windows: TMain_Windows
-  ClientHeight = 480
+  ClientHeight = 539
   ClientWidth = 725
   DesignerMasterStyle = 0
   inherited Panel1: TPanel
@@ -7,19 +7,19 @@ inherited Main_Windows: TMain_Windows
   end
   inherited Panel2: TPanel
     Size.Width = 725.000000000000000000
-    Size.Height = 305.000000000000000000
+    Size.Height = 364.000000000000000000
     inherited Memo1: TMemo
-      Size.Height = 295.000000000000000000
+      Size.Height = 354.000000000000000000
       Viewport.Width = 409.000000000000000000
-      Viewport.Height = 295.000000000000000000
+      Viewport.Height = 354.000000000000000000
     end
     inherited GroupBox2: TGroupBox
       Size.Width = 301.000000000000000000
-      Size.Height = 295.000000000000000000
+      Size.Height = 354.000000000000000000
     end
   end
   inherited Panel3: TPanel
-    Position.Y = 450.000000000000000000
+    Position.Y = 509.000000000000000000
     Size.Width = 725.000000000000000000
     inherited ProgressBar1: TProgressBar
       Size.Width = 715.000000000000000000

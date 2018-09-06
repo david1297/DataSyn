@@ -219,7 +219,7 @@ object Main: TMain
       end
       object CheckFacDev: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 48.000000000000000000
+        Position.Y = 120.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
@@ -246,7 +246,7 @@ object Main: TMain
       end
       object CheckEntrDev: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 144.000000000000000000
+        Position.Y = 168.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
@@ -256,14 +256,14 @@ object Main: TMain
       end
       object CheckOrdenCom: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 120.000000000000000000
+        Position.Y = 144.000000000000000000
         TabOrder = 5
         Text = 'Orden de Compra'
         OnChange = CheckOrdenComChange
       end
       object CheckAjustes: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 168.000000000000000000
+        Position.Y = 192.000000000000000000
         Size.Width = 153.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
@@ -273,7 +273,7 @@ object Main: TMain
       end
       object CheckTraslados: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 192.000000000000000000
+        Position.Y = 216.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
@@ -283,14 +283,14 @@ object Main: TMain
       end
       object CheckEnsambles: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 216.000000000000000000
+        Position.Y = 240.000000000000000000
         TabOrder = 8
         Text = 'Ensambles'
         OnChange = CheckEnsamblesChange
       end
       object CheckCarteraProv: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 240.000000000000000000
+        Position.Y = 264.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
@@ -300,13 +300,20 @@ object Main: TMain
       end
       object CheckComprobantes: TCheckBox
         Position.X = 16.000000000000000000
-        Position.Y = 264.000000000000000000
+        Position.Y = 288.000000000000000000
         Size.Width = 161.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 10
         Text = 'Comprobantes Contables'
         OnChange = CheckComprobantesChange
+      end
+      object CheckPedidos: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 48.000000000000000000
+        TabOrder = 12
+        Text = 'Pedidos'
+        OnChange = CheckPedidosChange
       end
     end
   end
@@ -373,6 +380,7 @@ object Main: TMain
       'Database=D:\Saiopen\NUTRITEC2017.FDB'
       'Server=10.10.10.226'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     Left = 504
     Top = 88
@@ -10094,8 +10102,8 @@ object Main: TMain
         'IORO_ESFA,'
       '    CONCEPTO_NOTAFE,ENVIADO'
       '     from CARPROEN WHERE FECHA BETWEEN :FI AND :FF')
-    Left = 104
-    Top = 425
+    Left = 288
+    Top = 473
     ParamData = <
       item
         Name = 'FI'
@@ -10324,8 +10332,8 @@ object Main: TMain
       '    IDVEND,PORC_TASA,TIEMPO_MESES,PAGO_DISP'
       ''
       '     from CARPRODE WHERE TIPO = :TIPO AND BATCH = :NUMBER')
-    Left = 104
-    Top = 433
+    Left = 288
+    Top = 481
     ParamData = <
       item
         Name = 'TIPO'
@@ -10916,6 +10924,938 @@ object Main: TMain
       Origin = 'PROYECTO'
       FixedChar = True
       Size = 10
+    end
+  end
+  object QPedidoe: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'select'
+      
+        '    ID_EMPRESA,ID_SUCURSAL,TIPO,NUMBER,TIPO_PEDIDO,ID_USUARIO,ID' +
+        '_N,SUCCLIENTE,'
+      
+        '    ENTITY,SALESMAN,NUMBERFROM,NUMBERTO,FECHA,DUEDATE,SUBTOTAL,C' +
+        'OST,SALESTAX,'
+      
+        '    FEDTAX,DISC1,DISC2,DISC3,SHIPTO1,SHIPTO2,SHIPTO3,SHIPTO4,SHI' +
+        'PTO5,SHIPTO6,'
+      
+        '    ONACCOUNT,PRINTED,POSTED,CLOSED,PONUMBER,TERMS,JOBNO,DES_GLO' +
+        ',POR_DES,COD_ORD,'
+      
+        '    RPT_NUM,DESTOTAL,TOTAL,TOTALPEDIDO,ESTADO,AUTORIZADO,APROB_B' +
+        'ANCO,CONCEPTO,'
+      
+        '    DESCRIPCION,TIENE_GAR,OCNUMERO,CODACTIVIDAD,CODPROYECTO,FECH' +
+        'A_ENTREGA,'
+      
+        '    ID_USUARIO_FACTURACION,CAUSALES,REMISIONADO,HORA,FECHA_SISTE' +
+        'MA,DESCRIPCION_RECETA,'
+      
+        '    COD_PLACA,COMMENTS,VALOR_ABONO,ITEM,NOSERIE,coalesce(KMT,0)K' +
+        'MT,PROPIETARIO,COD_NIVEL,coalesce(BONOTOTAL,0)BONOTOTAL'
+      '     FROM  PEDIDOE WHERE FECHA BETWEEN :FI AND :FF')
+    Left = 152
+    Top = 369
+    ParamData = <
+      item
+        Name = 'FI'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'FF'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QPedidoeID_EMPRESA: TSmallintField
+      FieldName = 'ID_EMPRESA'
+      Origin = 'ID_EMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidoeID_SUCURSAL: TSmallintField
+      FieldName = 'ID_SUCURSAL'
+      Origin = 'ID_SUCURSAL'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidoeTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidoeNUMBER: TIntegerField
+      FieldName = 'NUMBER'
+      Origin = 'NUMBER'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidoeTIPO_PEDIDO: TStringField
+      FieldName = 'TIPO_PEDIDO'
+      Origin = 'TIPO_PEDIDO'
+      Required = True
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidoeID_USUARIO: TStringField
+      FieldName = 'ID_USUARIO'
+      Origin = 'ID_USUARIO'
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidoeID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QPedidoeSUCCLIENTE: TIntegerField
+      FieldName = 'SUCCLIENTE'
+      Origin = 'SUCCLIENTE'
+      Required = True
+    end
+    object QPedidoeENTITY: TStringField
+      FieldName = 'ENTITY'
+      Origin = 'ENTITY'
+      FixedChar = True
+      Size = 2
+    end
+    object QPedidoeSALESMAN: TSmallintField
+      FieldName = 'SALESMAN'
+      Origin = 'SALESMAN'
+    end
+    object QPedidoeNUMBERFROM: TStringField
+      FieldName = 'NUMBERFROM'
+      Origin = 'NUMBERFROM'
+      FixedChar = True
+      Size = 8
+    end
+    object QPedidoeNUMBERTO: TStringField
+      FieldName = 'NUMBERTO'
+      Origin = 'NUMBERTO'
+      FixedChar = True
+      Size = 8
+    end
+    object QPedidoeFECHA: TSQLTimeStampField
+      FieldName = 'FECHA'
+      Origin = 'FECHA'
+    end
+    object QPedidoeDUEDATE: TSQLTimeStampField
+      FieldName = 'DUEDATE'
+      Origin = 'DUEDATE'
+    end
+    object QPedidoeSUBTOTAL: TFloatField
+      FieldName = 'SUBTOTAL'
+      Origin = 'SUBTOTAL'
+    end
+    object QPedidoeCOST: TFloatField
+      FieldName = 'COST'
+      Origin = 'COST'
+    end
+    object QPedidoeSALESTAX: TFloatField
+      FieldName = 'SALESTAX'
+      Origin = 'SALESTAX'
+    end
+    object QPedidoeFEDTAX: TFloatField
+      FieldName = 'FEDTAX'
+      Origin = 'FEDTAX'
+    end
+    object QPedidoeDISC1: TFloatField
+      FieldName = 'DISC1'
+      Origin = 'DISC1'
+    end
+    object QPedidoeDISC2: TFloatField
+      FieldName = 'DISC2'
+      Origin = 'DISC2'
+    end
+    object QPedidoeDISC3: TFloatField
+      FieldName = 'DISC3'
+      Origin = 'DISC3'
+    end
+    object QPedidoeSHIPTO1: TStringField
+      FieldName = 'SHIPTO1'
+      Origin = 'SHIPTO1'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeSHIPTO2: TStringField
+      FieldName = 'SHIPTO2'
+      Origin = 'SHIPTO2'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeSHIPTO3: TStringField
+      FieldName = 'SHIPTO3'
+      Origin = 'SHIPTO3'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeSHIPTO4: TStringField
+      FieldName = 'SHIPTO4'
+      Origin = 'SHIPTO4'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeSHIPTO5: TStringField
+      FieldName = 'SHIPTO5'
+      Origin = 'SHIPTO5'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeSHIPTO6: TStringField
+      FieldName = 'SHIPTO6'
+      Origin = 'SHIPTO6'
+      FixedChar = True
+      Size = 35
+    end
+    object QPedidoeONACCOUNT: TStringField
+      FieldName = 'ONACCOUNT'
+      Origin = 'ONACCOUNT'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoePRINTED: TStringField
+      FieldName = 'PRINTED'
+      Origin = 'PRINTED'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoePOSTED: TStringField
+      FieldName = 'POSTED'
+      Origin = 'POSTED'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoeCLOSED: TStringField
+      FieldName = 'CLOSED'
+      Origin = 'CLOSED'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoePONUMBER: TStringField
+      FieldName = 'PONUMBER'
+      Origin = 'PONUMBER'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidoeTERMS: TStringField
+      FieldName = 'TERMS'
+      Origin = 'TERMS'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidoeJOBNO: TStringField
+      FieldName = 'JOBNO'
+      Origin = 'JOBNO'
+      FixedChar = True
+      Size = 6
+    end
+    object QPedidoeDES_GLO: TFloatField
+      FieldName = 'DES_GLO'
+      Origin = 'DES_GLO'
+    end
+    object QPedidoePOR_DES: TFloatField
+      FieldName = 'POR_DES'
+      Origin = 'POR_DES'
+    end
+    object QPedidoeCOD_ORD: TStringField
+      FieldName = 'COD_ORD'
+      Origin = 'COD_ORD'
+      FixedChar = True
+      Size = 8
+    end
+    object QPedidoeRPT_NUM: TStringField
+      FieldName = 'RPT_NUM'
+      Origin = 'RPT_NUM'
+      FixedChar = True
+      Size = 8
+    end
+    object QPedidoeDESTOTAL: TFloatField
+      FieldName = 'DESTOTAL'
+      Origin = 'DESTOTAL'
+    end
+    object QPedidoeTOTAL: TFloatField
+      FieldName = 'TOTAL'
+      Origin = 'TOTAL'
+    end
+    object QPedidoeTOTALPEDIDO: TFloatField
+      FieldName = 'TOTALPEDIDO'
+      Origin = 'TOTALPEDIDO'
+    end
+    object QPedidoeESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidoeAUTORIZADO: TStringField
+      FieldName = 'AUTORIZADO'
+      Origin = 'AUTORIZADO'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoeAPROB_BANCO: TStringField
+      FieldName = 'APROB_BANCO'
+      Origin = 'APROB_BANCO'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoeCONCEPTO: TSmallintField
+      FieldName = 'CONCEPTO'
+      Origin = 'CONCEPTO'
+    end
+    object QPedidoeDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 40
+    end
+    object QPedidoeTIENE_GAR: TStringField
+      FieldName = 'TIENE_GAR'
+      Origin = 'TIENE_GAR'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidoeOCNUMERO: TStringField
+      FieldName = 'OCNUMERO'
+      Origin = 'OCNUMERO'
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidoeCODACTIVIDAD: TStringField
+      FieldName = 'CODACTIVIDAD'
+      Origin = 'CODACTIVIDAD'
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidoeCODPROYECTO: TStringField
+      FieldName = 'CODPROYECTO'
+      Origin = 'CODPROYECTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidoeFECHA_ENTREGA: TSQLTimeStampField
+      FieldName = 'FECHA_ENTREGA'
+      Origin = 'FECHA_ENTREGA'
+      Required = True
+    end
+    object QPedidoeID_USUARIO_FACTURACION: TStringField
+      FieldName = 'ID_USUARIO_FACTURACION'
+      Origin = 'ID_USUARIO_FACTURACION'
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidoeCAUSALES: TMemoField
+      FieldName = 'CAUSALES'
+      Origin = 'CAUSALES'
+      BlobType = ftMemo
+    end
+    object QPedidoeREMISIONADO: TStringField
+      FieldName = 'REMISIONADO'
+      Origin = 'REMISIONADO'
+      FixedChar = True
+      Size = 1
+    end
+    object QPedidoeHORA: TStringField
+      FieldName = 'HORA'
+      Origin = 'HORA'
+      FixedChar = True
+      Size = 12
+    end
+    object QPedidoeFECHA_SISTEMA: TSQLTimeStampField
+      FieldName = 'FECHA_SISTEMA'
+      Origin = 'FECHA_SISTEMA'
+    end
+    object QPedidoeDESCRIPCION_RECETA: TStringField
+      FieldName = 'DESCRIPCION_RECETA'
+      Origin = 'DESCRIPCION_RECETA'
+      FixedChar = True
+      Size = 80
+    end
+    object QPedidoeCOD_PLACA: TStringField
+      FieldName = 'COD_PLACA'
+      Origin = 'COD_PLACA'
+      FixedChar = True
+      Size = 8
+    end
+    object QPedidoeCOMMENTS: TStringField
+      FieldName = 'COMMENTS'
+      Origin = 'COMMENTS'
+      Size = 500
+    end
+    object QPedidoeVALOR_ABONO: TFloatField
+      FieldName = 'VALOR_ABONO'
+      Origin = 'VALOR_ABONO'
+    end
+    object QPedidoeITEM: TStringField
+      FieldName = 'ITEM'
+      Origin = 'ITEM'
+      FixedChar = True
+      Size = 30
+    end
+    object QPedidoeNOSERIE: TStringField
+      FieldName = 'NOSERIE'
+      Origin = 'NOSERIE'
+      FixedChar = True
+      Size = 50
+    end
+    object QPedidoeKMT: TFloatField
+      FieldName = 'KMT'
+      Origin = 'KMT'
+    end
+    object QPedidoePROPIETARIO: TIntegerField
+      FieldName = 'PROPIETARIO'
+      Origin = 'PROPIETARIO'
+    end
+    object QPedidoeCOD_NIVEL: TStringField
+      FieldName = 'COD_NIVEL'
+      Origin = 'COD_NIVEL'
+      Size = 10
+    end
+    object QPedidoeBONOTOTAL: TSingleField
+      FieldName = 'BONOTOTAL'
+      Origin = 'BONOTOTAL'
+    end
+  end
+  object QPedidod: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      '  select'
+      
+        '    ID_EMPRESA,ID_SUCURSAL,TIPO,NUMBER,CONTEO,ITEM,IMPOVENTA,LOC' +
+        'ATION,QTYSHIP,'
+      
+        '    QTYORDER,PRICE,EXTEND,TAXES,COST,NOTES,DIAS_GARANTIA,DCT,TOT' +
+        'ALDCT,VLR_IVA,'
+      
+        '    PORC_IVA,CAJAS,PESO_BRUTO,TIPO_FACTOR,DOBLE_UNIDAD,USAR_DESV' +
+        'IACION,DESVIACIONP,'
+      
+        '    PESO_PROMEDIOI,FALLO,PESO_NETOI,PRECIO_VENDEDOR,AUTORIZADO,O' +
+        'RIGEN,NUM_SERIAL,'
+      
+        '    BO,RESERVA,DCTADICIONAL,DCTFIJO,ESTADO,QTY_REMISIONADA,COLOR' +
+        ',TIPO_COTIZA,'
+      
+        '    NUMERO_COTIZA,ZVLRBRUTO,ZDESCUENTO,ZDIFERENCIA,FECHAAPRODUCI' +
+        'R,KITNO,KIT_DESCRIPCION,'
+      
+        '    DCTO_AD1,DCTO_AD2,VLR_DCTFIJO,VLR_DCT,VLR_DCTOAD1,VLR_DCTOAD' +
+        '2,VLR_DCTOADICIONAL,'
+      
+        '    OCNUMERO,MANDANTE,COD_CENTRO,DESCRIP_CENTRO,DIAS_ITEM,KILOME' +
+        'TRAJES,PORC_COMI,'
+      
+        '    PROYECTO,ACTIVIDAD,DPTO,CCOST,COD_TALLA,COD_COLOR,PRECIOIVA,' +
+        'BONO,TOTALBONO,'
+      '    CODBARRASCURVA,CODIGO_ZONA,NUMERO_ZONA'
+      '    FROM PEDIDOD  WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+    Left = 104
+    Top = 393
+    ParamData = <
+      item
+        Name = 'TIPO'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'NUMBER'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+    object QPedidodID_EMPRESA: TSmallintField
+      FieldName = 'ID_EMPRESA'
+      Origin = 'ID_EMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidodID_SUCURSAL: TSmallintField
+      FieldName = 'ID_SUCURSAL'
+      Origin = 'ID_SUCURSAL'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidodTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidodNUMBER: TIntegerField
+      FieldName = 'NUMBER'
+      Origin = 'NUMBER'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidodCONTEO: TIntegerField
+      FieldName = 'CONTEO'
+      Origin = 'CONTEO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedidodITEM: TStringField
+      FieldName = 'ITEM'
+      Origin = 'ITEM'
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QPedidodIMPOVENTA: TStringField
+      FieldName = 'IMPOVENTA'
+      Origin = 'IMPOVENTA'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidodLOCATION: TStringField
+      FieldName = 'LOCATION'
+      Origin = 'LOCATION'
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidodQTYSHIP: TFloatField
+      FieldName = 'QTYSHIP'
+      Origin = 'QTYSHIP'
+    end
+    object QPedidodQTYORDER: TFloatField
+      FieldName = 'QTYORDER'
+      Origin = 'QTYORDER'
+    end
+    object QPedidodPRICE: TFloatField
+      FieldName = 'PRICE'
+      Origin = 'PRICE'
+    end
+    object QPedidodEXTEND: TFloatField
+      FieldName = 'EXTEND'
+      Origin = 'EXTEND'
+    end
+    object QPedidodTAXES: TFloatField
+      FieldName = 'TAXES'
+      Origin = 'TAXES'
+    end
+    object QPedidodCOST: TFloatField
+      FieldName = 'COST'
+      Origin = 'COST'
+    end
+    object QPedidodNOTES: TStringField
+      FieldName = 'NOTES'
+      Origin = 'NOTES'
+      FixedChar = True
+      Size = 100
+    end
+    object QPedidodDIAS_GARANTIA: TIntegerField
+      FieldName = 'DIAS_GARANTIA'
+      Origin = 'DIAS_GARANTIA'
+    end
+    object QPedidodDCT: TFloatField
+      FieldName = 'DCT'
+      Origin = 'DCT'
+    end
+    object QPedidodTOTALDCT: TFloatField
+      FieldName = 'TOTALDCT'
+      Origin = 'TOTALDCT'
+    end
+    object QPedidodVLR_IVA: TFloatField
+      FieldName = 'VLR_IVA'
+      Origin = 'VLR_IVA'
+    end
+    object QPedidodPORC_IVA: TFloatField
+      FieldName = 'PORC_IVA'
+      Origin = 'PORC_IVA'
+    end
+    object QPedidodCAJAS: TFloatField
+      FieldName = 'CAJAS'
+      Origin = 'CAJAS'
+    end
+    object QPedidodPESO_BRUTO: TFloatField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object QPedidodTIPO_FACTOR: TStringField
+      FieldName = 'TIPO_FACTOR'
+      Origin = 'TIPO_FACTOR'
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidodDOBLE_UNIDAD: TStringField
+      FieldName = 'DOBLE_UNIDAD'
+      Origin = 'DOBLE_UNIDAD'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidodUSAR_DESVIACION: TStringField
+      FieldName = 'USAR_DESVIACION'
+      Origin = 'USAR_DESVIACION'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidodDESVIACIONP: TFloatField
+      FieldName = 'DESVIACIONP'
+      Origin = 'DESVIACIONP'
+    end
+    object QPedidodPESO_PROMEDIOI: TFloatField
+      FieldName = 'PESO_PROMEDIOI'
+      Origin = 'PESO_PROMEDIOI'
+    end
+    object QPedidodFALLO: TStringField
+      FieldName = 'FALLO'
+      Origin = 'FALLO'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidodPESO_NETOI: TFloatField
+      FieldName = 'PESO_NETOI'
+      Origin = 'PESO_NETOI'
+    end
+    object QPedidodPRECIO_VENDEDOR: TFloatField
+      FieldName = 'PRECIO_VENDEDOR'
+      Origin = 'PRECIO_VENDEDOR'
+    end
+    object QPedidodAUTORIZADO: TStringField
+      FieldName = 'AUTORIZADO'
+      Origin = 'AUTORIZADO'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidodORIGEN: TStringField
+      FieldName = 'ORIGEN'
+      Origin = 'ORIGEN'
+      FixedChar = True
+      Size = 2
+    end
+    object QPedidodNUM_SERIAL: TStringField
+      FieldName = 'NUM_SERIAL'
+      Origin = 'NUM_SERIAL'
+      FixedChar = True
+      Size = 50
+    end
+    object QPedidodBO: TFloatField
+      FieldName = 'BO'
+      Origin = 'BO'
+    end
+    object QPedidodRESERVA: TFloatField
+      FieldName = 'RESERVA'
+      Origin = 'RESERVA'
+    end
+    object QPedidodDCTADICIONAL: TFloatField
+      FieldName = 'DCTADICIONAL'
+      Origin = 'DCTADICIONAL'
+    end
+    object QPedidodDCTFIJO: TFloatField
+      FieldName = 'DCTFIJO'
+      Origin = 'DCTFIJO'
+    end
+    object QPedidodESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidodQTY_REMISIONADA: TFloatField
+      FieldName = 'QTY_REMISIONADA'
+      Origin = 'QTY_REMISIONADA'
+    end
+    object QPedidodCOLOR: TStringField
+      FieldName = 'COLOR'
+      Origin = 'COLOR'
+      FixedChar = True
+      Size = 25
+    end
+    object QPedidodTIPO_COTIZA: TStringField
+      FieldName = 'TIPO_COTIZA'
+      Origin = 'TIPO_COTIZA'
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidodNUMERO_COTIZA: TIntegerField
+      FieldName = 'NUMERO_COTIZA'
+      Origin = 'NUMERO_COTIZA'
+    end
+    object QPedidodZVLRBRUTO: TFloatField
+      FieldName = 'ZVLRBRUTO'
+      Origin = 'ZVLRBRUTO'
+    end
+    object QPedidodZDESCUENTO: TFloatField
+      FieldName = 'ZDESCUENTO'
+      Origin = 'ZDESCUENTO'
+    end
+    object QPedidodZDIFERENCIA: TFloatField
+      FieldName = 'ZDIFERENCIA'
+      Origin = 'ZDIFERENCIA'
+    end
+    object QPedidodFECHAAPRODUCIR: TSQLTimeStampField
+      FieldName = 'FECHAAPRODUCIR'
+      Origin = 'FECHAAPRODUCIR'
+    end
+    object QPedidodKITNO: TStringField
+      FieldName = 'KITNO'
+      Origin = 'KITNO'
+      FixedChar = True
+      Size = 30
+    end
+    object QPedidodKIT_DESCRIPCION: TStringField
+      FieldName = 'KIT_DESCRIPCION'
+      Origin = 'KIT_DESCRIPCION'
+      FixedChar = True
+      Size = 80
+    end
+    object QPedidodDCTO_AD1: TFloatField
+      FieldName = 'DCTO_AD1'
+      Origin = 'DCTO_AD1'
+    end
+    object QPedidodDCTO_AD2: TFloatField
+      FieldName = 'DCTO_AD2'
+      Origin = 'DCTO_AD2'
+    end
+    object QPedidodVLR_DCTFIJO: TFloatField
+      FieldName = 'VLR_DCTFIJO'
+      Origin = 'VLR_DCTFIJO'
+    end
+    object QPedidodVLR_DCT: TFloatField
+      FieldName = 'VLR_DCT'
+      Origin = 'VLR_DCT'
+    end
+    object QPedidodVLR_DCTOAD1: TFloatField
+      FieldName = 'VLR_DCTOAD1'
+      Origin = 'VLR_DCTOAD1'
+    end
+    object QPedidodVLR_DCTOAD2: TFloatField
+      FieldName = 'VLR_DCTOAD2'
+      Origin = 'VLR_DCTOAD2'
+    end
+    object QPedidodVLR_DCTOADICIONAL: TFloatField
+      FieldName = 'VLR_DCTOADICIONAL'
+      Origin = 'VLR_DCTOADICIONAL'
+    end
+    object QPedidodOCNUMERO: TStringField
+      FieldName = 'OCNUMERO'
+      Origin = 'OCNUMERO'
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidodMANDANTE: TStringField
+      FieldName = 'MANDANTE'
+      Origin = 'MANDANTE'
+      FixedChar = True
+      Size = 30
+    end
+    object QPedidodCOD_CENTRO: TIntegerField
+      FieldName = 'COD_CENTRO'
+      Origin = 'COD_CENTRO'
+    end
+    object QPedidodDESCRIP_CENTRO: TStringField
+      FieldName = 'DESCRIP_CENTRO'
+      Origin = 'DESCRIP_CENTRO'
+      FixedChar = True
+      Size = 40
+    end
+    object QPedidodDIAS_ITEM: TIntegerField
+      FieldName = 'DIAS_ITEM'
+      Origin = 'DIAS_ITEM'
+    end
+    object QPedidodKILOMETRAJES: TIntegerField
+      FieldName = 'KILOMETRAJES'
+      Origin = 'KILOMETRAJES'
+    end
+    object QPedidodPORC_COMI: TFloatField
+      FieldName = 'PORC_COMI'
+      Origin = 'PORC_COMI'
+    end
+    object QPedidodPROYECTO: TStringField
+      FieldName = 'PROYECTO'
+      Origin = 'PROYECTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QPedidodACTIVIDAD: TStringField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+      FixedChar = True
+      Size = 3
+    end
+    object QPedidodDPTO: TIntegerField
+      FieldName = 'DPTO'
+      Origin = 'DPTO'
+    end
+    object QPedidodCCOST: TIntegerField
+      FieldName = 'CCOST'
+      Origin = 'CCOST'
+    end
+    object QPedidodCOD_TALLA: TStringField
+      FieldName = 'COD_TALLA'
+      Origin = 'COD_TALLA'
+      FixedChar = True
+      Size = 5
+    end
+    object QPedidodCOD_COLOR: TStringField
+      FieldName = 'COD_COLOR'
+      Origin = 'COD_COLOR'
+      FixedChar = True
+      Size = 15
+    end
+    object QPedidodPRECIOIVA: TFloatField
+      FieldName = 'PRECIOIVA'
+      Origin = 'PRECIOIVA'
+    end
+    object QPedidodBONO: TStringField
+      FieldName = 'BONO'
+      Origin = 'BONO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object QPedidodTOTALBONO: TSingleField
+      FieldName = 'TOTALBONO'
+      Origin = 'TOTALBONO'
+    end
+    object QPedidodCODBARRASCURVA: TStringField
+      FieldName = 'CODBARRASCURVA'
+      Origin = 'CODBARRASCURVA'
+      FixedChar = True
+      Size = 40
+    end
+    object QPedidodCODIGO_ZONA: TStringField
+      FieldName = 'CODIGO_ZONA'
+      Origin = 'CODIGO_ZONA'
+      FixedChar = True
+    end
+    object QPedidodNUMERO_ZONA: TStringField
+      FieldName = 'NUMERO_ZONA'
+      Origin = 'NUMERO_ZONA'
+      FixedChar = True
+    end
+  end
+  object QPedfact: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'select'
+      
+        '    EMPRESA,SUCURSAL,USUARIO,NUMERO_FACTURA,NUMERO_PEDIDO,TIPO,T' +
+        'IPO_PEDIDO'
+      
+        '      FROM PEDFACT WHERE TIPO = :TIPO AND NUMERO_FACTURA = :NUMB' +
+        'ER')
+    Left = 176
+    Top = 457
+    ParamData = <
+      item
+        Name = 'TIPO'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'NUMBER'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+    object QPedfactEMPRESA: TSmallintField
+      FieldName = 'EMPRESA'
+      Origin = 'EMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedfactSUCURSAL: TSmallintField
+      FieldName = 'SUCURSAL'
+      Origin = 'SUCURSAL'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedfactUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Origin = 'USUARIO'
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QPedfactNUMERO_FACTURA: TIntegerField
+      FieldName = 'NUMERO_FACTURA'
+      Origin = 'NUMERO_FACTURA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedfactNUMERO_PEDIDO: TIntegerField
+      FieldName = 'NUMERO_PEDIDO'
+      Origin = 'NUMERO_PEDIDO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QPedfactTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object QPedfactTIPO_PEDIDO: TStringField
+      FieldName = 'TIPO_PEDIDO'
+      Origin = 'TIPO_PEDIDO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+  end
+  object QCarprosys: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'select'
+      '    DCT,'
+      '    CUENTA,'
+      '    CONCEPTO,'
+      '    NATURALEZACTA,'
+      '    coalesce(VISIBLE,'#39'S'#39')VISIBLE,'
+      '    RAZON FROM  CARPROSYS')
+    Left = 160
+    Top = 321
+    object QCarprosysDCT: TIntegerField
+      FieldName = 'DCT'
+      Origin = 'DCT'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QCarprosysCUENTA: TFloatField
+      FieldName = 'CUENTA'
+      Origin = 'CUENTA'
+    end
+    object QCarprosysCONCEPTO: TStringField
+      FieldName = 'CONCEPTO'
+      Origin = 'CONCEPTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QCarprosysNATURALEZACTA: TStringField
+      FieldName = 'NATURALEZACTA'
+      Origin = 'NATURALEZACTA'
+      FixedChar = True
+      Size = 1
+    end
+    object QCarprosysVISIBLE: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'VISIBLE'
+      Origin = 'VISIBLE'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 1
+    end
+    object QCarprosysRAZON: TStringField
+      FieldName = 'RAZON'
+      Origin = 'RAZON'
+      FixedChar = True
+      Size = 5
     end
   end
 end

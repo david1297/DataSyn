@@ -1,5 +1,5 @@
 inherited Main_Windows: TMain_Windows
-  ClientHeight = 496
+  ClientHeight = 524
   ClientWidth = 725
   DesignerMasterStyle = 0
   inherited Panel1: TPanel
@@ -13,28 +13,37 @@ inherited Main_Windows: TMain_Windows
       Position.X = 10.000000000000000000
       Position.Y = 10.000000000000000000
       Size.Height = 125.000000000000000000
+      inherited Edit1: TEdit
+        Text = ''
+      end
+      inherited Edit2: TEdit
+        Text = ''
+      end
     end
   end
   inherited Panel2: TPanel
     Size.Width = 725.000000000000000000
-    Size.Height = 321.000000000000000000
+    Size.Height = 349.000000000000000000
     inherited Memo1: TMemo
       Align = Client
       Size.Width = 390.000000000000000000
-      Size.Height = 311.000000000000000000
+      Size.Height = 339.000000000000000000
       Viewport.Width = 390.000000000000000000
-      Viewport.Height = 311.000000000000000000
+      Viewport.Height = 339.000000000000000000
     end
     inherited GroupBox2: TGroupBox
       Align = Right
       Position.X = 400.000000000000000000
       Size.Width = 320.000000000000000000
-      Size.Height = 311.000000000000000000
+      Size.Height = 339.000000000000000000
       Text = 'Documentos '
+      inherited CheckRecurrentes: TCheckBox
+        OnChange = CheckRecurrentesChange
+      end
     end
   end
   inherited Panel3: TPanel
-    Position.Y = 466.000000000000000000
+    Position.Y = 494.000000000000000000
     Size.Width = 725.000000000000000000
     inherited ProgressBar1: TProgressBar
       Size.Width = 715.000000000000000000
@@ -72,11 +81,11 @@ inherited Main_Windows: TMain_Windows
     Left = 80
     Top = 337
   end
-  inherited QPedfact: TFDQuery
-    Left = 304
-    Top = 193
-  end
   inherited QCarprosys: TFDQuery
     Left = 192
+  end
+  inherited QReten: TFDQuery
+    Left = 24
+    Top = 433
   end
 end

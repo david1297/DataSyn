@@ -18,6 +18,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure StringGrid1HeaderClick(Column: TColumn);
+    procedure StringGrid1CellClick(const Column: TColumn; const Row: Integer);
   private
     { Private declarations }
   public
@@ -42,6 +43,7 @@ begin
   Main.Items := StringGrid1.Cells[1, 2].ToBoolean;
   Main.Usuarios := StringGrid1.Cells[1, 3].ToBoolean;
   Main.FormasPago := StringGrid1.Cells[1, 4].ToBoolean;
+  Main.IvaReten := StringGrid1.Cells[1, 5].ToBoolean;
   Form2.Close;
 end;
 
@@ -57,6 +59,25 @@ begin
   StringGrid1.Cells[1, 3] := BoolToStr(Main.Usuarios, True);
   StringGrid1.Cells[0, 4] := 'Formas De Pago';
   StringGrid1.Cells[1, 4] := BoolToStr(Main.FormasPago, True);
+  StringGrid1.Cells[0, 5] := 'Iva y Retenciones';
+  StringGrid1.Cells[1, 5] := BoolToStr(Main.IvaReten, True);
+end;
+
+
+
+procedure TForm2.StringGrid1CellClick(const Column: TColumn;
+  const Row: Integer);
+
+begin
+ if Column.Header = 'Seleccionar' then
+  begin
+
+      if StringGrid1.Cells[1, Row] = 'True' then
+        StringGrid1.Cells[1, Row] := 'False'
+      else
+        StringGrid1.Cells[1, Row] := 'True';
+
+     end;
 end;
 
 procedure TForm2.StringGrid1HeaderClick(Column: TColumn);
@@ -65,7 +86,7 @@ var
 begin
   if Column.Header = 'Seleccionar' then
   begin
-    for I := 0 to 4 do
+    for I := 0 to 5 do
     begin
       if StringGrid1.Cells[1, I] = 'True' then
         StringGrid1.Cells[1, I] := 'False'

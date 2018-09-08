@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Parametros'
-  ClientHeight = 324
-  ClientWidth = 201
+  ClientHeight = 330
+  ClientWidth = 210
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -22,14 +22,14 @@ object Form2: TForm2
     ClipChildren = True
     Position.X = 16.000000000000000000
     Position.Y = 40.000000000000000000
-    Size.Width = 177.000000000000000000
+    Size.Width = 170.000000000000000000
     Size.Height = 273.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    RowCount = 5
+    RowCount = 6
     OnHeaderClick = StringGrid1HeaderClick
-    Viewport.Width = 173.000000000000000000
-    Viewport.Height = 248.000000000000000000
+    Viewport.Width = 166.000000000000000000
+    Viewport.Height = 232.000000000000000000
     object Parametro: TStringColumn
       Header = 'Parametros'
       ReadOnly = True

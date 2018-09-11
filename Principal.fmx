@@ -421,7 +421,7 @@ object Main: TMain
       
         'a.NIIF_CONTA_AUTO_FAC, a.CREDITLMTPROV, a.TIPRET, a.TIPAUTRET, a' +
         '.INACTIVO, a.BANKNO, a.CTA_CORRIENTE, a.CODIGO_BANCO,'
-      'a.APLICA_RETEFUENTE, a.CONTRATO, a."Version"'
+      'a.APLICA_RETEFUENTE, a.CONTRATO, a."Version",A.COD_TIPO_CUENTA'
       'from CUST a'
       '')
     Left = 8
@@ -978,6 +978,10 @@ object Main: TMain
       FieldName = 'Version'
       Origin = '"Version"'
     end
+    object QCustCOD_TIPO_CUENTA: TStringField
+      FieldName = 'COD_TIPO_CUENTA'
+      Size = 15
+    end
   end
   object QShipto: TFDQuery
     Connection = ConOrigen
@@ -990,7 +994,9 @@ object Main: TMain
         'S.CARGO1,S.EMAIL,S.CIRCUITO,S.COMUNA,S.BARRIO,'
       
         'S.IMPCONSUMO,S.DEPARTAMENTO,S.CITY,S.RETIVA_PROV,S.CREDITLMT,EST' +
-        'ADO FROM SHIPTO S WHERE S.ID_N = :ID_N')
+        'ADO,COMPANY_EXTENDIDO,COMMENT1,COMMENT2,CONTACT2,PHONE3,EXT3,MAN' +
+        'ZANA,CUADRA,RUTA_REPARTO,COD_DPTO,COD_MUNICIPIO,EDAD FROM SHIPTO' +
+        ' S WHERE S.ID_N = :ID_N')
     Left = 8
     Top = 168
     ParamData = <
@@ -1150,13 +1156,83 @@ object Main: TMain
       FixedChar = True
       Size = 8
     end
+    object QShiptoCOMPANY_EXTENDIDO: TStringField
+      FieldName = 'COMPANY_EXTENDIDO'
+      Size = 80
+    end
+    object QShiptoCOMMENT1: TStringField
+      FieldName = 'COMMENT1'
+      Origin = 'COMMENT1'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoCOMMENT2: TStringField
+      FieldName = 'COMMENT2'
+      Origin = 'COMMENT2'
+      FixedChar = True
+      Size = 35
+    end
+    object QShiptoCONTACT2: TStringField
+      FieldName = 'CONTACT2'
+      Origin = 'CONTACT2'
+      FixedChar = True
+      Size = 30
+    end
+    object QShiptoPHONE3: TStringField
+      FieldName = 'PHONE3'
+      Origin = 'PHONE3'
+      FixedChar = True
+      Size = 16
+    end
+    object QShiptoEXT3: TStringField
+      FieldName = 'EXT3'
+      Origin = 'EXT3'
+      FixedChar = True
+      Size = 5
+    end
+    object QShiptoMANZANA: TStringField
+      FieldName = 'MANZANA'
+      Origin = 'MANZANA'
+      FixedChar = True
+      Size = 10
+    end
+    object QShiptoCUADRA: TStringField
+      FieldName = 'CUADRA'
+      Origin = 'CUADRA'
+      FixedChar = True
+      Size = 10
+    end
+    object QShiptoRUTA_REPARTO: TStringField
+      FieldName = 'RUTA_REPARTO'
+      Origin = 'RUTA_REPARTO'
+      FixedChar = True
+      Size = 15
+    end
+    object QShiptoCOD_DPTO: TStringField
+      FieldName = 'COD_DPTO'
+      Origin = 'COD_DPTO'
+      FixedChar = True
+      Size = 2
+    end
+    object QShiptoCOD_MUNICIPIO: TStringField
+      FieldName = 'COD_MUNICIPIO'
+      Origin = 'COD_MUNICIPIO'
+      FixedChar = True
+      Size = 6
+    end
+    object QShiptoEDAD: TStringField
+      FieldName = 'EDAD'
+      Origin = 'EDAD'
+      FixedChar = True
+      Size = 10
+    end
   end
   object QTributaria: TFDQuery
     Connection = ConOrigen
     SQL.Strings = (
       
-        'SELECT T.ID_N,T.COMPANY,T.TDOC,T.CV,T.TIPO_CONTRIBUYENTE,T.PRIME' +
-        'R_NOMBRE,T.SEGUNDO_NOMBRE,T.PRIMER_APELLIDO,'
+        'SELECT T.ID_N,T.COMPANY,T.TDOC,coalesce(T.CV,0)CV,T.TIPO_CONTRIB' +
+        'UYENTE,T.PRIMER_NOMBRE,T.SEGUNDO_NOMBRE,T.PRIMER_APELLIDO,'
       
         'T.SEGUNDO_APELLIDO,T.ESTAB_COMERCIAL,T.PRETRANS FROM TRIBUTARIA ' +
         'T WHERE T.ID_N = :ID_N')
@@ -12799,6 +12875,49 @@ object Main: TMain
       Origin = 'PROYECTO'
       FixedChar = True
       Size = 10
+    end
+  end
+  object QNiif_Config_Estados: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT'
+      '    ACCT,DESCRIPCION,PRIORIDAD,PAGINA,TITULO,ACTIVIDADES'
+      '    FROM NIIF_CONFIG_ESTADOS')
+    Left = 192
+    Top = 401
+    object QNiif_Config_EstadosACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QNiif_Config_EstadosDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      Size = 80
+    end
+    object QNiif_Config_EstadosPRIORIDAD: TIntegerField
+      FieldName = 'PRIORIDAD'
+      Origin = 'PRIORIDAD'
+      Required = True
+    end
+    object QNiif_Config_EstadosPAGINA: TIntegerField
+      FieldName = 'PAGINA'
+      Origin = 'PAGINA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QNiif_Config_EstadosTITULO: TStringField
+      FieldName = 'TITULO'
+      Origin = 'TITULO'
+      Required = True
+      FixedChar = True
+      Size = 10
+    end
+    object QNiif_Config_EstadosACTIVIDADES: TStringField
+      FieldName = 'ACTIVIDADES'
+      Origin = 'ACTIVIDADES'
+      FixedChar = True
     end
   end
 end

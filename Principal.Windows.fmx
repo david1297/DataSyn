@@ -15,9 +15,11 @@ inherited Main_Windows: TMain_Windows
       Size.Height = 125.000000000000000000
       inherited Edit1: TEdit
         Text = ''
+        Size.Height = 25.000000000000000000
       end
       inherited Edit2: TEdit
         Text = ''
+        Size.Height = 25.000000000000000000
       end
     end
   end

@@ -2215,6 +2215,26 @@ type
     QOedetRecRTFITEM: TFloatField;
     QOedetRecRTFBASEMIN: TFloatField;
     QOedetRecRTFVAL: TFloatField;
+    QNiif_Config_Estados: TFDQuery;
+    QNiif_Config_EstadosACCT: TFloatField;
+    QNiif_Config_EstadosDESCRIPCION: TStringField;
+    QNiif_Config_EstadosPRIORIDAD: TIntegerField;
+    QNiif_Config_EstadosPAGINA: TIntegerField;
+    QNiif_Config_EstadosTITULO: TStringField;
+    QNiif_Config_EstadosACTIVIDADES: TStringField;
+    QShiptoCOMPANY_EXTENDIDO: TStringField;
+    QCustCOD_TIPO_CUENTA: TStringField;
+    QShiptoCOMMENT1: TStringField;
+    QShiptoCOMMENT2: TStringField;
+    QShiptoCONTACT2: TStringField;
+    QShiptoPHONE3: TStringField;
+    QShiptoEXT3: TStringField;
+    QShiptoMANZANA: TStringField;
+    QShiptoCUADRA: TStringField;
+    QShiptoRUTA_REPARTO: TStringField;
+    QShiptoCOD_DPTO: TStringField;
+    QShiptoCOD_MUNICIPIO: TStringField;
+    QShiptoEDAD: TStringField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -2746,6 +2766,60 @@ begin
   Memo1.Lines.Add('->Se Actualiza Equivalencia de Cuentas:');
   Memo1.Lines.Add('  -Tabla Niif_Equivalencia');
   Memo1.Lines.Add('  -Cantidad de Equivalencias: ' + IntToStr(Numero));
+
+  // CONFIGURACION ESTADOS
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add(' DELETE FROM NIIF_CONFIG_ESTADOS ');
+    vQ.Close;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+  Numero := 0;
+  QNiif_Config_Estados.Close;
+  QNiif_Config_Estados.Open;
+  QNiif_Config_Estados.Last;
+  ProgressBar1.Value := 0;
+  ProgressBar1.Max := QNiif_Config_Estados.RecordCount;
+  QNiif_Config_Estados.First;
+
+  while not QNiif_Config_Estados.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' update or insert INTO NIIF_CONFIG_ESTADOS(ACCT,DESCRIPCION,PRIORIDAD,PAGINA,TITULO,ACTIVIDADES)VALUES('
+        + ' :ACCT,:DESCRIPCION,:PRIORIDAD,:PAGINA,:TITULO,:ACTIVIDADES)');
+      vQ.Close;
+
+      vQ.ParamByName('ACCT').AsFloat := QNiif_Config_EstadosACCT.AsFloat;
+      vQ.ParamByName('DESCRIPCION').AsString :=
+        QNiif_Config_EstadosDESCRIPCION.AsString;
+      vQ.ParamByName('PRIORIDAD').AsInteger :=
+        QNiif_Config_EstadosPRIORIDAD.AsInteger;
+      vQ.ParamByName('PAGINA').AsInteger :=
+        QNiif_Config_EstadosPAGINA.AsInteger;
+      vQ.ParamByName('TITULO').AsString := QNiif_Config_EstadosTITULO.AsString;
+      vQ.ParamByName('ACTIVIDADES').AsString :=
+        QNiif_Config_EstadosACTIVIDADES.AsString;
+      vQ.ExecSQL;
+    finally
+      vQ.DisposeOf;
+    end;
+    Numero := Numero + 1;
+    ProgressBar1.Value := ProgressBar1.Value + 1;
+    Application.ProcessMessages;
+    QNiif_Config_Estados.Next;
+  End;
+
+  Memo1.Lines.Add('->Se Actualiza Configuracion de Estados Financieros');
+  Memo1.Lines.Add('  -Tabla Niif_Config_Estados');
+  Memo1.Lines.Add('  -Cantidad de Registros: ' + IntToStr(Numero));
 end;
 
 procedure TMain.ActualizarFactipdoc;
@@ -3978,7 +4052,7 @@ begin
         + ' DCTO_AD2,MEDICO,IPS,TIPORETICA_VENTA,GRAVABLEIP,TASA_COM,CLITIP,EAN_ENTIDAD_COMP,NUIT,PORCON,IVATEO,'
         + ' RTIVA100,TASAAIU,NRO_TARJETA,FECVEN,COD_EPS,CONTEO,TASA_DCTO_PRONTOPAGO,RETECREEC,RETECREEV,AUTOCREE,'
         + ' NIIF_CONTA_AUTO_FAC,CREDITLMTPROV,TIPRET,TIPAUTRET,INACTIVO,BANKNO,CTA_CORRIENTE,CODIGO_BANCO,'
-        + ' APLICA_RETEFUENTE,CONTRATO)' +
+        + ' APLICA_RETEFUENTE,CONTRATO,COD_TIPO_CUENTA)' +
         ' values (:ID_N,:NIT,:ACCT,:ACCTP,:COMPANY,:ADDR1,:ADDR2,:CITY,:PAIS,:CONTACT1,'
         + ' :CARGO1,:CONTACT2,:CARGO2,:PHONE1,:EXT1,:PHONE2,:EXT2,:PHONE3,:EXT3,:FAX,:EXT4,:NOTAS,:ACTIVIDAD,:GRUPO,'
         + ' :CATEGORIA,:ZONA,:TERMS,:TERMSP,:GRAVABLE,:RETENEDOR,:LATE,:CREDITLMT,:ONACCOUNT,:NIVEL,:FUENTE,:ISSUE1099,'
@@ -3988,15 +4062,16 @@ begin
         + ' :DCTO_AD2,:MEDICO,:IPS,:TIPORETICA_VENTA,:GRAVABLEIP,:TASA_COM,:CLITIP,:EAN_ENTIDAD_COMP,:NUIT,:PORCON,:IVATEO,'
         + ' :RTIVA100,:TASAAIU,:NRO_TARJETA,:FECVEN,:COD_EPS,:CONTEO,:TASA_DCTO_PRONTOPAGO,:RETECREEC,:RETECREEV,:AUTOCREE,'
         + ' :NIIF_CONTA_AUTO_FAC,:CREDITLMTPROV,:TIPRET,:TIPAUTRET,:INACTIVO,:BANKNO,:CTA_CORRIENTE,:CODIGO_BANCO,'
-        + ' :APLICA_RETEFUENTE,:CONTRATO)');
+        + ' :APLICA_RETEFUENTE,:CONTRATO,:COD_TIPO_CUENTA)');
       vQ.Close;
       vQ.ParamByName('ID_N').AsString := QCustID_N.AsString;
       vQ.ParamByName('NIT').AsString := QCustNIT.AsString;
       vQ.ParamByName('ACCT').AsFloat := QCustACCT.AsFloat;
       vQ.ParamByName('ACCTP').AsFloat := QCustACCTP.AsFloat;
       vQ.ParamByName('COMPANY').AsString := QCustCOMPANY.AsString;
-      vQ.ParamByName('ADDR1').AsString := QCustADDR1.AsString;
-      vQ.ParamByName('ADDR2').AsString := QCustADDR2.AsString;
+
+      vQ.ParamByName('ADDR1').AsString := QCustADDR2.AsString;
+      vQ.ParamByName('ADDR2').AsString := QCustADDR1.AsString;
       vQ.ParamByName('CITY').AsString := QCustCITY.AsString;
       vQ.ParamByName('PAIS').AsString := QCustPAIS.AsString;
       vQ.ParamByName('CONTACT1').AsString := QCustCONTACT1.AsString;
@@ -4098,6 +4173,8 @@ begin
       vQ.ParamByName('APLICA_RETEFUENTE').AsString :=
         QCustAPLICA_RETEFUENTE.AsString;
       vQ.ParamByName('CONTRATO').AsString := QCustCONTRATO.AsString;
+      vQ.ParamByName('COD_TIPO_CUENTA').AsString :=
+        QCustCOD_TIPO_CUENTA.AsString;
       vQ.ExecSQL;
 
       QShipto.DisableControls;
@@ -4114,11 +4191,14 @@ begin
           ('UPDATE OR INSERT INTO SHIPTO (ID_N,SUCCLIENTE,DESCRIPCION,COMPANY,'
           + 'ADDR1,ADDR2,PHONE1,PHONE2,FAX,EXT1,EXT2,CONTEO,ZONA,' +
           'ID_VEND,PAIS,CONTACT1,CARGO1,EMAIL,CIRCUITO,COMUNA,BARRIO,' +
-          'IMPCONSUMO,DEPARTAMENTO,CITY,RETIVA_PROV,CREDITLMT,ESTADO)' +
-          'VALUES (:ID_N,:SUCCLIENTE,:DESCRIPCION,:COMPANY,' +
+          'IMPCONSUMO,DEPARTAMENTO,CITY,RETIVA_PROV,CREDITLMT,ESTADO,COMPANY_EXTENDIDO, '
+          + 'COMMENT1,COMMENT2,CONTACT2,PHONE3,EXT3,MANZANA,CUADRA,RUTA_REPARTO,COD_DPTO,COD_MUNICIPIO,EDAD'
+          + ')' + 'VALUES (:ID_N,:SUCCLIENTE,:DESCRIPCION,:COMPANY,' +
           ':ADDR1,:ADDR2,:PHONE1,:PHONE2,:FAX,:EXT1,:EXT2,:CONTEO,:ZONA,' +
           ':ID_VEND,:PAIS,:CONTACT1,:CARGO1,:EMAIL,:CIRCUITO,:COMUNA,:BARRIO,' +
-          ':IMPCONSUMO,:DEPARTAMENTO,:CITY,:RETIVA_PROV,:CREDITLMT,:ESTADO)');
+          ':IMPCONSUMO,:DEPARTAMENTO,:CITY,:RETIVA_PROV,:CREDITLMT,:ESTADO,:COMPANY_EXTENDIDO,'
+          + ':COMMENT1,:COMMENT2,:CONTACT2,:PHONE3,:EXT3,:MANZANA,:CUADRA,:RUTA_REPARTO,:COD_DPTO,:COD_MUNICIPIO,:EDAD'
+          + ' )');
         vQ.Close;
         vQ.ParamByName('ID_N').AsString := QShiptoID_N.AsString;
         vQ.ParamByName('SUCCLIENTE').AsInteger := QShiptoSUCCLIENTE.AsInteger;
@@ -4147,6 +4227,24 @@ begin
         vQ.ParamByName('RETIVA_PROV').AsString := QShiptoRETIVA_PROV.AsString;
         vQ.ParamByName('CREDITLMT').AsFloat := QShiptoCREDITLMT.AsFloat;
         vQ.ParamByName('ESTADO').AsString := QShiptoESTADO.AsString;
+        vQ.ParamByName('COMPANY_EXTENDIDO').AsString :=
+          QShiptoCOMPANY_EXTENDIDO.AsString;
+        vQ.ParamByName('COMPANY_EXTENDIDO').AsString :=
+          QShiptoCOMPANY_EXTENDIDO.AsString;
+
+        vQ.ParamByName('COMMENT1').AsString := QShiptoCOMMENT1.AsString;
+        vQ.ParamByName('COMMENT2').AsString := QShiptoCOMMENT2.AsString;
+        vQ.ParamByName('CONTACT2').AsString := QShiptoCONTACT2.AsString;
+        vQ.ParamByName('PHONE3').AsString := QShiptoPHONE3.AsString;
+        vQ.ParamByName('EXT3').AsString := QShiptoEXT3.AsString;
+        vQ.ParamByName('MANZANA').AsString := QShiptoMANZANA.AsString;
+        vQ.ParamByName('CUADRA').AsString := QShiptoCUADRA.AsString;
+        vQ.ParamByName('RUTA_REPARTO').AsString := QShiptoRUTA_REPARTO.AsString;
+        vQ.ParamByName('COD_DPTO').AsString := QShiptoCOD_DPTO.AsString;
+        vQ.ParamByName('COD_MUNICIPIO').AsString :=
+          QShiptoCOD_MUNICIPIO.AsString;
+        vQ.ParamByName('EDAD').AsString := QShiptoEDAD.AsString;
+
         vQ.ExecSQL;
         QShipto.Next;
       End;
@@ -4164,13 +4262,21 @@ begin
         vQ.SQL.Add('UPDATE OR INSERT INTO TRIBUTARIA (ID_N,COMPANY,TDOC, ' +
           'CV,TIPO_CONTRIBUYENTE,PRIMER_NOMBRE,SEGUNDO_NOMBRE,PRIMER_APELLIDO, '
           + 'SEGUNDO_APELLIDO,ESTAB_COMERCIAL,PRETRANS)values( ' +
-          ':ID_N,:COMPANY,:TDOC,:CV,:TIPO_CONTRIBUYENTE,:PRIMER_NOMBRE,:SEGUNDO_NOMBRE, '
-          + ':PRIMER_APELLIDO,:SEGUNDO_APELLIDO,:ESTAB_COMERCIAL,:PRETRANS)');
+          ':ID_N,:COMPANY,:TDOC,');
+        if QTributariaCV.AsInteger = 0 then
+        begin
+          vQ.SQL.Add('null');
+        end
+        else
+        begin
+          vQ.SQL.Add(QTributariaCV.AsString);
+        end;
+        vQ.SQL.Add(',:TIPO_CONTRIBUYENTE,:PRIMER_NOMBRE,:SEGUNDO_NOMBRE, ' +
+          ':PRIMER_APELLIDO,:SEGUNDO_APELLIDO,:ESTAB_COMERCIAL,:PRETRANS)');
         vQ.Close;
         vQ.ParamByName('ID_N').AsString := QTributariaID_N.AsString;
         vQ.ParamByName('COMPANY').AsString := QTributariaCOMPANY.AsString;
         vQ.ParamByName('TDOC').AsInteger := QTributariaTDOC.AsInteger;
-        vQ.ParamByName('CV').AsInteger := QTributariaCV.AsInteger;
         vQ.ParamByName('TIPO_CONTRIBUYENTE').AsInteger :=
           QTributariaTIPO_CONTRIBUYENTE.AsInteger;
         vQ.ParamByName('PRIMER_NOMBRE').AsString :=
@@ -4185,6 +4291,7 @@ begin
           QTributariaESTAB_COMERCIAL.AsString;
         vQ.ParamByName('PRETRANS').AsString := QTributariaPRETRANS.AsString;
         vQ.ExecSQL;
+
         QTributaria.Next;
       End;
     finally
@@ -5684,6 +5791,17 @@ begin
   Tipos := TraerTipos('''CT''');
   Numero := 0;
   QCotizaci.Close;
+  QCotizaci.SQL.Clear;
+  QCotizaci.SQL.Add
+    ('SELECT NUMERO,TIPO,ID_EMPRESA,ID_SUCURSAL,ID_CLIENTE,TOTAL,SUBTOTAL,FORMA_PAGO,SU_SOLICITUD,'
+    + ' DP,CC,MEDIO_ENTREGA,MONEDA_COTI,VENDEDOR,TIPO_CAMB_HOY,TIPO_CLIENTE,MEDIO_CONTACTO,'
+    + ' CONTACTO,EN_PEDIDO_NO,CIUDAD_PAIS,OBSERVACIONES,DCTO_ADC_P,DCTO_ADC_VALOR,COMENTARIO,ESTADO_N,'
+    + ' MOTIVO_APLAZ,FECHA,FECHA_VEN,FECHA_ENTREGA,PROX_LLAMADA,TOTALDESCTO,TOTALIVA,ANULAR,PROYECTO,'
+    + ' ID_USUARIO,coalesce(AUTORIZADO,''N'')AUTORIZADO,SHIPTO,COD_NIVEL,COD_MONEDA,TRM,TOTAL_MEXT,'
+    + ' FECHA_TRM,IDN_CONTADO,LETRASING,IVA_FACTURA,CONCEPTOSIVA,SUB_FACTURA,TOT_FACTURA,'
+    + ' DESC_FACTURA,LISTA_COTIZA,VALIDEZ,ESTADO,BONOTOTAL,NOMBRECOT' +
+    ' from COTIZACI  WHERE FECHA BETWEEN :FI AND :FF');
+
   QCotizaci.ParamByName('FI').AsDate := DateEdit1.Date;
   QCotizaci.ParamByName('FF').AsDate := DateEdit2.Date;
   QCotizaci.SQL.Add(' AND TIPO IN(' + Tipos + ')');

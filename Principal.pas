@@ -2702,6 +2702,16 @@ begin
   Memo1.Lines.Add('  -Cantidad de Cuentas: ' + IntToStr(Numero));
   // EQUIVALENCIA
 
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add(' DELETE FROM NIIF_EQUIVALENCIA ');
+    vQ.Close;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
   Numero := 0;
   QEquivalencia.Close;
   QEquivalencia.Open;
@@ -5349,7 +5359,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
-  Tipos := TraerTipos('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ'',''RP'',''RN''');
+  Tipos := TraerTipos
+    ('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ'',''RP'',''RN''');
   Numero := 0;
   QCarproen.Close;
   QCarproen.ParamByName('FI').AsDate := DateEdit1.Date;
@@ -5538,7 +5549,7 @@ begin
   End;
 
   Memo1.Lines.Add
-    ('->Se Actualizan Recibos de Caja, Notas Debito, Notas Crediro,');
+    ('->Se Actualizan Recibos de Caja, Notas Debito, Notas Credito,');
   Memo1.Lines.Add(' Comprobantes de Egreso, Facturas por Pagar, Ajustes:');
   Memo1.Lines.Add('  -Tabla Carpro');
   Memo1.Lines.Add('  -Tabla Carproen');
@@ -7571,7 +7582,7 @@ begin
           ' :FECHA,:DUEDATE,:INVC,:DEPTO,:CCOST,:ACTIVIDAD,:DEBIT,:CREDIT,:PERIOD,'
           + ' :BASE,:DESCRIPCION,:CLOSING,:CONCIL,:CRUCE,:USERNAME,:DESTINO,:PROYECTO)');
 
-        vQ.ParamByName('CONTEO').AsInteger:= QGlRecCONTEO.AsInteger;
+        vQ.ParamByName('CONTEO').AsInteger := QGlRecCONTEO.AsInteger;
         vQ.ParamByName('ID_REC').AsInteger := QGlRecID_REC.AsInteger;
         vQ.ParamByName('ID_N').AsString := QGlRecID_N.AsString;
         vQ.ParamByName('ACCT').AsFloat := QGlRecACCT.AsFloat;

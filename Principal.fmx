@@ -383,10 +383,7 @@ object Main: TMain
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
-      'Database=D:\Saiopen\NUTRITEC2017.FDB'
-      'Server=10.10.10.226'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 504
     Top = 88
@@ -8443,29 +8440,37 @@ object Main: TMain
   object QIp: TFDQuery
     Connection = ConOrigen
     SQL.Strings = (
-      'SELECT'
+      '              SELECT'
       
-        '    TIPO,NUMBER,ID_N,ACCT,PONUMBER,FECHA,COST,POSTED,COMMENTS,CL' +
-        'OSED,CLOSEPO,PRINTED,'
+        '    TIPO,NUMBER,ID_N,coalesce(ACCT,0)ACCT,PONUMBER,FECHA,coalesc' +
+        'e(COST,0)COST,POSTED,COMMENTS,CLOSED,CLOSEPO,PRINTED,'
       
         '    ENTPAR,RECTOT,ANUL,ENTORDEN,CONTABIL,ENTFACT,ENTCDEV,DEVUELT' +
-        'O,PORDESC,VALORDCT,'
+        'O,coalesce(PORDESC,0)PORDESC,coalesce(VALORDCT,0)VALORDCT,'
       
-        '    VALORFLETE,EMPRESA,TOTALOTROS,TOTALRETEN,TOTALITEMS,VALORIVA' +
-        ',VALORICA,VALORRTIVA,'
+        '    coalesce(VALORFLETE,0)VALORFLETE,EMPRESA,coalesce(TOTALOTROS' +
+        ',0)TOTALOTROS,coalesce(TOTALRETEN,0)TOTALRETEN,coalesce(TOTALITE' +
+        'MS,0)TOTALITEMS,'
       
-        '    VALORRTICA,TOTALSDCT,TOTALCDCT,DUEDATE,E,S,SUCCLIENTE,DOCASC' +
-        ',ENTMC,REVISADO,'
+        'coalesce(VALORIVA,0)VALORIVA,coalesce(VALORICA,0)VALORICA,coales' +
+        'ce(VALORRTIVA,0)VALORRTIVA,coalesce(VALORRTICA,0)VALORRTICA,coal' +
+        'esce(TOTALSDCT,0)TOTALSDCT,coalesce(TOTALCDCT,0)TOTALCDCT,DUEDAT' +
+        'E,E,S,SUCCLIENTE,DOCASC,ENTMC,REVISADO,'
       
         '    FECHA_ENTREGA,FECHA_REQUISICION,ID_USUARIO,OCNUMERO,IMPORTAC' +
-        'ION,E_CRUCE,S_CRUCE,'
+        'ION,coalesce(E_CRUCE,1)E_CRUCE,coalesce(S_CRUCE,1)S_CRUCE,'
       
-        '    TIPO_CRUCE,NUMBER_CRUCE,EA_AUTO_LEGALIZADA,VALIVABIEN,VALIVA' +
-        'SER,DOC_EXTERNO,'
+        '    TIPO_CRUCE,coalesce(NUMBER_CRUCE,0)NUMBER_CRUCE,EA_AUTO_LEGA' +
+        'LIZADA,coalesce(VALIVABIEN,0)VALIVABIEN,coalesce(VALIVASER,0)VAL' +
+        'IVASER,DOC_EXTERNO,'
       
-        '    CCOSTO,DEPTO,PROYECTO,ACTIVIDAD,RETECREE,CODCREE,TIPO_IMP,NR' +
-        'O_IMP,ESTADO,TOTAL_BONO'
-      'from IP   WHERE FECHA BETWEEN :FI AND :FF')
+        '    coalesce(CCOSTO,0)CCOSTO,coalesce(DEPTO,0)DEPTO,PROYECTO,ACT' +
+        'IVIDAD,coalesce(RETECREE,0)RETECREE,CODCREE,TIPO_IMP,'
+      
+        '    coalesce(NRO_IMP,0)NRO_IMP,ESTADO,coalesce(TOTAL_BONO,0)TOTA' +
+        'L_BONO'
+      'from IP'
+      '  WHERE FECHA BETWEEN :FI AND :FF')
     Left = 296
     Top = 241
     ParamData = <
@@ -8820,12 +8825,12 @@ object Main: TMain
         '    DEPTO,CCOSTO,ACTIVIDAD,PROY,COD_TALLA,COD_COLOR,FACTOR,PRECI' +
         'O_UNITARIO_IVA,VALIVA,'
       
-        '    VALOR_IVA,CUBX,CUBY,CUBZ,CUBFACTOR,CAJA_SET,MANIFIESTOID,COS' +
-        'TOEXT,TOTAL_BONO,'
+        '    VALOR_IVA,CUBX,CUBY,CUBZ,CUBFACTOR,coalesce(CAJA_SET,0)CAJA_' +
+        'SET,MANIFIESTOID,coalesce(COSTOEXT,0)COSTOEXT,coalesce(TOTAL_BON' +
+        'O,0)TOTAL_BONO,'
       
         '    BONO,CODBARRASCURVA,VALOR_IVA_MAYOR,VALOR_BASE_MAYOR,DEVUELT' +
-        'O'
-      'from IPDET   WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+        'O from IPDET    WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
     Left = 296
     Top = 257
     ParamData = <
@@ -10098,14 +10103,15 @@ object Main: TMain
         '    E,S,TIPO,BATCH,ID_N,FECHA,TOTAL,USERNAME,FECHA_HORA,OBSERV,B' +
         'ANCO,CHEQUE,DUEDATE,'
       
-        '    LETRAS,IDVEND,SHIPTO,EXPORTADA,ENTREGADO,REVISADO,REVISOR,FE' +
-        'CHA_REVISION,IMPRESO,'
+        '    LETRAS,IDVEND,SHIPTO,EXPORTADA,ENTREGADO,coalesce(REVISADO,'#39 +
+        'N'#39')REVISADO,REVISOR,FECHA_REVISION,coalesce(IMPRESO,'#39'N'#39')IMPRESO,'
       
         '    DOC_FISICO,CHEQUE_POSTF,FECHA_CHEQUE,PROYECTO,SALDO_DEUDA,SA' +
         'LDO_DEUDA_ABONO,'
       
-        '    PONUMBER,INTERES_IMPLICITO,DETALLE,FECHA_CONTAB_CONSIG,DETER' +
-        'IORO_ESFA,'
+        '    PONUMBER,coalesce(INTERES_IMPLICITO,'#39'N'#39')INTERES_IMPLICITO,DE' +
+        'TALLE,coalesce(FECHA_CONTAB_CONSIG,'#39'N'#39')FECHA_CONTAB_CONSIG,'
+      'coalesce(DETERIORO_ESFA,'#39'N'#39')DETERIORO_ESFA,'
       '    CONCEPTO_NOTAFE,ENVIADO'
       '     from CARPROEN WHERE FECHA BETWEEN :FI AND :FF')
     Left = 288
@@ -10581,13 +10587,10 @@ object Main: TMain
   end
   object ConOrigen: TFDConnection
     Params.Strings = (
-      'Database=D:\Saiopen\NUTRITEC2017.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
-      'Server=10.10.10.226'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 440
     Top = 88

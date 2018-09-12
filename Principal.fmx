@@ -4824,7 +4824,12 @@ object Main: TMain
         'AGO, VALIVABIEN, VALIVASER,'
       
         'IMPAMOR, OBSDESPACHO, COMENTA2, TOTALCRUCEANTICIPO, SALDOANTICIP' +
-        'OS,SHIPTO6,CONNIIF,CONTAB_NIIF,COD_MONEDA,CUFE,ENVIADO_DEV'
+        'OS,SHIPTO6,CONNIIF,CONTAB_NIIF,COD_MONEDA,CUFE,ENVIADO_DEV,PAGOS' +
+        ','
+      
+        'ID_EMPRESATALLER,ID_SUCURSALTALLER,NUMEROTALLER,FECHA_ENTREGA,FE' +
+        'CHA_DESPACHO,FECHA_CONSULTA,LETRASSALDO,BONOTOTAL,PESO_N,FECHA_E' +
+        'GRESO,HORA_INGRESO,HORA_EGRESO'
       'from OE  WHERE FECHA BETWEEN :FI AND :FF')
     Left = 304
     Top = 153
@@ -5341,6 +5346,61 @@ object Main: TMain
       FixedChar = True
       Size = 1
     end
+    object QOePAGOS: TMemoField
+      FieldName = 'PAGOS'
+      Origin = 'PAGOS'
+      BlobType = ftMemo
+    end
+    object QOeID_EMPRESATALLER: TIntegerField
+      FieldName = 'ID_EMPRESATALLER'
+      Origin = 'ID_EMPRESATALLER'
+    end
+    object QOeID_SUCURSALTALLER: TIntegerField
+      FieldName = 'ID_SUCURSALTALLER'
+      Origin = 'ID_SUCURSALTALLER'
+    end
+    object QOeNUMEROTALLER: TIntegerField
+      FieldName = 'NUMEROTALLER'
+      Origin = 'NUMEROTALLER'
+    end
+    object QOeFECHA_ENTREGA: TSQLTimeStampField
+      FieldName = 'FECHA_ENTREGA'
+      Origin = 'FECHA_ENTREGA'
+    end
+    object QOeFECHA_DESPACHO: TSQLTimeStampField
+      FieldName = 'FECHA_DESPACHO'
+      Origin = 'FECHA_DESPACHO'
+    end
+    object QOeFECHA_CONSULTA: TSQLTimeStampField
+      FieldName = 'FECHA_CONSULTA'
+      Origin = 'FECHA_CONSULTA'
+    end
+    object QOeLETRASSALDO: TStringField
+      FieldName = 'LETRASSALDO'
+      Origin = 'LETRASSALDO'
+      FixedChar = True
+      Size = 200
+    end
+    object QOeBONOTOTAL: TFloatField
+      FieldName = 'BONOTOTAL'
+      Origin = 'BONOTOTAL'
+    end
+    object QOePESO_N: TSingleField
+      FieldName = 'PESO_N'
+      Origin = 'PESO_N'
+    end
+    object QOeFECHA_EGRESO: TSQLTimeStampField
+      FieldName = 'FECHA_EGRESO'
+      Origin = 'FECHA_EGRESO'
+    end
+    object QOeHORA_INGRESO: TSQLTimeStampField
+      FieldName = 'HORA_INGRESO'
+      Origin = 'HORA_INGRESO'
+    end
+    object QOeHORA_EGRESO: TSQLTimeStampField
+      FieldName = 'HORA_EGRESO'
+      Origin = 'HORA_EGRESO'
+    end
   end
   object QOedet: TFDQuery
     Connection = ConOrigen
@@ -5377,7 +5437,8 @@ object Main: TMain
         'ITEM, UTIL1,'
       
         'UTIL2, NUMUSU, IMPAMOR, ITEM2, POSICION, IDN_PAC, COD_TALLA, COD' +
-        '_COLOR FROM OEDET WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+        '_COLOR,FECHAFIN,FECHAINI,coalesce(TOTALBONO,0)TOTALBONO'
+      ' FROM OEDET WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
     Left = 304
     Top = 169
     ParamData = <
@@ -5806,6 +5867,18 @@ object Main: TMain
       Origin = 'COD_COLOR'
       FixedChar = True
       Size = 15
+    end
+    object QOedetFECHAFIN: TSQLTimeStampField
+      FieldName = 'FECHAFIN'
+      Origin = 'FECHAFIN'
+    end
+    object QOedetFECHAINI: TSQLTimeStampField
+      FieldName = 'FECHAINI'
+      Origin = 'FECHAINI'
+    end
+    object QOedetTOTALBONO: TFloatField
+      FieldName = 'TOTALBONO'
+      Origin = 'TOTALBONO'
     end
   end
   object QPagos: TFDQuery
@@ -10666,6 +10739,7 @@ object Main: TMain
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
+      'Database=D:\Saiopen\NUTRITEC2017.FDB'
       'DriverID=FB')
     LoginPrompt = False
     Left = 440

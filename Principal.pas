@@ -5318,6 +5318,8 @@ begin
       QIpAdjustd.Close;
       QIpAdjustd.ParamByName('TIPO').AsString := QIpAdjusteTIPO.AsString;
       QIpAdjustd.ParamByName('NUMBER').AsInteger := QIpAdjusteBATCH.AsInteger;
+      QIpAdjustd.ParamByName('E').AsInteger := QIpAdjusteE.AsInteger;
+      QIpAdjustd.ParamByName('S').AsInteger := QIpAdjusteS.AsInteger;
 
       QIpAdjustd.Open;
       QIpAdjustd.First;
@@ -5591,7 +5593,8 @@ begin
       QCarprode.Close;
       QCarprode.ParamByName('TIPO').AsString := QCarproenTIPO.AsString;
       QCarprode.ParamByName('NUMBER').AsInteger := QCarproenBATCH.AsInteger;
-
+      QCarprode.ParamByName('E').AsInteger := QCarproenE.AsInteger;
+      QCarprode.ParamByName('S').AsInteger := QCarproenS.AsInteger;
       QCarprode.Open;
       QCarprode.First;
 
@@ -5738,8 +5741,16 @@ begin
       vQ.SQL.Add
         (' INSERT INTO GLEN (E,S,TIPO,BATCH,FECHA,USERNAME,REVISADO,REVISOR,' +
         ' FECHA_REVISION,EXPORTADA,ESTADO,DESCRIPCION,ID_N)' +
-        ' VALUES(:E,:S,:TIPO,:BATCH,:FECHA,:USERNAME,:REVISADO,:REVISOR,' +
-        ' :FECHA_REVISION,:EXPORTADA,:ESTADO,:DESCRIPCION,null)');
+        ' VALUES(:E,:S,:TIPO,:BATCH,:FECHA,:USERNAME,:REVISADO,:REVISOR,');
+      if DateToStr(QGlenFECHA_REVISION.AsDateTime) = '30/12/1899' then
+      begin
+        vQ.SQL.Add('null');
+      end
+      else
+      begin
+        vQ.SQL.Add(DateToStr(QGlenFECHA_REVISION.AsDateTime));
+      end;
+      vQ.SQL.Add(' ,:EXPORTADA,:ESTADO,:DESCRIPCION,null)');
       vQ.Close;
 
       vQ.ParamByName('E').AsInteger := QGlenE.AsInteger;
@@ -5750,8 +5761,6 @@ begin
       vQ.ParamByName('USERNAME').AsString := QGlenUSERNAME.AsString;
       vQ.ParamByName('REVISADO').AsString := QGlenREVISADO.AsString;
       vQ.ParamByName('REVISOR').AsString := QGlenREVISOR.AsString;
-      vQ.ParamByName('FECHA_REVISION').AsDateTime :=
-        QGlenFECHA_REVISION.AsDateTime;
       vQ.ParamByName('EXPORTADA').AsString := QGlenEXPORTADA.AsString;
       vQ.ParamByName('ESTADO').AsString := QGlenESTADO.AsString;
       vQ.ParamByName('DESCRIPCION').AsString := QGlenDESCRIPCION.AsString;
@@ -5761,6 +5770,8 @@ begin
       QGldet.Close;
       QGldet.ParamByName('TIPO').AsString := QGlenTIPO.AsString;
       QGldet.ParamByName('NUMBER').AsInteger := QGlenBATCH.AsInteger;
+      QGldet.ParamByName('E').AsInteger := QGlenE.AsInteger;
+      QGldet.ParamByName('S').AsInteger := QGlenS.AsInteger;
 
       QGldet.Open;
       QGldet.First;
@@ -5953,6 +5964,8 @@ begin
       QDet_Prod.Close;
       QDet_Prod.ParamByName('TIPO').AsString := QCotizaciTIPO.AsString;
       QDet_Prod.ParamByName('NUMBER').AsInteger := QCotizaciNUMERO.AsInteger;
+      QDet_Prod.ParamByName('E').AsInteger := QCotizaciID_EMPRESA.AsInteger;
+      QDet_Prod.ParamByName('S').AsInteger := QCotizaciID_SUCURSAL.AsInteger;
 
       QDet_Prod.Open;
       QDet_Prod.First;
@@ -6149,6 +6162,8 @@ begin
       QEnsambled.Close;
       QEnsambled.ParamByName('TIPO').AsString := QEnsambleeTIPO.AsString;
       QEnsambled.ParamByName('NUMBER').AsInteger := QEnsambleeBATCH.AsInteger;
+      QEnsambled.ParamByName('E').AsInteger := QEnsambleeE.AsInteger;
+      QEnsambled.ParamByName('S').AsInteger := QEnsambleeS.AsInteger;
 
       QEnsambled.Open;
       QEnsambled.First;
@@ -6350,6 +6365,8 @@ begin
       QIpdet.Close;
       QIpdet.ParamByName('TIPO').AsString := QIpTIPO.AsString;
       QIpdet.ParamByName('NUMBER').AsInteger := QIpNUMBER.AsInteger;
+      QIpdet.ParamByName('E').AsInteger := QIpE.AsInteger;
+      QIpdet.ParamByName('S').AsInteger := QIpS.AsInteger;
 
       QIpdet.Open;
       QIpdet.First;
@@ -6455,6 +6472,8 @@ begin
       QOc_Ip.Close;
       QOc_Ip.ParamByName('TIPO').AsString := QIpTIPO.AsString;
       QOc_Ip.ParamByName('NUMBER').AsInteger := QIpNUMBER.AsInteger;
+      QOc_Ip.ParamByName('E').AsInteger := QIpE.AsInteger;
+      QOc_Ip.ParamByName('S').AsInteger := QIpS.AsInteger;
 
       QOc_Ip.Open;
       QOc_Ip.First;
@@ -6710,6 +6729,8 @@ begin
       QOedet.Close;
       QOedet.ParamByName('TIPO').AsString := QOeTIPO.AsString;
       QOedet.ParamByName('NUMBER').AsInteger := QOeNUMBER.AsInteger;
+      QOedet.ParamByName('E').AsInteger := QOeID_EMPRESA.AsInteger;
+      QOedet.ParamByName('S').AsInteger := QOeID_SUCURSAL.AsInteger;
 
       QOedet.Open;
       QOedet.First;
@@ -6851,6 +6872,9 @@ begin
       QPagos.Close;
       QPagos.ParamByName('TIPO').AsString := QOeTIPO.AsString;
       QPagos.ParamByName('NUMBER').AsInteger := QOeNUMBER.AsInteger;
+
+      QPagos.ParamByName('E').AsInteger := QOeID_EMPRESA.AsInteger;
+      QPagos.ParamByName('S').AsInteger := QOeID_SUCURSAL.AsInteger;
       QPagos.Open;
       QPagos.First;
 
@@ -6902,6 +6926,9 @@ begin
       QPedfact.Close;
       QPedfact.ParamByName('TIPO').AsString := QOeTIPO.AsString;
       QPedfact.ParamByName('NUMBER').AsInteger := QOeNUMBER.AsInteger;
+
+      QPedfact.ParamByName('E').AsInteger := QOeID_EMPRESA.AsInteger;
+      QPedfact.ParamByName('S').AsInteger := QOeID_SUCURSAL.AsInteger;
       QPedfact.Open;
       QPedfact.First;
 
@@ -7218,6 +7245,8 @@ begin
       QIpocd.Close;
       QIpocd.ParamByName('TIPO').AsString := QIpoceTIPO.AsString;
       QIpocd.ParamByName('NUMBER').AsInteger := QIpoceNUMBER.AsInteger;
+      QIpocd.ParamByName('E').AsInteger := QIpoceE.AsInteger;
+      QIpocd.ParamByName('S').AsInteger := QIpoceS.AsInteger;
 
       QIpocd.Open;
       QIpocd.First;
@@ -7441,7 +7470,8 @@ begin
       QPedidod.Close;
       QPedidod.ParamByName('TIPO').AsString := QPedidoeTIPO.AsString;
       QPedidod.ParamByName('NUMBER').AsInteger := QPedidoeNUMBER.AsInteger;
-
+      QPedidod.ParamByName('E').AsInteger := QPedidoeID_EMPRESA.AsInteger;
+      QPedidod.ParamByName('S').AsInteger := QPedidoeID_SUCURSAL.AsInteger;
       QPedidod.Open;
       QPedidod.First;
 
@@ -7699,6 +7729,9 @@ begin
       QOedetRec.Close;
       QOedetRec.ParamByName('TIPO').AsString := QOeRecTIPO.AsString;
       QOedetRec.ParamByName('NUMBER').AsInteger := QOeRecNUMBER.AsInteger;
+
+      QOedetRec.ParamByName('E').AsInteger := QOeRecID_EMPRESA.AsInteger;
+      QOedetRec.ParamByName('S').AsInteger := QOeRecID_SUCURSAL.AsInteger;
 
       QOedetRec.Open;
       QOedetRec.First;
@@ -8049,6 +8082,8 @@ begin
       QRemisiond.Close;
       QRemisiond.ParamByName('TIPO').AsString := QRemisioneTIPO.AsString;
       QRemisiond.ParamByName('NUMBER').AsInteger := QRemisioneNUMERO.AsInteger;
+      QRemisiond.ParamByName('E').AsInteger := QRemisioneID_EMPRESA.AsInteger;
+      QRemisiond.ParamByName('S').AsInteger := QRemisioneID_SUCURSAL.AsInteger;
 
       QRemisiond.Open;
       QRemisiond.First;
@@ -8232,6 +8267,8 @@ begin
       QTrasdet.Close;
       QTrasdet.ParamByName('TIPO').AsString := QTrasladoTIPO.AsString;
       QTrasdet.ParamByName('NUMBER').AsInteger := QTrasladoNUMERO.AsInteger;
+      QTrasdet.ParamByName('E').AsInteger := QTrasladoE.AsInteger;
+      QTrasdet.ParamByName('S').AsInteger := QTrasladoS.AsInteger;
 
       QTrasdet.Open;
       QTrasdet.First;

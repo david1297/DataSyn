@@ -5438,7 +5438,9 @@ object Main: TMain
       
         'UTIL2, NUMUSU, IMPAMOR, ITEM2, POSICION, IDN_PAC, COD_TALLA, COD' +
         '_COLOR,FECHAFIN,FECHAINI,coalesce(TOTALBONO,0)TOTALBONO'
-      ' FROM OEDET WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+      
+        ' FROM OEDET WHERE TIPO = :TIPO AND NUMBER = :NUMBER AND ID_EMPRE' +
+        'SA = :E AND ID_SUCURSAL = :S')
     Left = 304
     Top = 169
     ParamData = <
@@ -5453,6 +5455,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QOedetCONTEO: TIntegerField
       FieldName = 'CONTEO'
@@ -5911,7 +5921,9 @@ object Main: TMain
       '    coalesce(DPTO,0)DPTO,'
       '    coalesce(CC,0)CC,'
       '    coalesce(VALRECIB,0)VALRECIB,'
-      '    CONTEO FROM PAGOS WHERE TIPO =:TIPO AND NUMERO = :NUMBER')
+      
+        '    CONTEO FROM PAGOS WHERE TIPO =:TIPO AND NUMERO = :NUMBER AND' +
+        ' EMPRESA = :E AND SUCURSAL = :S')
     Left = 304
     Top = 177
     ParamData = <
@@ -5926,6 +5938,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QPagosEMPRESA: TSmallintField
       FieldName = 'EMPRESA'
@@ -7199,7 +7219,9 @@ object Main: TMain
       
         '    VLR_UNIT_SUG,DETITEM,PROYECTO,ACTIVIDAD,DPTO,CCOST,COD_TALLA' +
         ',COD_COLOR,PRECIOIVA,BONO,TOTALBONO,CODBARRASCURVA'
-      '     from DET_PROD WHERE TIPO = :TIPO AND NUMERO = :NUMBER')
+      
+        '     from DET_PROD WHERE TIPO = :TIPO AND NUMERO = :NUMBER AND I' +
+        'D_EMPRESA = :E AND ID_SUCURSAL = :S')
     Left = 360
     Top = 169
     ParamData = <
@@ -7212,6 +7234,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QDet_ProdNUMERO: TIntegerField
@@ -7907,7 +7937,9 @@ object Main: TMain
         'DESCRIPCION_ADIC1,ACTIVIDAD,DPTO,CCOST,PROYECTO,CONTEO_PEDIDO,CO' +
         'D_TALLA,COD_COLOR,'
       'BONO,TOTALBONO,CODBARRASCURVA'
-      'from REMISIOND WHERE TIPO = :TIPO AND NUMERO = :NUMBER')
+      
+        'from REMISIOND WHERE TIPO = :TIPO AND NUMERO = :NUMBER AND ID_EM' +
+        'PRESA = :E AND ID_SUCURSAL = :S')
     Left = 360
     Top = 249
     ParamData = <
@@ -7922,6 +7954,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QRemisiondID_EMPRESA: TSmallintField
       FieldName = 'ID_EMPRESA'
@@ -8375,7 +8415,9 @@ object Main: TMain
         '    CCOSTO,ACTIVIDAD,PROY,TIPO_PEDIDO,NUMERO_PEDIDO,CONTEO_PEDID' +
         'O,E_PEDIDO,'
       '    S_PEDIDO,COD_TALLA,COD_COLOR,FACTOR,CODBARRASCURVA'
-      'from IPOCD  WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+      
+        'from IPOCD  WHERE TIPO = :TIPO AND NUMBER = :NUMBER AND E = :E A' +
+        'ND S = :S')
     Left = 360
     Top = 313
     ParamData = <
@@ -8388,6 +8430,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QIpocdE: TSmallintField
@@ -8979,7 +9029,9 @@ object Main: TMain
         'O,0)TOTAL_BONO,'
       
         '    BONO,CODBARRASCURVA,VALOR_IVA_MAYOR,VALOR_BASE_MAYOR,DEVUELT' +
-        'O from IPDET    WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+        'O from IPDET  '
+      '  WHERE TIPO = :TIPO AND NUMBER = :NUMBER AND E = :E AND S = :S'
+      '')
     Left = 296
     Top = 257
     ParamData = <
@@ -8992,6 +9044,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QIpdetTIPO: TStringField
@@ -9311,7 +9371,9 @@ object Main: TMain
     SQL.Strings = (
       'SELECT'
       '    NUMBERIP,TYPEIP,E,S,TYPEOC,NUMBEROC'
-      'from OC_IP   WHERE TYPEIP = :TIPO AND NUMBERIP = :NUMBER')
+      
+        'from OC_IP   WHERE TYPEIP = :TIPO AND NUMBERIP = :NUMBER AND E =' +
+        ' :E AND S = :S')
     Left = 296
     Top = 273
     ParamData = <
@@ -9324,6 +9386,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QOc_IpNUMBERIP: TIntegerField
@@ -9499,7 +9569,9 @@ object Main: TMain
         '    CCOSTO,DEPTO,LOTE,SUBTOTAL,COLOR,DESTINO,COSTO_AJUSTE,COST,Q' +
         'TYB,QTY,FECHA_VENCIMIENTO,'
       '    COD_TALLA,COD_COLOR,CODBARRASCURVA'
-      'FROM  IPADJUSTD     WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+      
+        'FROM  IPADJUSTD     WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E' +
+        ' = :E AND S = :S')
     Left = 360
     Top = 385
     ParamData = <
@@ -9514,6 +9586,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QIpAdjustdE: TSmallintField
       FieldName = 'E'
@@ -9800,7 +9880,9 @@ object Main: TMain
       
         '    VALOR_ENVIADO,COLOR,COSTO_AJUSTE,NOTES,LOTE,FECHA_VENCIMIENT' +
         'O,COD_TALLA,COD_COLOR,CODBARRASCURVA'
-      'FROM  TRASDET   WHERE TIPO = :TIPO AND NUMERO = :NUMBER')
+      
+        'FROM  TRASDET   WHERE TIPO = :TIPO AND NUMERO = :NUMBER AND E = ' +
+        ':E AND S = :S')
     Left = 360
     Top = 449
     ParamData = <
@@ -9815,6 +9897,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QTrasdetNUMERO: TIntegerField
       FieldName = 'NUMERO'
@@ -10081,7 +10171,9 @@ object Main: TMain
       
         '    DEPTO,COD_TALLA,COD_COLOR,CODBARRASCURVA,CANTIDAD_RECETA,DIG' +
         'ITADO_M'
-      '     from ENSAMBLED  WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+      
+        '     from ENSAMBLED  WHERE TIPO = :TIPO AND BATCH = :NUMBER AND ' +
+        'E = :E AND S = :S')
     Left = 296
     Top = 353
     ParamData = <
@@ -10096,6 +10188,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QEnsambledE: TSmallintField
       FieldName = 'E'
@@ -10492,7 +10592,9 @@ object Main: TMain
         ',COD_FLUJOEFE,'
       '    IDVEND,PORC_TASA,TIEMPO_MESES,PAGO_DISP'
       ''
-      '     from CARPRODE WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+      
+        '     from CARPRODE WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E=' +
+        ':E AND S=:S')
     Left = 288
     Top = 481
     ParamData = <
@@ -10507,6 +10609,14 @@ object Main: TMain
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        ParamType = ptInput
       end>
     object QCarprodeCONTEO: TIntegerField
       FieldName = 'CONTEO'
@@ -10739,7 +10849,6 @@ object Main: TMain
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
-      'Database=D:\Saiopen\NUTRITEC2017.FDB'
       'DriverID=FB')
     LoginPrompt = False
     Left = 440
@@ -10946,7 +11055,9 @@ object Main: TMain
       
         '    CREDIT,PERIOD,BASE,DESCRIPCION,CLOSING,CONCIL,CRUCE,DESTINO,' +
         'DUEDATE,PROYECTO'
-      '    FROM GLDET WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+      
+        '    FROM GLDET WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E = :E' +
+        ' AND S = :S')
     Left = 296
     Top = 417
     ParamData = <
@@ -10959,6 +11070,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QGldetCONTEO: TIntegerField
@@ -11517,7 +11636,9 @@ object Main: TMain
         '    PROYECTO,ACTIVIDAD,DPTO,CCOST,COD_TALLA,COD_COLOR,PRECIOIVA,' +
         'BONO,TOTALBONO,'
       '    CODBARRASCURVA,CODIGO_ZONA,NUMERO_ZONA'
-      '    FROM PEDIDOD  WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+      
+        '    FROM PEDIDOD  WHERE TIPO = :TIPO AND NUMBER = :NUMBER AND ID' +
+        '_EMPRESA = :E AND ID_SUCURSAL = :S')
     Left = 24
     Top = 433
     ParamData = <
@@ -11530,6 +11651,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QPedidodID_EMPRESA: TSmallintField
@@ -11904,7 +12033,7 @@ object Main: TMain
         'IPO_PEDIDO'
       
         '      FROM PEDFACT WHERE TIPO = :TIPO AND NUMERO_FACTURA = :NUMB' +
-        'ER')
+        'ER AND EMPRESA = :E AND SUCURSAL = :S')
     Left = 304
     Top = 193
     ParamData = <
@@ -11917,6 +12046,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QPedfactEMPRESA: TSmallintField
@@ -12478,7 +12615,9 @@ object Main: TMain
       
         '    COD_UNIDAD_VENTA,PROYECTO,ACTIVIDAD,RTFTIP,RTFITEM,RTFBASEMI' +
         'N,RTFVAL'
-      '    FROM OEDETREC  WHERE TIPO = :TIPO AND NUMBER = :NUMBER')
+      
+        '    FROM OEDETREC  WHERE TIPO = :TIPO AND NUMBER = :NUMBER AND I' +
+        'D_EMPRESA = :E AND ID_SUCURSAL = :S')
     Left = 208
     Top = 305
     ParamData = <
@@ -12491,6 +12630,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QOedetRecID_EMPRESA: TSmallintField

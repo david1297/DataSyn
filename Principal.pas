@@ -2251,6 +2251,89 @@ type
     QOedetFECHAFIN: TSQLTimeStampField;
     QOedetFECHAINI: TSQLTimeStampField;
     QOedetTOTALBONO: TFloatField;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    QNiif_Gl: TFDQuery;
+    QNiif_GlCONTEO: TIntegerField;
+    QNiif_GlID_N: TStringField;
+    QNiif_GlACCT: TFloatField;
+    QNiif_GlE: TSmallintField;
+    QNiif_GlS: TSmallintField;
+    QNiif_GlTIPO: TStringField;
+    QNiif_GlBATCH: TIntegerField;
+    QNiif_GlFECHA: TSQLTimeStampField;
+    QNiif_GlDUEDATE: TSQLTimeStampField;
+    QNiif_GlINVC: TStringField;
+    QNiif_GlDEPTO: TSmallintField;
+    QNiif_GlCCOST: TSmallintField;
+    QNiif_GlACTIVIDAD: TStringField;
+    QNiif_GlPERIOD: TStringField;
+    QNiif_GlDESCRIPCION: TStringField;
+    QNiif_GlCLOSING: TStringField;
+    QNiif_GlCONCIL: TStringField;
+    QNiif_GlCRUCE: TStringField;
+    QNiif_GlUSERNAME: TStringField;
+    QNiif_GlDESTINO: TSmallintField;
+    QNiif_GlPROYECTO: TStringField;
+    QNiif_GlBASE: TFloatField;
+    QNiif_GlCREDIT: TFloatField;
+    QNiif_GlDEBIT: TFloatField;
+    QNiif_GlCUOTA: TSmallintField;
+    QNiif_GlPRORRATEADO: TStringField;
+    QNiif_GlESTADO: TStringField;
+    QNiif_GlNIVEL_ANT: TStringField;
+    QNiif_GlMAYOR_VALOR: TFloatField;
+    QNiif_GlPERIODO_FECHA: TSQLTimeStampField;
+    QNiif_GlMODELO: TIntegerField;
+    QNiif_GlCOD_FLUJOEFE: TIntegerField;
+    QNiif_Carpro: TFDQuery;
+    QNiif_CarproCONTEO: TIntegerField;
+    QNiif_CarproID_N: TStringField;
+    QNiif_CarproACCT: TFloatField;
+    QNiif_CarproTIPO: TStringField;
+    QNiif_CarproBATCH: TIntegerField;
+    QNiif_CarproE: TSmallintField;
+    QNiif_CarproS: TSmallintField;
+    QNiif_CarproDESCRIPCION: TStringField;
+    QNiif_CarproFECHA: TSQLTimeStampField;
+    QNiif_CarproDUEDATE: TSQLTimeStampField;
+    QNiif_CarproINVC: TStringField;
+    QNiif_CarproDEPTO: TSmallintField;
+    QNiif_CarproCCOST: TSmallintField;
+    QNiif_CarproACTIVIDAD: TStringField;
+    QNiif_CarproPERIOD: TStringField;
+    QNiif_CarproCONCIL: TStringField;
+    QNiif_CarproCRUCE: TStringField;
+    QNiif_CarproBENEF: TStringField;
+    QNiif_CarproABONO: TFloatField;
+    QNiif_CarproIDVEND: TSmallintField;
+    QNiif_CarproCONCEPTO: TStringField;
+    QNiif_CarproUSUARIO: TStringField;
+    QNiif_CarproTIPO_IMP: TStringField;
+    QNiif_CarproNRO_IMP: TIntegerField;
+    QNiif_CarproCONCEPTO_IMP: TIntegerField;
+    QNiif_CarproSALDO_REPORTE: TFloatField;
+    QNiif_CarproPROYECTO: TStringField;
+    QNiif_CarproBANCO: TSmallintField;
+    QNiif_CarproCHEQUE: TStringField;
+    QNiif_CarproCONCEPTO_PAGO: TSmallintField;
+    QNiif_CarproID_TIPOCARTERA: TStringField;
+    QNiif_CarproCOMENTARIO: TBlobField;
+    QNiif_CarproCHEQUE_POSTF: TStringField;
+    QNiif_CarproFECHA_CHEQUE: TSQLTimeStampField;
+    QNiif_CarproVENCIMIENTO: TSQLTimeStampField;
+    QNiif_CarproDIAPAGO: TStringField;
+    QNiif_CarproSALDO: TFloatField;
+    QNiif_CarproBASE: TFloatField;
+    QNiif_CarproCREDIT: TFloatField;
+    QNiif_CarproDEBIT: TFloatField;
+    QNiif_CarproTASA_CAMBIO: TFloatField;
+    QNiif_CarproSALDO_US: TFloatField;
+    QNiif_CarproCREDITO_US: TFloatField;
+    QNiif_CarproDEBITO_US: TFloatField;
+    QNiif_CarproCUOTA: TSmallintField;
+    QNiif_CarproSHIPTO: TIntegerField;
+    QNiif_CarproFECHA_CONSIG: TSQLTimeStampField;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -2315,25 +2398,45 @@ type
     procedure PasarPedidos;
     procedure PasarRecurrentes;
 
-    procedure EliminarFacturas(Tipo: String; Number: Integer);
-    procedure EliminarRemisiones(Tipo: String; Number: Integer);
-    procedure EliminarCotizaciones(Tipo: String; Number: Integer);
-    procedure EliminarOrdenDeCompra(Tipo: String; Number: Integer);
-    procedure EliminarEntradas(Tipo: String; Number: Integer);
-    procedure EliminarAjustes(Tipo: String; Number: Integer);
-    procedure EliminarTraslados(Tipo: String; Number: Integer);
-    procedure EliminarEnsables(Tipo: String; Number: Integer);
-    procedure EliminarCarteraProv(Tipo: String; Number: Integer);
-    procedure EliminarComprobantes(Tipo: String; Number: Integer);
-    procedure EliminarPedidos(Tipo: String; Number: Integer);
-    procedure EliminarRecurrentesFac(Tipo: String; Number: Integer);
-    procedure EliminarRecurrentesCon(Tipo: String; Number: Integer);
+    procedure EliminarFacturas(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarRemisiones(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarCotizaciones(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarOrdenDeCompra(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarEntradas(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarAjustes(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarTraslados(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarEnsables(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarCarteraProv(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarComprobantes(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarPedidos(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarRecurrentesFac(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure EliminarRecurrentesCon(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
 
-    procedure PasarItemact(Tipo: String; Number: Integer);
-    procedure PasarGl(Tipo: String; Number: Integer);
-    procedure PasarCarpro(Tipo: String; Number: Integer);
+    procedure PasarItemact(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure PasarGl(Tipo: String; Number: Integer; E: Integer; S: Integer);
+    procedure PasarNiif_Gl(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure PasarCarpro(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
+    procedure PasarNiif_Carpro(Tipo: String; Number: Integer; E: Integer;
+      S: Integer);
 
     function TraerTipos(Tipo: String): String;
+    function TraerTiposNiif(Tipo: String): String;
   end;
 
 var
@@ -4439,7 +4542,7 @@ end;
 
 procedure TMain.Button2Click(Sender: TObject);
 begin
-
+  Button2.Enabled := False;
   Memo1.Lines.Clear;
   Memo1.Lines.Add('Conectado a Origen:');
   ConOrigen.Connected := False;
@@ -4562,7 +4665,7 @@ begin
 
   end;
   ShowMessage('Carga Completa !!');
-
+  Button2.Enabled := True;
 end;
 
 procedure TMain.CheckAjustesChange(Sender: TObject);
@@ -4696,240 +4799,8 @@ begin
   end;
 end;
 
-procedure TMain.EliminarAjustes(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM IPADJUSTD WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM IPADJUSTE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarCarteraProv(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM CARPRODE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM CARPROEN WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarComprobantes(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GLDET WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GLEN WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarCotizaciones(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM DET_PROD WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM COTIZACI WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarFacturas(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM PAGOS WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM OEDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM OE WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarOrdenDeCompra(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM OC_IP WHERE TYPEOC= :TIPO AND NUMBEROC=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM IPOCD WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM IPOCE WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarPedidos(Tipo: String; Number: Integer);
+procedure TMain.EliminarAjustes(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -4938,40 +4809,51 @@ begin
   try
     vQ.Connection := Main.ConDestino;
     vQ.SQL.Add
-      ('DELETE FROM PEDFACT WHERE TIPO_PEDIDO= :TIPO AND NUMERO_PEDIDO=:NUMBER');
+      ('DELETE FROM IPADJUSTD WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM PEDIDOD WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM IPADJUSTE WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM PEDIDOE WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
-
   finally
     vQ.DisposeOf;
   end;
 
 End;
 
-procedure TMain.EliminarEnsables(Tipo: String; Number: Integer);
+procedure TMain.EliminarCarteraProv(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -4981,31 +4863,63 @@ begin
     vQ.Connection := Main.ConDestino;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ENSAMBLED WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM CARPRODE WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ENSAMBLEE WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM CARPROEN WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM NIIF_GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM NIIF_CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
   finally
@@ -5014,62 +4928,8 @@ begin
 
 End;
 
-procedure TMain.EliminarEntradas(Tipo: String; Number: Integer);
-var
-  vQ: TFDQuery;
-begin
-
-  vQ := TFDQuery.Create(nil);
-  try
-    vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM OC_IP WHERE TYPEIP= :TIPO AND NUMBERIP=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM IPDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM IP WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-    vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
-    vQ.Close;
-    vQ.ParamByName('TIPO').AsString := Tipo;
-    vQ.ParamByName('NUMBER').AsInteger := Number;
-    vQ.ExecSQL;
-
-  finally
-    vQ.DisposeOf;
-  end;
-
-End;
-
-procedure TMain.EliminarRecurrentesCon(Tipo: String; Number: Integer);
+procedure TMain.EliminarComprobantes(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -5079,25 +4939,53 @@ begin
     vQ.Connection := Main.ConDestino;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GLREC WHERE TIPO= :TIPO AND ID_REC=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM GLDET WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM GLRECE WHERE TIPO= :TIPO AND ID_REC=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM GLEN WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM NIIF_GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
   finally
     vQ.DisposeOf;
   end;
 
 End;
 
-procedure TMain.EliminarRecurrentesFac(Tipo: String; Number: Integer);
+procedure TMain.EliminarCotizaciones(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -5105,17 +4993,23 @@ begin
   vQ := TFDQuery.Create(nil);
   try
     vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM OEDETREC WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM DET_PROD WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM OEREC WHERE TIPO= :TIPO AND NUMBER=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM COTIZACI WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
   finally
     vQ.DisposeOf;
@@ -5123,7 +5017,8 @@ begin
 
 End;
 
-procedure TMain.EliminarRemisiones(Tipo: String; Number: Integer);
+procedure TMain.EliminarFacturas(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -5131,24 +5026,107 @@ begin
   vQ := TFDQuery.Create(nil);
   try
     vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM REMISIOND WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM PAGOS WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND EMPRESA= :E AND SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM REMISIONE WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM OEDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM OE WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarOrdenDeCompra(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add
+      ('DELETE FROM OC_IP WHERE TYPEOC= :TIPO AND NUMBEROC=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM IPOCD WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM IPOCE WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
   finally
     vQ.DisposeOf;
@@ -5156,7 +5134,8 @@ begin
 
 End;
 
-procedure TMain.EliminarTraslados(Tipo: String; Number: Integer);
+procedure TMain.EliminarPedidos(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -5164,24 +5143,328 @@ begin
   vQ := TFDQuery.Create(nil);
   try
     vQ.Connection := Main.ConDestino;
-    vQ.SQL.Add('DELETE FROM TRASDET WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM PEDFACT WHERE TIPO_PEDIDO= :TIPO AND NUMERO_PEDIDO=:NUMBER AND EMPRESA= :E AND SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM TRASLADO WHERE TIPO= :TIPO AND NUMERO=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM PEDIDOD WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
 
     vQ.SQL.Clear;
-    vQ.SQL.Add('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER');
+    vQ.SQL.Add
+      ('DELETE FROM PEDIDOE WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
     vQ.Close;
     vQ.ParamByName('TIPO').AsString := Tipo;
     vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarEnsables(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ENSAMBLED WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ENSAMBLEE WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarEntradas(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add
+      ('DELETE FROM OC_IP WHERE TYPEIP= :TIPO AND NUMBERIP=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM IPDET WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM IP WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GL WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM CARPRO WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarRecurrentesCon(Tipo: String; Number: Integer;
+  E: Integer; S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GLREC WHERE TIPO= :TIPO AND ID_REC=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM GLRECE WHERE TIPO= :TIPO AND ID_REC=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarRecurrentesFac(Tipo: String; Number: Integer;
+  E: Integer; S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add
+      ('DELETE FROM OEDETREC WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM OEREC WHERE TIPO= :TIPO AND NUMBER=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarRemisiones(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add
+      ('DELETE FROM REMISIOND WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM REMISIONE WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND ID_EMPRESA= :E AND ID_SUCURSAL=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+  finally
+    vQ.DisposeOf;
+  end;
+
+End;
+
+procedure TMain.EliminarTraslados(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  vQ := TFDQuery.Create(nil);
+  try
+    vQ.Connection := Main.ConDestino;
+    vQ.SQL.Add
+      ('DELETE FROM TRASDET WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM TRASLADO WHERE TIPO= :TIPO AND NUMERO=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
+    vQ.ExecSQL;
+
+    vQ.SQL.Clear;
+    vQ.SQL.Add
+      ('DELETE FROM ITEMACT WHERE TIPO= :TIPO AND BATCH=:NUMBER AND E= :E AND S=:S');
+    vQ.Close;
+    vQ.ParamByName('TIPO').AsString := Tipo;
+    vQ.ParamByName('NUMBER').AsInteger := Number;
+    vQ.ParamByName('E').AsInteger := E;
+    vQ.ParamByName('S').AsInteger := S;
     vQ.ExecSQL;
   finally
     vQ.DisposeOf;
@@ -5246,6 +5529,37 @@ begin
   end;
 end;
 
+function TMain.TraerTiposNiif(Tipo: String): String;
+var
+  Resultado: String;
+  Consulta: TFDQuery;
+  h: Integer;
+begin
+  Consulta := TFDQuery.Create(nil);
+  try
+    Consulta.Connection := Main.ConDestino;
+    Consulta.SQL.Add('SELECT CLASE from TIPDOC WHERE TIPO IN(' + Tipo + ')');
+    Consulta.Open;
+    Consulta.First;
+    h := 0;
+    while not Consulta.Eof do
+    begin
+      if h = 0 then
+      begin
+        Resultado := Consulta.FieldByName('CLASE').AsString;
+        h := 1;
+      end
+      else
+        Resultado := Resultado + '-' + Consulta.FieldByName('CLASE').AsString;
+      Consulta.Next;
+    end;
+
+  finally
+    Consulta.DisposeOf;
+    Result := Resultado;
+  end;
+end;
+
 procedure TMain.PasarAjustes;
 var
   Tipos: string;
@@ -5268,7 +5582,7 @@ begin
     QIpAdjuste.SQL.Add(' AND S= :SUC');
     QIpAdjuste.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QIpAdjuste.SQL.Add(' ORDER BY FECHA');
   QIpAdjuste.Open;
 
   QIpAdjuste.Last;
@@ -5280,7 +5594,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarAjustes(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
+      Edit5.Text := QIpAdjusteTIPO.AsString;
+      Edit6.Text := QIpAdjusteBATCH.AsString;
+      EliminarAjustes(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger,
+        QIpAdjusteE.AsInteger, QIpAdjusteS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO IPADJUSTE (E,S,TIPO,BATCH,ID_USUARIO,ID_N,SUCCLIENTE,FECHA,'
@@ -5372,8 +5689,10 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
-    PasarGl(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger);
+    PasarItemact(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger,
+      QIpAdjusteE.AsInteger, QIpAdjusteS.AsInteger);
+    PasarGl(QIpAdjusteTIPO.AsString, QIpAdjusteBATCH.AsInteger,
+      QIpAdjusteE.AsInteger, QIpAdjusteS.AsInteger);
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;
@@ -5387,7 +5706,8 @@ begin
   Memo1.Lines.Add('  -Cantidad de Ajustes de Inventario: ' + IntToStr(Numero));
 end;
 
-procedure TMain.PasarCarpro(Tipo: String; Number: Integer);
+procedure TMain.PasarCarpro(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -5395,6 +5715,8 @@ begin
   QCarpro.Close;
   QCarpro.ParamByName('TIPO').AsString := Tipo;
   QCarpro.ParamByName('NUMBER').AsInteger := Number;
+  QCarpro.ParamByName('E').AsInteger := E;
+  QCarpro.ParamByName('S').AsInteger := S;
   QCarpro.Open;
   QCarpro.First;
 
@@ -5493,11 +5815,13 @@ end;
 procedure TMain.PasarCarteraProv;
 var
   Tipos: string;
+  TipoNiif: String;
   Numero: Integer;
   vQ: TFDQuery;
+  i: Integer;
 begin
   Tipos := TraerTipos
-    ('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ'',''RP'',''RN''');
+    ('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ'',''RP'',''RN'',''SC'',''SP'',''10'',''12'',''20'',''21''');
   Numero := 0;
   QCarproen.Close;
   QCarproen.SQL.Clear;
@@ -5516,7 +5840,7 @@ begin
     QCarproen.SQL.Add(' AND S= :SUC');
     QCarproen.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QCarproen.SQL.Add(' ORDER BY FECHA');
   QCarproen.Open;
 
   QCarproen.Last;
@@ -5528,7 +5852,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarCarteraProv(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
+      Edit5.Text := QCarproenTIPO.AsString;
+      Edit6.Text := QCarproenBATCH.AsString;
+      EliminarCarteraProv(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger,
+        QCarproenE.AsInteger, QCarproenS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO CARPROEN (E,S,TIPO,BATCH,ID_N,FECHA,TOTAL,USERNAME,' +
@@ -5684,9 +6011,31 @@ begin
     finally
       vQ.DisposeOf;
     end;
+    TipoNiif := TraerTiposNiif('''10'',''12'',''20'',''21''');
+    with TStringList.Create do
+      try
+        Delimiter := '-';
+        StrictDelimiter := True;
+        DelimitedText := TipoNiif;
+        for i := 0 to Count - 1 do
+        begin
+          if Strings[i] = QCarproenTIPO.AsString then
+          begin
+            PasarNiif_Gl(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger,
+              QCarproenE.AsInteger, QCarproenS.AsInteger);
+            PasarNiif_Carpro(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger,
+              QCarproenE.AsInteger, QCarproenS.AsInteger);
+          end;
+        end;
+      finally
+        Free;
+      end;
 
-    PasarGl(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
-    PasarCarpro(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger);
+    PasarGl(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger,
+      QCarproenE.AsInteger, QCarproenS.AsInteger);
+
+    PasarCarpro(QCarproenTIPO.AsString, QCarproenBATCH.AsInteger,
+      QCarproenE.AsInteger, QCarproenS.AsInteger);
 
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
@@ -5709,6 +6058,8 @@ var
   Tipos: string;
   Numero: Integer;
   vQ: TFDQuery;
+  i: Integer;
+  TiposNiif: String;
 begin
   Tipos := TraerTipos('''CC'',''00'',''01'',''XX'',''XN'',''XT''');
   Numero := 0;
@@ -5725,7 +6076,7 @@ begin
     QGlen.SQL.Add(' AND S= :SUC');
     QGlen.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QGlen.SQL.Add(' ORDER BY FECHA');
   QGlen.Open;
   QGlen.Last;
   ProgressBar1.Value := 0;
@@ -5736,7 +6087,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarComprobantes(QGlenTIPO.AsString, QGlenBATCH.AsInteger);
+      Edit5.Text := QGlenTIPO.AsString;
+      Edit6.Text := QGlenBATCH.AsString;
+      EliminarComprobantes(QGlenTIPO.AsString, QGlenBATCH.AsInteger,
+        QGlenE.AsInteger, QGlenS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO GLEN (E,S,TIPO,BATCH,FECHA,USERNAME,REVISADO,REVISOR,' +
@@ -5748,7 +6102,9 @@ begin
       end
       else
       begin
-        vQ.SQL.Add(DateToStr(QGlenFECHA_REVISION.AsDateTime));
+        vQ.SQL.Add(':FECHA_REVISION');
+        vQ.ParamByName('FECHA_REVISION').AsDateTime :=
+          QGlenFECHA_REVISION.AsDateTime;
       end;
       vQ.SQL.Add(' ,:EXPORTADA,:ESTADO,:DESCRIPCION,null)');
       vQ.Close;
@@ -5818,8 +6174,27 @@ begin
     finally
       vQ.DisposeOf;
     end;
+    TiposNiif := TraerTiposNiif('''00'',''01'',''XN''');
+    with TStringList.Create do
+      try
+        Delimiter := '-';
+        StrictDelimiter := True;
+        DelimitedText := TiposNiif;
+        for i := 0 to Count - 1 do
+        begin
+          if Strings[i] = QCarproenTIPO.AsString then
+          begin
+            PasarNiif_Gl(QGlenTIPO.AsString, QGlenBATCH.AsInteger,
+              QGlenE.AsInteger, QGlenS.AsInteger);
+          end;
+        end;
+      finally
+        Free;
+      end;
 
-    PasarGl(QGlenTIPO.AsString, QGlenBATCH.AsInteger);
+    PasarGl(QGlenTIPO.AsString, QGlenBATCH.AsInteger, QGlenE.AsInteger,
+      QGlenS.AsInteger);
+
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;
@@ -5861,7 +6236,7 @@ begin
     QCotizaci.SQL.Add(' AND ID_SUCURSAL= :SUC');
     QCotizaci.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QCotizaci.SQL.Add(' ORDER BY FECHA');
   QCotizaci.Open;
 
   QCotizaci.Last;
@@ -5873,7 +6248,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarCotizaciones(QCotizaciTIPO.AsString, QCotizaciNUMERO.AsInteger);
+      Edit5.Text := QCotizaciTIPO.AsString;
+      Edit6.Text := QCotizaciNUMERO.AsString;
+      EliminarCotizaciones(QCotizaciTIPO.AsString, QCotizaciNUMERO.AsInteger,
+        QCotizaciID_EMPRESA.AsInteger, QCotizaciID_SUCURSAL.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO COTIZACI (NUMERO,TIPO,ID_EMPRESA,ID_SUCURSAL,ID_CLIENTE,'
@@ -6112,7 +6490,7 @@ begin
     QEnsamblee.SQL.Add(' AND S= :SUC');
     QEnsamblee.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QEnsamblee.SQL.Add(' ORDER BY FECHA');
   QEnsamblee.Open;
 
   QEnsamblee.Last;
@@ -6124,7 +6502,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarEnsables(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
+      Edit5.Text := QEnsambleeTIPO.AsString;
+      Edit6.Text := QEnsambleeBATCH.AsString;
+      EliminarEnsables(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger,
+        QEnsambleeE.AsInteger, QEnsambleeS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO ENSAMBLEE (E,S,TIPO,BATCH,ID_USUARIO,ID_N,SUCCLIENTE,FECHA,'
@@ -6220,8 +6601,10 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
-    PasarGl(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger);
+    PasarItemact(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger,
+      QEnsambleeE.AsInteger, QEnsambleeS.AsInteger);
+    PasarGl(QEnsambleeTIPO.AsString, QEnsambleeBATCH.AsInteger,
+      QEnsambleeE.AsInteger, QEnsambleeS.AsInteger);
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;
@@ -6264,7 +6647,7 @@ begin
     QIp.SQL.Add(' AND S= :SUC');
     QIp.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QIp.SQL.Add(' ORDER BY FECHA');
   QIp.Open;
 
   QIp.Last;
@@ -6276,7 +6659,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarEntradas(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+      Edit5.Text := QIpTIPO.AsString;
+      Edit6.Text := QIpNUMBER.AsString;
+      EliminarEntradas(QIpTIPO.AsString, QIpNUMBER.AsInteger, QIpE.AsInteger,
+        QIpS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO IP (TIPO,NUMBER,ID_N,ACCT,PONUMBER,FECHA,COST,POSTED,COMMENTS,'
@@ -6499,9 +6885,12 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QIpTIPO.AsString, QIpNUMBER.AsInteger);
-    PasarGl(QIpTIPO.AsString, QIpNUMBER.AsInteger);
-    PasarCarpro(QIpTIPO.AsString, QIpNUMBER.AsInteger);
+    PasarItemact(QIpTIPO.AsString, QIpNUMBER.AsInteger, QIpE.AsInteger,
+      QIpS.AsInteger);
+    PasarGl(QIpTIPO.AsString, QIpNUMBER.AsInteger, QIpE.AsInteger,
+      QIpS.AsInteger);
+    PasarCarpro(QIpTIPO.AsString, QIpNUMBER.AsInteger, QIpE.AsInteger,
+      QIpS.AsInteger);
 
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
@@ -6553,7 +6942,7 @@ begin
     QOe.SQL.Add(' AND ID_SUCURSAL= :SUC');
     QOe.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QOe.SQL.Add(' ORDER BY FECHA');
   QOe.Open;
 
   QOe.Last;
@@ -6565,7 +6954,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarFacturas(QOeTIPO.AsString, QOeNUMBER.AsInteger);
+      Edit5.Text := QOeTIPO.AsString;
+      Edit6.Text := QOeNUMBER.AsString;
+      EliminarFacturas(QOeTIPO.AsString, QOeNUMBER.AsInteger,
+        QOeID_EMPRESA.AsInteger, QOeID_SUCURSAL.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO OE (ID_EMPRESA,ID_SUCURSAL,NUMBER,TIPO,ID_USUARIO,' +
@@ -6957,9 +7349,12 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QOeTIPO.AsString, QOeNUMBER.AsInteger);
-    PasarGl(QOeTIPO.AsString, QOeNUMBER.AsInteger);
-    PasarCarpro(QOeTIPO.AsString, QOeNUMBER.AsInteger);
+    PasarItemact(QOeTIPO.AsString, QOeNUMBER.AsInteger, QOeID_EMPRESA.AsInteger,
+      QOeID_SUCURSAL.AsInteger);
+    PasarGl(QOeTIPO.AsString, QOeNUMBER.AsInteger, QOeID_EMPRESA.AsInteger,
+      QOeID_SUCURSAL.AsInteger);
+    PasarCarpro(QOeTIPO.AsString, QOeNUMBER.AsInteger, QOeID_EMPRESA.AsInteger,
+      QOeID_SUCURSAL.AsInteger);
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;
@@ -6977,7 +7372,7 @@ begin
   Memo1.Lines.Add('  -Cantidad de Facturas: ' + IntToStr(Numero));
 end;
 
-procedure TMain.PasarGl(Tipo: String; Number: Integer);
+procedure TMain.PasarGl(Tipo: String; Number: Integer; E: Integer; S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -6985,6 +7380,8 @@ begin
   QGl.Close;
   QGl.ParamByName('TIPO').AsString := Tipo;
   QGl.ParamByName('NUMBER').AsInteger := Number;
+  QGl.ParamByName('E').AsInteger := E;
+  QGl.ParamByName('S').AsInteger := S;
   QGl.Open;
   QGl.First;
 
@@ -7068,7 +7465,8 @@ begin
   End;
 end;
 
-procedure TMain.PasarItemact(Tipo: String; Number: Integer);
+procedure TMain.PasarItemact(Tipo: String; Number: Integer; E: Integer;
+  S: Integer);
 var
   vQ: TFDQuery;
 begin
@@ -7076,6 +7474,8 @@ begin
   QItemact.Close;
   QItemact.ParamByName('TIPO').AsString := Tipo;
   QItemact.ParamByName('NUMBER').AsInteger := Number;
+  QItemact.ParamByName('E').AsInteger := E;
+  QItemact.ParamByName('S').AsInteger := S;
   QItemact.Open;
   QItemact.First;
 
@@ -7100,7 +7500,9 @@ begin
       end
       else
       begin
-        vQ.SQL.Add(DateToStr(QItemactLOTEFVENCE.AsDateTime));
+        vQ.SQL.Add(':LOTEFVENCE');
+        vQ.ParamByName('LOTEFVENCE').AsDateTime :=
+          QItemactLOTEFVENCE.AsDateTime;
       end;
       vQ.SQL.Add(',:NOSERIE2,:CRUNUM,:CRUTIP,:CRUREM,:REMTIP)');
 
@@ -7157,6 +7559,228 @@ begin
   End;
 end;
 
+procedure TMain.PasarNiif_Carpro(Tipo: String; Number, E, S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  QNiif_Carpro.Close;
+  QNiif_Carpro.ParamByName('TIPO').AsString := Tipo;
+  QNiif_Carpro.ParamByName('NUMBER').AsInteger := Number;
+  QNiif_Carpro.ParamByName('E').AsInteger := E;
+  QNiif_Carpro.ParamByName('S').AsInteger := S;
+  QNiif_Carpro.Open;
+  QNiif_Carpro.First;
+
+  while not QNiif_Carpro.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO NIIF_CARPRO (CONTEO,ID_N,ACCT,TIPO,BATCH,E,S,DESCRIPCION,'
+        + ' FECHA,DUEDATE,INVC,DEPTO,CCOST,ACTIVIDAD,PERIOD,CONCIL,CRUCE,BENEF,'
+        + ' ABONO,IDVEND,CONCEPTO,USUARIO,TIPO_IMP,NRO_IMP,CONCEPTO_IMP,SALDO_REPORTE,'
+        + ' PROYECTO,BANCO,CHEQUE,CONCEPTO_PAGO,ID_TIPOCARTERA,COMENTARIO,CHEQUE_POSTF,'
+        + ' FECHA_CHEQUE,VENCIMIENTO,DIAPAGO,SALDO,BASE,CREDIT,DEBIT,TASA_CAMBIO,'
+        + ' SALDO_US,CREDITO_US,DEBITO_US,CUOTA,SHIPTO,FECHA_CONSIG)VALUES (' +
+        ' :CONTEO,:ID_N,:ACCT,:TIPO,:BATCH,:E,:S,:DESCRIPCION,:FECHA,:DUEDATE,:INVC,:DEPTO,:CCOST'
+        + ' ,:ACTIVIDAD,:PERIOD,:CONCIL,:CRUCE,:BENEF,:ABONO,:IDVEND,:CONCEPTO,:USUARIO,:TIPO_IMP'
+        + ' ,:NRO_IMP,:CONCEPTO_IMP,:SALDO_REPORTE,:PROYECTO,:BANCO,:CHEQUE,:CONCEPTO_PAGO'
+        + ' ,:ID_TIPOCARTERA,:COMENTARIO,:CHEQUE_POSTF,:FECHA_CHEQUE,:VENCIMIENTO,:DIAPAGO'
+        + ' ,:SALDO,:BASE,:CREDIT,:DEBIT,:TASA_CAMBIO,:SALDO_US,:CREDITO_US,:DEBITO_US,'
+        + ' :CUOTA,:SHIPTO,:FECHA_CONSIG)');
+      vQ.ParamByName('CONTEO').AsInteger := QNiif_CarproCONTEO.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QNiif_CarproID_N.AsString;
+      vQ.ParamByName('ACCT').AsFloat := QNiif_CarproACCT.AsFloat;
+      vQ.ParamByName('TIPO').AsString := QNiif_CarproTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QNiif_CarproBATCH.AsInteger;
+      vQ.ParamByName('E').AsInteger := QNiif_CarproE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QNiif_CarproS.AsInteger;
+      vQ.ParamByName('DESCRIPCION').AsString :=
+        QNiif_CarproDESCRIPCION.AsString;
+      vQ.ParamByName('FECHA').AsDateTime := QNiif_CarproFECHA.AsDateTime;
+      vQ.ParamByName('DUEDATE').AsDateTime := QNiif_CarproDUEDATE.AsDateTime;
+      vQ.ParamByName('INVC').AsString := QNiif_CarproINVC.AsString;
+      vQ.ParamByName('DEPTO').AsInteger := QNiif_CarproDEPTO.AsInteger;
+      vQ.ParamByName('CCOST').AsInteger := QNiif_CarproCCOST.AsInteger;
+      vQ.ParamByName('ACTIVIDAD').AsString := QNiif_CarproACTIVIDAD.AsString;
+      vQ.ParamByName('PERIOD').AsString := QNiif_CarproPERIOD.AsString;
+      vQ.ParamByName('CONCIL').AsString := QNiif_CarproCONCIL.AsString;
+      vQ.ParamByName('CRUCE').AsString := QNiif_CarproCRUCE.AsString;
+      vQ.ParamByName('BENEF').AsString := QNiif_CarproBENEF.AsString;
+      vQ.ParamByName('ABONO').AsFloat := QNiif_CarproABONO.AsFloat;
+      vQ.ParamByName('IDVEND').AsInteger := QNiif_CarproIDVEND.AsInteger;
+      vQ.ParamByName('CONCEPTO').AsString := QNiif_CarproCONCEPTO.AsString;
+      vQ.ParamByName('USUARIO').AsString := QNiif_CarproUSUARIO.AsString;
+      vQ.ParamByName('TIPO_IMP').AsString := QNiif_CarproTIPO_IMP.AsString;
+      vQ.ParamByName('NRO_IMP').AsInteger := QNiif_CarproNRO_IMP.AsInteger;
+      vQ.ParamByName('CONCEPTO_IMP').AsInteger :=
+        QNiif_CarproCONCEPTO_IMP.AsInteger;
+      vQ.ParamByName('SALDO_REPORTE').AsFloat :=
+        QNiif_CarproSALDO_REPORTE.AsFloat;
+      vQ.ParamByName('PROYECTO').AsString := QNiif_CarproPROYECTO.AsString;
+      vQ.ParamByName('BANCO').AsInteger := QNiif_CarproBANCO.AsInteger;
+      vQ.ParamByName('CHEQUE').AsString := QNiif_CarproCHEQUE.AsString;
+      vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=
+        QNiif_CarproCONCEPTO_PAGO.AsInteger;
+      vQ.ParamByName('ID_TIPOCARTERA').AsString :=
+        QNiif_CarproID_TIPOCARTERA.AsString;
+      vQ.ParamByName('COMENTARIO').AsString := QNiif_CarproCOMENTARIO.AsString;
+      vQ.ParamByName('CHEQUE_POSTF').AsString :=
+        QNiif_CarproCHEQUE_POSTF.AsString;
+      vQ.ParamByName('FECHA_CHEQUE').AsDateTime :=
+        QNiif_CarproFECHA_CHEQUE.AsDateTime;
+      vQ.ParamByName('VENCIMIENTO').AsDateTime :=
+        QNiif_CarproVENCIMIENTO.AsDateTime;
+      vQ.ParamByName('DIAPAGO').AsString := QNiif_CarproDIAPAGO.AsString;
+      vQ.ParamByName('SALDO').AsFloat := QNiif_CarproSALDO.AsFloat;
+      vQ.ParamByName('BASE').AsFloat := QNiif_CarproBASE.AsFloat;
+      vQ.ParamByName('CREDIT').AsFloat := QNiif_CarproCREDIT.AsFloat;
+      vQ.ParamByName('DEBIT').AsFloat := QNiif_CarproDEBIT.AsFloat;
+      vQ.ParamByName('TASA_CAMBIO').AsFloat := QNiif_CarproTASA_CAMBIO.AsFloat;
+      vQ.ParamByName('SALDO_US').AsFloat := QNiif_CarproSALDO_US.AsFloat;
+      vQ.ParamByName('CREDITO_US').AsFloat := QNiif_CarproCREDITO_US.AsFloat;
+      vQ.ParamByName('DEBITO_US').AsFloat := QNiif_CarproDEBITO_US.AsFloat;
+      vQ.ParamByName('CUOTA').AsInteger := QNiif_CarproCUOTA.AsInteger;
+      vQ.ParamByName('SHIPTO').AsInteger := QNiif_CarproSHIPTO.AsInteger;
+      vQ.ParamByName('FECHA_CONSIG').AsDateTime :=
+        QNiif_CarproFECHA_CONSIG.AsDateTime;
+
+      vQ.Close;
+      vQ.ExecSQL;
+
+    finally
+      vQ.DisposeOf;
+    end;
+
+    Application.ProcessMessages;
+    QNiif_Carpro.Next;
+  End;
+end;
+
+procedure TMain.PasarNiif_Gl(Tipo: String; Number, E, S: Integer);
+var
+  vQ: TFDQuery;
+begin
+
+  QNiif_Gl.Close;
+  QNiif_Gl.ParamByName('TIPO').AsString := Tipo;
+  QNiif_Gl.ParamByName('NUMBER').AsInteger := Number;
+  QNiif_Gl.ParamByName('E').AsInteger := E;
+  QNiif_Gl.ParamByName('S').AsInteger := S;
+  QNiif_Gl.Open;
+  QNiif_Gl.First;
+
+  while not QNiif_Gl.Eof do
+  Begin
+    vQ := TFDQuery.Create(nil);
+    try
+      vQ.Connection := Main.ConDestino;
+      vQ.SQL.Add
+        (' INSERT INTO NIIF_GL ( CONTEO,ID_N,ACCT,E,S,TIPO,BATCH,FECHA,DUEDATE,'
+        + ' INVC,DEPTO,CCOST,ACTIVIDAD,PERIOD,DESCRIPCION,CLOSING,CONCIL,CRUCE,'
+        + ' USERNAME,DESTINO,PROYECTO,BASE,CREDIT,DEBIT,CUOTA,PRORRATEADO,ESTADO,'
+        + ' MODELO,MAYOR_VALOR,PERIODO_FECHA,COD_FLUJOEFE)VALUES (' +
+        '  :CONTEO,:ID_N,:ACCT,:E,:S,:TIPO,:BATCH,:FECHA,:DUEDATE,:INVC,:DEPTO,:CCOST,:ACTIVIDAD,:PERIOD'
+        + ' ,:DESCRIPCION,');
+      if QNiif_GlCLOSING.AsString = '' Then
+      BEGIN
+        vQ.SQL.Add('NULL,');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlCLOSING.AsString + ',');
+      END;
+      if QNiif_GlCONCIL.AsString = '' Then
+      BEGIN
+        vQ.SQL.Add('NULL,');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlCONCIL.AsString + ',');
+      END;
+      vQ.SQL.Add(':CRUCE,:USERNAME,:DESTINO,:PROYECTO,:BASE,:CREDIT,:DEBIT' +
+        ' ,:CUOTA,:PRORRATEADO,');
+      if QNiif_GlESTADO.AsString = '' Then
+      BEGIN
+        vQ.SQL.Add('NULL,');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlESTADO.AsString + ',');
+      END;
+      if IntToStr(QNiif_GlMODELO.AsInteger) = '0' Then
+      BEGIN
+        vQ.SQL.Add('NULL,');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlMODELO.AsString + ',');
+      END;
+      if FloatToStr(QNiif_GlMAYOR_VALOR.AsFloat) = '0' Then
+      BEGIN
+        vQ.SQL.Add('NULL,');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlMAYOR_VALOR.AsString + ',');
+      END;
+      if DateToStr(QNiif_GlPERIODO_FECHA.AsDateTime) = '30/12/1899' then
+      begin
+        vQ.SQL.Add('null,');
+      end
+      else
+      begin
+        vQ.SQL.Add(':PERIODO_FECHA,');
+        vQ.ParamByName('PERIODO_FECHA').AsDateTime :=
+          QNiif_GlPERIODO_FECHA.AsDateTime;
+      end;
+
+      if FloatToStr(QNiif_GlCOD_FLUJOEFE.AsFloat) = '0' Then
+      BEGIN
+        vQ.SQL.Add('NULL)');
+      END
+      ELSE
+      BEGIN
+        vQ.SQL.Add(QNiif_GlCOD_FLUJOEFE.AsString + ')');
+      END;
+      vQ.ParamByName('CONTEO').AsInteger := QNiif_GlCONTEO.AsInteger;
+      vQ.ParamByName('ID_N').AsString := QNiif_GlID_N.AsString;
+      vQ.ParamByName('E').AsInteger := QNiif_GlE.AsInteger;
+      vQ.ParamByName('S').AsInteger := QNiif_GlS.AsInteger;
+      vQ.ParamByName('ACCT').AsFloat := QNiif_GlACCT.AsFloat;
+      vQ.ParamByName('TIPO').AsString := QNiif_GlTIPO.AsString;
+      vQ.ParamByName('BATCH').AsInteger := QNiif_GlBATCH.AsInteger;
+      vQ.ParamByName('FECHA').AsDateTime := QNiif_GlFECHA.AsDateTime;
+      vQ.ParamByName('DUEDATE').AsDateTime := QNiif_GlDUEDATE.AsDateTime;
+      vQ.ParamByName('INVC').AsString := QNiif_GlINVC.AsString;
+      vQ.ParamByName('DEPTO').AsInteger := QNiif_GlDEPTO.AsInteger;
+      vQ.ParamByName('CCOST').AsInteger := QNiif_GlCCOST.AsInteger;
+      vQ.ParamByName('ACTIVIDAD').AsString := QNiif_GlACTIVIDAD.AsString;
+      vQ.ParamByName('PERIOD').AsString := QNiif_GlPERIOD.AsString;
+      vQ.ParamByName('DESCRIPCION').AsString := QNiif_GlDESCRIPCION.AsString;
+      vQ.ParamByName('CRUCE').AsString := QNiif_GlCRUCE.AsString;
+      vQ.ParamByName('USERNAME').AsString := QNiif_GlUSERNAME.AsString;
+      vQ.ParamByName('DESTINO').AsInteger := QNiif_GlDESTINO.AsInteger;
+      vQ.ParamByName('PROYECTO').AsString := QNiif_GlPROYECTO.AsString;
+      vQ.ParamByName('BASE').AsFloat := QNiif_GlBASE.AsFloat;
+      vQ.ParamByName('CREDIT').AsFloat := QNiif_GlCREDIT.AsFloat;
+      vQ.ParamByName('DEBIT').AsFloat := QNiif_GlDEBIT.AsFloat;
+      vQ.ParamByName('CUOTA').AsInteger := QNiif_GlCUOTA.AsInteger;
+      vQ.ParamByName('PRORRATEADO').AsString := QNiif_GlPRORRATEADO.AsString;
+      vQ.Close;
+      vQ.ExecSQL;
+
+    finally
+      vQ.DisposeOf;
+    end;
+
+    Application.ProcessMessages;
+    QNiif_Gl.Next;
+  End;
+end;
+
 procedure TMain.PasarOrdenesdeCompras;
 var
   Tipos: string;
@@ -7181,7 +7805,7 @@ begin
     QIpoce.SQL.Add(' AND S= :SUC');
     QIpoce.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QIpoce.SQL.Add(' ORDER BY FECHA');
   QIpoce.Open;
 
   QIpoce.Last;
@@ -7193,7 +7817,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarOrdenDeCompra(QIpoceTIPO.AsString, QIpoceNUMBER.AsInteger);
+      Edit5.Text := QIpoceTIPO.AsString;
+      Edit6.Text := QIpoceNUMBER.AsString;
+      EliminarOrdenDeCompra(QIpoceTIPO.AsString, QIpoceNUMBER.AsInteger,
+        QIpoceE.AsInteger, QIpoceS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO IPOCE (E,S,TIPO,NUMBER,ID_N,SUCCLIENTE,ACCT,FECHA,ESTADO,'
@@ -7364,7 +7991,7 @@ begin
     QPedidoe.SQL.Add(' AND ID_SUCURSAL= :SUC');
     QPedidoe.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QPedidoe.SQL.Add(' ORDER BY FECHA');
   QPedidoe.Open;
 
   QPedidoe.Last;
@@ -7376,7 +8003,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarPedidos(QPedidoeTIPO.AsString, QPedidoeNUMBER.AsInteger);
+      Edit5.Text := QPedidoeTIPO.AsString;
+      Edit6.Text := QPedidoeNUMBER.AsString;
+      EliminarPedidos(QPedidoeTIPO.AsString, QPedidoeNUMBER.AsInteger,
+        QPedidoeID_EMPRESA.AsInteger, QPedidoeID_SUCURSAL.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO PEDIDOE (ID_EMPRESA,ID_SUCURSAL,TIPO,NUMBER,TIPO_PEDIDO,ID_USUARIO,ID_N,SUCCLIENTE,'
@@ -7596,7 +8226,8 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QPedidoeTIPO.AsString, QPedidoeNUMBER.AsInteger);
+    PasarItemact(QPedidoeTIPO.AsString, QPedidoeNUMBER.AsInteger,
+      QPedidoeID_EMPRESA.AsInteger, QPedidoeID_SUCURSAL.AsInteger);
 
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
@@ -7637,7 +8268,7 @@ begin
     QOeRec.SQL.Add(' AND ID_SUCURSAL= :SUC');
     QOeRec.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QOeRec.SQL.Add(' ORDER BY FECHA');
   QOeRec.Open;
 
   QOeRec.Last;
@@ -7649,7 +8280,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarRecurrentesFac(QOeRecTIPO.AsString, QOeRecNUMBER.AsInteger);
+      Edit5.Text := QOeRecTIPO.AsString;
+      Edit6.Text := QOeRecNUMBER.AsString;
+      EliminarRecurrentesFac(QOeRecTIPO.AsString, QOeRecNUMBER.AsInteger,
+        QOeRecID_EMPRESA.AsInteger, QOeRecID_SUCURSAL.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO OEREC (ID_EMPRESA,ID_SUCURSAL,ID_USUARIO,NUMBER,ID_N,TIPO,'
@@ -7855,7 +8489,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarRecurrentesCon(QGlreceTIPO.AsString, QGlreceID_REC.AsInteger);
+      Edit5.Text := QGlreceTIPO.AsString;
+      Edit6.Text := QGlreceID_REC.AsString;
+      EliminarRecurrentesCon(QGlreceTIPO.AsString, QGlreceID_REC.AsInteger,
+        QGlreceE.AsInteger, QGlreceS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO GLRECE (ID_REC,DESCRIPCION,TIPO,FE_EJECUCION,E,S,ESTADO)'
@@ -7968,7 +8605,7 @@ begin
     QRemisione.SQL.Add(' AND ID_SUCURSAL= :SUC');
     QRemisione.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QRemisione.SQL.Add(' ORDER BY FECHA');
   QRemisione.Open;
 
   QRemisione.Last;
@@ -7980,7 +8617,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarRemisiones(QRemisioneTIPO.AsString, QRemisioneNUMERO.AsInteger);
+      Edit5.Text := QRemisioneTIPO.AsString;
+      Edit6.Text := QRemisioneNUMERO.AsString;
+      EliminarRemisiones(QRemisioneTIPO.AsString, QRemisioneNUMERO.AsInteger,
+        QRemisioneID_EMPRESA.AsInteger, QRemisioneID_SUCURSAL.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO REMISIONE (ID_EMPRESA,ID_SUCURSAL,NUMERO,TIPO,ID_USUARIO,'
@@ -8182,7 +8822,8 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QRemisioneTIPO.AsString, QRemisioneNUMERO.AsInteger);
+    PasarItemact(QRemisioneTIPO.AsString, QRemisioneNUMERO.AsInteger,
+      QRemisioneID_EMPRESA.AsInteger, QRemisioneID_SUCURSAL.AsInteger);
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;
@@ -8218,7 +8859,7 @@ begin
     QTraslado.SQL.Add(' AND S= :SUC');
     QTraslado.ParamByName('SUC').AsInteger := StrToInt(Edit4.Text);
   end;
-
+  QTraslado.SQL.Add(' ORDER BY FECHAREALI');
   QTraslado.Open;
 
   QTraslado.Last;
@@ -8230,7 +8871,10 @@ begin
   Begin
     vQ := TFDQuery.Create(nil);
     try
-      EliminarTraslados(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger);
+      Edit5.Text := QTrasladoTIPO.AsString;
+      Edit6.Text := QTrasladoNUMERO.AsString;
+      EliminarTraslados(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger,
+        QTrasladoE.AsInteger, QTrasladoS.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' INSERT INTO TRASLADO (NUMERO,TIPO,E,S,ID_N,SUCCLIENTE,ID_USUARIO,LOCORI,'
@@ -8317,7 +8961,8 @@ begin
     finally
       vQ.DisposeOf;
     end;
-    PasarItemact(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger);
+    PasarItemact(QTrasladoTIPO.AsString, QTrasladoNUMERO.AsInteger,
+      QTrasladoE.AsInteger, QTrasladoS.AsInteger);
     Numero := Numero + 1;
     ProgressBar1.Value := ProgressBar1.Value + 1;
     Application.ProcessMessages;

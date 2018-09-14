@@ -175,6 +175,18 @@ object Main: TMain
       Left = 680
       Top = 96
     end
+    object Edit5: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 12
+      Position.X = 584.000000000000000000
+      Position.Y = 112.000000000000000000
+    end
+    object Edit6: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 13
+      Position.X = 616.000000000000000000
+      Position.Y = 120.000000000000000000
+    end
   end
   object Panel2: TPanel
     Align = Client
@@ -6135,9 +6147,9 @@ object Main: TMain
         'LUJOEFE,'
       
         '    CONSEC_CARPRODE FROM  GL WHERE TIPO = :TIPO AND BATCH = :NUM' +
-        'BER')
-    Left = 24
-    Top = 305
+        'BER AND E= :E AND S=:S')
+    Left = 136
+    Top = 449
     ParamData = <
       item
         Name = 'TIPO'
@@ -6148,6 +6160,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QGlCONTEO: TIntegerField
@@ -6315,7 +6335,8 @@ object Main: TMain
         'TIPOORIGEN,NUMBERORIGEN,'
       
         'NOSERIE,LOTEFVENCE,NOSERIE2,CRUNUM,CRUTIP,CRUREM,REMTIP FROM ITE' +
-        'MACT WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+        'MACT '
+      'WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E= :E AND S=:S')
     Left = 24
     Top = 257
     ParamData = <
@@ -6328,6 +6349,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QItemactCONTEO: TIntegerField
@@ -6542,7 +6571,10 @@ object Main: TMain
       
         '    SHIPTO,FECHA_CONSIG,ESTADO_DEUDA,COD_FLUJOEFE,PORC_TASA,TIEM' +
         'PO_MESES'
-      '    FROM  CARPRO WHERE TIPO = :TIPO AND BATCH = :NUMBER')
+      
+        '    FROM  CARPRO WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E= :' +
+        'E AND S=:S'
+      '')
     Left = 24
     Top = 352
     ParamData = <
@@ -6555,6 +6587,14 @@ object Main: TMain
       item
         Name = 'NUMBER'
         DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
         ParamType = ptInput
       end>
     object QCarproCONTEO: TIntegerField
@@ -13139,6 +13179,479 @@ object Main: TMain
       FieldName = 'ACTIVIDADES'
       Origin = 'ACTIVIDADES'
       FixedChar = True
+    end
+  end
+  object QNiif_Gl: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT'
+      
+        '    CONTEO,ID_N,ACCT,E,S,TIPO,BATCH,FECHA,DUEDATE,INVC,DEPTO,CCO' +
+        'ST,ACTIVIDAD,PERIOD'
+      
+        '    ,DESCRIPCION,CLOSING,CONCIL,CRUCE,USERNAME,DESTINO,PROYECTO,' +
+        'BASE,CREDIT,DEBIT'
+      
+        '    ,CUOTA,PRORRATEADO,ESTADO,NIVEL_ANT,MAYOR_VALOR,PERIODO_FECH' +
+        'A,coalesce(MODELO,0)MODELO,COD_FLUJOEFE'
+      
+        '    FROM NIIF_GL WHERE TIPO = :TIPO AND BATCH = :NUMBER AND E= :' +
+        'E AND S=:S')
+    Left = 176
+    Top = 449
+    ParamData = <
+      item
+        Name = 'TIPO'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'NUMBER'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        DataType = ftSmallint
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        DataType = ftSmallint
+        ParamType = ptInput
+      end>
+    object QNiif_GlCONTEO: TIntegerField
+      FieldName = 'CONTEO'
+      Origin = 'CONTEO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QNiif_GlID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QNiif_GlACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+      Required = True
+    end
+    object QNiif_GlE: TSmallintField
+      FieldName = 'E'
+      Origin = 'E'
+    end
+    object QNiif_GlS: TSmallintField
+      FieldName = 'S'
+      Origin = 'S'
+    end
+    object QNiif_GlTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_GlBATCH: TIntegerField
+      FieldName = 'BATCH'
+      Origin = 'BATCH'
+    end
+    object QNiif_GlFECHA: TSQLTimeStampField
+      FieldName = 'FECHA'
+      Origin = 'FECHA'
+    end
+    object QNiif_GlDUEDATE: TSQLTimeStampField
+      FieldName = 'DUEDATE'
+      Origin = 'DUEDATE'
+    end
+    object QNiif_GlINVC: TStringField
+      FieldName = 'INVC'
+      Origin = 'INVC'
+      FixedChar = True
+      Size = 15
+    end
+    object QNiif_GlDEPTO: TSmallintField
+      FieldName = 'DEPTO'
+      Origin = 'DEPTO'
+    end
+    object QNiif_GlCCOST: TSmallintField
+      FieldName = 'CCOST'
+      Origin = 'CCOST'
+    end
+    object QNiif_GlACTIVIDAD: TStringField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_GlPERIOD: TStringField
+      FieldName = 'PERIOD'
+      Origin = 'PERIOD'
+      FixedChar = True
+      Size = 7
+    end
+    object QNiif_GlDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 120
+    end
+    object QNiif_GlCLOSING: TStringField
+      FieldName = 'CLOSING'
+      Origin = 'CLOSING'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_GlCONCIL: TStringField
+      FieldName = 'CONCIL'
+      Origin = 'CONCIL'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_GlCRUCE: TStringField
+      FieldName = 'CRUCE'
+      Origin = 'CRUCE'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_GlUSERNAME: TStringField
+      FieldName = 'USERNAME'
+      Origin = 'USERNAME'
+      FixedChar = True
+      Size = 10
+    end
+    object QNiif_GlDESTINO: TSmallintField
+      FieldName = 'DESTINO'
+      Origin = 'DESTINO'
+    end
+    object QNiif_GlPROYECTO: TStringField
+      FieldName = 'PROYECTO'
+      Origin = 'PROYECTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QNiif_GlBASE: TFloatField
+      FieldName = 'BASE'
+      Origin = 'BASE'
+    end
+    object QNiif_GlCREDIT: TFloatField
+      FieldName = 'CREDIT'
+      Origin = 'CREDIT'
+    end
+    object QNiif_GlDEBIT: TFloatField
+      FieldName = 'DEBIT'
+      Origin = 'DEBIT'
+    end
+    object QNiif_GlCUOTA: TSmallintField
+      FieldName = 'CUOTA'
+      Origin = 'CUOTA'
+    end
+    object QNiif_GlPRORRATEADO: TStringField
+      FieldName = 'PRORRATEADO'
+      Origin = 'PRORRATEADO'
+      FixedChar = True
+      Size = 1
+    end
+    object QNiif_GlESTADO: TStringField
+      FieldName = 'ESTADO'
+      Origin = 'ESTADO'
+      FixedChar = True
+      Size = 30
+    end
+    object QNiif_GlNIVEL_ANT: TStringField
+      FieldName = 'NIVEL_ANT'
+      Origin = 'NIVEL_ANT'
+      Size = 24
+    end
+    object QNiif_GlMAYOR_VALOR: TFloatField
+      FieldName = 'MAYOR_VALOR'
+      Origin = 'MAYOR_VALOR'
+    end
+    object QNiif_GlPERIODO_FECHA: TSQLTimeStampField
+      FieldName = 'PERIODO_FECHA'
+      Origin = 'PERIODO_FECHA'
+    end
+    object QNiif_GlMODELO: TIntegerField
+      FieldName = 'MODELO'
+      Origin = 'MODELO'
+    end
+    object QNiif_GlCOD_FLUJOEFE: TIntegerField
+      FieldName = 'COD_FLUJOEFE'
+      Origin = 'COD_FLUJOEFE'
+    end
+  end
+  object QNiif_Carpro: TFDQuery
+    Connection = ConOrigen
+    SQL.Strings = (
+      'SELECT'
+      
+        '    CONTEO,ID_N,ACCT,TIPO,BATCH,E,S,DESCRIPCION,FECHA,DUEDATE,IN' +
+        'VC,DEPTO,CCOST'
+      
+        '    ,ACTIVIDAD,PERIOD,CONCIL,CRUCE,BENEF,ABONO,IDVEND,CONCEPTO,U' +
+        'SUARIO,TIPO_IMP'
+      
+        '    ,NRO_IMP,CONCEPTO_IMP,SALDO_REPORTE,PROYECTO,BANCO,CHEQUE,CO' +
+        'NCEPTO_PAGO'
+      
+        '    ,ID_TIPOCARTERA,COMENTARIO,CHEQUE_POSTF,FECHA_CHEQUE,VENCIMI' +
+        'ENTO,DIAPAGO'
+      
+        '    ,SALDO,BASE,CREDIT,DEBIT,TASA_CAMBIO,SALDO_US,CREDITO_US,DEB' +
+        'ITO_US,CUOTA,SHIPTO,FECHA_CONSIG'
+      
+        '    FROM NIIF_CARPRO WHERE TIPO = :TIPO AND BATCH = :NUMBER AND ' +
+        'E= :E AND S=:S'
+      '')
+    Left = 136
+    Top = 384
+    ParamData = <
+      item
+        Name = 'TIPO'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'NUMBER'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'E'
+        DataType = ftSmallint
+        ParamType = ptInput
+      end
+      item
+        Name = 'S'
+        DataType = ftSmallint
+        ParamType = ptInput
+      end>
+    object QNiif_CarproCONTEO: TIntegerField
+      FieldName = 'CONTEO'
+      Origin = 'CONTEO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QNiif_CarproID_N: TStringField
+      FieldName = 'ID_N'
+      Origin = 'ID_N'
+      Required = True
+      FixedChar = True
+      Size = 30
+    end
+    object QNiif_CarproACCT: TFloatField
+      FieldName = 'ACCT'
+      Origin = 'ACCT'
+    end
+    object QNiif_CarproTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_CarproBATCH: TIntegerField
+      FieldName = 'BATCH'
+      Origin = 'BATCH'
+    end
+    object QNiif_CarproE: TSmallintField
+      FieldName = 'E'
+      Origin = 'E'
+    end
+    object QNiif_CarproS: TSmallintField
+      FieldName = 'S'
+      Origin = 'S'
+    end
+    object QNiif_CarproDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'DESCRIPCION'
+      FixedChar = True
+      Size = 40
+    end
+    object QNiif_CarproFECHA: TSQLTimeStampField
+      FieldName = 'FECHA'
+      Origin = 'FECHA'
+    end
+    object QNiif_CarproDUEDATE: TSQLTimeStampField
+      FieldName = 'DUEDATE'
+      Origin = 'DUEDATE'
+    end
+    object QNiif_CarproINVC: TStringField
+      FieldName = 'INVC'
+      Origin = 'INVC'
+      FixedChar = True
+      Size = 15
+    end
+    object QNiif_CarproDEPTO: TSmallintField
+      FieldName = 'DEPTO'
+      Origin = 'DEPTO'
+    end
+    object QNiif_CarproCCOST: TSmallintField
+      FieldName = 'CCOST'
+      Origin = 'CCOST'
+    end
+    object QNiif_CarproACTIVIDAD: TStringField
+      FieldName = 'ACTIVIDAD'
+      Origin = 'ACTIVIDAD'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_CarproPERIOD: TStringField
+      FieldName = 'PERIOD'
+      Origin = 'PERIOD'
+      FixedChar = True
+      Size = 4
+    end
+    object QNiif_CarproCONCIL: TStringField
+      FieldName = 'CONCIL'
+      Origin = 'CONCIL'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_CarproCRUCE: TStringField
+      FieldName = 'CRUCE'
+      Origin = 'CRUCE'
+      FixedChar = True
+      Size = 3
+    end
+    object QNiif_CarproBENEF: TStringField
+      FieldName = 'BENEF'
+      Origin = 'BENEF'
+      FixedChar = True
+      Size = 30
+    end
+    object QNiif_CarproABONO: TFloatField
+      FieldName = 'ABONO'
+      Origin = 'ABONO'
+    end
+    object QNiif_CarproIDVEND: TSmallintField
+      FieldName = 'IDVEND'
+      Origin = 'IDVEND'
+    end
+    object QNiif_CarproCONCEPTO: TStringField
+      FieldName = 'CONCEPTO'
+      Origin = 'CONCEPTO'
+      FixedChar = True
+      Size = 2
+    end
+    object QNiif_CarproUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Origin = 'USUARIO'
+      FixedChar = True
+      Size = 10
+    end
+    object QNiif_CarproTIPO_IMP: TStringField
+      FieldName = 'TIPO_IMP'
+      Origin = 'TIPO_IMP'
+      FixedChar = True
+      Size = 2
+    end
+    object QNiif_CarproNRO_IMP: TIntegerField
+      FieldName = 'NRO_IMP'
+      Origin = 'NRO_IMP'
+    end
+    object QNiif_CarproCONCEPTO_IMP: TIntegerField
+      FieldName = 'CONCEPTO_IMP'
+      Origin = 'CONCEPTO_IMP'
+    end
+    object QNiif_CarproSALDO_REPORTE: TFloatField
+      FieldName = 'SALDO_REPORTE'
+      Origin = 'SALDO_REPORTE'
+    end
+    object QNiif_CarproPROYECTO: TStringField
+      FieldName = 'PROYECTO'
+      Origin = 'PROYECTO'
+      FixedChar = True
+      Size = 10
+    end
+    object QNiif_CarproBANCO: TSmallintField
+      FieldName = 'BANCO'
+      Origin = 'BANCO'
+    end
+    object QNiif_CarproCHEQUE: TStringField
+      FieldName = 'CHEQUE'
+      Origin = 'CHEQUE'
+      FixedChar = True
+      Size = 15
+    end
+    object QNiif_CarproCONCEPTO_PAGO: TSmallintField
+      FieldName = 'CONCEPTO_PAGO'
+      Origin = 'CONCEPTO_PAGO'
+    end
+    object QNiif_CarproID_TIPOCARTERA: TStringField
+      FieldName = 'ID_TIPOCARTERA'
+      Origin = 'ID_TIPOCARTERA'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_CarproCOMENTARIO: TBlobField
+      FieldName = 'COMENTARIO'
+      Origin = 'COMENTARIO'
+    end
+    object QNiif_CarproCHEQUE_POSTF: TStringField
+      FieldName = 'CHEQUE_POSTF'
+      Origin = 'CHEQUE_POSTF'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_CarproFECHA_CHEQUE: TSQLTimeStampField
+      FieldName = 'FECHA_CHEQUE'
+      Origin = 'FECHA_CHEQUE'
+    end
+    object QNiif_CarproVENCIMIENTO: TSQLTimeStampField
+      FieldName = 'VENCIMIENTO'
+      Origin = 'VENCIMIENTO'
+    end
+    object QNiif_CarproDIAPAGO: TStringField
+      FieldName = 'DIAPAGO'
+      Origin = 'DIAPAGO'
+      FixedChar = True
+      Size = 5
+    end
+    object QNiif_CarproSALDO: TFloatField
+      FieldName = 'SALDO'
+      Origin = 'SALDO'
+    end
+    object QNiif_CarproBASE: TFloatField
+      FieldName = 'BASE'
+      Origin = 'BASE'
+    end
+    object QNiif_CarproCREDIT: TFloatField
+      FieldName = 'CREDIT'
+      Origin = 'CREDIT'
+    end
+    object QNiif_CarproDEBIT: TFloatField
+      FieldName = 'DEBIT'
+      Origin = 'DEBIT'
+    end
+    object QNiif_CarproTASA_CAMBIO: TFloatField
+      FieldName = 'TASA_CAMBIO'
+      Origin = 'TASA_CAMBIO'
+    end
+    object QNiif_CarproSALDO_US: TFloatField
+      FieldName = 'SALDO_US'
+      Origin = 'SALDO_US'
+    end
+    object QNiif_CarproCREDITO_US: TFloatField
+      FieldName = 'CREDITO_US'
+      Origin = 'CREDITO_US'
+    end
+    object QNiif_CarproDEBITO_US: TFloatField
+      FieldName = 'DEBITO_US'
+      Origin = 'DEBITO_US'
+    end
+    object QNiif_CarproCUOTA: TSmallintField
+      FieldName = 'CUOTA'
+      Origin = 'CUOTA'
+    end
+    object QNiif_CarproSHIPTO: TIntegerField
+      FieldName = 'SHIPTO'
+      Origin = 'SHIPTO'
+    end
+    object QNiif_CarproFECHA_CONSIG: TSQLTimeStampField
+      FieldName = 'FECHA_CONSIG'
+      Origin = 'FECHA_CONSIG'
     end
   end
 end

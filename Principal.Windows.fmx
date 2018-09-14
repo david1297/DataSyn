@@ -22,21 +22,38 @@ inherited Main_Windows: TMain_Windows
         Size.Height = 25.000000000000000000
       end
     end
+    inherited OpenDialog1: TOpenDialog
+      Left = 376
+      Top = 80
+    end
+    inherited Edit5: TEdit
+      Position.X = 600.000000000000000000
+      Enabled = False
+      Size.Width = 49.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited Edit6: TEdit
+      Position.X = 648.000000000000000000
+      Position.Y = 112.000000000000000000
+      Enabled = False
+      Size.Width = 49.000000000000000000
+      Size.PlatformDefault = False
+    end
   end
   inherited Panel2: TPanel
     Size.Width = 725.000000000000000000
     Size.Height = 349.000000000000000000
     inherited Memo1: TMemo
       Align = Client
-      Size.Width = 390.000000000000000000
+      Size.Width = 493.000000000000000000
       Size.Height = 339.000000000000000000
-      Viewport.Width = 390.000000000000000000
+      Viewport.Width = 493.000000000000000000
       Viewport.Height = 339.000000000000000000
     end
     inherited GroupBox2: TGroupBox
       Align = Right
-      Position.X = 400.000000000000000000
-      Size.Width = 320.000000000000000000
+      Position.X = 503.000000000000000000
+      Size.Width = 217.000000000000000000
       Size.Height = 339.000000000000000000
       Text = 'Documentos '
       inherited CheckRecurrentes: TCheckBox
@@ -50,6 +67,10 @@ inherited Main_Windows: TMain_Windows
     inherited ProgressBar1: TProgressBar
       Size.Width = 715.000000000000000000
     end
+  end
+  inherited ImageList1: TImageList
+    Left = 336
+    Top = 80
   end
   inherited QTraslado: TFDQuery
     Left = 144

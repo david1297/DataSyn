@@ -2334,6 +2334,8 @@ type
     QNiif_CarproCUOTA: TSmallintField;
     QNiif_CarproSHIPTO: TIntegerField;
     QNiif_CarproFECHA_CONSIG: TSQLTimeStampField;
+    Edit7: TEdit;
+    Button3: TButton;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -2353,6 +2355,7 @@ type
     procedure CheckComprobantesChange(Sender: TObject);
     procedure CheckPedidosChange(Sender: TObject);
     procedure CheckRecurrentesChange(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -2441,6 +2444,7 @@ type
 
 var
   Main: TMain;
+  Salir: Boolean;
 
 implementation
 
@@ -2453,6 +2457,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QBancos.Close;
   QBancos.Open;
@@ -2460,12 +2466,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QBancos.RecordCount;
   QBancos.First;
-
+  Memo1.Lines.Add('->Se Actualizan Los Bancos:');
+  Memo1.Lines.Add('  -Tabla Bancos');
   while not QBancos.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QBancosBANKNO.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO BANCOS (BANKNO,CSHACCT,LASERCKS,BANKNAME,' +
@@ -2519,8 +2528,6 @@ begin
     QBancos.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Los Bancos:');
-  Memo1.Lines.Add('  -Tabla Bancos');
   Memo1.Lines.Add('  -Cantidad de Bancos: ' + IntToStr(Numero));
 end;
 
@@ -2529,6 +2536,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QLoc.Close;
   QLoc.Open;
@@ -2536,12 +2545,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QLoc.RecordCount;
   QLoc.First;
-
+  Memo1.Lines.Add('->Se Actualizan Las Bodegas:');
+  Memo1.Lines.Add('  -Tabla Loc');
   while not QLoc.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QLocLOCALIZACION.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO LOC(LOCALIZACION,DESCRIPCION,RESPONSABLE,' +
@@ -2576,8 +2588,6 @@ begin
     QLoc.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Las Bodegas:');
-  Memo1.Lines.Add('  -Tabla Loc');
   Memo1.Lines.Add('  -Cantidad de Bodegas: ' + IntToStr(Numero));
 end;
 
@@ -2586,6 +2596,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QCarprosys.Close;
   QCarprosys.Open;
@@ -2593,12 +2605,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QCarprosys.RecordCount;
   QCarprosys.First;
-
+  Memo1.Lines.Add('->Se Actualizan Los Conceptos de Recibos:');
+  Memo1.Lines.Add('  -Tabla Carprosys');
   while not QCarprosys.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := IntToStr(QCarprosysDCT.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO CARPROSYS ( DCT,CUENTA,CONCEPTO,NATURALEZACTA,'
@@ -2623,8 +2638,6 @@ begin
     QCarprosys.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Los Conceptos de Recibos:');
-  Memo1.Lines.Add('  -Tabla Carprosys');
   Memo1.Lines.Add('  -Cantidad de Conceptos: ' + IntToStr(Numero));
 end;
 
@@ -2634,6 +2647,8 @@ var
   vQ: TFDQuery;
 
 begin
+  if Salir = True then
+    exit;
   // COLGAAP
   Numero := 0;
   QAcct.Close;
@@ -2642,11 +2657,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QAcct.RecordCount;
   QAcct.First;
-
+  Memo1.Lines.Add('->Se Actualizan PUC COLGAAP:');
+  Memo1.Lines.Add('  -Tabla Acct');
   while not QAcct.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := FloatToStr(QAcctACCT.AsFloat);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add(' update or insert INTO ACCT (ACCT,E,S,DESCRIPCION,TIPO,CLASS,'
         + ' CCOST,BEGDR,BEGCR,OLDDR,OLDCR,CURDR,CURCR,BDGTCAT,AJUSTE,' +
@@ -2727,9 +2746,6 @@ begin
     Application.ProcessMessages;
     QAcct.Next;
   End;
-
-  Memo1.Lines.Add('->Se Actualizan PUC COLGAAP:');
-  Memo1.Lines.Add('  -Tabla Acct');
   Memo1.Lines.Add('  -Cantidad de Cuentas: ' + IntToStr(Numero));
   // NIIF
   Numero := 0;
@@ -2741,11 +2757,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QNiifAcct.RecordCount;
   QNiifAcct.First;
-
+  Memo1.Lines.Add('->Se Actualiza PUC NIIF:');
+  Memo1.Lines.Add('  -Tabla Niif_Acct');
   while not QNiifAcct.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := FloatToStr(QNiifAcctACCT.AsFloat);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO NIIF_ACCT (ACCT,E,S,DESCRIPCION,TIPO,CLASS,' +
@@ -2836,8 +2856,6 @@ begin
     Application.ProcessMessages;
     QNiifAcct.Next;
   End;
-  Memo1.Lines.Add('->Se Actualiza PUC NIIF:');
-  Memo1.Lines.Add('  -Tabla Niif_Acct');
   Memo1.Lines.Add('  -Cantidad de Cuentas: ' + IntToStr(Numero));
   // EQUIVALENCIA
 
@@ -2858,11 +2876,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QEquivalencia.RecordCount;
   QEquivalencia.First;
-
+  Memo1.Lines.Add('->Se Actualiza Equivalencia de Cuentas:');
+  Memo1.Lines.Add('  -Tabla Niif_Equivalencia');
   while not QEquivalencia.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := FloatToStr(QEquivalenciaACCT.AsFloat);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO NIIF_EQUIVALENCIA (CODIGO,ACCT_NIIF,ACCT,NAT)VALUES('
@@ -2882,8 +2904,6 @@ begin
     QEquivalencia.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualiza Equivalencia de Cuentas:');
-  Memo1.Lines.Add('  -Tabla Niif_Equivalencia');
   Memo1.Lines.Add('  -Cantidad de Equivalencias: ' + IntToStr(Numero));
 
   // CONFIGURACION ESTADOS
@@ -2905,11 +2925,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QNiif_Config_Estados.RecordCount;
   QNiif_Config_Estados.First;
-
+  Memo1.Lines.Add('->Se Actualiza Configuracion de Estados Financieros');
+  Memo1.Lines.Add('  -Tabla Niif_Config_Estados');
   while not QNiif_Config_Estados.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := FloatToStr(QNiif_Config_EstadosACCT.AsFloat);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO NIIF_CONFIG_ESTADOS(ACCT,DESCRIPCION,PRIORIDAD,PAGINA,TITULO,ACTIVIDADES)VALUES('
@@ -2936,8 +2960,6 @@ begin
     QNiif_Config_Estados.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualiza Configuracion de Estados Financieros');
-  Memo1.Lines.Add('  -Tabla Niif_Config_Estados');
   Memo1.Lines.Add('  -Cantidad de Registros: ' + IntToStr(Numero));
 end;
 
@@ -2946,6 +2968,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QFactipdoc.Close;
   QFactipdoc.Open;
@@ -2953,11 +2977,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QFactipdoc.RecordCount;
   QFactipdoc.First;
-
+  Memo1.Lines.Add('->Se Actualizan Usuarios de Facturacion:');
+  Memo1.Lines.Add('  -Tabla Factipdoc');
   while not QFactipdoc.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := QFactipdocID_USUARIO.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO FATIPDOC (ID_EMPRESA,ID_SUCURSAL,ID_USUARIO' +
@@ -3171,8 +3199,6 @@ begin
     QFactipdoc.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Usuarios de Facturacion:');
-  Memo1.Lines.Add('  -Tabla Factipdoc');
   Memo1.Lines.Add('  -Cantidad de Usuarios: ' + IntToStr(Numero));
 end;
 
@@ -3181,6 +3207,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QFor_Pago.Close;
   QFor_Pago.Open;
@@ -3188,12 +3216,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QFor_Pago.RecordCount;
   QFor_Pago.First;
-
+  Memo1.Lines.Add('->Se Actualizan Formas de Pago:');
+  Memo1.Lines.Add('  -Tabla For_Pago');
   while not QFor_Pago.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := IntToStr(QFor_PagoCONCEPTO.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add(' update or insert INTO FOR_PAGO (CONCEPTO,NUM_CUOTA,ACCT,' +
         ' DESCRIPCION,DIAS,PORCENT,CONTA,TIPO,CLASE,AGRUPA,AUTORIZADO,' +
@@ -3237,8 +3268,6 @@ begin
     QFor_Pago.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Formas de Pago:');
-  Memo1.Lines.Add('  -Tabla For_Pago');
   Memo1.Lines.Add('  -Cantidad de Formas de Pago: ' + IntToStr(Numero));
 end;
 
@@ -3247,6 +3276,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QGrupo.Close;
   QGrupo.Open;
@@ -3254,11 +3285,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QGrupo.RecordCount;
   QGrupo.First;
-
+  Memo1.Lines.Add('->Se Actualizan Grupos de Producto:');
+  Memo1.Lines.Add('  -Tabla Grupo');
   while not QGrupo.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := QGrupoCODGRUPO.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO GRUPO (CODGRUPO,CODLINEA,DESCGRUPO,TIEDES)VALUES('
@@ -3278,8 +3313,6 @@ begin
     QGrupo.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Grupos de Producto:');
-  Memo1.Lines.Add('  -Tabla Grupo');
   Memo1.Lines.Add('  -Cantidad de Grupos: ' + IntToStr(Numero));
 end;
 
@@ -3288,6 +3321,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QItem.Close;
   QItem.Open;
@@ -3295,11 +3330,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QItem.RecordCount;
   QItem.First;
-
+  Memo1.Lines.Add('->Se Actualizan Items:');
+  Memo1.Lines.Add('  -Tabla Item');
   while not QItem.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := QItemITEM.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO ITEM (ITEM,REVACCT,INVACCT,COSACCT,ITEMMSTR,' +
@@ -3650,9 +3689,6 @@ begin
     Application.ProcessMessages;
     QItem.Next;
   End;
-
-  Memo1.Lines.Add('->Se Actualizan Items:');
-  Memo1.Lines.Add('  -Tabla Item');
   Memo1.Lines.Add('  -Cantidad de Items: ' + IntToStr(Numero));
 end;
 
@@ -3661,6 +3697,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QItemUnidad.Close;
   QItemUnidad.Open;
@@ -3668,11 +3706,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QItemUnidad.RecordCount;
   QItemUnidad.First;
-
+  Memo1.Lines.Add('->Se Actualiza Item Unidad:');
+  Memo1.Lines.Add('  -Tabla Item_Unidad');
   while not QItemUnidad.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := QItemUnidadITEM.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO ITEM_UNIDAD (ITEM,FACTOR_C,COD_UNIDAD,PRICE,PRICE1,'
@@ -3698,8 +3740,6 @@ begin
     QItemUnidad.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualiza Item Unidad:');
-  Memo1.Lines.Add('  -Tabla Item_Unidad');
   Memo1.Lines.Add('  -Cantidad de Unidades: ' + IntToStr(Numero));
 end;
 
@@ -3708,6 +3748,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   Qlinea.Close;
   Qlinea.Open;
@@ -3715,12 +3757,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := Qlinea.RecordCount;
   Qlinea.First;
-
+  Memo1.Lines.Add('->Se Actualizan Lineas de Producto:');
+  Memo1.Lines.Add('  -Tabla Linea');
   while not Qlinea.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QlineaCODLINEA.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add(' update or insert INTO LINEA (CODLINEA,DESCLINEA)VALUES(' +
         ' :CODLINEA,:DESCLINEA)');
@@ -3737,8 +3782,6 @@ begin
     Qlinea.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Lineas de Producto:');
-  Memo1.Lines.Add('  -Tabla Linea');
   Memo1.Lines.Add('  -Cantidad de Lineas: ' + IntToStr(Numero));
 end;
 
@@ -3747,6 +3790,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QLista.Close;
   QLista.Open;
@@ -3754,12 +3799,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QLista.RecordCount;
   QLista.First;
-
+  Memo1.Lines.Add('->Se Actualiza La Lista:');
+  Memo1.Lines.Add('  -Tabla Lista');
   while not QLista.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := IntToStr(QListaCODIGO.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO LISTA (TIPO,CODIGO,DESCRIPCION,OBSERVACION,' +
@@ -3790,8 +3838,6 @@ begin
     QLista.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualiza La Lista:');
-  Memo1.Lines.Add('  -Tabla Lista');
   Memo1.Lines.Add('  -Cantidad de Listas: ' + IntToStr(Numero));
 end;
 
@@ -3800,6 +3846,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QNombres.Close;
   QNombres.Open;
@@ -3807,12 +3855,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QNombres.RecordCount;
   QNombres.First;
-
+  Memo1.Lines.Add('->Se Actualizan Los Usuarios del Sistema:');
+  Memo1.Lines.Add('  -Tabla Nombres');
   while not QNombres.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QNombresUSERNAME.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO NOMBRES (USERNAME,CLAVE,ACLEVEL,LEVEL1,LEVEL2,'
@@ -3876,8 +3927,6 @@ begin
     QNombres.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Los Usuarios del Sistema:');
-  Memo1.Lines.Add('  -Tabla Nombres');
   Memo1.Lines.Add('  -Cantidad de Usuarios: ' + IntToStr(Numero));
 end;
 
@@ -3886,6 +3935,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QReten.Close;
   QReten.Open;
@@ -3893,12 +3944,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QReten.RecordCount;
   QReten.First;
-
+  Memo1.Lines.Add('->Se Actualizan Las Tarifas de Retencion:');
+  Memo1.Lines.Add('  -Tabla Reten');
   while not QReten.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QRetenTIPO.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO RETEN(TIPO,CUENTA,DESCRIPCION,BASEMIN,PORCENTAJE,'
@@ -3935,8 +3989,6 @@ begin
     QReten.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Las Tarifas de Retencion:');
-  Memo1.Lines.Add('  -Tabla Reten');
   Memo1.Lines.Add('  -Cantidad de Tarifas: ' + IntToStr(Numero));
 end;
 
@@ -3945,6 +3997,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QSeg_Actividades.Close;
   QSeg_Actividades.Open;
@@ -3952,12 +4006,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QSeg_Actividades.RecordCount;
   QSeg_Actividades.First;
-
+  Memo1.Lines.Add('->Se Actualizan Actividades Para Usuarios:');
+  Memo1.Lines.Add('  -Tabla Seg_Actividades');
   while not QSeg_Actividades.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := '';
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO SEG_ACTIVIDADES (MODULO,ACTIVIDAD,TODOS,ADICIONAR,'
@@ -3997,8 +4054,6 @@ begin
     QSeg_Actividades.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Actividades Para Usuarios:');
-  Memo1.Lines.Add('  -Tabla Seg_Actividades');
   Memo1.Lines.Add('  -Cantidad de Activiades: ' + IntToStr(Numero));
 end;
 
@@ -4007,6 +4062,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QSeg_Permisos_Act.Close;
   QSeg_Permisos_Act.Open;
@@ -4014,12 +4071,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QSeg_Permisos_Act.RecordCount;
   QSeg_Permisos_Act.First;
-
+  Memo1.Lines.Add('->Se Actualizan Permisos de Usuarios:');
+  Memo1.Lines.Add('  -Tabla Seg_Permisos_Act');
   while not QSeg_Permisos_Act.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := '';
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO SEG_PERMISOS_ACT (MODULO,ACTIVIDAD,USUARIO,' +
@@ -4043,8 +4103,6 @@ begin
     QSeg_Permisos_Act.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Permisos de Usuarios:');
-  Memo1.Lines.Add('  -Tabla Seg_Permisos_Act');
   Memo1.Lines.Add('  -Cantidad de Permisos: ' + IntToStr(Numero));
 end;
 
@@ -4053,6 +4111,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QSubGrupo.Close;
   QSubGrupo.Open;
@@ -4060,12 +4120,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QSubGrupo.RecordCount;
   QSubGrupo.First;
-
+  Memo1.Lines.Add('->Se Actualizan SubGrupos de Producto:');
+  Memo1.Lines.Add('  -Tabla SubGrupo');
   while not QSubGrupo.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QSubGrupoCODSUBGRUPO.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO SUBGRUPO (CODSUBGRUPO,CODGRUPO,CODLINEA,' +
@@ -4088,8 +4151,6 @@ begin
     QSubGrupo.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan SubGrupos de Producto:');
-  Memo1.Lines.Add('  -Tabla SubGrupo');
   Memo1.Lines.Add('  -Cantidad de SubGrupos: ' + IntToStr(Numero));
 end;
 
@@ -4098,6 +4159,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QTaxAuth.Close;
   QTaxAuth.Open;
@@ -4105,12 +4168,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QTaxAuth.RecordCount;
   QTaxAuth.First;
-
+  Memo1.Lines.Add('->Se Actualizan Las Tarifas de IVA:');
+  Memo1.Lines.Add('  -Tabla TaxAuth');
   while not QTaxAuth.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := IntToStr(QTaxAuthCODIGO.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO TAXAUTH( CODIGO,AUTHORITY,RATE,IMPUACCT,ACCT,'
@@ -4137,8 +4203,6 @@ begin
     QTaxAuth.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Las Tarifas de IVA:');
-  Memo1.Lines.Add('  -Tabla TaxAuth');
   Memo1.Lines.Add('  -Cantidad de Tarifas: ' + IntToStr(Numero));
 end;
 
@@ -4147,6 +4211,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QCust.DisableControls;
   QCust.Close;
@@ -4155,11 +4221,17 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QCust.RecordCount;
   QCust.First;
-
+  Memo1.Lines.Add('->Se Actualizan Terceros:');
+  Memo1.Lines.Add('  -Tabla Cust');
+  Memo1.Lines.Add('  -Tabla Shipto');
+  Memo1.Lines.Add('  -Tabla Tributaria');
   while not QCust.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
+      Edit7.Text := QCustID_N.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO CUST (ID_N,NIT,ACCT,ACCTP,COMPANY,ADDR1,ADDR2,CITY,PAIS,CONTACT1,'
@@ -4422,10 +4494,7 @@ begin
     Application.ProcessMessages;
     QCust.Next;
   End;
-  Memo1.Lines.Add('->Se Actualizan Terceros:');
-  Memo1.Lines.Add('  -Tabla Cust');
-  Memo1.Lines.Add('  -Tabla Shipto');
-  Memo1.Lines.Add('  -Tabla Tributaria');
+
   Memo1.Lines.Add('  -Cantidad de Terceros: ' + IntToStr(Numero));
 
 end;
@@ -4435,6 +4504,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QUnidad.Close;
   QUnidad.Open;
@@ -4442,12 +4513,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QUnidad.RecordCount;
   QUnidad.First;
-
+  Memo1.Lines.Add('->Se Actualizan Medidas de Producto:');
+  Memo1.Lines.Add('  -Tabla Unidad');
   while not QUnidad.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := QUnidadCOD_UNIDAD.AsString;
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add(' update or insert INTO UNIDAD (COD_UNIDAD,DESCRIPCION)VALUES('
         + ' :COD_UNIDAD,:DESCRIPCION)');
@@ -4464,8 +4538,6 @@ begin
     QUnidad.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Medidas de Producto:');
-  Memo1.Lines.Add('  -Tabla Unidad');
   Memo1.Lines.Add('  -Cantidad de Medidas: ' + IntToStr(Numero));
 end;
 
@@ -4474,6 +4546,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Numero := 0;
   QVendedor.Close;
   QVendedor.Open;
@@ -4481,12 +4555,15 @@ begin
   ProgressBar1.Value := 0;
   ProgressBar1.Max := QVendedor.RecordCount;
   QVendedor.First;
-
+  Memo1.Lines.Add('->Se Actualizan Los Vendedores:');
+  Memo1.Lines.Add('  -Tabla Vendedor');
   while not QVendedor.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
-
+      Edit7.Text := IntToStr(QVendedorIDVEND.AsInteger);
       vQ.Connection := Main.ConDestino;
       vQ.SQL.Add
         (' update or insert INTO VENDEDOR (IDVEND,NOMBRE,TELEFONO,CUOTAMINMENSUAL,'
@@ -4527,8 +4604,6 @@ begin
     QVendedor.Next;
   End;
 
-  Memo1.Lines.Add('->Se Actualizan Los Vendedores:');
-  Memo1.Lines.Add('  -Tabla Vendedor');
   Memo1.Lines.Add('  -Cantidad de Vendedores: ' + IntToStr(Numero));
 end;
 
@@ -4542,6 +4617,7 @@ end;
 
 procedure TMain.Button2Click(Sender: TObject);
 begin
+  Salir := False;
   Button2.Enabled := False;
   Memo1.Lines.Clear;
   Memo1.Lines.Add('Conectado a Origen:');
@@ -4561,7 +4637,9 @@ begin
   ConDestino.Params.VALUES['Protocol'] := 'ipTCPIP';
   Memo1.Lines.Add(Edit2.Text);
   Memo1.Lines.Add('');
-
+  Edit5.Visible := False;
+  Edit6.Visible := False;
+  Edit7.Visible := True;
   if Cuentas = True then
     ActualizarCuentas;
   if Terceros = True then
@@ -4596,7 +4674,9 @@ begin
     ActualizarTarifasDeIva;
     ActualizarRetenciones;
   end;
-
+  Edit5.Visible := True;
+  Edit6.Visible := True;
+  Edit7.Visible := False;
   if CheckTodos.IsChecked = True then
   begin
     PasarPedidos;
@@ -4664,8 +4744,22 @@ begin
     end;
 
   end;
-  ShowMessage('Carga Completa !!');
+  Edit5.Visible := False;
+  Edit6.Visible := False;
+  Edit7.Visible := False;
+  if Salir = False then
+  begin
+    ShowMessage('Carga Completa !!');
+    Button2.Enabled := True;
+  end;
+
+end;
+
+procedure TMain.Button3Click(Sender: TObject);
+begin
+  Salir := True;
   Button2.Enabled := True;
+  Memo1.Lines.Add('Se Cancelo El Proceso');
 end;
 
 procedure TMain.CheckAjustesChange(Sender: TObject);
@@ -5483,6 +5577,9 @@ begin
   DateEdit1.Date := Date - 30;
   DateEdit2.Date := Date;
   CheckTodos.IsChecked := True;
+  Edit5.Visible := False;
+  Edit6.Visible := False;
+  Edit7.Visible := False;
 end;
 
 procedure TMain.SpeedButton1Click(Sender: TObject);
@@ -5566,6 +5663,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''AI''');
   Numero := 0;
   QIpAdjuste.Close;
@@ -5592,6 +5691,8 @@ begin
 
   while not QIpAdjuste.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QIpAdjusteTIPO.AsString;
@@ -5820,6 +5921,8 @@ var
   vQ: TFDQuery;
   i: Integer;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos
     ('''RC'',''ND'',''NC'',''CE'',''FP'',''AJ'',''RP'',''RN'',''SC'',''SP'',''10'',''12'',''20'',''21''');
   Numero := 0;
@@ -5850,6 +5953,8 @@ begin
 
   while not QCarproen.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QCarproenTIPO.AsString;
@@ -6061,6 +6166,8 @@ var
   i: Integer;
   TiposNiif: String;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''CC'',''00'',''01'',''XX'',''XN'',''XT''');
   Numero := 0;
   QGlen.Close;
@@ -6085,6 +6192,8 @@ begin
 
   while not QGlen.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QGlenTIPO.AsString;
@@ -6214,6 +6323,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''CT''');
   Numero := 0;
   QCotizaci.Close;
@@ -6246,6 +6357,8 @@ begin
 
   while not QCotizaci.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QCotizaciTIPO.AsString;
@@ -6474,6 +6587,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''EN''');
   Numero := 0;
   QEnsamblee.Close;
@@ -6500,6 +6615,8 @@ begin
 
   while not QEnsamblee.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QEnsambleeTIPO.AsString;
@@ -6625,6 +6742,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''EA'',''DP''');
   Numero := 0;
   QIp.Close;
@@ -6657,6 +6776,8 @@ begin
 
   while not QIp.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QIpTIPO.AsString;
@@ -6912,6 +7033,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''FA'',''DV''');
   Numero := 0;
   QOe.Close;
@@ -6952,6 +7075,8 @@ begin
 
   while not QOe.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QOeTIPO.AsString;
@@ -7787,6 +7912,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''OC''');
   Numero := 0;
   QIpoce.Close;
@@ -7815,6 +7942,8 @@ begin
 
   while not QIpoce.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QIpoceTIPO.AsString;
@@ -7968,6 +8097,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''PE''');
   Numero := 0;
   QPedidoe.Close;
@@ -8001,6 +8132,8 @@ begin
 
   while not QPedidoe.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QPedidoeTIPO.AsString;
@@ -8248,6 +8381,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''FA''');
   Numero := 0;
   QOeRec.Close;
@@ -8278,6 +8413,8 @@ begin
 
   while not QOeRec.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QOeRecTIPO.AsString;
@@ -8581,6 +8718,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''RM''');
   Numero := 0;
   QRemisione.Close;
@@ -8615,6 +8754,8 @@ begin
 
   while not QRemisione.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QRemisioneTIPO.AsString;
@@ -8843,6 +8984,8 @@ var
   Numero: Integer;
   vQ: TFDQuery;
 begin
+  if Salir = True then
+    exit;
   Tipos := TraerTipos('''TB''');
   Numero := 0;
   QTraslado.Close;
@@ -8869,6 +9012,8 @@ begin
 
   while not QTraslado.Eof do
   Begin
+    if Salir = True then
+      exit;
     vQ := TFDQuery.Create(nil);
     try
       Edit5.Text := QTrasladoTIPO.AsString;

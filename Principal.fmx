@@ -187,6 +187,18 @@ object Main: TMain
       Position.X = 616.000000000000000000
       Position.Y = 120.000000000000000000
     end
+    object Edit7: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 14
+      Position.X = 512.000000000000000000
+      Position.Y = 112.000000000000000000
+    end
+    object Button3: TButton
+      Position.X = 440.000000000000000000
+      Position.Y = 112.000000000000000000
+      TabOrder = 16
+      Text = 'Button3'
+    end
   end
   object Panel2: TPanel
     Align = Client
@@ -4776,7 +4788,7 @@ object Main: TMain
     SQL.Strings = (
       'SELECT'
       '    CODIGO,ACCT_NIIF,ACCT,NAT'
-      '    FROM NIIF_EQUIVALENCIA')
+      '    FROM NIIF_EQUIVALENCIA order by ACCT')
     Left = 64
     Top = 185
     object QEquivalenciaCODIGO: TIntegerField
@@ -13143,7 +13155,7 @@ object Main: TMain
     SQL.Strings = (
       'SELECT'
       '    ACCT,DESCRIPCION,PRIORIDAD,PAGINA,TITULO,ACTIVIDADES'
-      '    FROM NIIF_CONFIG_ESTADOS')
+      '    FROM NIIF_CONFIG_ESTADOS order by ACCT')
     Left = 192
     Top = 401
     object QNiif_Config_EstadosACCT: TFloatField

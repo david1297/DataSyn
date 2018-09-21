@@ -27,17 +27,27 @@ inherited Main_Windows: TMain_Windows
       Top = 80
     end
     inherited Edit5: TEdit
-      Position.X = 600.000000000000000000
-      Enabled = False
+      ReadOnly = True
+      Position.X = 616.000000000000000000
       Size.Width = 49.000000000000000000
       Size.PlatformDefault = False
     end
     inherited Edit6: TEdit
-      Position.X = 648.000000000000000000
+      ReadOnly = True
+      Position.X = 664.000000000000000000
       Position.Y = 112.000000000000000000
-      Enabled = False
       Size.Width = 49.000000000000000000
       Size.PlatformDefault = False
+    end
+    inherited Edit7: TEdit
+      ReadOnly = True
+      Size.Width = 105.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inherited Button3: TButton
+      Position.X = 424.000000000000000000
+      Text = 'Cancelar'
+      OnClick = Button3Click
     end
   end
   inherited Panel2: TPanel
@@ -71,6 +81,51 @@ inherited Main_Windows: TMain_Windows
   inherited ImageList1: TImageList
     Left = 336
     Top = 80
+  end
+  inherited QAcct: TFDQuery
+    SQL.Strings = (
+      'SELECT'
+      
+        'ACCT,E,S,DESCRIPCION,TIPO,CLASS,CCOST,BEGDR,BEGCR,OLDDR,OLDCR,CU' +
+        'RDR,CURCR,'
+      
+        'BDGTCAT,AJUSTE,CORRECCION,COD_SUBCUENTA,MONETARIO,NVEL,BASERTNCI' +
+        'ON,PORCENRETENCION,'
+      
+        'CDGOTTL,CDGOGRPO,CDGOCNTA,CDGOSBCNTA,CDGOAUX,TPOAPLCCION,CNCLCIO' +
+        'N,DPRTMNTOCSTO,'
+      
+        'JBNO,VNCMNTO,CTAS,POSESTFINAN,VALORIPATRIMONIO,MONETARIO_APL,UNI' +
+        'VEL,IDENEG,'
+      
+        'SBCTAANA,MAYOR_VALOR,PLANTILLA_RETENCION,FEFECTIVO,PRIORIDAD,MAT' +
+        'ERIALIDAD,MODELO,'
+      
+        'NORMA,COD_FORMATO,COD_CONCEPTO,ACTIVIDADES,APLI_IMPUESTO  FROM A' +
+        'CCT ORDER BY ACCT')
+  end
+  inherited QNiifAcct: TFDQuery
+    SQL.Strings = (
+      'SELECT'
+      
+        'ACCT,E,S,DESCRIPCION,TIPO,CLASS,CCOST,BEGDR,BEGCR,OLDDR,OLDCR,CU' +
+        'RDR,CURCR,'
+      
+        'BDGTCAT,AJUSTE,CORRECCION,COD_SUBCUENTA,MONETARIO,NVEL,BASERTNCI' +
+        'ON,PORCENRETENCION,'
+      
+        'CDGOTTL,CDGOGRPO,CDGOCNTA,CDGOSBCNTA,CDGOAUX,TPOAPLCCION,CNCLCIO' +
+        'N,DPRTMNTOCSTO,'
+      
+        'JBNO,VNCMNTO,CTAS,POSESTFINAN,VALORIPATRIMONIO,MONETARIO_APL,UNI' +
+        'VEL,IDENEG,'
+      
+        'SBCTAANA,MAYOR_VALOR,PLANTILLA_RETENCION,FEFECTIVO,PRIORIDAD,MAT' +
+        'ERIALIDAD,MODELO,'
+      
+        'NORMA,ACTIVIDADES,COD_FORMATO,COD_CONCEPTO,APLI_IMPUESTO,PRIORID' +
+        'AD_ORDENA,ORDENAMIENTO,'
+      'EQUIVALENCIA  FROM NIIF_ACCT order by ACCT')
   end
   inherited QTraslado: TFDQuery
     Left = 144

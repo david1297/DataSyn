@@ -41,7 +41,8 @@ inherited Main_Windows: TMain_Windows
     end
     inherited Edit7: TEdit
       ReadOnly = True
-      Size.Width = 105.000000000000000000
+      Position.X = 616.000000000000000000
+      Size.Width = 97.000000000000000000
       Size.PlatformDefault = False
     end
     inherited Button3: TButton
@@ -81,6 +82,10 @@ inherited Main_Windows: TMain_Windows
   inherited ImageList1: TImageList
     Left = 336
     Top = 80
+  end
+  inherited ConDestino: TFDConnection
+    Left = 512
+    Top = 96
   end
   inherited QAcct: TFDQuery
     SQL.Strings = (

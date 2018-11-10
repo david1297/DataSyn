@@ -2449,7 +2449,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
 {$R *.Windows.fmx MSWINDOWS}
 
 procedure TMain.ActualizarBancos;
@@ -5837,7 +5836,17 @@ begin
         ' :CONTEO,:ID_N,:ACCT,:TIPO,:BATCH,:E,:S,:DESCRIPCION,:FECHA,' +
         ' :DUEDATE,:INVC,:DEPTO,:CCOST,:ACTIVIDAD,:PERIOD,:CONCIL,:CRUCE,:BENEF,:ABONO,'
         + ' :IDVEND,:CONCEPTO,:USUARIO,:TIPO_IMP,:NRO_IMP,:CONCEPTO_IMP,:SALDO_REPORTE,'
-        + ' :PROYECTO,:BANCO,:CHEQUE,:CONCEPTO_PAGO,:ID_TIPOCARTERA,:COMENTARIO,:CHEQUE_POSTF,'
+        + ' :PROYECTO,:BANCO,:CHEQUE,');
+        if QCarproCONCEPTO_PAGO.AsInteger = 0 then
+        begin
+          vQ.SQL.Add('null');
+        end
+        else
+        begin
+          vQ.SQL.Add(QCarproCONCEPTO_PAGO.AsString);
+        end;
+        vQ.SQL.Add
+        (',:ID_TIPOCARTERA,:COMENTARIO,:CHEQUE_POSTF,'
         + ' :FECHA_CHEQUE,:VENCIMIENTO,:DIAPAGO,:SALDO,:BASE,:CREDIT,:DEBIT,:TASA_CAMBIO,'
         + ' :SALDO_US,:CREDITO_US,:DEBITO_US,:CUOTA,:SHIPTO,:FECHA_CONSIG,:ESTADO_DEUDA,'
         + ' :COD_FLUJOEFE,:PORC_TASA,:TIEMPO_MESES)');
@@ -5852,8 +5861,8 @@ begin
       vQ.ParamByName('NRO_IMP').AsInteger := QCarproNRO_IMP.AsInteger;
       vQ.ParamByName('CONCEPTO_IMP').AsInteger := QCarproCONCEPTO_IMP.AsInteger;
       vQ.ParamByName('BANCO').AsInteger := QCarproBANCO.AsInteger;
-      vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=
-        QCarproCONCEPTO_PAGO.AsInteger;
+//      vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=
+//        QCarproCONCEPTO_PAGO.AsInteger;
       vQ.ParamByName('CUOTA').AsInteger := QCarproCUOTA.AsInteger;
       vQ.ParamByName('SHIPTO').AsInteger := QCarproSHIPTO.AsInteger;
       vQ.ParamByName('COD_FLUJOEFE').AsInteger := QCarproCOD_FLUJOEFE.AsInteger;
@@ -6044,8 +6053,18 @@ begin
           + ' PAGO_DISP) VALUES(:CONTEO,:TIPO,:BATCH,:ID_N,:ACCT,:E,:S,:CRUCE,'
           + ' :INVC,:FECHA,:DUEDATE,:DPTO,:CCOST,:ACTIVIDAD,:DESCRIPCION,:DIAS,'
           + ' :DESTINO,:TIPO_REF,:REFERENCIA,:TIPO_IMP,:NRO_IMP,:CONCEPTO_IMP,'
-          + ' :BANCO,:CHEQUE,:PROYECTO,:CONCEPTO_PAGO,:ID_TIPOCARTERA,:INVC_ENTERO,'
-          + ' :CHEQUE_POSTF,:FECHA_CHEQUE,:SALDO,:CREDIT,:TASA_CAMBIO,:CREDITO_US,'
+          + ' :BANCO,:CHEQUE,:PROYECTO,');
+        if QCarprodeCONCEPTO_PAGO.AsInteger = 0 then
+        begin
+          vQ.SQL.Add('null');
+        end
+        else
+        begin
+          vQ.SQL.Add(QCarprodeCONCEPTO_PAGO.AsString);
+        end;
+
+        vQ.SQL.Add(',:ID_TIPOCARTERA,:INVC_ENTERO,' +
+          ' :CHEQUE_POSTF,:FECHA_CHEQUE,:SALDO,:CREDIT,:TASA_CAMBIO,:CREDITO_US,'
           + ' :DEBITO_US,:BASE,:DEBIT,:CUOTA,:FECHA_CONSIG,:FECHA_FACTURA,:MAYOR_VALOR,'
           + ' :VALOR_IMPUESTO,:IMPORT,:COD_FLUJOEFE,:IDVEND,:PORC_TASA,:TIEMPO_MESES,'
           + ' :PAGO_DISP)');
@@ -6076,8 +6095,7 @@ begin
         vQ.ParamByName('BANCO').AsInteger := QCarprodeBANCO.AsInteger;
         vQ.ParamByName('CHEQUE').AsString := QCarprodeCHEQUE.AsString;
         vQ.ParamByName('PROYECTO').AsString := QCarprodePROYECTO.AsString;
-        vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=
-          QCarprodeCONCEPTO_PAGO.AsInteger;
+//        vQ.ParamByName('CONCEPTO_PAGO').AsInteger :=QCarprodeCONCEPTO_PAGO.AsInteger;
         vQ.ParamByName('ID_TIPOCARTERA').AsString :=
           QCarprodeID_TIPOCARTERA.AsString;
         vQ.ParamByName('INVC_ENTERO').AsInteger :=
